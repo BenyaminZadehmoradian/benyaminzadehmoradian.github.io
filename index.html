@@ -10,11 +10,16 @@
     tailwind.config = { darkMode: 'class' };
   </script>
   <style>
-    html, body {
+  body {
   margin: 0;
   padding: 0;
   font-family: 'Inter', sans-serif;
   min-height: 100%;
+
+}
+
+html {
+  overflow-x: hidden;
 }
 
 body {
@@ -41,6 +46,11 @@ html.dark body {
   0% { background-position: 0% center; }
   50% { background-position: 100% center; }
   100% { background-position: 0% center; }
+}
+
+.header-hidden {
+  transform: translateY(-100%);
+  transition: transform 0.3s ease-in-out;
 }
 
 .animate-gradient-x {
@@ -612,18 +622,17 @@ let lastScrollTop = 0;
 const header = document.querySelector('header');
 
 window.addEventListener('scroll', () => {
-  const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+  const currentScroll = window.scrollY;
 
-  if (currentScroll > lastScrollTop && currentScroll > 10) {
-    // Scroll down -> hide header
-    header.style.transform = 'translateY(-100%)';
+  if (currentScroll > lastScrollTop && currentScroll > 80) {
+    header.classList.add('header-hidden');
   } else {
-    // Scroll up -> show header
-    header.style.transform = 'translateY(0)';
+    header.classList.remove('header-hidden');
   }
 
   lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
 });
+;
 
 
   // Initialize on page load

@@ -610,24 +610,21 @@
     document.getElementById('theme-label').textContent = isDark ? 'Dark' : 'Light';
   }
 
-  // Show/hide header on scroll
-let lastScrollTop = 0;
-const header = document.querySelector('header');
+  // Show/hide header on scroll (optimized for mobile and desktop)
+  let lastScrollY = window.scrollY;
+  const header = document.querySelector('header');
 
-window.addEventListener('scroll', () => {
-  const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+  window.addEventListener('scroll', () => {
+    const currentScrollY = window.scrollY;
 
-  if (currentScroll > lastScrollTop && currentScroll > 10) {
-    // Scroll down -> hide header
-    header.style.transform = 'translateY(-100%)';
-  } else {
-    // Scroll up -> show header
-    header.style.transform = 'translateY(0)';
-  }
+    if (currentScrollY < lastScrollY - 5) {
+      header.style.transform = 'translateY(0)';
+    } else if (currentScrollY > lastScrollY + 5) {
+      header.style.transform = 'translateY(-100%)';
+    }
 
-  lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
-});
-
+    lastScrollY = currentScrollY;
+  });
 
   // Initialize on page load
   updateThemeLabel();

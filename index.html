@@ -1,338 +1,581 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Benyamin Zadehmoradian Resume</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        .fade-scroll {
-            transition: opacity 0.02s ease-in-out;
-            opacity: 1; /* Initial opacity */
+  <meta charset="UTF-8" />
+  <title>Benyamin Zadehmoradian – Resume</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="favicon.ico" />
+  <meta name="description" content="Resume of Benyamin Zadehmoradian – Digital Electronics & Hardware Acceleration" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      position: relative;
+      overflow-x: hidden;
+      background: linear-gradient(-45deg, #fdf1d6, #ffe0e0, #ebe7ff, #d8f5e3);
+      background-size: 300% 300%;
+      animation: gradientBG 20s ease-in-out infinite;
+      color: #333;
+    }
+    @keyframes gradient-x {
+        0% { background-position: 0% center; }
+        50% { background-position: 100% center; }
+        100% { background-position: 0% center; }
         }
-    </style>
+
+        .animate-gradient-x {
+        background-size: 200% auto;
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        animation: gradient-x 8s ease infinite;
+        }
+
+    
+    html { scroll-behavior: smooth; }
+    .scroll-margin { scroll-margin-top: 80px; }
+    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s, transform 0.6s; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+  </style>
 </head>
-<body>
-    <div class="clleft">
+<body class="text-gray-800 min-h-screen">
+
+<!-- Header -->
+<header class="sticky top-0 z-50 bg-white/70 backdrop-blur-lg shadow-md transition-transform duration-300">
+  <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+    <div class="flex space-x-2 text-sm">
+      <button id="btn-en" onclick="switchLang('en')" aria-label="Switch to English" class="lang-btn bg-white px-3 py-1 rounded border-2 border-gray-300">EN</button>
+      <button id="btn-nl" onclick="switchLang('nl')" aria-label="Switch to Dutch" class="lang-btn bg-white px-3 py-1 rounded border-2 border-gray-300">NL</button>
     </div>
-    <div class="clright">
+
+    <!-- Navigation -->
+    <nav class="hidden md:flex space-x-7 text-base font-medium justify-center">
+      <a href="#about" class="hover:text-indigo-600">About</a>
+      <a href="#experience" class="hover:text-indigo-600">Experience</a>
+      <a href="#skills" class="hover:text-indigo-600">Skills</a>
+    </nav>
+
+    <!-- Contact Dropdown -->
+    <div class="relative group">
+      <button class="hover:text-black flex items-center space-x-1">
+        <span>Contact</span>
+        <svg class="w-4 h-4 transition-transform duration-200 group-hover:rotate-180" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.08 1.04l-4.25 4.25a.75.75 0 01-1.08 0L5.21 8.27a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+        </svg>
+      </button>
+      <div class="absolute right-0 mt-3 invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-all duration-200 z-50">
+        <div class="bg-white shadow-xl rounded-xl py-4 px-6 w-64 space-y-2 border border-gray-200 text-sm">
+          <p><strong>Phone:</strong> (+98) 9391374942</p>
+          <p><strong>Email:</strong> <a href="mailto:B.Zadehmoradian@gmail.com" class="text-blue-600">B.Zadehmoradian@gmail.com</a></p>
+          <p><strong>Location:</strong> Tehran, Iran</p>
+        </div>
+      </div>
     </div>
-    <!-- Header -->
-    <header>
-        <div class="toggle-wrapper">
-            <input type="checkbox" id="theme-toggle" class="toggle-checkbox">
-            <label for="theme-toggle" class="toggle-label">
-                <div class="toggle-ball"></div>
-            </label>
-        </div>
-        <div class="header-content">
-            <a href="#about" id="about-link">About</a>
-            <span class="separator">|</span>
-            <a href="#experience" id="experience-link">Experience</a>
-            <span class="separator">|</span>
-            <a href="#skills" id="skills-link">Skills</a>
-        </div>
-        <div class="Contact-me">
-            <button href="#contact" id="contact-link" class="btn-contact">Contact me</button>
-        </div>
-        <div class="language-selector">
-            <button id="language-toggle" class="btn-language"> En</button>
-        </div>
-    </header>
+  </div>
+</header>
+
+
+<!-- Name -->
+<section class="max-w-4xl mx-auto px-4 pt-12 text-center">
+  <h1 class="text-5xl font-extrabold tracking-tight text-gray-900 mb-2 leading-tight">
+    <span class="block bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700
+               animate-gradient-x">Benyamin</span>
+    <span class="block bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700
+               animate-gradient-x">Zadehmoradian</span>
+  </h1>
+  <p class="text-sm text-gray-600 italic">Digital Electronics | Hardware Acceleration | ML Co-Design</p>
+</section>
+
+
+<!-- About Me -->
+<section id="about" class="scroll-mt-20 max-w-4xl mx-auto px-4 my-12">
+  <div class="bg-gray-50 rounded-3xl shadow-2xl border-2 border-gray-300 p-10 transition-shadow duration-300">
     
-    <main>
-        <div class="box">
-        </div>
-        <div class="container">
-            <section class="title">
-                <h1 class="fade-scroll">Benyamin Zadehmoradian</h1>
-            </section>
-            <div class="main-content">
-                <section id="about">
-                    <h2 class="fade-scroll"><i class="fas fa-user"></i> About Me</h2>
-                    <p class="fade-scroll">Master's student in Digital Electronics at the University of Tehran with a strong academic background and research focus on efficient hardware implementation, machine learning software-hardware co-design, and in-memory computing. Ranked first during the B.Sc. program, with a passion for innovative problem-solving and collaboration.</p>
-                </section>
+    <!-- English Title -->
+    <h2 class="text-2xl font-extrabold mb-6 border-b-2 border-gray-300 pb-2
+               bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700
+               animate-gradient-x"
+        data-lang="en">
+      About Me
+    </h2>
 
-                <section id="ResearchInterests">
-                    <h2 class="fade-scroll"><i class="fas fa-flask" ></i> Research Interests</h2>
-                    <ul>
-                        <p class="fade-scroll"><bullet>•  </bullet>Efficient Hardware Implementation of Compute-Intensive Applications</p>
-                        <p class="fade-scroll"><bullet>•  </bullet>Machine Learning Software-Hardware Co-Design</p>
-                        <p class="fade-scroll"><bullet>•  </bullet>In-Memory Computing Using Emerging Technologies</p>
-                        <p class="fade-scroll"><bullet>•  </bullet>Neuromorphic Hardware and Architecture</p>
-                        <p class="fade-scroll"><bullet>•  </bullet>Cybersecurity in Hardware Systems</p>
-                    </ul>
-                </section>
+    <!-- Dutch Title with gradient effect -->
+    <h2 class="text-2xl font-extrabold mb-6 border-b-2 border-gray-300 pb-2
+               bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700
+               animate-gradient-x hidden"
+        data-lang="nl">
+      Over Mij
+    </h2>
 
-                <section id="Education">
-                    <h2 class="fade-scroll"><i class="fas fa-graduation-cap"></i> Education</h2>
+    <!-- English Text -->
+    <p class="text-base leading-relaxed text-gray-800 block" data-lang="en">
+      I am a passionate master's student in Digital Electronics at the University of Tehran with a strong academic foundation and hands-on research in efficient hardware implementation, ML co-design, and in-memory computing. Ranked first in my B.Sc. class, I thrive on solving complex engineering challenges and working in collaborative environments.
+    </p>
 
-                    <p class="fade-scroll"><strong>Master of Science in Digital Electronics</strong></p>
-                    <p class="fade-scroll">University of Tehran, Tehran, Iran (Sep.2021 - Sep.2024)</p>
-                    <p class="fade-scroll"><strong>Thesis Title:</strong> Improving the performance of genome sequence mappers</p>
-                    <p class="fade-scroll"><strong>Supervisor:</strong> Dr. Ali Afzali-Kusha </p>
-                    <p class="fade-scroll"><strong>GPA:</strong> 18.34 out of 20.0 </p>
+    <!-- Dutch Text -->
+    <p class="text-base leading-relaxed text-gray-800 hidden" data-lang="nl">
+      Ik ben een gepassioneerde masterstudent digitale elektronica aan de Universiteit van Teheran, met een sterke academische basis en praktische ervaring in efficiënte hardware-implementatie, ML co-design en in-memory computing. Als eerste gerangschikt in mijn bacheloropleiding, gedij ik bij het oplossen van complexe technische uitdagingen en samenwerkingsprojecten.
+    </p>
 
-                    <p class="fade-scroll"><strong>Bachelor of Science in Electronics</strong>
-                    <p class="fade-scroll">Shahed University, Tehran, Iran (Sep.2017 - Sep.2021)</p>
-                    <p class="fade-scroll"><strong>Project Title:</strong> Wireless power transfer via strongly coupled magnetic resonances</p>
-                    <p class="fade-scroll"><strong>Supervisor:</strong> : Dr. Mohammad Bagher Ghaznavi Ghoushchi</p>
-                    <p class="fade-scroll"><strong>GPA:</strong> 18.23 out of 20</p>
-                </section>
+  </div>
+</section>
 
-                <section id="Publications">
-                    <h2 class="fade-scroll"><i class="fas fa-book"></i> Publications</h2>
-                    <p class="fade-scroll"><strong>MCGEMA:</strong> A multi-core genome exact mapping accelerator based on GEMA.</p>
-                </section>
 
-                <section id="experience">
-                    <h2 class="fade-scroll"><i class="fas fa-chalkboard-teacher"></i> Academic Experience</h2>
-                    <ul>
-                        <p class="fade-scroll"><bullet>•  </bullet>Teaching Assistant in <strong>Cyber-Physical Systems</strong> Course, University of Tehran, Tehran, Iran. (Sep. 2023 - Jan. 2024) </p>
-                        <p class="fade-scroll"><bullet>•  </bullet>Teaching Assistant in <strong>Electric Circuits 2 </strong>Course, University of Tehran, Tehran, Iran. (Jan. 2023 - Jul. 2023) </p>
-                        <p class="fade-scroll"><bullet>•  </bullet>Teaching Assistant in <strong>Electronic 1</strong> Course, Shahed University, Tehran, Iran. (Jan. 2023 - Jul. 2023) </p>
-                        <p class="fade-scroll"><bullet>•  </bullet>Teaching Assistant in <strong>Electronics 2</strong> Course, University of Tehran, Tehran, Iran. (Sep. 2022 - Jul. 2023) </p>
-                        <p class="fade-scroll"><bullet>•  </bullet>Teaching Assistant in <strong>Computer Architecture</strong> Course, University of Tehran, Tehran, Iran. (Sep. 2022 - Jul. 2023) </p>
-                        <p class="fade-scroll"><bullet>•  </bullet>Teaching Assistant in <strong>Electronic Circuits 1</strong> Course, University of Tehran, Tehran, Iran.(Jan. 2021 - Jul. 2201) </p>
-                        <p class="fade-scroll"><bullet>•  </bullet>Teaching Assistant in <strong>Introduction to Electrical Engineering </strong>Course, Shahed University, Tehran, Iran. (Sep. 2020 - Jan. 2021) </p>
-                        <p class="fade-scroll"><bullet>•  </bullet>A member of <strong>Omid Robotics</strong> Team, Shahed University, Tehran, Iran. (Sep. 2018 - Sep. 2021) </p>
-                    </ul>
-                </section>
 
-                <section id="Achievements">
-                    <h2 class="fade-scroll"><i class="fa fa-trophy"></i> Achievements</h2>
-                    <ul>
-                        <p class="fade-scroll"><bullet>•  </bullet>Granted direct admission to the Master's programs at two prestigious universities, <strong>Amirkabir University of Technology</strong> and <strong>the University of Tehran</strong>, based on exceptional academic performance.</p>
-                        <p class="fade-scroll"><bullet>•  </bullet>Ranked <strong>1st</strong> during the B.Sc. educational program among 76 students in terms of GPA. </p>
-                    </ul>
-                </section>
-
-                <section id="skills">
-                    <h2 class="fade-scroll"><i class="fas fa-tools"></i> Core Skills</h2>
-                    <ul>
-                        <p class="fade-scroll"><bullet>•  </bullet><strong>Digital Circuit Design and Hardware Development:</strong> Digital Circuit Design | PCB Design | Microprogramming | Computer Arithmetic | Computer Architecture | Hardware Acceleration </p>
-                        <p class="fade-scroll"><bullet>•  </bullet><strong>Programming:</strong> VHDL | Verilog | Python | C/C++ </p>
-                        <p class="fade-scroll"><bullet>•  </bullet><strong>Simulation and Design Tools:</strong> HSpice | ARM Cortex-M | Proteus | Altium Designer </p>
-                        <p class="fade-scroll"><bullet>•  </bullet><strong>Software and Office Tools:</strong> Adobe Photoshop,Microsoft Word/Excel/PowerPoin </p>
-                    </ul>
-                </section>
-
-                <section id="Certificates">
-                    <h2 class="fade-scroll"><i class="fas fa-certificate"></i> Certificates</h2>
-                    <ul>
-                        <p class="fade-scroll"><bullet>•  </bullet><strong>Algorithms for DNA Sequencing </strong>Organized by Coursera. (Aug. 2023) </p>
-                        <p class="fade-scroll"><bullet>•  </bullet><strong>Machine Learning </strong> Organized by On Academy. (May. 2023) </p>
-                        <p class="fade-scroll"><bullet>•  </bullet><strong>Using Python to Access Web Data </strong>Organized by Coursera. (Oct. 2022) </p>
-                        <p class="fade-scroll"><bullet>•  </bullet><strong>Mathematics for Machine Learning: Multivariate Calculus </strong>Organized by Coursera. (Oct. 2022) </p>
-                        <p class="fade-scroll"><bullet>•  </bullet><strong>Python Data Structures </strong>Organized by Coursera. (Sep. 2022) </p>
-                        <p class="fade-scroll"><bullet>•  </bullet><strong>Mathematics for Machine Learning: Linear Algebra </strong>Organized by Coursera. (Aug. 2022) </p>
-                        <p class="fade-scroll"><bullet>•  </bullet><strong>Programming for Everybody (Getting Started with Python) </strong>Organized by Coursera. (Aug. 2022) </p>
-                        <p class="fade-scroll"><bullet>•  </bullet><strong>Neural Networks and Deep Learning </strong>Organized by Coursera. (Feb. 2022) </p>
-                        <p class="fade-scroll"><bullet>•  </bullet><strong>ARM-STM32 </strong>Organized by Coursera. (Sep. 2020) </p>
-                        <p class="fade-scroll"><bullet>•  </bullet><strong>Altium Designer </strong>Organized by Coursera. (Aug. 2020) </p>
-                    </ul>
-                </section>
-
-                <section id="Languages">
-                    <h2 class="fade-scroll"><i class="fas fa-language"></i> Languages</h2>
-                    <p class="fade-scroll"><strong>English:</strong> GRE Score (V: 161, Q: 170, W: 3.5); IELTS (6.5)</p>
-                    <p class="fade-scroll"><strong>Persian:</strong> Native</p>
-                </section>
-            </div>
-        </div>
-
-        <div class="footer" id="contact">
-            <h2 class="fade-scroll">Contact Me</h2>
-            <p class="fade-scroll">You can find me on LinkedIn and reach out via email:</p>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <!-- Adding spaces here -->
-
-            <div class="contact-links">
-                <a href="https://www.linkedin.com/in/benyamin-zadehmoradian" target="_blank">
-                    <i class="fab fa-linkedin"></i> Benyamin Zadehmoradian
-                </a>
-                <a href="mailto:B.Zadehmoradian@gmail.com">
-                    <i class="fas fa-envelope"></i> B.Zadehmoradian@gmail.com
-                </a>
-                <a href="skype:live:.cid.f9095d5be146444a?call">
-                    <i class="fab fa-skype"></i> live:.cid.f9095d5be146444a
-                </a>
-            </div>
-        </div>
-        
-        
-
-        <!-- Download Resume Button -->
-        <div class="download-resume">
-            <a href="BenyaminZadehmoradian_CV.pdf" download="BenyaminZadehmoradian_CV.pdf" class="btn-download">
-                <i class="fas fa-download"></i> Download Resume (PDF)
-            </a>
-        </div>
-        
-    </main>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            function updateOpacity() {
-                var scrollTop = $(this).scrollTop();
-                var scrollHeight = $(document).height();
-                var windowHeight = $(window).height();
-                var scrollBottom = scrollHeight - scrollTop - windowHeight;
-
-                $('.fade-scroll').css('opacity', function () {
-                    var elementTop = $(this).offset().top;
-                    var elementHeight = $(this).outerHeight();
-                    var elementBottom = elementTop + elementHeight;
-
-                    var topOpacity = 1 - Math.min((scrollTop - elementTop + 100) / 10, 1); // Fade effect from top
-                    var bottomOpacity = 1 - Math.min((scrollBottom - (scrollHeight - elementBottom) + 30) / 10, 1); // Fade effect from bottom
-
-                    return Math.min(topOpacity, bottomOpacity);
-                });
-            }
-
-            $(document).on('scroll', updateOpacity);
-            updateOpacity(); // Apply the initial opacity
-        });
-    </script>  
-    <script>
-        document.querySelector('#about-link').addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector('#about');
-            const offset = -100; // Adjust this value for your header's height
-            const topPosition = target.getBoundingClientRect().top + window.pageYOffset + offset;
-            window.scrollTo({
-                top: topPosition,
-                behavior: 'smooth'
-            });
-        });
-    </script>
-    <script>
-        document.querySelector('#skills-link').addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector('#skills');
-            const offset = -100; // Adjust this value for your header's height
-            const topPosition = target.getBoundingClientRect().top + window.pageYOffset + offset;
-            window.scrollTo({
-                top: topPosition,
-                behavior: 'smooth'
-            });
-        });
-    </script>
-    <script>
-        document.querySelector('#experience-link').addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector('#experience');
-            const offset = -100; // Adjust this value for your header's height
-            const topPosition = target.getBoundingClientRect().top + window.pageYOffset + offset;
-            window.scrollTo({
-                top: topPosition,
-                behavior: 'smooth'
-            });
-        });
-    </script>
-    <script>
-        document.querySelector('#contact-link').addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector('#contact');
-            const offset = -100; // Adjust this value for your header's height
-            const topPosition = target.getBoundingClientRect().top + window.pageYOffset + offset;
-            window.scrollTo({
-                top: topPosition,
-                behavior: 'smooth'
-            });
-        });
-    </script> 
-       
-    <script>
-        const translations = {
-            en: {
-                about: "About",
-                experience: "Experience",
-                skills: "Skills",
-                ContactMe: "Contact me",
-                Ben: "Benyamin Zadehmoradian",
-                aboutMe: "About Me",
-                aboutText: "Master's student in Digital Electronics at the University of Tehran with a strong academic background and research focus on efficient hardware implementation, machine learning software-hardware co-design, and in-memory computing. Ranked first during the B.Sc. program, with a passion for innovative problem-solving and collaboration.",
-                ResearchInterests: "ResearchInterests",
-                Education: "Education",
-                Publications: "Publications",
-                AcademicExperience: "Academic Experience",
-                Achievements: "Achievements",
-                CoreSkills: "Core Skills",
-                Certificates: "Certificates",
-                Languages: "Languages",
-
-                contact: "Contact Me",
-                contactText: "You can find me on LinkedIn and reach out via email:",
-                // Add more translations for all sections...
-            },
-            
-            fa: {
-                about: "درباره من",
-                experience: "تجربه‌ها",
-                skills: "مهارت‌ها",
-                ContactMe: "تماس با من",
-                Ben: "بنیامین زاده مرادیان",
-                aboutMe: "درباره من",
-                aboutText: "دانشجوی کارشناسی ارشد الکترونیک دیجیتال در دانشگاه تهران با پیشینه تحصیلی قوی و تمرکز پژوهشی بر روی پیاده سازی کارآمد سخت افزار، یادگیری ماشین نرم افزار-سخت افزار مشترک، و محاسبات درون حافظه. رتبه اول در طول دوره B.Sc. برنامه، با اشتیاق به حل مسئله و همکاری نوآورانه.",
-                ResearchInterests: "علاقمندی‌های تحقیقاتی",
-                Education: "تحصیلات",
-                Publications: "مقالات",
-                AcademicExperience: "تجربه‌ها تحصیلی",
-                Achievements: "دستاوردها",
-                CoreSkills: "مهارت‌های تخصصی",
-                Certificates: "گواهی نامه‌‌ها",
-                Languages: "زبا‌ن‌ها",
-
-                contact: "تماس با من",
-                contactText: "می‌توانید از طریق لینکدین و ایمیل با من در ارتباط باشید:",
-                // Add more translations for all sections...
-            }
-        };
-
+<!-- Education -->
+<section id="education" class="scroll-mt-20 max-w-4xl mx-auto px-4 my-12">
+  <div class="bg-gray-50 rounded-3xl shadow-2xl border-2 border-gray-300 p-10 transition-shadow duration-300">
     
-        let currentLang = "en";
+    <!-- Heading -->
+    <!-- English Title -->
+    <h2 class="text-2xl font-extrabold mb-6 border-b-2 border-gray-300 pb-2
+               bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700
+               animate-gradient-x"
+        data-lang="en">
+      Education
+    </h2>
+
+    <!-- Dutch Title -->
+    <h2 class="text-2xl font-extrabold mb-6 border-b-2 border-gray-300 pb-2
+               bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700
+               animate-gradient-x hidden"
+        data-lang="nl">
+      Opleiding
+    </h2>
+
+    <!-- English Version -->
+    <div data-lang="en" class="block space-y-6">
+      <!-- Master's -->
+      <div class="space-y-1">
+        <p class="text-base"><strong class="text-indigo-700">Master of Science in Digital Electronics</strong> 
+          <span class="text-gray-600">(Sep. 2021 – Sep. 2024)</span>
+        </p>
+        <p class="text-sm text-gray-700"><strong>University of Tehran</strong> <span class="text-gray-500">(Tehran, Iran)</span></p>
+        <p class="text-sm"><strong>Thesis:</strong> Improving the Performance of Genome Sequence Mappers</p>
+        <p class="text-sm"><strong>Supervisor:</strong> Dr. Ali Afzali-Kusha</p>
+        <p class="text-sm"><strong>GPA:</strong> 18.34 / 20</p>
+      </div>
+
+      <hr class="border-t-2 border-gray-300 my-4">
+
+      <!-- Bachelor's -->
+      <div class="space-y-1">
+        <p class="text-base"><strong class="text-indigo-700">Bachelor of Science in Electronics</strong> 
+          <span class="text-gray-600">(Sep. 2017 – Sep. 2021)</span>
+        </p>
+        <p class="text-sm text-gray-700"><strong>Shahed University</strong> <span class="text-gray-500">(Tehran, Iran)</span></p>
+        <p class="text-sm"><strong>Project:</strong> Wireless Power Transfer via Strongly Coupled Magnetic Resonances</p>
+        <p class="text-sm"><strong>Supervisor:</strong> Dr. Mohammad Bagher Ghaznavi Ghoushchi</p>
+        <p class="text-sm"><strong>GPA:</strong> 18.23 / 20</p>
+      </div>
+    </div>
+
+    <!-- Dutch Version -->
+    <div data-lang="nl" class="hidden space-y-6">
+      <!-- Master's -->
+      <div class="space-y-1">
+        <p class="text-base"><strong class="text-indigo-700">Master in Digitale Elektronica</strong> 
+          <span class="text-gray-600">(sep. 2021 – sep. 2024)</span>
+        </p>
+        <p class="text-sm text-gray-700"><strong>Universiteit van Teheran</strong> <span class="text-gray-500">(Teheran, Iran)</span></p>
+        <p class="text-sm"><strong>Thesis:</strong> Verbetering van de prestaties van genoom-sequentiemappers</p>
+        <p class="text-sm"><strong>Begeleider:</strong> Dr. Ali Afzali-Kusha</p>
+        <p class="text-sm"><strong>GPA:</strong> 18.34 op 20</p>
+      </div>
+
+      <hr class="border-t-2 border-gray-300 my-4">
+
+      <!-- Bachelor's -->
+      <div class="space-y-1">
+        <p class="text-base"><strong class="text-indigo-700">Bachelor in Elektronica</strong> 
+          <span class="text-gray-600">(sep. 2017 – sep. 2021)</span>
+        </p>
+        <p class="text-sm text-gray-700"><strong>Shahed Universiteit</strong> <span class="text-gray-500">(Teheran, Iran)</span></p>
+        <p class="text-sm"><strong>Project:</strong> Draadloze energieoverdracht via sterk gekoppelde magnetische resonanties</p>
+        <p class="text-sm"><strong>Begeleider:</strong> Dr. Mohammad Bagher Ghaznavi Ghoushchi</p>
+        <p class="text-sm"><strong>GPA:</strong> 18.23 op 20</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+<!-- Teaching Experience Compact Style -->
+<section id="experience" class="scroll-mt-20 max-w-4xl mx-auto px-4 my-12">
+  <div class="bg-gray-50 rounded-3xl shadow-2xl border-2 border-gray-300 p-10 transition-shadow duration-300">
+        <h2 class="text-2xl font-extrabold mb-6 border-b-2 border-gray-300 pb-2
+               bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700
+               animate-gradient-x hidden"
+        data-lang="en">
+            Teaching Experience
+        </h2>
+        <h2 class="text-2xl font-extrabold mb-6 border-b-2 border-gray-300 pb-2
+            bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700
+            animate-gradient-x hidden"
+        data-lang="nl">
+            Onderwijservaring
+        </h2>
+
+    <!-- English -->
+    <div class="space-y-3 text-sm text-gray-700 block" data-lang="en">
+      <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-1">
+        <span><strong class="text-indigo-700">Computer Aided Digital System</strong> — University of Tehran</span>
+        <span class="text-gray-500">(Sep. 2024 - Jan. 2025)</span>
+      </div>
+      <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-1">
+        <span><strong class="text-indigo-700">Electric Circuits II</strong> — University of Tehran</span>
+        <span class="text-gray-500">(Jan. 2023 - Jul. 2023)</span>
+      </div>
+      <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-1">
+        <span><strong class="text-indigo-700">Electronic I</strong> — University of Tehran</span>
+        <span class="text-gray-500">(Jan. 2023 - Jul. 2023)</span>
+      </div>
+      <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-1">
+        <span><strong class="text-indigo-700">Computer Arithmetic</strong> — University of Tehran</span>
+        <span class="text-gray-500">(Jan. 2023 - Jul. 2023)</span>
+      </div>
+      <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-1">
+        <span><strong class="text-indigo-700">Electronic II</strong> — University of Tehran</span>
+        <span class="text-gray-500">(Jan. 2023 - Jul. 2023)</span>
+      </div>
+      <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-1">
+        <span><strong class="text-indigo-700">Computer Architecture</strong> — University of Tehran</span>
+        <span class="text-gray-500">(Jan. 2023 - Jul. 2023)</span>
+      </div>
+      <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-1">
+        <span><strong class="text-indigo-700">Electronic Circuits I</strong> — University of Tehran</span>
+        <span class="text-gray-500">(Jan. 2023 - Jul. 2023)</span>
+      </div>
+      <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-1">
+        <span><strong class="text-indigo-700">Intro to Electrical Engineering</strong> — Shahed University</span>
+        <span class="text-gray-500">(Jan. 2023 - Jul. 2023)</span>
+      </div>
+    </div>
+
+    <!-- Dutch -->
+    <div class="space-y-3 text-sm text-gray-700 hidden" data-lang="nl">
+      <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-1">
+        <span><strong class="text-indigo-700">Computerondersteunde Digitale Systemen</strong> — Universiteit van Teheran</span>
+        <span class="text-gray-500">(sep. 2024 - jan. 2025)</span>
+      </div>
+      <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-1">
+        <span><strong class="text-indigo-700">Elektrische Kringen II</strong> — Universiteit van Teheran</span>
+        <span class="text-gray-500">(jan. 2023 - jul. 2023)</span>
+      </div>
+      <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-1">
+        <span><strong class="text-indigo-700">Elektronica I</strong> — Universiteit van Teheran</span>
+        <span class="text-gray-500">(jan. 2023 - jul. 2023)</span>
+      </div>
+      <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-1">
+        <span><strong class="text-indigo-700">Rekenkunde</strong> — Universiteit van Teheran</span>
+        <span class="text-gray-500">(jan. 2023 - jul. 2023)</span>
+      </div>
+      <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-1">
+        <span><strong class="text-indigo-700">Elektronica II</strong> — Universiteit van Teheran</span>
+        <span class="text-gray-500">(jan. 2023 - jul. 2023)</span>
+      </div>
+      <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-1">
+        <span><strong class="text-indigo-700">Computerarchitectuur</strong> — Universiteit van Teheran</span>
+        <span class="text-gray-500">(jan. 2023 - jul. 2023)</span>
+      </div>
+      <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-1">
+        <span><strong class="text-indigo-700">Elektronische Kringen I</strong> — Universiteit van Teheran</span>
+        <span class="text-gray-500">(jan. 2023 - jul. 2023)</span>
+      </div>
+      <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-1">
+        <span><strong class="text-indigo-700">Inleiding Elektrotechniek</strong> — Shahed Universiteit</span>
+        <span class="text-gray-500">(jan. 2023 - jul. 2023)</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Skills -->
+<section id="skills" class="scroll-mt-20 max-w-4xl mx-auto px-4 my-8">
+  <div class="bg-gray-50 rounded-3xl shadow-2xl border-2 border-gray-300 p-10 transition-shadow duration-300">
     
-        document.getElementById("language-toggle").addEventListener("click", function () {
-        currentLang = currentLang === "en" ? "fa" : "en";
+        <h2 class="text-2xl font-extrabold mb-6 border-b-2 border-gray-300 pb-2
+               bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700
+               animate-gradient-x hidden"
+        data-lang="en">
+        Core Skills
+    </h2>
+        <h2 class="text-2xl font-extrabold mb-6 border-b-2 border-gray-300 pb-2
+               bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700
+               animate-gradient-x hidden"
+        data-lang="nl">
+        Kernvaardigheden
+    </h2>
 
-        // Update button text (but keep its position unchanged)
-        this.textContent = currentLang === "en" ? "En" : "Fa";
+    <!-- English -->
+    <div class="grid sm:grid-cols-2 gap-x-8 gap-y-4 text-[15px] text-gray-800 block" data-lang="en">
+      <div>
+        <p class="font-semibold text-indigo-700 mb-1">Hardware Design</p>
+        <p>Digital Design, Microprogramming, PCB Design, Hardware Acceleration</p>
+      </div>
+      <div>
+        <p class="font-semibold text-indigo-700 mb-1">Languages</p>
+        <p>VHDL, Verilog, Python, C/C++</p>
+      </div>
+      <div>
+        <p class="font-semibold text-indigo-700 mb-1">Tools</p>
+        <p>HSpice, ARM Cortex-M, Proteus, AltiumDesigner</p>
+      </div>
+      <div>
+        <p class="font-semibold text-indigo-700 mb-1">Software</p>
+        <p>Adobe Photoshop, MS Word/Excel/PowerPoint</p>
+      </div>
+    </div>
 
-        // Update body direction and text alignment
-        document.body.setAttribute("dir", currentLang === "en" ? "ltr" : "rtl");
-        document.body.style.textAlign = currentLang === "en" ? "left" : "right";
+    <!-- Dutch -->
+    <div class="grid sm:grid-cols-2 gap-x-8 gap-y-4 text-[15px] text-gray-800 hidden" data-lang="nl">
+      <div>
+        <p class="font-semibold text-indigo-700 mb-1">Hardware Ontwerp</p>
+        <p>Digitale systemen, microprogrammering, PCB-ontwerp, hardwareversnelling</p>
+      </div>
+      <div>
+        <p class="font-semibold text-indigo-700 mb-1">Talen</p>
+        <p>VHDL, Verilog, Python, C/C++</p>
+      </div>
+      <div>
+        <p class="font-semibold text-indigo-700 mb-1">Tools</p>
+        <p>HSpice, ARM Cortex-M, Proteus, AltiumDesigner</p>
+      </div>
+      <div>
+        <p class="font-semibold text-indigo-700 mb-1">Software</p>
+        <p>Adobe Photoshop, MS Word/Excel/PowerPoint</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-        // Update translations dynamically
-        document.getElementById("about-link").textContent = translations[currentLang].about;
-        document.getElementById("experience-link").textContent = translations[currentLang].experience;
-        document.getElementById("skills-link").textContent = translations[currentLang].skills;
-        document.getElementById("contact-link").textContent = translations[currentLang].ContactMe;
 
-        document.querySelector("h1").textContent = translations[currentLang].Ben;
-        // Example: Update specific sections
-        document.querySelector("#about h2").innerHTML = `<i class="fas fa-user"></i> ${translations[currentLang].aboutMe}`;
-        document.querySelector("#about p").textContent = translations[currentLang].aboutText;
+<!-- Certifications -->
+<section id="certifications" class="scroll-mt-20 max-w-4xl mx-auto px-4 my-12">
+  <div class="bg-gray-50 rounded-3xl shadow-2xl border-2 border-gray-300 p-10 transition-shadow duration-300">
+        <h2 class="text-2xl font-extrabold mb-6 border-b-2 border-gray-300 pb-2
+               bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700
+               animate-gradient-x hidden"
+        data-lang="en">
+        Certifications
+    </h2>
+        <h2 class="text-2xl font-extrabold mb-6 border-b-2 border-gray-300 pb-2
+               bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700
+               animate-gradient-x hidden"
+        data-lang="nl">
+        Certificaten
+    </h2>
+    <ul class="list-disc ml-6 space-y-1 block" data-lang="en">
+      <li>Algorithms for DNA Sequencing - Coursera <span class="text-gray-500">(Aug. 2023)</span></li>
+      <li>Using Python to Access Web Data - Coursera <span class="text-gray-500">(Oct. 2022)</span></li>
+      <li>Mathematics for Machine Learning: Multivariate Calculus - Coursera <span class="text-gray-500">(Oct. 2022)</span></li>
+      <li>Python Data Structures - Coursera <span class="text-gray-500">(Sep. 2022)</span></li>
+      <li>Mathematics for Machine Learning: Linear Algebra - Coursera <span class="text-gray-500">(Aug. 2022)</span></li>
+      <li>Programming for Everybody - Coursera <span class="text-gray-500">(Aug. 2022)</span></li>
+      <li>Neural Networks and Deep Learning - Coursera <span class="text-gray-500">(Feb. 2022)</span></li>
+    </ul>
+    <ul class="list-disc ml-6 space-y-1 hidden" data-lang="nl">
+      <li>Algoritmen voor DNA-sequencing - Coursera (aug 2023)</li>
+      <li>Python gebruiken om webgegevens te benaderen - Coursera (okt 2022)</li>
+      <li>Wiskunde voor ML: Multivariate Calculus - Coursera (okt 2022)</li>
+      <li>Python datastructuren - Coursera (sep 2022)</li>
+      <li>Wiskunde voor ML: Lineaire Algebra - Coursera (aug 2022)</li>
+      <li>Programmeren voor iedereen - Coursera (aug 2022)</li>
+      <li>Neurale netwerken en deep learning - Coursera (feb 2022)</li>
+    </ul>
+  </div>
+</section>
 
-        document.querySelector("#ResearchInterests h2").innerHTML = `<i class="fas fa-flask"></i> ${translations[currentLang].ResearchInterests}`;
-        document.querySelector("#Education h2").innerHTML = `<i class="fas fa-graduation-cap"></i> ${translations[currentLang].Education}`;
-        document.querySelector("#Publications h2").innerHTML = `<i class="fas fa-book"></i> ${translations[currentLang].Publications}`;
-        document.querySelector("#experience h2").innerHTML = `<i class="fas fa-chalkboard-teacher"></i> ${translations[currentLang].AcademicExperience}`;
-        document.querySelector("#Achievements h2").innerHTML = `<i class="fa fa-trophy"></i> ${translations[currentLang].Achievements}`;
-        document.querySelector("#skills h2").innerHTML = `<i class="fas fa-tools"></i> ${translations[currentLang].CoreSkills}`;
-        document.querySelector("#Certificates h2").innerHTML = `<i class="fas fa-certificate"></i> ${translations[currentLang].Certificates}`;
-        document.querySelector("#Languages h2").innerHTML = `<i class="fas fa-language"></i> ${translations[currentLang].Languages}`;
 
-        // Repeat for all sections as needed...
+<section id="courses" class="scroll-mt-20 max-w-4xl mx-auto px-4 my-12">
+  <div class="bg-gray-50 rounded-3xl shadow-2xl border-2 border-gray-100 p-10 transition-shadow duration-300">
+        <h2 class="text-2xl font-extrabold mb-6 border-b-2 border-gray-300 pb-2
+               bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700
+               animate-gradient-x hidden"
+        data-lang="en">
+        Notable Courses
+    </h2>
+        <h2 class="text-2xl font-extrabold mb-6 border-b-2 border-gray-300 pb-2
+               bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700
+               animate-gradient-x hidden"
+        data-lang="nl">
+        Opmerkelijke Vakken
+    </h2>
 
-        // تنظیم زبان برای بخش Contact
-        document.querySelector("#contact h2").textContent = translations[currentLang].contact;
-        document.querySelector("#contact p").textContent = translations[currentLang].contactText;
+    <!-- English -->
+    <div class="grid sm:grid-cols-2 gap-x-8 gap-y-2 text-[15px] text-gray-800 block" data-lang="en">
+      <div><span class="font-medium">Numerical Computation Methods:</span> <span class="text-gray-500 font-semibold">20.0 / 20.0</span></div>
+      <div><span class="font-medium">Electrical Circuits II:</span> <span class="text-gray-500 font-semibold">19.90 / 20.0</span></div>
+      <div><span class="font-medium">Logic Circuits:</span> <span class="text-gray-500 font-semibold">19.75 / 20.0</span></div>
+      <div><span class="font-medium">Linear Algebra:</span> <span class="text-gray-500 font-semibold">19.75 / 20.0</span></div>
+      <div><span class="font-medium">Computer Arithmetic:</span> <span class="text-gray-500 font-semibold">19.40 / 20.0</span></div>
+      <div><span class="font-medium">Chip Multiprocessors:</span> <span class="text-gray-500 font-semibold">19.0 / 20.0</span></div>
+      <div><span class="font-medium">Fault-Tolerant & Testable Computing:</span> <span class="text-gray-500 font-semibold">19.0 / 20.0</span></div>
+      <div><span class="font-medium">Electronics I:</span> <span class="text-gray-500 font-semibold">18.70 / 20.0</span></div>
+      <div><span class="font-medium">Pulse Technique:</span> <span class="text-gray-500 font-semibold">18.60 / 20.0</span></div>
+      <div><span class="font-medium">Low Power Integrated Circuits:</span> <span class="text-gray-500 font-semibold">18.50 / 20.0</span></div>
+      <div><span class="font-medium">Probability & Statistics:</span> <span class="text-gray-500 font-semibold">18.50 / 20.0</span></div>
+    </div>
+
+    <!-- Dutch -->
+    <div class="grid sm:grid-cols-2 gap-x-8 gap-y-2 text-[15px] text-gray-800 hidden" data-lang="nl">
+      <div><span class="font-medium">Numerieke Berekeningsmethoden:</span> <span class="text-gray-500 font-semibold">20.0 / 20.0</span></div>
+      <div><span class="font-medium">Elektrische Kringen II:</span> <span class="text-gray-500 font-semibold">19.90 / 20.0</span></div>
+      <div><span class="font-medium">Logische Kringen:</span> <span class="text-gray-500 font-semibold">19.75 / 20.0</span></div>
+      <div><span class="font-medium">Lineaire Algebra:</span> <span class="text-gray-500 font-semibold">19.75 / 20.0</span></div>
+      <div><span class="font-medium">Rekenkunde van Computers:</span> <span class="text-gray-500 font-semibold">19.40 / 20.0</span></div>
+      <div><span class="font-medium">Chip Multiprocessors:</span> <span class="text-gray-500 font-semibold">19.0 / 20.0</span></div>
+      <div><span class="font-medium">Fouttolerante & Testbare Systemen:</span> <span class="text-gray-500 font-semibold">19.0 / 20.0</span></div>
+      <div><span class="font-medium">Elektronica I:</span> <span class="text-gray-500 font-semibold">18.70 / 20.0</span></div>
+      <div><span class="font-medium">Pulstechniek:</span> <span class="text-gray-500 font-semibold">18.60 / 20.0</span></div>
+      <div><span class="font-medium">Laagvermogen IC’s:</span> <span class="text-gray-500 font-semibold">18.50 / 20.0</span></div>
+      <div><span class="font-medium">Statistiek voor Ingenieurs:</span> <span class="text-gray-500 font-semibold">18.50 / 20.0</span></div>
+    </div>
+
+  </div>
+</section>
+
+
+
+<section id="languages" class="scroll-mt-20 max-w-4xl mx-auto px-4 my-12">
+  <div class="bg-gray-50 rounded-3xl shadow-2xl border-2 border-gray-100 p-10 transition-shadow duration-300">
+        <h2 class="text-2xl font-extrabold mb-6 border-b-2 border-gray-300 pb-2
+               bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700
+               animate-gradient-x hidden"
+        data-lang="en">
+        Languages</h2>
+        <h2 class="text-2xl font-extrabold mb-6 border-b-2 border-gray-300 pb-2
+               bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700
+               animate-gradient-x hidden"
+        data-lang="nl">
+        Talen</h2>
+
+    <!-- English -->
+    <div class="space-y-1 pl-2 block" data-lang="en">
+      <div>
+        <span class="font-medium">Dutch:</span>
+        <span class="text-gray-600"> Beginner level (A1 - in progress)</span>
+      </div>
+      <div>
+        <span class="font-medium">English:</span>
+        <span class="text-gray-600">GRE 331 (V:161, Q:170, W:3.5), IELTS 6.5 (L:6, R:6.5, W:6, S:6.5)</span>
+      </div>
+      <div>
+        <span class="font-medium">Persian:</span>
+        <span class="text-gray-600">Native</span>
+      </div>
+    </div>
+
+    <!-- Dutch -->
+    <div class="space-y-1 pl-2 hidden" data-lang="nl">
+      <div>
+        <span class="font-medium">Nederlands:</span>
+        <span class="text-gray-600">Beginnersniveau (A1 - in opleiding)</span>
+      </div>
+      <div>
+        <span class="font-medium">Engels:</span>
+        <span class="text-gray-600">GRE 331 (V:161, Q:170, W:3.5), IELTS 6.5 (L:6, R:6.5, W:6, S:6.5)</span>
+      </div>
+      <div>
+        <span class="font-medium">Perzisch:</span>
+        <span class="text-gray-600">Moedertaal</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Social Media + Resume Download -->
+<section id="social" class="scroll-mt-20 max-w-4xl mx-auto px-4 my-12">
+  <div class="bg-gray-50 rounded-3xl shadow-2xl border-2 border-gray-300 p-10 transition-shadow duration-300 text-center">
+    
+    <!-- Title -->
+    <h2 class="text-2xl font-extrabold mb-6 border-b-2 border-gray-300 pb-2
+               bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700
+               animate-gradient-x"
+        data-lang="en">
+      Find Me Online
+    </h2>
+    <h2 class="text-2xl font-extrabold mb-6 border-b-2 border-gray-300 pb-2 hidden
+               bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700
+               animate-gradient-x"
+        data-lang="nl">
+      Vind Mij Online
+    </h2>
+
+    <!-- Links -->
+    <div class="flex justify-center flex-wrap gap-6 text-lg mt-6">
+      <a href="https://www.linkedin.com/in/benyamin-zadehmoradian" target="_blank" class="text-indigo-700 hover:text-pink-700 transition-colors duration-200">
+        LinkedIn
+      </a>
+      <a href="https://github.com/BenyaminZadehmoradian" target="_blank" class="text-indigo-700 hover:text-pink-700 transition-colors duration-200">
+        GitHub
+      </a>
+      <a href="https://scholar.google.com/citations?user=YOUR_ID_HERE" target="_blank" class="text-indigo-700 hover:text-pink-700 transition-colors duration-200">
+        Google Scholar
+      </a>
+    </div>
+
+    <!-- Resume Download Buttons -->
+    <div class="mt-8 flex flex-col sm:flex-row justify-center gap-4">
+      <a href="files/resume_en.pdf" download
+         class="bg-indigo-700 hover:bg-pink-700 text-white font-semibold px-6 py-2 rounded-full transition-colors duration-300">
+        Download CV (EN)
+      </a>
+      <a href="files/resume_nl.pdf" download
+         class="bg-indigo-700 hover:bg-pink-700 text-white font-semibold px-6 py-2 rounded-full transition-colors duration-300">
+        Download CV (NL)
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- We will complete the full content with language toggles next -->
+
+<script>
+  function switchLang(lang) {
+    document.querySelectorAll('[data-lang]').forEach(el =>
+      el.classList.toggle('hidden', el.getAttribute('data-lang') !== lang)
+    );
+    document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('bg-indigo-100','border-indigo-500','font-semibold'));
+    const active = document.getElementById('btn-' + lang);
+    active.classList.add('bg-indigo-100','border-indigo-500','font-semibold');
+  }
+
+  // Scroll spy for nav highlight
+  const sections = document.querySelectorAll('main section[id]');
+  const navLinks = document.querySelectorAll('.nav-link');
+  window.addEventListener('scroll', () => {
+    let cur = '';
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 120) cur = s.id; });
+    navLinks.forEach(n => {
+      n.classList.toggle('text-indigo-600 font-semibold', n.getAttribute('href') === '#' + cur);
     });
-    </script>
+  });
 
-    <script src="theme-toggle.js"></script>
-    
+  // Show header on scroll up
+  let last = 0;
+  const hdr = document.querySelector('header');
+  window.addEventListener('scroll', () => {
+    const st = window.scrollY;
+    hdr.style.transform = st > last ? 'translateY(-100%)' : 'translateY(0)';
+    last = st > 0 ? st : 0;
+  });
+
+  // Fade-in sections
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => e.isIntersecting && e.target.classList.add('visible'));
+  }, {threshold: 0.2});
+  document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+
+  // Initialize
+  switchLang('en');
+</script>
+
 </body>
 </html>

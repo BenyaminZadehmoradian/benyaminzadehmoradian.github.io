@@ -617,9 +617,9 @@
   window.addEventListener('scroll', () => {
     const currentScrollY = window.scrollY;
 
-    if (currentScrollY < lastScrollY - 5) {
+    if (currentScrollY < lastScrollY - 1) {
       header.style.transform = 'translateY(0)';
-    } else if (currentScrollY > lastScrollY + 5) {
+    } else if (currentScrollY > lastScrollY + 1) {
       header.style.transform = 'translateY(-100%)';
     }
 

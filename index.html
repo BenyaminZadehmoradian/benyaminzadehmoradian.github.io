@@ -11,27 +11,29 @@
   </script>
   <style>
     html, body {
-  height: 100%;
-  margin: 0;
-  font-family: 'Inter', sans-serif;
-}
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+      min-height: 100%;
+      overflow-x: hidden;
+    }
 
-body {
-  background: transparent !important; /* 🧼 remove background from body */
-}
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
 
-html {
-  background: linear-gradient(-45deg, #fdf1d6, #ffe0e0, #ebe7ff, #d8f5e3);
-  background-size: 300% 300%;
-  animation: gradientBG 20s ease-in-out infinite;
-}
+    body {
+      background: linear-gradient(-45deg, #fdf1d6, #ffe0e0, #ebe7ff, #d8f5e3);
+      background-size: 300% 300%;
+      animation: gradientBG 20s ease-in-out infinite;
+      color: inherit;
+    }
 
-html.dark {
-  background: linear-gradient(-45deg, #242437, #1a1a2e, #0f0813, #120813);
-  background-size: 300% 300%;
-  animation: gradientBG 20s ease-in-out infinite;
-}
-
+    html.dark body {
+      background: linear-gradient(-45deg, #1e3c72, #2a5298, #1c1c2b, #090e11);
+      background-size: 400% 400%;
+      animation: gradientBG 25s ease-in-out infinite;
+    }
 
     @keyframes gradientBG {
       0%, 100% { background-position: 0% 50%; }
@@ -53,7 +55,8 @@ html.dark {
     }
   </style>
 </head>
-<body class="text-gray-900 dark:text-gray-100 transition-colors duration-300">
+
+<body class="text-gray-900 dark:text-gray-100 transition-colors duration-300 mx-auto px-0 sm:px-4">
 
 <!-- Header -->
 <header class="sticky top-0 z-50 bg-white/70 dark:bg-gray-900/80 backdrop-blur-lg shadow-md transition-transform duration-300">
@@ -112,7 +115,7 @@ html.dark {
 
 <!-- About Section -->
 <section id="about" class="scroll-mt-20 max-w-4xl mx-auto px-4 my-12">
-  <div class="bg-white dark:bg-gray-800 rounded-3xl shadow-2xl border border-gray-300 dark:border-gray-600 p-10 transition-all duration-300">
+  <div class="bg-white dark:bg-gray-900 rounded-3xl shadow-2xl border border-gray-300 dark:border-gray-600 p-10 transition-all duration-300">
     <h2 class="text-2xl font-extrabold mb-6 border-b-2 border-gray-300 dark:border-gray-500 pb-2
                bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700
                animate-gradient-x bg-clip-text text-transparent"
@@ -139,7 +142,7 @@ html.dark {
 
 <!-- Education -->
 <section id="education" class="scroll-mt-20 max-w-4xl mx-auto px-4 my-12">
-  <div class="bg-white dark:bg-gray-800 rounded-3xl shadow-2xl border border-gray-300 dark:border-gray-600 p-10 transition-all duration-300">
+  <div class="bg-white dark:bg-gray-900 rounded-3xl shadow-2xl border border-gray-300 dark:border-gray-600 p-10 transition-all duration-300">
 
     <!-- English Title -->
     <h2 class="text-2xl font-extrabold mb-6 border-b-2 border-gray-300 dark:border-gray-500 pb-2
@@ -161,8 +164,8 @@ html.dark {
     <div data-lang="en" class="block space-y-6">
       <!-- Master's -->
       <div class="space-y-1">
-        <p class="text-base"><strong class="text-indigo-700">Master of Science in Digital Electronics</strong> 
-          <span class="text-gray-600 dark:text-gray-400">(Sep. 2021 – Sep. 2024)</span>
+        <p class="text-base"><strong class="text-indigo-700 dark:text-indigo-400">Master of Science in Digital Electronics</strong> 
+          <span class="text-gray-600 dark:text-gray-400">(Sep. 2021 - Sep. 2024)</span>
         </p>
         <p class="text-sm text-gray-700 dark:text-gray-300"><strong>University of Tehran</strong> <span class="text-gray-500">(Tehran, Iran)</span></p>
         <p class="text-sm"><strong>Thesis:</strong> Improving the Performance of Genome Sequence Mappers</p>
@@ -174,8 +177,8 @@ html.dark {
 
       <!-- Bachelor's -->
       <div class="space-y-1">
-        <p class="text-base"><strong class="text-indigo-700">Bachelor of Science in Electronics</strong> 
-          <span class="text-gray-600 dark:text-gray-400">(Sep. 2017 – Sep. 2021)</span>
+        <p class="text-base"><strong class="text-indigo-700 dark:text-indigo-400">Bachelor of Science in Electronics</strong> 
+          <span class="text-gray-600 dark:text-gray-400">(Sep. 2017 - Sep. 2021)</span>
         </p>
         <p class="text-sm text-gray-700 dark:text-gray-300"><strong>Shahed University</strong> <span class="text-gray-500">(Tehran, Iran)</span></p>
         <p class="text-sm"><strong>Project:</strong> Wireless Power Transfer via Strongly Coupled Magnetic Resonances</p>
@@ -217,7 +220,7 @@ html.dark {
 
 <!-- Teaching Experience -->
 <section id="experience" class="scroll-mt-20 max-w-4xl mx-auto px-4 my-12">
-  <div class="bg-white dark:bg-gray-800 rounded-3xl shadow-2xl border border-gray-300 dark:border-gray-600 p-10 transition-all duration-300">
+  <div class="bg-white dark:bg-gray-900 rounded-3xl shadow-2xl border border-gray-300 dark:border-gray-600 p-10 transition-all duration-300">
 
     <!-- English Title -->
     <h2 class="text-2xl font-extrabold mb-6 border-b-2 border-gray-300 dark:border-gray-500 pb-2
@@ -313,7 +316,7 @@ html.dark {
 
 <!-- Skills -->
 <section id="skills" class="scroll-mt-20 max-w-4xl mx-auto px-4 my-8">
-  <div class="bg-white dark:bg-gray-800 rounded-3xl shadow-2xl border border-gray-300 dark:border-gray-600 p-10 transition-all duration-300">
+  <div class="bg-white dark:bg-gray-900 rounded-3xl shadow-2xl border border-gray-300 dark:border-gray-600 p-10 transition-all duration-300">
     
     <!-- English Title -->
     <h2 class="text-2xl font-extrabold mb-6 border-b-2 border-gray-300 dark:border-gray-500 pb-2
@@ -376,7 +379,7 @@ html.dark {
 
 <!-- Certifications -->
 <section id="certifications" class="scroll-mt-20 max-w-4xl mx-auto px-4 my-12">
-  <div class="bg-white dark:bg-gray-800 rounded-3xl shadow-2xl border border-gray-300 dark:border-gray-600 p-10 transition-all duration-300">
+  <div class="bg-white dark:bg-gray-900 rounded-3xl shadow-2xl border border-gray-300 dark:border-gray-600 p-10 transition-all duration-300">
     
     <!-- English Title -->
     <h2 class="text-2xl font-extrabold mb-6 border-b-2 border-gray-300 dark:border-gray-500 pb-2
@@ -421,7 +424,7 @@ html.dark {
 
 <!-- Notable Courses -->
 <section id="courses" class="scroll-mt-20 max-w-4xl mx-auto px-4 my-12">
-  <div class="bg-white dark:bg-gray-800 rounded-3xl shadow-2xl border border-gray-300 dark:border-gray-600 p-10 transition-all duration-300">
+  <div class="bg-white dark:bg-gray-900 rounded-3xl shadow-2xl border border-gray-300 dark:border-gray-600 p-10 transition-all duration-300">
     
     <!-- English Title -->
     <h2 class="text-2xl font-extrabold mb-6 border-b-2 border-gray-300 dark:border-gray-500 pb-2
@@ -475,7 +478,7 @@ html.dark {
 
 <!-- Languages -->
 <section id="languages" class="scroll-mt-20 max-w-4xl mx-auto px-4 my-12">
-  <div class="bg-white dark:bg-gray-800 rounded-3xl shadow-2xl border border-gray-300 dark:border-gray-600 p-10 transition-all duration-300">
+  <div class="bg-white dark:bg-gray-900 rounded-3xl shadow-2xl border border-gray-300 dark:border-gray-600 p-10 transition-all duration-300">
 
     <!-- English Title -->
     <h2 class="text-2xl font-extrabold mb-6 border-b-2 border-gray-300 dark:border-gray-500 pb-2
@@ -529,8 +532,8 @@ html.dark {
 
 
 <!-- Social Media + Resume Download -->
-<section id="social" class="scroll-mt-20 max-w-4xl mx-auto px-4 my-12 pb-12">
-  <div class="bg-white dark:bg-gray-800 rounded-3xl shadow-2xl border border-gray-300 dark:border-gray-600 p-10 transition-all duration-300 text-center">
+<section id="social" class="scroll-mt-20 max-w-4xl mx-auto px-4 my-12 pb-2">
+  <div class="bg-white dark:bg-gray-900 rounded-3xl shadow-2xl border border-gray-300 dark:border-gray-600 p-10 transition-all duration-300 text-center">
     
     <!-- English Title -->
     <h2 class="text-2xl font-extrabold mb-6 border-b-2 border-gray-300 dark:border-gray-500 pb-2

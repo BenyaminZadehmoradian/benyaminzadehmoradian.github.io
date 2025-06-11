@@ -11,52 +11,49 @@
   </script>
   <style>
     html, body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Inter', sans-serif;
-      min-height: 100%;
-      overflow-x: hidden;
-    }
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  min-height: 100%;
+}
 
-    *, *::before, *::after {
-      box-sizing: border-box;
-    }
+body {
+  background: linear-gradient(-45deg, #fdf1d6, #ffe0e0, #ebe7ff, #d8f5e3);
+  background-size: 300% 300%;
+  animation: gradientBG 20s ease-in-out infinite;
+  color: inherit;
+}
 
-    body {
-      background: linear-gradient(-45deg, #fdf1d6, #ffe0e0, #ebe7ff, #d8f5e3);
-      background-size: 300% 300%;
-      animation: gradientBG 20s ease-in-out infinite;
-      color: inherit;
-    }
+html.dark body {
+  background: linear-gradient(-45deg,
+    #1e3c72, #2a5298, #1c1c2b, #090e11
+  );
+  background-size: 400% 400%;
+  animation: gradientBG 25s ease-in-out infinite;
+}
 
-    html.dark body {
-      background: linear-gradient(-45deg, #1e3c72, #2a5298, #1c1c2b, #090e11);
-      background-size: 400% 400%;
-      animation: gradientBG 25s ease-in-out infinite;
-    }
+@keyframes gradientBG {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
 
-    @keyframes gradientBG {
-      0%, 100% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-    }
+@keyframes gradient-x {
+  0% { background-position: 0% center; }
+  50% { background-position: 100% center; }
+  100% { background-position: 0% center; }
+}
 
-    @keyframes gradient-x {
-      0% { background-position: 0% center; }
-      50% { background-position: 100% center; }
-      100% { background-position: 0% center; }
-    }
+.animate-gradient-x {
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: gradient-x 8s ease infinite;
+}
 
-    .animate-gradient-x {
-      background-size: 200% auto;
-      background-clip: text;
-      -webkit-background-clip: text;
-      color: transparent;
-      animation: gradient-x 8s ease infinite;
-    }
   </style>
 </head>
-
-<body class="text-gray-900 dark:text-gray-100 transition-colors transition-transform duration-300 mx-auto px-0 sm:px-4">
+<body class="text-gray-900 dark:text-gray-100 transition-colors duration-300">
 
 <!-- Header -->
 <header class="sticky top-0 z-50 bg-white/70 dark:bg-gray-900/80 backdrop-blur-lg shadow-md transition-transform duration-300">
@@ -610,21 +607,24 @@
     document.getElementById('theme-label').textContent = isDark ? 'Dark' : 'Light';
   }
 
-  // Show/hide header on scroll (optimized for mobile and desktop)
-  let lastScrollY = window.scrollY;
-  const header = document.querySelector('header');
+  // Show/hide header on scroll
+let lastScrollTop = 0;
+const header = document.querySelector('header');
 
-  window.addEventListener('scroll', () => {
-    const currentScrollY = window.scrollY;
+window.addEventListener('scroll', () => {
+  const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
 
-    if (currentScrollY < lastScrollY - 1) {
-      header.style.transform = 'translateY(0)';
-    } else if (currentScrollY > lastScrollY + 1) {
-      header.style.transform = 'translateY(-100%)';
-    }
+  if (currentScroll > lastScrollTop && currentScroll > 10) {
+    // Scroll down -> hide header
+    header.style.transform = 'translateY(-100%)';
+  } else {
+    // Scroll up -> show header
+    header.style.transform = 'translateY(0)';
+  }
 
-    lastScrollY = currentScrollY;
-  });
+  lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+});
+
 
   // Initialize on page load
   updateThemeLabel();

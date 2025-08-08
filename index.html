@@ -3,570 +3,205 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Benyamin Zadehmoradian - Digital Electronics Engineer specializing in hardware acceleration and ML co-design">
   <title>Benyamin Zadehmoradian – Resume</title>
-  
-  <!-- Preload resources -->
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" as="style">
-  <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
-  
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    tailwind.config = { 
-      darkMode: 'class',
-      theme: {
-        extend: {
-          animation: {
-            'gradient-x': 'gradient-x 8s ease infinite',
-          },
-          keyframes: {
-            'gradient-x': {
-              '0%, 100%': { 'background-position': '0% center' },
-              '50%': { 'background-position': '100% center' },
-            }
-          }
-        }
-      }
-    };
+    tailwind.config = { darkMode: 'class' };
   </script>
   <style>
-    :root {
-      --gradient-light: linear-gradient(-45deg, #fdf1d6, #ffe0e0, #ebe7ff, #d8f5e3);
-      --gradient-dark: linear-gradient(-45deg, #1e3c72, #2a5298, #1c1c2b, #090e11);
-    }
+  body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  min-height: 100%;
+  transition: background 0.5s ease, color 0.3s ease;
+}
 
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Inter', sans-serif;
-      min-height: 100vh;
-      background: var(--gradient-light);
-      background-size: 300% 300%;
-      animation: gradientBG 20s ease-in-out infinite;
-      color: #111827; /* gray-900 */
-    }
+html {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  overflow-x: hidden;
+}
 
-    html.dark body {
-      background: var(--gradient-dark);
-      background-size: 400% 400%;
-      animation: gradientBG 25s ease-in-out infinite;
-      color: #f3f4f6; /* gray-100 */
-    }
+body {
+  background: linear-gradient(-45deg, #fdf1d6, #ffe0e0, #ebe7ff, #d8f5e3);
+  background-size: 300% 300%;
+  animation: gradientBG 20s ease-in-out infinite;
+  color: #111827;
+}
 
-    @media (prefers-reduced-motion: reduce) {
-      body, html.dark body {
-        animation: none !important;
-      }
-    }
+html.dark body {
+  background: linear-gradient(-45deg,
+    #1e3c72, #2a5298, #1c1c2b, #090e11
+  );
+  background-size: 400% 400%;
+  animation: gradientBG 25s ease-in-out infinite;
+  color: #f3f4f6;
+}
 
-    @keyframes gradientBG {
-      0%, 100% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-    }
+@keyframes gradientBG {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
 
-    .animate-gradient-x {
-      background-size: 200% auto;
-      background-clip: text;
-      -webkit-background-clip: text;
-      color: transparent;
-    }
+@keyframes gradient-x {
+  0% { background-position: 0% center; }
+  50% { background-position: 100% center; }
+  100% { background-position: 0% center; }
+}
 
-    .section-card {
-      background-color: rgba(255, 255, 255, 0.9);
-      border-radius: 1.5rem;
-      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-      border: 1px solid #e5e7eb;
-      transition: all 0.3s ease;
-    }
+.header-hidden {
+  transform: translateY(-100%);
+  transition: transform 0.3s ease-in-out;
+}
 
-    .dark .section-card {
-      background-color: rgba(17, 24, 39, 0.9);
-      border-color: #4b5563;
-      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.25);
-    }
+.animate-gradient-x {
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: gradient-x 8s ease infinite;
+}
 
-    .header-hidden {
-      transform: translateY(-100%);
-      transition: transform 0.3s ease-in-out;
-    }
+.lang-btn.active {
+  background-color: #e0e7ff !important;
+  border-color: #818cf8 !important;
+  font-weight: 600;
+}
 
-    /* Skip link for accessibility */
-    .skip-link {
-      position: absolute;
-      top: -40px;
-      left: 0;
-      background: #4f46e5;
-      color: white;
-      padding: 8px;
-      z-index: 100;
-      border-radius: 0 0 4px 0;
-    }
+.dark .lang-btn.active {
+  background-color: #3730a3 !important;
+  border-color: #6366f1 !important;
+}
 
-    .skip-link:focus {
-      top: 0;
-    }
+.theme-btn {
+  transition: all 0.3s ease;
+}
 
-    /* Mobile menu */
-    .mobile-menu {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease-out;
-    }
-
-    .mobile-menu.active {
-      max-height: 500px;
-    }
-
-    /* Contact dropdown animation */
-    .contact-dropdown {
-      opacity: 0;
-      transform: translateY(-10px);
-      transition: opacity 0.2s ease, transform 0.2s ease;
-      pointer-events: none;
-    }
-
-    .contact-dropdown.active {
-      opacity: 1;
-      transform: translateY(0);
-      pointer-events: all;
-    }
-
-    /* Print styles */
-    @media print {
-      body, html {
-        background: white !important;
-        color: black !important;
-      }
-      
-      .section-card {
-        background: white !important;
-        box-shadow: none !important;
-        border: 1px solid #ddd !important;
-      }
-      
-      header, .theme-toggle, .lang-switch, .social-section {
-        display: none !important;
-      }
-    }
   </style>
 </head>
 <body class="text-gray-900 dark:text-gray-100 transition-colors duration-300">
-  <!-- Skip link -->
-  <a href="#main-content" class="skip-link">Skip to content</a>
 
-  <!-- Header -->
-  <header class="sticky top-0 z-50 bg-white/70 dark:bg-gray-900/80 backdrop-blur-lg shadow-md transition-transform duration-300">
-    <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col sm:flex-row justify-between items-center">
-      <!-- Mobile menu button -->
-      <div class="sm:hidden w-full flex justify-between items-center">
-        <div class="flex items-center space-x-2 text-sm">
-          <button id="btn-en" onclick="switchLang('en')" aria-label="Switch to English"
-                  class="lang-btn bg-white px-3 py-1 rounded border-2 border-gray-300 dark:bg-gray-800 dark:border-gray-600 dark:text-white">
-            EN
-          </button>
-          <button id="btn-nl" onclick="switchLang('nl')" aria-label="Switch to Dutch"
-                  class="lang-btn bg-white px-3 py-1 rounded border-2 border-gray-300 dark:bg-gray-800 dark:border-gray-600 dark:text-white">
-            NL
-          </button>
-        </div>
-        
-        <button id="mobile-menu-btn" class="p-2 rounded-md text-gray-700 dark:text-gray-300">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-          </svg>
-        </button>
-      </div>
-
-      <!-- Language Switch + Theme Toggle -->
-      <div class="hidden sm:flex items-center space-x-2 text-sm">
-        <button id="btn-en-desktop" onclick="switchLang('en')" aria-label="Switch to English"
-                class="lang-btn bg-white px-3 py-1 rounded border-2 border-gray-300 dark:bg-gray-800 dark:border-gray-600 dark:text-white">
-          EN
-        </button>
-        <button id="btn-nl-desktop" onclick="switchLang('nl')" aria-label="Switch to Dutch"
-                class="lang-btn bg-white px-3 py-1 rounded border-2 border-gray-300 dark:bg-gray-800 dark:border-gray-600 dark:text-white">
-          NL
-        </button>
-        <button id="theme-toggle"
-                onclick="toggleTheme()"
-                class="ml-2 px-3 py-1 rounded border-2 bg-gray-800 text-white hover:bg-gray-700 dark:bg-white dark:text-gray-800 dark:hover:bg-gray-200 border-gray-300 dark:border-gray-600 transition">
-          <span id="theme-label">Light</span>
-        </button>
-      </div>
-
-      <!-- Navigation -->
-      <nav class="hidden sm:flex space-x-7 text-base font-medium justify-center">
-        <a href="#about" class="hover:text-indigo-600 dark:hover:text-pink-400 transition-colors">About</a>
-        <a href="#experience" class="hover:text-indigo-600 dark:hover:text-pink-400 transition-colors">Experience</a>
-        <a href="#skills" class="hover:text-indigo-600 dark:hover:text-pink-400 transition-colors">Skills</a>
-      </nav>
-
-      <!-- Contact Dropdown -->
-      <div class="relative group hidden sm:block">
-        <button id="contact-btn" class="hover:text-indigo-600 dark:hover:text-pink-400 flex items-center space-x-1 transition-colors">
-          <span>Contact</span>
-          <svg class="w-4 h-4 transition-transform duration-200" fill="currentColor" viewBox="0 0 20 20">
-            <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.08 1.04l-4.25 4.25a.75.75 0 01-1.08 0L5.21 8.27a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
-          </svg>
-        </button>
-        <div class="contact-dropdown absolute right-0 mt-3 z-50">
-          <div class="bg-white dark:bg-gray-800 shadow-xl rounded-xl py-4 px-6 w-64 space-y-2 border border-gray-200 dark:border-gray-600 text-sm">
-            <p><strong>Phone:</strong> (+98) ...</p>
-            <p><strong>Email:</strong> <a href="mailto:B.Zadehmoradian@gmail.com" class="text-blue-600 dark:text-blue-400 hover:underline">B.Zadehmoradian@gmail.com</a></p>
-            <p><strong>Location:</strong> Tehran, Iran</p>
-          </div>
-        </div>
-      </div>
+<!-- Header -->
+<header class="sticky top-0 z-50 bg-white/70 dark:bg-gray-900/80 backdrop-blur-lg shadow-md transition-transform duration-300">
+<div class="max-w-6xl mx-auto px-3 sm:px-4 py-4 flex justify-between items-center">
+    <!-- Language Switch + Theme Toggle -->
+    <div class="flex items-center space-x-2 text-sm">
+      <button id="btn-en" aria-label="Switch to English"
+              class="lang-btn bg-white px-3 py-1 rounded border-2 border-gray-300 dark:bg-gray-800 dark:border-gray-600 dark:text-white">
+        EN
+      </button>
+      <button id="btn-nl" aria-label="Switch to Dutch"
+              class="lang-btn bg-white px-3 py-1 rounded border-2 border-gray-300 dark:bg-gray-800 dark:border-gray-600 dark:text-white">
+        NL
+      </button>
+      <button id="theme-toggle"
+              class="ml-2 px-3 py-1 rounded border-2 bg-gray-800 text-white hover:bg-gray-700 dark:bg-white dark:text-gray-800 dark:hover:bg-gray-200 border-gray-300 dark:border-gray-600 transition theme-btn">
+        <span id="theme-label">Light</span>
+      </button>
     </div>
 
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="mobile-menu sm:hidden bg-white dark:bg-gray-800">
-      <div class="flex justify-center py-4">
-        <button id="theme-toggle-mobile"
-                onclick="toggleTheme()"
-                class="px-4 py-2 rounded border-2 bg-gray-800 text-white dark:bg-white dark:text-gray-800 border-gray-300 dark:border-gray-600">
-          <span id="theme-label-mobile">Light</span>
-        </button>
-      </div>
-      <nav class="flex flex-col items-center space-y-4 pb-4">
-        <a href="#about" class="hover:text-indigo-600 dark:hover:text-pink-400" onclick="closeMobileMenu()">About</a>
-        <a href="#experience" class="hover:text-indigo-600 dark:hover:text-pink-400" onclick="closeMobileMenu()">Experience</a>
-        <a href="#skills" class="hover:text-indigo-600 dark:hover:text-pink-400" onclick="closeMobileMenu()">Skills</a>
-        <div class="pt-4 text-center">
+    <!-- Navigation -->
+    <nav class="hidden md:flex space-x-7 text-base font-medium justify-center">
+      <a href="#about" class="hover:text-indigo-600 dark:hover:text-pink-400 transition-colors">About</a>
+      <a href="#experience" class="hover:text-indigo-600 dark:hover:text-pink-400 transition-colors">Experience</a>
+      <a href="#skills" class="hover:text-indigo-600 dark:hover:text-pink-400 transition-colors">Skills</a>
+    </nav>
+
+    <!-- Contact Dropdown -->
+    <div class="relative group">
+      <button class="hover:text-indigo-600 dark:hover:text-pink-400 flex items-center space-x-1 transition-colors">
+        <span>Contact</span>
+        <svg class="w-4 h-4 transition-transform duration-200 group-hover:rotate-180" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.08 1.04l-4.25 4.25a.75.75 0 01-1.08 0L5.21 8.27a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+        </svg>
+      </button>
+      <div class="absolute right-0 mt-3 invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-all duration-200 z-50">
+        <div class="bg-white dark:bg-gray-800 shadow-xl rounded-xl py-4 px-6 w-64 space-y-2 border border-gray-200 dark:border-gray-600 text-sm">
           <p><strong>Phone:</strong> (+98) ...</p>
-          <p><strong>Email:</strong> <a href="mailto:B.Zadehmoradian@gmail.com" class="text-blue-600 dark:text-blue-400">B.Zadehmoradian@gmail.com</a></p>
+          <p><strong>Email:</strong> <a href="mailto:B.Zadehmoradian@gmail.com" class="text-blue-600 dark:text-blue-400 hover:underline">B.Zadehmoradian@gmail.com</a></p>
           <p><strong>Location:</strong> Tehran, Iran</p>
         </div>
-      </nav>
+      </div>
     </div>
-  </header>
+  </div>
+</header>
 
-  <main id="main-content">
-    <!-- Name Section -->
-    <section class="max-w-4xl mx-auto px-4 pt-12 text-center">
-      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-gray-900 dark:text-white mb-2 leading-tight">
-        <span class="block bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700 animate-gradient-x">Benyamin</span>
-        <span class="block bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700 animate-gradient-x mt-2">Zadehmoradian</span>
-      </h1>
-      <p class="text-sm text-gray-600 dark:text-gray-400 italic">Digital Electronics | Hardware Acceleration | ML Co-Design</p>
-    </section>
+<!-- بقیه محتوای شما بدون تغییر -->
 
-    <!-- About Section -->
-    <section id="about" class="scroll-mt-20 max-w-4xl mx-auto px-4 my-8">
-      <div class="section-card p-6 sm:p-8">
-        <h2 class="text-2xl font-extrabold mb-4 border-b-2 border-gray-300 dark:border-gray-500 pb-2
-                  bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700
-                  animate-gradient-x bg-clip-text text-transparent"
-            data-lang="en">
-          About Me
-        </h2>
-        <h2 class="text-2xl font-extrabold mb-4 border-b-2 border-gray-300 dark:border-gray-500 pb-2
-                  bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700
-                  animate-gradient-x bg-clip-text text-transparent hidden"
-            data-lang="nl">
-          Over Mij
-        </h2>
+<script>
+  // تابع تغییر زبان
+  function switchLang(lang) {
+    // پنهان/نمایش محتوا بر اساس زبان
+    document.querySelectorAll('[data-lang]').forEach(el => {
+      el.classList.toggle('hidden', el.getAttribute('data-lang') !== lang);
+    });
+    
+    // برجسته کردن دکمه زبان فعال
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.classList.remove('active');
+    });
+    document.getElementById(`btn-${lang}`).classList.add('active');
+    
+    // ذخیره زبان انتخابی
+    localStorage.setItem('selectedLang', lang);
+  }
 
-        <p class="text-base leading-relaxed text-gray-800 dark:text-gray-200 block" data-lang="en">
-          I am a passionate master's student in Digital Electronics at the University of Tehran with a strong academic foundation and hands-on research in efficient hardware implementation, ML co-design, and in-memory computing. Ranked first in my B.Sc. class, I thrive on solving complex engineering challenges and working in collaborative environments.
-        </p>
+  // تابع تغییر تم
+  function toggleTheme() {
+    const html = document.documentElement;
+    const isDark = html.classList.toggle('dark');
+    
+    // بروزرسانی برچسب دکمه
+    document.getElementById('theme-label').textContent = isDark ? 'Dark' : 'Light';
+    
+    // ذخیره حالت تم
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  }
 
-        <p class="text-base leading-relaxed text-gray-800 dark:text-gray-200 hidden" data-lang="nl">
-          Ik ben een gepassioneerde masterstudent digitale elektronica aan de Universiteit van Teheran, met een sterke academische basis en praktische ervaring in efficiënte hardware-implementatie, ML co-design en in-memory computing. Als eerste gerangschikt in mijn bacheloropleiding, gedij ik bij het oplossen van complexe technische uitdagingen en samenwerkingsprojecten.
-        </p>
-      </div>
-    </section>
-
-    <!-- Education -->
-    <section id="education" class="scroll-mt-20 max-w-4xl mx-auto px-4 my-8">
-      <div class="section-card p-6 sm:p-8">
-        <h2 class="text-2xl font-extrabold mb-4 border-b-2 border-gray-300 dark:border-gray-500 pb-2
-                  bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700
-                  animate-gradient-x bg-clip-text text-transparent"
-            data-lang="en">
-          Education
-        </h2>
-        <h2 class="text-2xl font-extrabold mb-4 border-b-2 border-gray-300 dark:border-gray-500 pb-2
-                  bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700
-                  animate-gradient-x bg-clip-text text-transparent hidden"
-            data-lang="nl">
-          Opleiding
-        </h2>
-
-        <div data-lang="en" class="block space-y-6">
-          <!-- Master's -->
-          <div class="space-y-1">
-            <p class="text-base"><strong class="text-indigo-700 dark:text-indigo-400">Master of Science in Digital Electronics</strong> 
-              <span class="text-gray-600 dark:text-gray-400">(Sep. 2021 - Sep. 2024)</span>
-            </p>
-            <p class="text-sm text-gray-700 dark:text-gray-300"><strong>University of Tehran</strong> <span class="text-gray-500">(Tehran, Iran)</span></p>
-            <p class="text-sm"><strong>Thesis:</strong> Improving the Performance of Genome Sequence Mappers</p>
-            <p class="text-sm"><strong>Supervisor:</strong> Dr. Ali Afzali-Kusha</p>
-            <p class="text-sm"><strong>GPA:</strong> 18.34 / 20</p>
-          </div>
-
-          <hr class="border-t border-gray-300 dark:border-gray-600 my-4">
-
-          <!-- Bachelor's -->
-          <div class="space-y-1">
-            <p class="text-base"><strong class="text-indigo-700 dark:text-indigo-400">Bachelor of Science in Electronics</strong> 
-              <span class="text-gray-600 dark:text-gray-400">(Sep. 2017 - Sep. 2021)</span>
-            </p>
-            <p class="text-sm text-gray-700 dark:text-gray-300"><strong>Shahed University</strong> <span class="text-gray-500">(Tehran, Iran)</span></p>
-            <p class="text-sm"><strong>Project:</strong> Wireless Power Transfer via Strongly Coupled Magnetic Resonances</p>
-            <p class="text-sm"><strong>Supervisor:</strong> Dr. Mohammad Bagher Ghaznavi Ghoushchi</p>
-            <p class="text-sm"><strong>GPA:</strong> 18.23 / 20</p>
-          </div>
-        </div>
-
-        <div data-lang="nl" class="hidden space-y-6">
-          <!-- Master's -->
-          <div class="space-y-1">
-            <p class="text-base"><strong class="text-indigo-700">Master in Digitale Elektronica</strong> 
-              <span class="text-gray-600 dark:text-gray-400">(sep. 2021 – sep. 2024)</span>
-            </p>
-            <p class="text-sm text-gray-700 dark:text-gray-300"><strong>Universiteit van Teheran</strong> <span class="text-gray-500">(Teheran, Iran)</span></p>
-            <p class="text-sm"><strong>Thesis:</strong> Verbetering van de prestaties van genoom-sequentiemappers</p>
-            <p class="text-sm"><strong>Begeleider:</strong> Dr. Ali Afzali-Kusha</p>
-            <p class="text-sm"><strong>GPA:</strong> 18.34 op 20</p>
-          </div>
-
-          <hr class="border-t border-gray-300 dark:border-gray-600 my-4">
-
-          <!-- Bachelor's -->
-          <div class="space-y-1">
-            <p class="text-base"><strong class="text-indigo-700">Bachelor in Elektronica</strong> 
-              <span class="text-gray-600 dark:text-gray-400">(sep. 2017 – sep. 2021)</span>
-            </p>
-            <p class="text-sm text-gray-700 dark:text-gray-300"><strong>Shahed Universiteit</strong> <span class="text-gray-500">(Teheran, Iran)</span></p>
-            <p class="text-sm"><strong>Project:</strong> Draadloze energieoverdracht via sterk gekoppelde magnetische resonanties</p>
-            <p class="text-sm"><strong>Begeleider:</strong> Dr. Mohammad Bagher Ghaznavi Ghoushchi</p>
-            <p class="text-sm"><strong>GPA:</strong> 18.23 op 20</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Teaching Experience -->
-    <section id="experience" class="scroll-mt-20 max-w-4xl mx-auto px-4 my-8">
-      <div class="section-card p-6 sm:p-8">
-        <h2 class="text-2xl font-extrabold mb-4 border-b-2 border-gray-300 dark:border-gray-500 pb-2
-                  bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700
-                  animate-gradient-x bg-clip-text text-transparent"
-            data-lang="en">
-          Teaching Experience
-        </h2>
-        <h2 class="text-2xl font-extrabold mb-4 border-b-2 border-gray-300 dark:border-gray-500 pb-2
-                  bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700
-                  animate-gradient-x bg-clip-text text-transparent hidden"
-            data-lang="nl">
-          Onderwijservaring
-        </h2>
-
-        <div class="space-y-3 text-sm text-gray-700 dark:text-gray-200 block" data-lang="en">
-          <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-1">
-            <span><strong class="text-indigo-700 dark:text-indigo-400">Computer Aided Digital System</strong> — University of Tehran</span>
-            <span class="text-gray-500 dark:text-gray-400">(Sep. 2024 - Jan. 2025)</span>
-          </div>
-          <!-- Other courses... -->
-        </div>
-
-        <div class="space-y-3 text-sm text-gray-700 dark:text-gray-200 hidden" data-lang="nl">
-          <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-1">
-            <span><strong class="text-indigo-700 dark:text-indigo-400">Computerondersteunde Digitale Systemen</strong> — Universiteit van Teheran</span>
-            <span class="text-gray-500 dark:text-gray-400">(sep. 2024 - jan. 2025)</span>
-          </div>
-          <!-- Other courses... -->
-        </div>
-      </div>
-    </section>
-
-    <!-- Other sections (Skills, Certifications, Courses, Languages) follow similar pattern -->
-
-    <!-- Social Media + Resume Download -->
-    <section id="social" class="scroll-mt-20 max-w-4xl mx-auto px-4 my-8 pb-2">
-      <div class="section-card p-6 sm:p-8 text-center">
-        <h2 class="text-2xl font-extrabold mb-4 border-b-2 border-gray-300 dark:border-gray-500 pb-2
-                  bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700
-                  animate-gradient-x bg-clip-text text-transparent"
-            data-lang="en">
-          Find Me Online
-        </h2>
-        <h2 class="text-2xl font-extrabold mb-4 border-b-2 border-gray-300 dark:border-gray-500 pb-2
-                  bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700
-                  animate-gradient-x bg-clip-text text-transparent hidden"
-            data-lang="nl">
-          Vind Mij Online
-        </h2>
-
-        <div class="flex justify-center flex-wrap gap-6 text-lg mt-6 text-indigo-700 dark:text-indigo-400">
-          <a href="https://www.linkedin.com/in/benyamin-zadehmoradian" target="_blank" class="hover:text-pink-700 dark:hover:text-pink-400 transition-colors duration-200">
-            LinkedIn
-          </a>
-          <a href="https://github.com/BenyaminZadehmoradian" target="_blank" class="hover:text-pink-700 dark:hover:text-pink-400 transition-colors duration-200">
-            GitHub
-          </a>
-          <a href="https://scholar.google.com/citations?user=YOUR_ID_HERE" target="_blank" class="hover:text-pink-700 dark:hover:text-pink-400 transition-colors duration-200">
-            Google Scholar
-          </a>
-        </div>
-
-        <div class="mt-8 flex flex-col sm:flex-row justify-center gap-4">
-          <a href="files/resume_en.pdf" download
-             class="bg-indigo-700 hover:bg-indigo-800 text-white font-semibold px-6 py-2 rounded-full transition-colors duration-300">
-            Download CV (EN)
-          </a>
-          <a href="files/resume_nl.pdf" download
-             class="bg-indigo-700 hover:bg-indigo-800 text-white font-semibold px-6 py-2 rounded-full transition-colors duration-300">
-            Download CV (NL)
-          </a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <script>
-    // Initialize theme from localStorage or system preference
-    function initTheme() {
-      const storedTheme = localStorage.getItem('theme');
-      const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      
-      if (storedTheme === 'dark' || (!storedTheme && systemDark)) {
-        document.documentElement.classList.add('dark');
-        document.getElementById('theme-label').textContent = 'Dark';
-        if (document.getElementById('theme-label-mobile')) {
-          document.getElementById('theme-label-mobile').textContent = 'Dark';
-        }
-      } else {
-        document.documentElement.classList.remove('dark');
-        document.getElementById('theme-label').textContent = 'Light';
-        if (document.getElementById('theme-label-mobile')) {
-          document.getElementById('theme-label-mobile').textContent = 'Light';
-        }
-      }
-    }
-
-    // Toggle theme
-    function toggleTheme() {
-      const isDark = document.documentElement.classList.toggle('dark');
-      localStorage.setItem('theme', isDark ? 'dark' : 'light');
-      
-      document.getElementById('theme-label').textContent = isDark ? 'Dark' : 'Light';
-      if (document.getElementById('theme-label-mobile')) {
-        document.getElementById('theme-label-mobile').textContent = isDark ? 'Dark' : 'Light';
-      }
-    }
-
-    // Switch language
-    function switchLang(lang) {
-      document.querySelectorAll('[data-lang]').forEach(el => {
-        el.classList.toggle('hidden', el.getAttribute('data-lang') !== lang);
-      });
-      
-      document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.classList.remove(
-          'bg-indigo-100', 'border-indigo-500', 'font-semibold',
-          'dark:bg-indigo-900', 'dark:border-indigo-400', 'dark:font-semibold'
-        );
-      });
-      
-      const active = document.getElementById('btn-' + lang);
-      const activeDesktop = document.getElementById('btn-' + lang + '-desktop');
-      if (active) active.classList.add(
-        'bg-indigo-100', 'border-indigo-500', 'font-semibold',
-        'dark:bg-indigo-900', 'dark:border-indigo-400', 'dark:font-semibold'
-      );
-      if (activeDesktop) activeDesktop.classList.add(
-        'bg-indigo-100', 'border-indigo-500', 'font-semibold',
-        'dark:bg-indigo-900', 'dark:border-indigo-400', 'dark:font-semibold'
-      );
-      
-      localStorage.setItem('language', lang);
-    }
-
-    // Initialize language from localStorage
-    function initLanguage() {
-      const lang = localStorage.getItem('language') || 'en';
-      switchLang(lang);
-    }
-
-    // Contact dropdown toggle
-    function setupContactDropdown() {
-      const contactBtn = document.getElementById('contact-btn');
-      const dropdown = document.querySelector('.contact-dropdown');
-      
-      if (contactBtn && dropdown) {
-        let isOpen = false;
-        
-        contactBtn.addEventListener('click', () => {
-          isOpen = !isOpen;
-          dropdown.classList.toggle('active', isOpen);
-        });
-        
-        document.addEventListener('click', (e) => {
-          if (!contactBtn.contains(e.target) {
-            isOpen = false;
-            dropdown.classList.remove('active');
-          }
-        });
-      }
-    }
-
-    // Mobile menu toggle
-    function setupMobileMenu() {
-      const menuBtn = document.getElementById('mobile-menu-btn');
-      const mobileMenu = document.getElementById('mobile-menu');
-      
-      if (menuBtn && mobileMenu) {
-        menuBtn.addEventListener('click', () => {
-          mobileMenu.classList.toggle('active');
-        });
-      }
+  // مقداردهی اولیه هنگام لود صفحه
+  document.addEventListener('DOMContentLoaded', () => {
+    // مقداردهی زبان
+    const savedLang = localStorage.getItem('selectedLang') || 'en';
+    switchLang(savedLang);
+    
+    // رویدادهای تغییر زبان
+    document.getElementById('btn-en').addEventListener('click', () => switchLang('en'));
+    document.getElementById('btn-nl').addEventListener('click', () => switchLang('nl'));
+    
+    // مقداردهی تم
+    const savedTheme = localStorage.getItem('theme');
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
+      document.documentElement.classList.add('dark');
+      document.getElementById('theme-label').textContent = 'Dark';
+    } else {
+      document.documentElement.classList.remove('dark');
+      document.getElementById('theme-label').textContent = 'Light';
     }
     
-    function closeMobileMenu() {
-      const mobileMenu = document.getElementById('mobile-menu');
-      if (mobileMenu) mobileMenu.classList.remove('active');
-    }
+    // رویداد تغییر تم
+    document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
+    
+    // انیمیشن هدر هنگام اسکرول
+    let lastScrollTop = 0;
+    const header = document.querySelector('header');
 
-    // Header scroll behavior
-    function setupHeaderScroll() {
-      let lastScrollTop = 0;
-      const header = document.querySelector('header');
-      
-      window.addEventListener('scroll', () => {
-        const currentScroll = window.scrollY;
-        
-        if (currentScroll > lastScrollTop && currentScroll > 100) {
-          header.classList.add('header-hidden');
-        } else {
-          header.classList.remove('header-hidden');
-        }
-        
-        lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
-      });
-    }
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.scrollY;
 
-    // Initialize everything
-    document.addEventListener('DOMContentLoaded', () => {
-      initTheme();
-      initLanguage();
-      setupContactDropdown();
-      setupMobileMenu();
-      setupHeaderScroll();
-      
-      // Smooth scrolling for anchor links
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-          e.preventDefault();
-          const target = document.querySelector(this.getAttribute('href'));
-          if (target) {
-            target.scrollIntoView({ behavior: 'smooth' });
-          }
-        });
-      });
+      if (currentScroll > lastScrollTop && currentScroll > 80) {
+        header.classList.add('header-hidden');
+      } else {
+        header.classList.remove('header-hidden');
+      }
+
+      lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
     });
-  </script>
+  });
+</script>
 </body>
 </html>

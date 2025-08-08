@@ -116,12 +116,32 @@
       box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
       border: 1px solid #e5e7eb;
       transition: all 0.3s ease;
+      max-width: 800px;
+      margin: 0 auto;
     }
 
     .dark .section-card {
       background-color: rgba(17, 24, 39, 0.9);
       border-color: #4b5563;
       box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.25);
+    }
+    
+    .main-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    .content-wrapper {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    
+    @media (min-width: 768px) {
+      .content-wrapper {
+        grid-template-columns: 1fr 1fr;
+      }
     }
   </style>
 </head>
@@ -149,8 +169,6 @@
     <!-- Navigation -->
     <nav class="hidden md:flex space-x-7 text-base font-medium justify-center">
       <a href="#about" class="hover:text-indigo-600 dark:hover:text-pink-400 transition-colors">About</a>
-      <a href="#experience" class="hover:text-indigo-600 dark:hover:text-pink-400 transition-colors">Experience</a>
-      <a href="#skills" class="hover:text-indigo-600 dark:hover:text-pink-400 transition-colors">Skills</a>
     </nav>
 
     <!-- Contact Dropdown -->
@@ -172,237 +190,175 @@
   </div>
 </header>
 
-<!-- Name Section -->
-<section class="max-w-4xl mx-auto px-4 pt-12 text-center">
-  <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-gray-900 dark:text-white mb-2 leading-tight">
-    <span class="block bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700 animate-gradient-x">Benyamin</span>
-    <span class="block bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700 animate-gradient-x mt-2">Zadehmoradian</span>
-  </h1>
-  <p class="text-sm text-gray-600 dark:text-gray-400 italic">Digital Electronics | Hardware Acceleration | ML Co-Design</p>
-</section>
+<div class="main-container">
+  <!-- Name Section -->
+  <section class="text-center mb-12">
+    <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-gray-900 dark:text-white mb-2 leading-tight">
+      <span class="block bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700 animate-gradient-x">Benyamin</span>
+      <span class="block bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700 animate-gradient-x mt-2">Zadehmoradian</span>
+    </h1>
+    <p class="text-sm text-gray-600 dark:text-gray-400 italic">Digital Electronics | Hardware Acceleration | ML Co-Design</p>
+  </section>
 
-<!-- About Section -->
-<section id="about" class="scroll-mt-20 max-w-4xl mx-auto px-4 my-8">
-  <div class="section-card p-6 sm:p-8">
-    <h2 class="text-2xl font-extrabold mb-4 border-b-2 border-gray-300 dark:border-gray-500 pb-2
-               bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700
-               animate-gradient-x bg-clip-text text-transparent"
-        data-lang="en">
-      About Me
-    </h2>
-    <h2 class="text-2xl font-extrabold mb-4 border-b-2 border-gray-300 dark:border-gray-500 pb-2
-               bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700
-               animate-gradient-x bg-clip-text text-transparent hidden"
-        data-lang="nl">
-      Over Mij
-    </h2>
+  <div class="content-wrapper">
+    <!-- About Section -->
+    <section id="about" class="scroll-mt-20">
+      <div class="section-card p-6 sm:p-8">
+        <h2 class="text-2xl font-extrabold mb-4 border-b-2 border-gray-300 dark:border-gray-500 pb-2
+                  bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700
+                  animate-gradient-x bg-clip-text text-transparent"
+            data-lang="en">
+          About Me
+        </h2>
+        <h2 class="text-2xl font-extrabold mb-4 border-b-2 border-gray-300 dark:border-gray-500 pb-2
+                  bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700
+                  animate-gradient-x bg-clip-text text-transparent hidden"
+            data-lang="nl">
+          Over Mij
+        </h2>
 
-    <p class="text-base leading-relaxed text-gray-800 dark:text-gray-200 block" data-lang="en">
-      I am a passionate master's student in Digital Electronics at the University of Tehran with a strong academic foundation and hands-on research in efficient hardware implementation, ML co-design, and in-memory computing. Ranked first in my B.Sc. class, I thrive on solving complex engineering challenges and working in collaborative environments.
-    </p>
+        <div data-lang="en" class="block">
+          <p class="text-base leading-relaxed text-gray-800 dark:text-gray-200 mb-4">
+            I am a passionate master's student in Digital Electronics at the University of Tehran with a strong academic foundation and hands-on research in efficient hardware implementation, ML co-design, and in-memory computing. Ranked first in my B.Sc. class, I thrive on solving complex engineering challenges and working in collaborative environments.
+          </p>
+          
+          <h3 class="text-xl font-bold mt-6 mb-3 text-indigo-700 dark:text-indigo-400">Education</h3>
+          <div class="mb-4">
+            <p><strong>M.Sc. in Digital Electronics</strong> - University of Tehran</p>
+            <p class="text-sm text-gray-600 dark:text-gray-400">Sep 2021 - Present | GPA: 18.34/20</p>
+          </div>
+          <div>
+            <p><strong>B.Sc. in Electronics</strong> - Shahed University</p>
+            <p class="text-sm text-gray-600 dark:text-gray-400">Sep 2017 - Sep 2021 | GPA: 18.23/20</p>
+          </div>
+          
+          <h3 class="text-xl font-bold mt-6 mb-3 text-indigo-700 dark:text-indigo-400">Skills</h3>
+          <div class="grid grid-cols-2 gap-2 mb-4">
+            <div>
+              <p class="font-semibold">Hardware Design</p>
+              <p class="text-sm">Digital Design, PCB Design</p>
+            </div>
+            <div>
+              <p class="font-semibold">Languages</p>
+              <p class="text-sm">VHDL, Verilog, Python</p>
+            </div>
+            <div>
+              <p class="font-semibold">Tools</p>
+              <p class="text-sm">HSpice, ARM Cortex-M</p>
+            </div>
+            <div>
+              <p class="font-semibold">Software</p>
+              <p class="text-sm">Adobe Photoshop, MS Office</p>
+            </div>
+          </div>
+        </div>
 
-    <p class="text-base leading-relaxed text-gray-800 dark:text-gray-200 hidden" data-lang="nl">
-      Ik ben een gepassioneerde masterstudent digitale elektronica aan de Universiteit van Teheran, met een sterke academische basis en praktische ervaring in efficiënte hardware-implementatie, ML co-design en in-memory computing. Als eerste gerangschikt in mijn bacheloropleiding, gedij ik bij het oplossen van complexe technische uitdagingen en samenwerkingsprojecten.
-    </p>
+        <div data-lang="nl" class="hidden">
+          <p class="text-base leading-relaxed text-gray-800 dark:text-gray-200 mb-4">
+            Ik ben een gepassioneerde masterstudent digitale elektronica aan de Universiteit van Teheran, met een sterke academische basis en praktische ervaring in efficiënte hardware-implementatie, ML co-design en in-memory computing. Als eerste gerangschikt in mijn bacheloropleiding, gedij ik bij het oplossen van complexe technische uitdagingen en samenwerkingsprojecten.
+          </p>
+          
+          <h3 class="text-xl font-bold mt-6 mb-3 text-indigo-700 dark:text-indigo-400">Opleiding</h3>
+          <div class="mb-4">
+            <p><strong>M.Sc. in Digitale Elektronica</strong> - Universiteit van Teheran</p>
+            <p class="text-sm text-gray-600 dark:text-gray-400">sep 2021 - Heden | GPA: 18.34/20</p>
+          </div>
+          <div>
+            <p><strong>B.Sc. in Elektronica</strong> - Shahed Universiteit</p>
+            <p class="text-sm text-gray-600 dark:text-gray-400">sep 2017 - sep 2021 | GPA: 18.23/20</p>
+          </div>
+          
+          <h3 class="text-xl font-bold mt-6 mb-3 text-indigo-700 dark:text-indigo-400">Vaardigheden</h3>
+          <div class="grid grid-cols-2 gap-2 mb-4">
+            <div>
+              <p class="font-semibold">Hardware Ontwerp</p>
+              <p class="text-sm">Digitale systemen, PCB-ontwerp</p>
+            </div>
+            <div>
+              <p class="font-semibold">Talen</p>
+              <p class="text-sm">VHDL, Verilog, Python</p>
+            </div>
+            <div>
+              <p class="font-semibold">Tools</p>
+              <p class="text-sm">HSpice, ARM Cortex-M</p>
+            </div>
+            <div>
+              <p class="font-semibold">Software</p>
+              <p class="text-sm">Adobe Photoshop, MS Office</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Photo Section -->
+    <section class="flex justify-center items-center">
+      <div class="section-card p-6 sm:p-8 flex flex-col items-center">
+        <div class="bg-gray-200 border-2 border-dashed rounded-xl w-48 h-48 mb-6 overflow-hidden">
+          <div class="bg-gray-300 w-full h-full flex items-center justify-center">
+            <span class="text-gray-500">Profile Photo</span>
+          </div>
+        </div>
+        
+        <div class="w-full">
+          <h3 class="text-xl font-bold mb-4 text-center text-indigo-700 dark:text-indigo-400">
+            <span data-lang="en" class="block">Contact Information</span>
+            <span data-lang="nl" class="hidden">Contactgegevens</span>
+          </h3>
+          
+          <div class="space-y-3 text-sm text-gray-700 dark:text-gray-200">
+            <div class="flex items-center">
+              <svg class="w-5 h-5 mr-2 text-indigo-600 dark:text-indigo-400" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+              </svg>
+              <span>(+98) 912 123 4567</span>
+            </div>
+            
+            <div class="flex items-center">
+              <svg class="w-5 h-5 mr-2 text-indigo-600 dark:text-indigo-400" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+              </svg>
+              <a href="mailto:B.Zadehmoradian@gmail.com" class="text-blue-600 dark:text-blue-400 hover:underline">B.Zadehmoradian@gmail.com</a>
+            </div>
+            
+            <div class="flex items-center">
+              <svg class="w-5 h-5 mr-2 text-indigo-600 dark:text-indigo-400" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+              </svg>
+              <span>Tehran, Iran</span>
+            </div>
+          </div>
+          
+          <div class="mt-8">
+            <h3 class="text-xl font-bold mb-4 text-center text-indigo-700 dark:text-indigo-400">
+              <span data-lang="en" class="block">Connect with me</span>
+              <span data-lang="nl" class="hidden">Verbinden</span>
+            </h3>
+            
+            <div class="flex justify-center space-x-4">
+              <a href="#" class="p-2 bg-indigo-100 dark:bg-indigo-900 rounded-full hover:bg-indigo-200 dark:hover:bg-indigo-800 transition-colors">
+                <svg class="w-6 h-6 text-indigo-600 dark:text-indigo-400" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                </svg>
+              </a>
+              <a href="#" class="p-2 bg-indigo-100 dark:bg-indigo-900 rounded-full hover:bg-indigo-200 dark:hover:bg-indigo-800 transition-colors">
+                <svg class="w-6 h-6 text-indigo-600 dark:text-indigo-400" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                </svg>
+              </a>
+              <a href="#" class="p-2 bg-indigo-100 dark:bg-indigo-900 rounded-full hover:bg-indigo-200 dark:hover:bg-indigo-800 transition-colors">
+                <svg class="w-6 h-6 text-indigo-600 dark:text-indigo-400" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-2 16h-2v-6h2v6zm-1-6.891c-.607 0-1.1-.496-1.1-1.109 0-.612.492-1.109 1.1-1.109s1.1.497 1.1 1.109c0 .613-.493 1.109-1.1 1.109zm8 6.891h-1.998v-2.861c0-1.881-2.002-1.722-2.002 0v2.861h-2v-6h2v1.093c.872-1.616 4-1.736 4 1.548v3.359z"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
-</section>
-
-<!-- Education -->
-<section id="education" class="scroll-mt-20 max-w-4xl mx-auto px-4 my-8">
-  <div class="section-card p-6 sm:p-8">
-    <h2 class="text-2xl font-extrabold mb-4 border-b-2 border-gray-300 dark:border-gray-500 pb-2
-               bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700
-               animate-gradient-x bg-clip-text text-transparent"
-        data-lang="en">
-      Education
-    </h2>
-    <h2 class="text-2xl font-extrabold mb-4 border-b-2 border-gray-300 dark:border-gray-500 pb-2
-               bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700
-               animate-gradient-x bg-clip-text text-transparent hidden"
-        data-lang="nl">
-      Opleiding
-    </h2>
-
-    <div data-lang="en" class="block space-y-6">
-      <!-- Master's -->
-      <div class="space-y-1">
-        <p class="text-base"><strong class="text-indigo-700 dark:text-indigo-400">Master of Science in Digital Electronics</strong> 
-          <span class="text-gray-600 dark:text-gray-400">(Sep. 2021 - Sep. 2024)</span>
-        </p>
-        <p class="text-sm text-gray-700 dark:text-gray-300"><strong>University of Tehran</strong> <span class="text-gray-500">(Tehran, Iran)</span></p>
-        <p class="text-sm"><strong>Thesis:</strong> Improving the Performance of Genome Sequence Mappers</p>
-        <p class="text-sm"><strong>Supervisor:</strong> Dr. Ali Afzali-Kusha</p>
-        <p class="text-sm"><strong>GPA:</strong> 18.34 / 20</p>
-      </div>
-
-      <hr class="border-t border-gray-300 dark:border-gray-600 my-4">
-
-      <!-- Bachelor's -->
-      <div class="space-y-1">
-        <p class="text-base"><strong class="text-indigo-700 dark:text-indigo-400">Bachelor of Science in Electronics</strong> 
-          <span class="text-gray-600 dark:text-gray-400">(Sep. 2017 - Sep. 2021)</span>
-        </p>
-        <p class="text-sm text-gray-700 dark:text-gray-300"><strong>Shahed University</strong> <span class="text-gray-500">(Tehran, Iran)</span></p>
-        <p class="text-sm"><strong>Project:</strong> Wireless Power Transfer via Strongly Coupled Magnetic Resonances</p>
-        <p class="text-sm"><strong>Supervisor:</strong> Dr. Mohammad Bagher Ghaznavi Ghoushchi</p>
-        <p class="text-sm"><strong>GPA:</strong> 18.23 / 20</p>
-      </div>
-    </div>
-
-    <div data-lang="nl" class="hidden space-y-6">
-      <!-- Master's -->
-      <div class="space-y-1">
-        <p class="text-base"><strong class="text-indigo-700">Master in Digitale Elektronica</strong> 
-          <span class="text-gray-600 dark:text-gray-400">(sep. 2021 – sep. 2024)</span>
-        </p>
-        <p class="text-sm text-gray-700 dark:text-gray-300"><strong>Universiteit van Teheran</strong> <span class="text-gray-500">(Teheran, Iran)</span></p>
-        <p class="text-sm"><strong>Thesis:</strong> Verbetering van de prestaties van genoom-sequentiemappers</p>
-        <p class="text-sm"><strong>Begeleider:</strong> Dr. Ali Afzali-Kusha</p>
-        <p class="text-sm"><strong>GPA:</strong> 18.34 op 20</p>
-      </div>
-
-      <hr class="border-t border-gray-300 dark:border-gray-600 my-4">
-
-      <!-- Bachelor's -->
-      <div class="space-y-1">
-        <p class="text-base"><strong class="text-indigo-700">Bachelor in Elektronica</strong> 
-          <span class="text-gray-600 dark:text-gray-400">(sep. 2017 – sep. 2021)</span>
-        </p>
-        <p class="text-sm text-gray-700 dark:text-gray-300"><strong>Shahed Universiteit</strong> <span class="text-gray-500">(Teheran, Iran)</span></p>
-        <p class="text-sm"><strong>Project:</strong> Draadloze energieoverdracht via sterk gekoppelde magnetische resonanties</p>
-        <p class="text-sm"><strong>Begeleider:</strong> Dr. Mohammad Bagher Ghaznavi Ghoushchi</p>
-        <p class="text-sm"><strong>GPA:</strong> 18.23 op 20</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Teaching Experience -->
-<section id="experience" class="scroll-mt-20 max-w-4xl mx-auto px-4 my-8">
-  <div class="section-card p-6 sm:p-8">
-    <h2 class="text-2xl font-extrabold mb-4 border-b-2 border-gray-300 dark:border-gray-500 pb-2
-               bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700
-               animate-gradient-x bg-clip-text text-transparent"
-        data-lang="en">
-      Teaching Experience
-    </h2>
-    <h2 class="text-2xl font-extrabold mb-4 border-b-2 border-gray-300 dark:border-gray-500 pb-2
-               bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700
-               animate-gradient-x bg-clip-text text-transparent hidden"
-        data-lang="nl">
-      Onderwijservaring
-    </h2>
-
-    <div class="space-y-3 text-sm text-gray-700 dark:text-gray-200 block" data-lang="en">
-      <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-1">
-        <span><strong class="text-indigo-700 dark:text-indigo-400">Computer Aided Digital System</strong> — University of Tehran</span>
-        <span class="text-gray-500 dark:text-gray-400">(Sep. 2024 - Jan. 2025)</span>
-      </div>
-      <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-1">
-        <span><strong class="text-indigo-700 dark:text-indigo-400">Electric Circuits II</strong> — University of Tehran</span>
-        <span class="text-gray-500 dark:text-gray-400">(Jan. 2023 - Jul. 2023)</span>
-      </div>
-      <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-1">
-        <span><strong class="text-indigo-700 dark:text-indigo-400">Electronic I</strong> — University of Tehran</span>
-        <span class="text-gray-500 dark:text-gray-400">(Jan. 2023 - Jul. 2023)</span>
-      </div>
-      <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-1">
-        <span><strong class="text-indigo-700 dark:text-indigo-400">Computer Arithmetic</strong> — University of Tehran</span>
-        <span class="text-gray-500 dark:text-gray-400">(Jan. 2023 - Jul. 2023)</span>
-      </div>
-      <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-1">
-        <span><strong class="text-indigo-700 dark:text-indigo-400">Electronic II</strong> — University of Tehran</span>
-        <span class="text-gray-500 dark:text-gray-400">(Jan. 2023 - Jul. 2023)</span>
-      </div>
-      <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-1">
-        <span><strong class="text-indigo-700 dark:text-indigo-400">Computer Architecture</strong> — University of Tehran</span>
-        <span class="text-gray-500 dark:text-gray-400">(Jan. 2023 - Jul. 2023)</span>
-      </div>
-      <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-1">
-        <span><strong class="text-indigo-700 dark:text-indigo-400">Electronic Circuits I</strong> — University of Tehran</span>
-        <span class="text-gray-500 dark:text-gray-400">(Jan. 2023 - Jul. 2023)</span>
-      </div>
-      <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-1">
-        <span><strong class="text-indigo-700 dark:text-indigo-400">Intro to Electrical Engineering</strong> — Shahed University</span>
-        <span class="text-gray-500 dark:text-gray-400">(Jan. 2023 - Jul. 2023)</span>
-      </div>
-    </div>
-
-    <div class="space-y-3 text-sm text-gray-700 dark:text-gray-200 hidden" data-lang="nl">
-      <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-1">
-        <span><strong class="text-indigo-700 dark:text-indigo-400">Computerondersteunde Digitale Systemen</strong> — Universiteit van Teheran</span>
-        <span class="text-gray-500 dark:text-gray-400">(sep. 2024 - jan. 2025)</span>
-      </div>
-      <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-1">
-        <span><strong class="text-indigo-700 dark:text-indigo-400">Elektrische Kringen II</strong> — Universiteit van Teheran</span>
-        <span class="text-gray-500 dark:text-gray-400">(jan. 2023 - jul. 2023)</span>
-      </div>
-      <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-1">
-        <span><strong class="text-indigo-700 dark:text-indigo-400">Elektronica I</strong> — Universiteit van Teheran</span>
-        <span class="text-gray-500 dark:text-gray-400">(jan. 2023 - jul. 2023)</span>
-      </div>
-      <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-1">
-        <span><strong class="text-indigo-700 dark:text-indigo-400">Rekenkunde</strong> — Universiteit van Teheran</span>
-        <span class="text-gray-500 dark:text-gray-400">(jan. 2023 - jul. 2023)</span>
-      </div>
-      <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-1">
-        <span><strong class="text-indigo-700 dark:text-indigo-400">Elektronica II</strong> — Universiteit van Teheran</span>
-        <span class="text-gray-500 dark:text-gray-400">(jan. 2023 - jul. 2023)</span>
-      </div>
-      <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-1">
-        <span><strong class="text-indigo-700 dark:text-indigo-400">Computerarchitectuur</strong> — Universiteit van Teheran</span>
-        <span class="text-gray-500 dark:text-gray-400">(jan. 2023 - jul. 2023)</span>
-      </div>
-      <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-1">
-        <span><strong class="text-indigo-700 dark:text-indigo-400">Elektronische Kringen I</strong> — Universiteit van Teheran</span>
-        <span class="text-gray-500 dark:text-gray-400">(jan. 2023 - jul. 2023)</span>
-      </div>
-      <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-1">
-        <span><strong class="text-indigo-700 dark:text-indigo-400">Inleiding Elektrotechniek</strong> — Shahed Universiteit</span>
-        <span class="text-gray-500 dark:text-gray-400">(jan. 2023 - jul. 2023)</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Social Media + Resume Download -->
-<section id="social" class="scroll-mt-20 max-w-4xl mx-auto px-4 my-8 pb-2">
-  <div class="section-card p-6 sm:p-8 text-center">
-    <h2 class="text-2xl font-extrabold mb-4 border-b-2 border-gray-300 dark:border-gray-500 pb-2
-               bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700
-               animate-gradient-x bg-clip-text text-transparent"
-        data-lang="en">
-      Find Me Online
-    </h2>
-    <h2 class="text-2xl font-extrabold mb-4 border-b-2 border-gray-300 dark:border-gray-500 pb-2
-               bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700
-               animate-gradient-x bg-clip-text text-transparent hidden"
-        data-lang="nl">
-      Vind Mij Online
-    </h2>
-
-    <div class="flex justify-center flex-wrap gap-6 text-lg mt-6 text-indigo-700 dark:text-indigo-400">
-      <a href="https://www.linkedin.com/in/benyamin-zadehmoradian" target="_blank" class="hover:text-pink-700 dark:hover:text-pink-400 transition-colors duration-200">
-        LinkedIn
-      </a>
-      <a href="https://github.com/BenyaminZadehmoradian" target="_blank" class="hover:text-pink-700 dark:hover:text-pink-400 transition-colors duration-200">
-        GitHub
-      </a>
-      <a href="https://scholar.google.com/citations?user=YOUR_ID_HERE" target="_blank" class="hover:text-pink-700 dark:hover:text-pink-400 transition-colors duration-200">
-        Google Scholar
-      </a>
-    </div>
-
-    <div class="mt-8 flex flex-col sm:flex-row justify-center gap-4">
-      <a href="#" class="bg-indigo-700 hover:bg-indigo-800 text-white font-semibold px-6 py-2 rounded-full transition-colors duration-300">
-        Download CV (EN)
-      </a>
-      <a href="#" class="bg-indigo-700 hover:bg-indigo-800 text-white font-semibold px-6 py-2 rounded-full transition-colors duration-300">
-        Download CV (NL)
-      </a>
-    </div>
-  </div>
-</section>
+</div>
 
 <script>
   // تابع تغییر زبان
@@ -452,7 +408,7 @@
     
     // بستن منو هنگام کلیک در خارج از آن
     function closeDropdown(e) {
-      if (!contactBtn.contains(e.target) {
+      if (!contactBtn.contains(e.target)) {
         isOpen = false;
         dropdown.classList.remove('active');
         contactIcon.classList.remove('active');
@@ -510,4 +466,4 @@
   });
 </script>
 </body>
-  </html>
+</html>

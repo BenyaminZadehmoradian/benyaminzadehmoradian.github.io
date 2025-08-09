@@ -1,195 +1,647 @@
-<!DOCTYPE html>  <html lang="en" class="scroll-smooth">  
-<head>  
-  <meta charset="UTF-8" />  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />  
-  <title>Benyamin Zadehmoradian – Resume</title>  
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />  
-  <script src="https://cdn.tailwindcss.com"></script>  
-  <script>  
-    tailwind.config = { darkMode: 'class' };  
-  </script>  
-  <style>  
-  body {  
-  margin: 0;  
-  padding: 0;  
-  font-family: 'Inter', sans-serif;  
-  min-height: 100%;  
-  transition: background 0.5s ease, color 0.3s ease;  
-}  html {
-margin: 0;
-padding: 0;
-min-height: 100%;
-overflow-x: hidden;
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Benyamin Zadehmoradian – Resume</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class' };
+  </script>
+  <style>
+  body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  min-height: 100%;
+
+}
+
+html {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  overflow-x: hidden;
 }
 
 body {
-background: linear-gradient(-45deg, #fdf1d6, #ffe0e0, #ebe7ff, #d8f5e3);
-background-size: 300% 300%;
-animation: gradientBG 20s ease-in-out infinite;
-color: #111827;
+  background: linear-gradient(-45deg, #fdf1d6, #ffe0e0, #ebe7ff, #d8f5e3);
+  background-size: 300% 300%;
+  animation: gradientBG 20s ease-in-out infinite;
+  color: inherit;
 }
 
 html.dark body {
-background: linear-gradient(-45deg,
-#1e3c72, #2a5298, #1c1c2b, #090e11
-);
-background-size: 400% 400%;
-animation: gradientBG 25s ease-in-out infinite;
-color: #f3f4f6;
+  background: linear-gradient(-45deg,
+    #1e3c72, #2a5298, #1c1c2b, #090e11
+  );
+  background-size: 400% 400%;
+  animation: gradientBG 25s ease-in-out infinite;
 }
 
 @keyframes gradientBG {
-0%, 100% { background-position: 0% 50%; }
-50% { background-position: 100% 50%; }
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
 }
 
 @keyframes gradient-x {
-0% { background-position: 0% center; }
-50% { background-position: 100% center; }
-100% { background-position: 0% center; }
+  0% { background-position: 0% center; }
+  50% { background-position: 100% center; }
+  100% { background-position: 0% center; }
 }
 
 .header-hidden {
-transform: translateY(-100%);
-transition: transform 0.3s ease-in-out;
+  transform: translateY(-100%);
+  transition: transform 0.3s ease-in-out;
 }
 
 .animate-gradient-x {
-background-size: 200% auto;
-background-clip: text;
--webkit-background-clip: text;
-color: transparent;
-animation: gradient-x 8s ease infinite;
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: gradient-x 8s ease infinite;
 }
 
-.lang-btn.active {
-background-color: #e0e7ff !important;
-border-color: #818cf8 !important;
-font-weight: 600;
-}
+  </style>
+</head>
+<body class="text-gray-900 dark:text-gray-100 transition-colors duration-300">
 
-.dark .lang-btn.active {
-background-color: #3730a3 !important;
-border-color: #6366f1 !important;
-}
+<!-- Header -->
+<header class="sticky top-0 z-50 bg-white/70 dark:bg-gray-900/80 backdrop-blur-lg shadow-md transition-transform duration-300">
+<div class="max-w-6xl mx-auto px-3 sm:px-4 py-4 flex justify-between items-center">
+    <!-- Language Switch + Theme Toggle -->
+    <div class="flex items-center space-x-2 text-sm">
+      <button id="btn-en" onclick="switchLang('en')" aria-label="Switch to English"
+              class="lang-btn bg-white px-3 py-1 rounded border-2 border-gray-300 dark:bg-gray-800 dark:border-gray-600 dark:text-white">
+        EN
+      </button>
+      <button id="btn-nl" onclick="switchLang('nl')" aria-label="Switch to Dutch"
+              class="lang-btn bg-white px-3 py-1 rounded border-2 border-gray-300 dark:bg-gray-800 dark:border-gray-600 dark:text-white">
+        NL
+      </button>
+      <button id="theme-toggle"
+              onclick="toggleTheme()"
+              class="ml-2 px-3 py-1 rounded border-2 bg-gray-800 text-white hover:bg-gray-700 dark:bg-white dark:text-gray-800 dark:hover:bg-gray-200 border-gray-300 dark:border-gray-600 transition">
+        <span id="theme-label">Light</span>
+      </button>
+    </div>
 
-.theme-btn {
-transition: all 0.3s ease;
-}
+    <!-- Navigation -->
+    <nav class="hidden md:flex space-x-7 text-base font-medium justify-center">
+      <a href="#about" class="hover:text-indigo-600 dark:hover:text-pink-400">About</a>
+      <a href="#experience" class="hover:text-indigo-600 dark:hover:text-pink-400">Experience</a>
+      <a href="#skills" class="hover:text-indigo-600 dark:hover:text-pink-400">Skills</a>
+    </nav>
 
-  </style>  
-</head>  
-<body class="text-gray-900 dark:text-gray-100 transition-colors duration-300">  <!-- Header -->  <header class="sticky top-0 z-50 bg-white/70 dark:bg-gray-900/80 backdrop-blur-lg shadow-md transition-transform duration-300">  
-<div class="max-w-6xl mx-auto px-3 sm:px-4 py-4 flex justify-between items-center">  
-    <!-- Language Switch + Theme Toggle -->  
-    <div class="flex items-center space-x-2 text-sm">  
-      <button id="btn-en" aria-label="Switch to English"  
-              class="lang-btn bg-white px-3 py-1 rounded border-2 border-gray-300 dark:bg-gray-800 dark:border-gray-600 dark:text-white">  
-        EN  
-      </button>  
-      <button id="btn-nl" aria-label="Switch to Dutch"  
-              class="lang-btn bg-white px-3 py-1 rounded border-2 border-gray-300 dark:bg-gray-800 dark:border-gray-600 dark:text-white">  
-        NL  
-      </button>  
-      <button id="theme-toggle"  
-              class="ml-2 px-3 py-1 rounded border-2 bg-gray-800 text-white hover:bg-gray-700 dark:bg-white dark:text-gray-800 dark:hover:bg-gray-200 border-gray-300 dark:border-gray-600 transition theme-btn">  
-        <span id="theme-label">Light</span>  
-      </button>  
-    </div>  <!-- Navigation -->  
-<nav class="hidden md:flex space-x-7 text-base font-medium justify-center">  
-  <a href="#about" class="hover:text-indigo-600 dark:hover:text-pink-400 transition-colors">About</a>  
-  <a href="#experience" class="hover:text-indigo-600 dark:hover:text-pink-400 transition-colors">Experience</a>  
-  <a href="#skills" class="hover:text-indigo-600 dark:hover:text-pink-400 transition-colors">Skills</a>  
-</nav>  
+    <!-- Contact Dropdown -->
+    <div class="relative group">
+      <button class="hover:text-indigo-600 dark:hover:text-pink-400 flex items-center space-x-1">
+        <span>Contact</span>
+        <svg class="w-4 h-4 transition-transform duration-200 group-hover:rotate-180" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.08 1.04l-4.25 4.25a.75.75 0 01-1.08 0L5.21 8.27a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+        </svg>
+      </button>
+      <div class="absolute right-0 mt-3 invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-all duration-200 z-50">
+        <div class="bg-white dark:bg-gray-800 shadow-xl rounded-xl py-4 px-6 w-64 space-y-2 border border-gray-200 dark:border-gray-600 text-sm">
+          <p><strong>Phone:</strong> (+98) ...</p>
+          <p><strong>Email:</strong> <a href="mailto:B.Zadehmoradian@gmail.com" class="text-blue-600 dark:text-blue-400">B.Zadehmoradian@gmail.com</a></p>
+          <p><strong>Location:</strong> Tehran, Iran</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
 
-<!-- Contact Dropdown -->  
-<div class="relative group">  
-  <button class="hover:text-indigo-600 dark:hover:text-pink-400 flex items-center space-x-1 transition-colors">  
-    <span>Contact</span>  
-    <svg class="w-4 h-4 transition-transform duration-200 group-hover:rotate-180" fill="currentColor" viewBox="0 0 20 20">  
-      <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.08 1.04l-4.25 4.25a.75.75 0 01-1.08 0L5.21 8.27a.75.75 0 01.02-1.06z" clip-rule="evenodd" />  
-    </svg>  
-  </button>  
-  <div class="absolute right-0 mt-3 invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-all duration-200 z-50">  
-    <div class="bg-white dark:bg-gray-800 shadow-xl rounded-xl py-4 px-6 w-64 space-y-2 border border-gray-200 dark:border-gray-600 text-sm">  
-      <p><strong>Phone:</strong> (+98) ...</p>  
-      <p><strong>Email:</strong> <a href="mailto:B.Zadehmoradian@gmail.com" class="text-blue-600 dark:text-blue-400 hover:underline">B.Zadehmoradian@gmail.com</a></p>  
-      <p><strong>Location:</strong> Tehran, Iran</p>  
-    </div>  
-  </div>  
-</div>
+<!-- Name Section -->
+<section class="max-w-4xl mx-auto px-4 pt-12 text-center">
+  <h1 class="text-5xl font-extrabold tracking-tight text-gray-900 dark:text-white mb-2 leading-tight">
+    <span class="block bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700 animate-gradient-x">Benyamin</span>
+    <span class="block bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700 animate-gradient-x">Zadehmoradian</span>
+  </h1>
+  <p class="text-sm text-gray-600 dark:text-gray-400 italic">Digital Electronics | Hardware Acceleration | ML Co-Design</p>
+</section>
 
-  </div>  
-</header>  <!-- بقیه محتوای شما بدون تغییر -->  <script>  
-  // تابع تغییر زبان  
-  function switchLang(lang) {  
-    // پنهان/نمایش محتوا بر اساس زبان  
-    document.querySelectorAll('[data-lang]').forEach(el => {  
-      el.classList.toggle('hidden', el.getAttribute('data-lang') !== lang);  
-    });  
-      
-    // برجسته کردن دکمه زبان فعال  
-    document.querySelectorAll('.lang-btn').forEach(btn => {  
-      btn.classList.remove('active');  
-    });  
-    document.getElementById(`btn-${lang}`).classList.add('active');  
-      
-    // ذخیره زبان انتخابی  
-    localStorage.setItem('selectedLang', lang);  
-  }  
-  
-  // تابع تغییر تم  
-  function toggleTheme() {  
-    const html = document.documentElement;  
-    const isDark = html.classList.toggle('dark');  
-      
-    // بروزرسانی برچسب دکمه  
-    document.getElementById('theme-label').textContent = isDark ? 'Dark' : 'Light';  
-      
-    // ذخیره حالت تم  
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');  
-  }  
-  
-  // مقداردهی اولیه هنگام لود صفحه  
-  document.addEventListener('DOMContentLoaded', () => {  
-    // مقداردهی زبان  
-    const savedLang = localStorage.getItem('selectedLang') || 'en';  
-    switchLang(savedLang);  
-      
-    // رویدادهای تغییر زبان  
-    document.getElementById('btn-en').addEventListener('click', () => switchLang('en'));  
-    document.getElementById('btn-nl').addEventListener('click', () => switchLang('nl'));  
-      
-    // مقداردهی تم  
-    const savedTheme = localStorage.getItem('theme');  
-    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;  
-      
-    if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {  
-      document.documentElement.classList.add('dark');  
-      document.getElementById('theme-label').textContent = 'Dark';  
-    } else {  
-      document.documentElement.classList.remove('dark');  
-      document.getElementById('theme-label').textContent = 'Light';  
-    }  
-      
-    // رویداد تغییر تم  
-    document.getElementById('theme-toggle').addEventListener('click', toggleTheme);  
-      
-    // انیمیشن هدر هنگام اسکرول  
-    let lastScrollTop = 0;  
-    const header = document.querySelector('header');  
-  
-    window.addEventListener('scroll', () => {  
-      const currentScroll = window.scrollY;  
-  
-      if (currentScroll > lastScrollTop && currentScroll > 80) {  
-        header.classList.add('header-hidden');  
-      } else {  
-        header.classList.remove('header-hidden');  
-      }  
-  
-      lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;  
-    });  
-  });  
-</script>  </body>  
+<!-- About Section -->
+<section id="about" class="scroll-mt-20 max-w-4xl mx-auto px-4 my-12">
+  <div class="bg-white dark:bg-gray-900 rounded-3xl shadow-2xl border border-gray-300 dark:border-gray-600 p-10 transition-all duration-300">
+    <h2 class="text-2xl font-extrabold mb-6 border-b-2 border-gray-300 dark:border-gray-500 pb-2
+               bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700
+               animate-gradient-x bg-clip-text text-transparent"
+        data-lang="en">
+      About Me
+    </h2>
+    <h2 class="text-2xl font-extrabold mb-6 border-b-2 border-gray-300 dark:border-gray-500 pb-2
+               bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700
+               animate-gradient-x bg-clip-text text-transparent hidden"
+        data-lang="nl">
+      Over Mij
+    </h2>
+
+    <p class="text-base leading-relaxed text-gray-800 dark:text-gray-200 block" data-lang="en">
+      I am a passionate master's student in Digital Electronics at the University of Tehran with a strong academic foundation and hands-on research in efficient hardware implementation, ML co-design, and in-memory computing. Ranked first in my B.Sc. class, I thrive on solving complex engineering challenges and working in collaborative environments.
+    </p>
+
+    <p class="text-base leading-relaxed text-gray-800 dark:text-gray-200 hidden" data-lang="nl">
+      Ik ben een gepassioneerde masterstudent digitale elektronica aan de Universiteit van Teheran, met een sterke academische basis en praktische ervaring in efficiënte hardware-implementatie, ML co-design en in-memory computing. Als eerste gerangschikt in mijn bacheloropleiding, gedij ik bij het oplossen van complexe technische uitdagingen en samenwerkingsprojecten.
+    </p>
+  </div>
+</section>
+
+
+<!-- Education -->
+<section id="education" class="scroll-mt-20 max-w-4xl mx-auto px-4 my-12">
+  <div class="bg-white dark:bg-gray-900 rounded-3xl shadow-2xl border border-gray-300 dark:border-gray-600 p-10 transition-all duration-300">
+
+    <!-- English Title -->
+    <h2 class="text-2xl font-extrabold mb-6 border-b-2 border-gray-300 dark:border-gray-500 pb-2
+               bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700
+               animate-gradient-x bg-clip-text text-transparent"
+        data-lang="en">
+      Education
+    </h2>
+
+    <!-- Dutch Title -->
+    <h2 class="text-2xl font-extrabold mb-6 border-b-2 border-gray-300 dark:border-gray-500 pb-2
+               bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700
+               animate-gradient-x bg-clip-text text-transparent hidden"
+        data-lang="nl">
+      Opleiding
+    </h2>
+
+    <!-- English Version -->
+    <div data-lang="en" class="block space-y-6">
+      <!-- Master's -->
+      <div class="space-y-1">
+        <p class="text-base"><strong class="text-indigo-700 dark:text-indigo-400">Master of Science in Digital Electronics</strong> 
+          <span class="text-gray-600 dark:text-gray-400">(Sep. 2021 - Sep. 2024)</span>
+        </p>
+        <p class="text-sm text-gray-700 dark:text-gray-300"><strong>University of Tehran</strong> <span class="text-gray-500">(Tehran, Iran)</span></p>
+        <p class="text-sm"><strong>Thesis:</strong> Improving the Performance of Genome Sequence Mappers</p>
+        <p class="text-sm"><strong>Supervisor:</strong> Dr. Ali Afzali-Kusha</p>
+        <p class="text-sm"><strong>GPA:</strong> 18.34 / 20</p>
+      </div>
+
+      <hr class="border-t-2 border-gray-300 dark:border-gray-600 my-4">
+
+      <!-- Bachelor's -->
+      <div class="space-y-1">
+        <p class="text-base"><strong class="text-indigo-700 dark:text-indigo-400">Bachelor of Science in Electronics</strong> 
+          <span class="text-gray-600 dark:text-gray-400">(Sep. 2017 - Sep. 2021)</span>
+        </p>
+        <p class="text-sm text-gray-700 dark:text-gray-300"><strong>Shahed University</strong> <span class="text-gray-500">(Tehran, Iran)</span></p>
+        <p class="text-sm"><strong>Project:</strong> Wireless Power Transfer via Strongly Coupled Magnetic Resonances</p>
+        <p class="text-sm"><strong>Supervisor:</strong> Dr. Mohammad Bagher Ghaznavi Ghoushchi</p>
+        <p class="text-sm"><strong>GPA:</strong> 18.23 / 20</p>
+      </div>
+    </div>
+
+    <!-- Dutch Version -->
+    <div data-lang="nl" class="hidden space-y-6">
+      <!-- Master's -->
+      <div class="space-y-1">
+        <p class="text-base"><strong class="text-indigo-700">Master in Digitale Elektronica</strong> 
+          <span class="text-gray-600 dark:text-gray-400">(sep. 2021 – sep. 2024)</span>
+        </p>
+        <p class="text-sm text-gray-700 dark:text-gray-300"><strong>Universiteit van Teheran</strong> <span class="text-gray-500">(Teheran, Iran)</span></p>
+        <p class="text-sm"><strong>Thesis:</strong> Verbetering van de prestaties van genoom-sequentiemappers</p>
+        <p class="text-sm"><strong>Begeleider:</strong> Dr. Ali Afzali-Kusha</p>
+        <p class="text-sm"><strong>GPA:</strong> 18.34 op 20</p>
+      </div>
+
+      <hr class="border-t-2 border-gray-300 dark:border-gray-600 my-4">
+
+      <!-- Bachelor's -->
+      <div class="space-y-1">
+        <p class="text-base"><strong class="text-indigo-700">Bachelor in Elektronica</strong> 
+          <span class="text-gray-600 dark:text-gray-400">(sep. 2017 – sep. 2021)</span>
+        </p>
+        <p class="text-sm text-gray-700 dark:text-gray-300"><strong>Shahed Universiteit</strong> <span class="text-gray-500">(Teheran, Iran)</span></p>
+        <p class="text-sm"><strong>Project:</strong> Draadloze energieoverdracht via sterk gekoppelde magnetische resonanties</p>
+        <p class="text-sm"><strong>Begeleider:</strong> Dr. Mohammad Bagher Ghaznavi Ghoushchi</p>
+        <p class="text-sm"><strong>GPA:</strong> 18.23 op 20</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- Teaching Experience -->
+<section id="experience" class="scroll-mt-20 max-w-4xl mx-auto px-4 my-12">
+  <div class="bg-white dark:bg-gray-900 rounded-3xl shadow-2xl border border-gray-300 dark:border-gray-600 p-10 transition-all duration-300">
+
+    <!-- English Title -->
+    <h2 class="text-2xl font-extrabold mb-6 border-b-2 border-gray-300 dark:border-gray-500 pb-2
+               bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700
+               animate-gradient-x bg-clip-text text-transparent"
+        data-lang="en">
+      Teaching Experience
+    </h2>
+
+    <!-- Dutch Title -->
+    <h2 class="text-2xl font-extrabold mb-6 border-b-2 border-gray-300 dark:border-gray-500 pb-2
+               bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700
+               animate-gradient-x bg-clip-text text-transparent hidden"
+        data-lang="nl">
+      Onderwijservaring
+    </h2>
+
+    <!-- English -->
+    <div class="space-y-3 text-sm text-gray-700 dark:text-gray-200 block" data-lang="en">
+      <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-1">
+        <span><strong class="text-indigo-700 dark:text-indigo-400">Computer Aided Digital System</strong> — University of Tehran</span>
+        <span class="text-gray-500 dark:text-gray-400">(Sep. 2024 - Jan. 2025)</span>
+      </div>
+      <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-1">
+        <span><strong class="text-indigo-700 dark:text-indigo-400">Electric Circuits II</strong> — University of Tehran</span>
+        <span class="text-gray-500 dark:text-gray-400">(Jan. 2023 - Jul. 2023)</span>
+      </div>
+      <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-1">
+        <span><strong class="text-indigo-700 dark:text-indigo-400">Electronic I</strong> — University of Tehran</span>
+        <span class="text-gray-500 dark:text-gray-400">(Jan. 2023 - Jul. 2023)</span>
+      </div>
+      <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-1">
+        <span><strong class="text-indigo-700 dark:text-indigo-400">Computer Arithmetic</strong> — University of Tehran</span>
+        <span class="text-gray-500 dark:text-gray-400">(Jan. 2023 - Jul. 2023)</span>
+      </div>
+      <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-1">
+        <span><strong class="text-indigo-700 dark:text-indigo-400">Electronic II</strong> — University of Tehran</span>
+        <span class="text-gray-500 dark:text-gray-400">(Jan. 2023 - Jul. 2023)</span>
+      </div>
+      <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-1">
+        <span><strong class="text-indigo-700 dark:text-indigo-400">Computer Architecture</strong> — University of Tehran</span>
+        <span class="text-gray-500 dark:text-gray-400">(Jan. 2023 - Jul. 2023)</span>
+      </div>
+      <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-1">
+        <span><strong class="text-indigo-700 dark:text-indigo-400">Electronic Circuits I</strong> — University of Tehran</span>
+        <span class="text-gray-500 dark:text-gray-400">(Jan. 2023 - Jul. 2023)</span>
+      </div>
+      <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-1">
+        <span><strong class="text-indigo-700 dark:text-indigo-400">Intro to Electrical Engineering</strong> — Shahed University</span>
+        <span class="text-gray-500 dark:text-gray-400">(Jan. 2023 - Jul. 2023)</span>
+      </div>
+    </div>
+
+    <!-- Dutch -->
+    <div class="space-y-3 text-sm text-gray-700 dark:text-gray-200 hidden" data-lang="nl">
+      <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-1">
+        <span><strong class="text-indigo-700 dark:text-indigo-400">Computerondersteunde Digitale Systemen</strong> — Universiteit van Teheran</span>
+        <span class="text-gray-500 dark:text-gray-400">(sep. 2024 - jan. 2025)</span>
+      </div>
+      <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-1">
+        <span><strong class="text-indigo-700 dark:text-indigo-400">Elektrische Kringen II</strong> — Universiteit van Teheran</span>
+        <span class="text-gray-500 dark:text-gray-400">(jan. 2023 - jul. 2023)</span>
+      </div>
+      <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-1">
+        <span><strong class="text-indigo-700 dark:text-indigo-400">Elektronica I</strong> — Universiteit van Teheran</span>
+        <span class="text-gray-500 dark:text-gray-400">(jan. 2023 - jul. 2023)</span>
+      </div>
+      <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-1">
+        <span><strong class="text-indigo-700 dark:text-indigo-400">Rekenkunde</strong> — Universiteit van Teheran</span>
+        <span class="text-gray-500 dark:text-gray-400">(jan. 2023 - jul. 2023)</span>
+      </div>
+      <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-1">
+        <span><strong class="text-indigo-700 dark:text-indigo-400">Elektronica II</strong> — Universiteit van Teheran</span>
+        <span class="text-gray-500 dark:text-gray-400">(jan. 2023 - jul. 2023)</span>
+      </div>
+      <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-1">
+        <span><strong class="text-indigo-700 dark:text-indigo-400">Computerarchitectuur</strong> — Universiteit van Teheran</span>
+        <span class="text-gray-500 dark:text-gray-400">(jan. 2023 - jul. 2023)</span>
+      </div>
+      <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-1">
+        <span><strong class="text-indigo-700 dark:text-indigo-400">Elektronische Kringen I</strong> — Universiteit van Teheran</span>
+        <span class="text-gray-500 dark:text-gray-400">(jan. 2023 - jul. 2023)</span>
+      </div>
+      <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-1">
+        <span><strong class="text-indigo-700 dark:text-indigo-400">Inleiding Elektrotechniek</strong> — Shahed Universiteit</span>
+        <span class="text-gray-500 dark:text-gray-400">(jan. 2023 - jul. 2023)</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- Skills -->
+<section id="skills" class="scroll-mt-20 max-w-4xl mx-auto px-4 my-8">
+  <div class="bg-white dark:bg-gray-900 rounded-3xl shadow-2xl border border-gray-300 dark:border-gray-600 p-10 transition-all duration-300">
+    
+    <!-- English Title -->
+    <h2 class="text-2xl font-extrabold mb-6 border-b-2 border-gray-300 dark:border-gray-500 pb-2
+               bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700
+               animate-gradient-x bg-clip-text text-transparent"
+        data-lang="en">
+      Core Skills
+    </h2>
+
+    <!-- Dutch Title -->
+    <h2 class="text-2xl font-extrabold mb-6 border-b-2 border-gray-300 dark:border-gray-500 pb-2
+               bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700
+               animate-gradient-x bg-clip-text text-transparent hidden"
+        data-lang="nl">
+      Kernvaardigheden
+    </h2>
+
+    <!-- English -->
+    <div class="grid sm:grid-cols-2 gap-x-8 gap-y-4 text-[15px] text-gray-800 dark:text-gray-200 block" data-lang="en">
+      <div>
+        <p class="font-semibold text-indigo-700 dark:text-indigo-400 mb-1">Hardware Design</p>
+        <p>Digital Design, Microprogramming, PCB Design, Hardware Acceleration</p>
+      </div>
+      <div>
+        <p class="font-semibold text-indigo-700 dark:text-indigo-400 mb-1">Languages</p>
+        <p>VHDL, Verilog, Python, C/C++</p>
+      </div>
+      <div>
+        <p class="font-semibold text-indigo-700 dark:text-indigo-400 mb-1">Tools</p>
+        <p>HSpice, ARM Cortex-M, Proteus, AltiumDesigner</p>
+      </div>
+      <div>
+        <p class="font-semibold text-indigo-700 dark:text-indigo-400 mb-1">Software</p>
+        <p>Adobe Photoshop, MS Word/Excel/PowerPoint</p>
+      </div>
+    </div>
+
+    <!-- Dutch -->
+    <div class="grid sm:grid-cols-2 gap-x-8 gap-y-4 text-[15px] text-gray-800 dark:text-gray-200 hidden" data-lang="nl">
+      <div>
+        <p class="font-semibold text-indigo-700 dark:text-indigo-400 mb-1">Hardware Ontwerp</p>
+        <p>Digitale systemen, microprogrammering, PCB-ontwerp, hardwareversnelling</p>
+      </div>
+      <div>
+        <p class="font-semibold text-indigo-700 dark:text-indigo-400 mb-1">Talen</p>
+        <p>VHDL, Verilog, Python, C/C++</p>
+      </div>
+      <div>
+        <p class="font-semibold text-indigo-700 dark:text-indigo-400 mb-1">Tools</p>
+        <p>HSpice, ARM Cortex-M, Proteus, AltiumDesigner</p>
+      </div>
+      <div>
+        <p class="font-semibold text-indigo-700 dark:text-indigo-400 mb-1">Software</p>
+        <p>Adobe Photoshop, MS Word/Excel/PowerPoint</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Certifications -->
+<section id="certifications" class="scroll-mt-20 max-w-4xl mx-auto px-4 my-12">
+  <div class="bg-white dark:bg-gray-900 rounded-3xl shadow-2xl border border-gray-300 dark:border-gray-600 p-10 transition-all duration-300">
+    
+    <!-- English Title -->
+    <h2 class="text-2xl font-extrabold mb-6 border-b-2 border-gray-300 dark:border-gray-500 pb-2
+               bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700
+               animate-gradient-x bg-clip-text text-transparent"
+        data-lang="en">
+      Certifications
+    </h2>
+
+    <!-- Dutch Title -->
+    <h2 class="text-2xl font-extrabold mb-6 border-b-2 border-gray-300 dark:border-gray-500 pb-2
+               bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700
+               animate-gradient-x bg-clip-text text-transparent hidden"
+        data-lang="nl">
+      Certificaten
+    </h2>
+
+    <!-- English List -->
+    <ul class="list-disc ml-6 space-y-1 text-gray-800 dark:text-gray-200 block" data-lang="en">
+      <li>Algorithms for DNA Sequencing – Coursera <span class="text-gray-500 dark:text-gray-400">(Aug. 2023)</span></li>
+      <li>Using Python to Access Web Data – Coursera <span class="text-gray-500 dark:text-gray-400">(Oct. 2022)</span></li>
+      <li>Mathematics for Machine Learning: Multivariate Calculus – Coursera <span class="text-gray-500 dark:text-gray-400">(Oct. 2022)</span></li>
+      <li>Python Data Structures – Coursera <span class="text-gray-500 dark:text-gray-400">(Sep. 2022)</span></li>
+      <li>Mathematics for Machine Learning: Linear Algebra – Coursera <span class="text-gray-500 dark:text-gray-400">(Aug. 2022)</span></li>
+      <li>Programming for Everybody – Coursera <span class="text-gray-500 dark:text-gray-400">(Aug. 2022)</span></li>
+      <li>Neural Networks and Deep Learning – Coursera <span class="text-gray-500 dark:text-gray-400">(Feb. 2022)</span></li>
+    </ul>
+
+    <!-- Dutch List -->
+    <ul class="list-disc ml-6 space-y-1 text-gray-800 dark:text-gray-200 hidden" data-lang="nl">
+      <li>Algoritmen voor DNA-sequencing – Coursera <span class="text-gray-500 dark:text-gray-400">(aug 2023)</span></li>
+      <li>Python gebruiken om webgegevens te benaderen – Coursera <span class="text-gray-500 dark:text-gray-400">(okt 2022)</span></li>
+      <li>Wiskunde voor ML: Multivariate Calculus – Coursera <span class="text-gray-500 dark:text-gray-400">(okt 2022)</span></li>
+      <li>Python datastructuren – Coursera <span class="text-gray-500 dark:text-gray-400">(sep 2022)</span></li>
+      <li>Wiskunde voor ML: Lineaire Algebra – Coursera <span class="text-gray-500 dark:text-gray-400">(aug 2022)</span></li>
+      <li>Programmeren voor iedereen – Coursera <span class="text-gray-500 dark:text-gray-400">(aug 2022)</span></li>
+      <li>Neurale netwerken en deep learning – Coursera <span class="text-gray-500 dark:text-gray-400">(feb 2022)</span></li>
+    </ul>
+  </div>
+</section>
+
+
+<!-- Notable Courses -->
+<section id="courses" class="scroll-mt-20 max-w-4xl mx-auto px-4 my-12">
+  <div class="bg-white dark:bg-gray-900 rounded-3xl shadow-2xl border border-gray-300 dark:border-gray-600 p-10 transition-all duration-300">
+    
+    <!-- English Title -->
+    <h2 class="text-2xl font-extrabold mb-6 border-b-2 border-gray-300 dark:border-gray-500 pb-2
+               bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700
+               animate-gradient-x bg-clip-text text-transparent"
+        data-lang="en">
+      Notable Courses
+    </h2>
+
+    <!-- Dutch Title -->
+    <h2 class="text-2xl font-extrabold mb-6 border-b-2 border-gray-300 dark:border-gray-500 pb-2
+               bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700
+               animate-gradient-x bg-clip-text text-transparent hidden"
+        data-lang="nl">
+      Opmerkelijke Vakken
+    </h2>
+
+    <!-- English -->
+    <div class="grid sm:grid-cols-2 gap-x-8 gap-y-2 text-[15px] text-gray-800 dark:text-gray-200 block" data-lang="en">
+      <div><span class="font-medium">Numerical Computation Methods:</span> <span class="text-gray-500 dark:text-gray-400 font-semibold">20.0 / 20.0</span></div>
+      <div><span class="font-medium">Electrical Circuits II:</span> <span class="text-gray-500 dark:text-gray-400 font-semibold">19.90 / 20.0</span></div>
+      <div><span class="font-medium">Logic Circuits:</span> <span class="text-gray-500 dark:text-gray-400 font-semibold">19.75 / 20.0</span></div>
+      <div><span class="font-medium">Linear Algebra:</span> <span class="text-gray-500 dark:text-gray-400 font-semibold">19.75 / 20.0</span></div>
+      <div><span class="font-medium">Computer Arithmetic:</span> <span class="text-gray-500 dark:text-gray-400 font-semibold">19.40 / 20.0</span></div>
+      <div><span class="font-medium">Chip Multiprocessors:</span> <span class="text-gray-500 dark:text-gray-400 font-semibold">19.0 / 20.0</span></div>
+      <div><span class="font-medium">Fault-Tolerant & Testable Computing:</span> <span class="text-gray-500 dark:text-gray-400 font-semibold">19.0 / 20.0</span></div>
+      <div><span class="font-medium">Electronics I:</span> <span class="text-gray-500 dark:text-gray-400 font-semibold">18.70 / 20.0</span></div>
+      <div><span class="font-medium">Pulse Technique:</span> <span class="text-gray-500 dark:text-gray-400 font-semibold">18.60 / 20.0</span></div>
+      <div><span class="font-medium">Low Power Integrated Circuits:</span> <span class="text-gray-500 dark:text-gray-400 font-semibold">18.50 / 20.0</span></div>
+      <div><span class="font-medium">Probability & Statistics:</span> <span class="text-gray-500 dark:text-gray-400 font-semibold">18.50 / 20.0</span></div>
+    </div>
+
+    <!-- Dutch -->
+    <div class="grid sm:grid-cols-2 gap-x-8 gap-y-2 text-[15px] text-gray-800 dark:text-gray-200 hidden" data-lang="nl">
+      <div><span class="font-medium">Numerieke Berekeningsmethoden:</span> <span class="text-gray-500 dark:text-gray-400 font-semibold">20.0 / 20.0</span></div>
+      <div><span class="font-medium">Elektrische Kringen II:</span> <span class="text-gray-500 dark:text-gray-400 font-semibold">19.90 / 20.0</span></div>
+      <div><span class="font-medium">Logische Kringen:</span> <span class="text-gray-500 dark:text-gray-400 font-semibold">19.75 / 20.0</span></div>
+      <div><span class="font-medium">Lineaire Algebra:</span> <span class="text-gray-500 dark:text-gray-400 font-semibold">19.75 / 20.0</span></div>
+      <div><span class="font-medium">Rekenkunde van Computers:</span> <span class="text-gray-500 dark:text-gray-400 font-semibold">19.40 / 20.0</span></div>
+      <div><span class="font-medium">Chip Multiprocessors:</span> <span class="text-gray-500 dark:text-gray-400 font-semibold">19.0 / 20.0</span></div>
+      <div><span class="font-medium">Fouttolerante & Testbare Systemen:</span> <span class="text-gray-500 dark:text-gray-400 font-semibold">19.0 / 20.0</span></div>
+      <div><span class="font-medium">Elektronica I:</span> <span class="text-gray-500 dark:text-gray-400 font-semibold">18.70 / 20.0</span></div>
+      <div><span class="font-medium">Pulstechniek:</span> <span class="text-gray-500 dark:text-gray-400 font-semibold">18.60 / 20.0</span></div>
+      <div><span class="font-medium">Laagvermogen IC’s:</span> <span class="text-gray-500 dark:text-gray-400 font-semibold">18.50 / 20.0</span></div>
+      <div><span class="font-medium">Statistiek voor Ingenieurs:</span> <span class="text-gray-500 dark:text-gray-400 font-semibold">18.50 / 20.0</span></div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- Languages -->
+<section id="languages" class="scroll-mt-20 max-w-4xl mx-auto px-4 my-12">
+  <div class="bg-white dark:bg-gray-900 rounded-3xl shadow-2xl border border-gray-300 dark:border-gray-600 p-10 transition-all duration-300">
+
+    <!-- English Title -->
+    <h2 class="text-2xl font-extrabold mb-6 border-b-2 border-gray-300 dark:border-gray-500 pb-2
+               bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700
+               animate-gradient-x bg-clip-text text-transparent"
+        data-lang="en">
+      Languages
+    </h2>
+
+    <!-- Dutch Title -->
+    <h2 class="text-2xl font-extrabold mb-6 border-b-2 border-gray-300 dark:border-gray-500 pb-2
+               bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700
+               animate-gradient-x bg-clip-text text-transparent hidden"
+        data-lang="nl">
+      Talen
+    </h2>
+
+    <!-- English Content -->
+    <div class="space-y-1 text-gray-800 dark:text-gray-200 block" data-lang="en">
+      <div>
+        <span class="font-medium">Dutch:</span>
+        <span class="text-gray-600 dark:text-gray-400"> Beginner level (A1 – in progress)</span>
+      </div>
+      <div>
+        <span class="font-medium">English:</span>
+        <span class="text-gray-600 dark:text-gray-400"> GRE 331 (V:161, Q:170, W:3.5), IELTS 6.5 (L:6, R:6.5, W:6, S:6.5)</span>
+      </div>
+      <div>
+        <span class="font-medium">Persian:</span>
+        <span class="text-gray-600 dark:text-gray-400"> Native</span>
+      </div>
+    </div>
+
+    <!-- Dutch Content -->
+    <div class="space-y-1 text-gray-800 dark:text-gray-200 hidden" data-lang="nl">
+      <div>
+        <span class="font-medium">Nederlands:</span>
+        <span class="text-gray-600 dark:text-gray-400"> Beginnersniveau (A1 – in opleiding)</span>
+      </div>
+      <div>
+        <span class="font-medium">Engels:</span>
+        <span class="text-gray-600 dark:text-gray-400"> GRE 331 (V:161, Q:170, W:3.5), IELTS 6.5 (L:6, R:6.5, W:6, S:6.5)</span>
+      </div>
+      <div>
+        <span class="font-medium">Perzisch:</span>
+        <span class="text-gray-600 dark:text-gray-400"> Moedertaal</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Social Media + Resume Download -->
+<section id="social" class="scroll-mt-20 max-w-4xl mx-auto px-4 my-12 pb-2">
+  <div class="bg-white dark:bg-gray-900 rounded-3xl shadow-2xl border border-gray-300 dark:border-gray-600 p-10 transition-all duration-300 text-center">
+    
+    <!-- English Title -->
+    <h2 class="text-2xl font-extrabold mb-6 border-b-2 border-gray-300 dark:border-gray-500 pb-2
+               bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700
+               animate-gradient-x bg-clip-text text-transparent"
+        data-lang="en">
+      Find Me Online
+    </h2>
+
+    <!-- Dutch Title -->
+    <h2 class="text-2xl font-extrabold mb-6 border-b-2 border-gray-300 dark:border-gray-500 pb-2
+               bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700
+               animate-gradient-x bg-clip-text text-transparent hidden"
+        data-lang="nl">
+      Vind Mij Online
+    </h2>
+
+    <!-- Links -->
+    <div class="flex justify-center flex-wrap gap-6 text-lg mt-6 text-indigo-700 dark:text-indigo-400">
+      <a href="https://www.linkedin.com/in/benyamin-zadehmoradian" target="_blank" class="hover:text-pink-700 dark:hover:text-pink-400 transition-colors duration-200">
+        LinkedIn
+      </a>
+      <a href="https://github.com/BenyaminZadehmoradian" target="_blank" class="hover:text-pink-700 dark:hover:text-pink-400 transition-colors duration-200">
+        GitHub
+      </a>
+      <a href="https://scholar.google.com/citations?user=YOUR_ID_HERE" target="_blank" class="hover:text-pink-700 dark:hover:text-pink-400 transition-colors duration-200">
+        Google Scholar
+      </a>
+    </div>
+
+    <!-- Resume Download Buttons -->
+    <div class="mt-8 flex flex-col sm:flex-row justify-center gap-4">
+      <a href="files/resume_en.pdf" download
+         class="bg-indigo-700 hover:bg-pink-700 text-white font-semibold px-6 py-2 rounded-full transition-colors duration-300">
+        Download CV (EN)
+      </a>
+      <a href="files/resume_nl.pdf" download
+         class="bg-indigo-700 hover:bg-pink-700 text-white font-semibold px-6 py-2 rounded-full transition-colors duration-300">
+        Download CV (NL)
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- Scripts -->
+<script>
+  function switchLang(lang) {
+    document.querySelectorAll('[data-lang]').forEach(el =>
+      el.classList.toggle('hidden', el.getAttribute('data-lang') !== lang)
+    );
+    document.querySelectorAll('.lang-btn').forEach(btn =>
+      btn.classList.remove(
+        'bg-indigo-100', 'border-indigo-500', 'font-semibold',
+        'dark:bg-indigo-900', 'dark:border-indigo-400', 'dark:font-semibold'
+      )
+    );
+    const active = document.getElementById('btn-' + lang);
+    if (active) {
+      active.classList.add(
+        'bg-indigo-100', 'border-indigo-500', 'font-semibold',
+        'dark:bg-indigo-900', 'dark:border-indigo-400', 'dark:font-semibold'
+      );
+    }
+  }
+
+  function toggleTheme() {
+    document.documentElement.classList.toggle('dark');
+    updateThemeLabel();
+  }
+
+  function updateThemeLabel() {
+    const isDark = document.documentElement.classList.contains('dark');
+    document.getElementById('theme-label').textContent = isDark ? 'Dark' : 'Light';
+  }
+
+  // Show/hide header on scroll
+let lastScrollTop = 0;
+const header = document.querySelector('header');
+
+window.addEventListener('scroll', () => {
+  const currentScroll = window.scrollY;
+
+  if (currentScroll > lastScrollTop && currentScroll > 80) {
+    header.classList.add('header-hidden');
+  } else {
+    header.classList.remove('header-hidden');
+  }
+
+  lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+});
+;
+
+
+  // Initialize on page load
+  updateThemeLabel();
+  switchLang('en');
+</script>
+
+</body>
 </html>

@@ -3,37 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <!-- SEO Meta Tags -->
-  <title>Benyamin Zadehmoradian | Digital Electronics Engineer | Hardware Acceleration Specialist</title>
-  <meta name="description" content="Master's student in Digital Electronics at University of Tehran. Expertise in hardware acceleration, ML co-design, and in-memory computing. View my resume and projects.">
-  <meta name="keywords" content="Benyamin Zadehmoradian, Digital Electronics, Hardware Acceleration, ML Co-Design, University of Tehran, Electronics Engineer">
-  <meta name="author" content="Benyamin Zadehmoradian">
-  
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://benyaminzadehmoradian.github.io/">
-  <meta property="og:title" content="Benyamin Zadehmoradian - Digital Electronics Engineer">
-  <meta property="og:description" content="Master's student in Digital Electronics at University of Tehran. Expertise in hardware acceleration and ML co-design.">
-  <meta property="og:image" content="https://benyaminzadehmoradian.github.io/images/social-preview.jpg">
-  
-  <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content="https://benyaminzadehmoradian.github.io/">
-  <meta property="twitter:title" content="Benyamin Zadehmoradian - Digital Electronics Engineer">
-  <meta property="twitter:description" content="Master's student in Digital Electronics at University of Tehran. Expertise in hardware acceleration and ML co-design.">
-  <meta property="twitter:image" content="https://benyaminzadehmoradian.github.io/images/social-preview.jpg">
-  
-  <!-- Canonical URL -->
-  <link rel="canonical" href="https://benyaminzadehmoradian.github.io/">
-  
-  <!-- Favicon -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>">
-  
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
-  
-  <!-- Tailwind CSS -->
+  <title>Benyamin Zadehmoradian – Digital Electronics Engineer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = { 
@@ -41,12 +12,17 @@
       theme: {
         extend: {
           animation: {
-            'gradient-x': 'gradient-x 8s ease infinite',
+            'gradient-x': 'gradient-x 12s ease infinite',
+            'float': 'float 6s ease-in-out infinite',
           },
           keyframes: {
             'gradient-x': {
               '0%, 100%': { 'background-position': '0% center' },
               '50%': { 'background-position': '100% center' },
+            },
+            'float': {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-10px)' },
             }
           },
           colors: {
@@ -79,9 +55,7 @@
       }
     };
   </script>
-  
   <style>
-    /* CSS styles remain mostly the same as previous version */
     :root {
       --gradient-light: linear-gradient(135deg, #f0f9ff 0%, #e0f7fa 50%, #f3e5f5 100%);
       --gradient-dark: linear-gradient(135deg, #0c1e3e 0%, #1a1b3d 50%, #2c0b3a 100%);
@@ -98,6 +72,7 @@
       color: #1e293b;
       transition: background 0.8s ease, color 0.5s ease;
       line-height: 1.6;
+      overflow-x: hidden;
     }
 
     html.dark body {
@@ -124,11 +99,11 @@
     }
 
     .animate-gradient-x {
-      background-size: 200% auto;
+      background-size: 300% auto;
       background-clip: text;
       -webkit-background-clip: text;
       color: transparent;
-      animation: gradient-x 8s ease infinite;
+      animation: gradient-x 12s ease infinite;
     }
 
     .lang-btn.active {
@@ -150,14 +125,16 @@
       opacity: 0;
       transform: translateY(-10px);
       visibility: hidden;
-      transition: all 0.3s ease;
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       z-index: 50;
+      pointer-events: none;
     }
 
     .contact-dropdown.active {
       opacity: 1;
       transform: translateY(0);
       visibility: visible;
+      pointer-events: auto;
     }
 
     .rotate-icon {
@@ -170,23 +147,25 @@
 
     .section-card {
       background-color: rgba(255, 255, 255, 0.92);
-      border-radius: 1.25rem;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-      border: 1px solid #e2e8f0;
+      border-radius: 1.5rem;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(226, 232, 240, 0.6);
       transition: all 0.4s ease;
       max-width: 800px;
       margin: 0 auto;
-      backdrop-filter: blur(10px);
+      backdrop-filter: blur(12px);
+      overflow: hidden;
+      position: relative;
     }
 
     .dark .section-card {
-      background-color: rgba(15, 23, 42, 0.88);
-      border-color: #334155;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      background-color: rgba(15, 23, 42, 0.85);
+      border-color: rgba(51, 65, 85, 0.5);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
     }
     
     .main-container {
-      max-width: 1200px;
+      max-width: 1400px;
       margin: 0 auto;
       padding: 20px;
     }
@@ -194,12 +173,12 @@
     .content-wrapper {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 28px;
+      gap: 32px;
     }
     
-    @media (min-width: 768px) {
+    @media (min-width: 1024px) {
       .content-wrapper {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1.2fr 1fr;
       }
     }
     
@@ -208,18 +187,20 @@
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
-      animation: gradient-x 8s ease infinite;
+      animation: gradient-x 12s ease infinite;
     }
     
     .heading-font {
       font-family: 'Playfair Display', serif;
       letter-spacing: -0.025em;
+      font-weight: 800;
     }
     
     .divider {
-      height: 2px;
+      height: 1px;
       background: linear-gradient(to right, transparent, #c7d2fe, transparent);
-      margin: 1.5rem 0;
+      margin: 2rem 0;
+      opacity: 0.6;
     }
     
     .dark .divider {
@@ -228,32 +209,36 @@
     
     .skill-badge {
       display: inline-block;
-      background-color: #e0f2fe;
+      background: linear-gradient(to right, #dbeafe, #ede9fe);
       color: #0369a1;
       border-radius: 9999px;
-      padding: 0.25rem 0.75rem;
-      font-size: 0.85rem;
-      margin: 0.25rem;
+      padding: 0.4rem 1rem;
+      font-size: 0.9rem;
+      margin: 0.3rem;
       transition: all 0.3s ease;
+      font-weight: 500;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
     }
     
     .dark .skill-badge {
-      background-color: #1e3a8a;
+      background: linear-gradient(to right, #1e3a8a, #5b21b6);
       color: #bfdbfe;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
     }
     
     .social-icon {
-      transition: all 0.3s ease;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       border-radius: 50%;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     }
     
     .social-icon:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
     }
     
     .dark .social-icon:hover {
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
     }
     
     .contact-icon {
@@ -265,14 +250,43 @@
       color: #38bdf8;
     }
     
-    .contact-item:hover .contact-icon {
-      transform: scale(1.1);
+    .contact-item {
+      transition: all 0.3s ease;
+      border-radius: 12px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .contact-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 3px;
+      height: 100%;
+      background: linear-gradient(to bottom, #0ea5e9, #8b5cf6);
+      transform: scaleY(0);
+      transform-origin: bottom;
+      transition: transform 0.4s ease;
+    }
+    
+    .contact-item:hover::before {
+      transform: scaleY(1);
+    }
+    
+    .contact-item:hover {
+      background: rgba(219, 234, 254, 0.3);
+    }
+    
+    .dark .contact-item:hover {
+      background: rgba(30, 41, 59, 0.5);
     }
     
     .section-title {
       position: relative;
       display: inline-block;
       padding-bottom: 0.5rem;
+      font-weight: 700;
     }
     
     .section-title::after {
@@ -290,53 +304,177 @@
       background: linear-gradient(to right, #38bdf8, #a78bfa);
     }
     
-    /* Structured Data */
-    .structured-data {
+    .profile-frame {
+      position: relative;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      overflow: hidden;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+      animation: float 6s ease-in-out infinite;
+    }
+    
+    .profile-frame::before {
+      content: '';
+      position: absolute;
+      inset: -5px;
+      background: linear-gradient(45deg, #0ea5e9, #8b5cf6, #ec4899);
+      z-index: -1;
+      border-radius: 50%;
+      animation: gradient-x 12s ease infinite;
+    }
+    
+    .tech-badge {
+      position: absolute;
+      background: rgba(255,255,255,0.9);
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      animation: float 6s ease-in-out infinite;
+      animation-delay: calc(var(--delay) * 1s);
+    }
+    
+    .dark .tech-badge {
+      background: rgba(15,23,42,0.9);
+    }
+    
+    .progress-bar {
+      height: 6px;
+      border-radius: 3px;
+      background: #e2e8f0;
+      overflow: hidden;
+    }
+    
+    .dark .progress-bar {
+      background: #334155;
+    }
+    
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(to right, #0ea5e9, #8b5cf6);
+      border-radius: 3px;
+    }
+    
+    .glow-effect {
+      position: relative;
+    }
+    
+    .glow-effect::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at center, rgba(14, 165, 233, 0.1) 0%, transparent 70%);
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+    
+    .glow-effect:hover::after {
+      opacity: 1;
+    }
+    
+    .dark .glow-effect::after {
+      background: radial-gradient(circle at center, rgba(56, 189, 248, 0.15) 0%, transparent 70%);
+    }
+    
+    .floating-element {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      filter: blur(40px);
+      opacity: 0.4;
+      z-index: -1;
+      animation: float 15s ease-in-out infinite;
+      animation-delay: calc(var(--delay) * 1s);
+    }
+    
+    .timeline-item {
+      position: relative;
+      padding-left: 30px;
+      margin-bottom: 30px;
+    }
+    
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: linear-gradient(45deg, #0ea5e9, #8b5cf6);
+    }
+    
+    .timeline-item::after {
+      content: '';
+      position: absolute;
+      left: 5px;
+      top: 20px;
+      bottom: -30px;
+      width: 2px;
+      background: linear-gradient(to bottom, #0ea5e9, #8b5cf6);
+    }
+    
+    .timeline-item:last-child::after {
       display: none;
     }
   </style>
 </head>
 <body class="text-slate-800 dark:text-slate-100 transition-colors duration-500">
 
+<!-- Floating background elements -->
+<div class="floating-element bg-primary-400" style="top: 10%; left: 5%; --delay: 0;"></div>
+<div class="floating-element bg-secondary-400" style="top: 60%; right: 10%; --delay: 1.5;"></div>
+<div class="floating-element bg-indigo-400" style="bottom: 20%; left: 15%; --delay: 2.5;"></div>
+
 <!-- Header -->
-<header class="sticky top-0 z-50 bg-white/85 dark:bg-slate-900/85 backdrop-blur-md shadow-sm transition-transform duration-300">
+<header class="sticky top-0 z-50 bg-white/90 dark:bg-slate-900/90 backdrop-blur-lg shadow-sm transition-transform duration-300">
   <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
     <!-- Language Switch + Theme Toggle -->
     <div class="flex items-center space-x-2 text-sm">
       <button id="btn-en" aria-label="Switch to English"
-              class="lang-btn bg-white px-3 py-1 rounded-full border border-slate-300 dark:bg-slate-800 dark:border-slate-600 dark:text-white transition-colors">
+              class="lang-btn bg-white px-4 py-2 rounded-full border border-slate-300 dark:bg-slate-800 dark:border-slate-600 dark:text-white transition-colors glow-effect">
         EN
       </button>
       <button id="btn-nl" aria-label="Switch to Dutch"
-              class="lang-btn bg-white px-3 py-1 rounded-full border border-slate-300 dark:bg-slate-800 dark:border-slate-600 dark:text-white transition-colors">
+              class="lang-btn bg-white px-4 py-2 rounded-full border border-slate-300 dark:bg-slate-800 dark:border-slate-600 dark:text-white transition-colors glow-effect">
         NL
       </button>
       <button id="theme-toggle"
-              class="ml-2 px-3 py-1 rounded-full border border-slate-300 bg-slate-800 text-white hover:bg-slate-700 dark:bg-slate-700 dark:text-slate-100 dark:hover:bg-slate-600 transition theme-btn">
+              class="ml-2 px-4 py-2 rounded-full border border-slate-300 bg-slate-800 text-white hover:bg-slate-700 dark:bg-slate-700 dark:text-slate-100 dark:hover:bg-slate-600 transition theme-btn glow-effect">
         <span id="theme-label">Light</span>
       </button>
     </div>
 
     <!-- Navigation -->
     <nav class="hidden md:flex space-x-7 text-base font-medium justify-center">
-      <a href="#about" class="hover:text-primary-600 dark:hover:text-secondary-400 transition-colors">About</a>
-      <a href="#education" class="hover:text-primary-600 dark:hover:text-secondary-400 transition-colors">Education</a>
-      <a href="#skills" class="hover:text-primary-600 dark:hover:text-secondary-400 transition-colors">Skills</a>
+      <a href="#about" class="hover:text-primary-600 dark:hover:text-secondary-400 transition-colors font-medium">About</a>
+      <a href="#skills" class="hover:text-primary-600 dark:hover:text-secondary-400 transition-colors font-medium">Skills</a>
+      <a href="#projects" class="hover:text-primary-600 dark:hover:text-secondary-400 transition-colors font-medium">Projects</a>
+      <a href="#contact" class="hover:text-primary-600 dark:hover:text-secondary-400 transition-colors font-medium">Contact</a>
     </nav>
 
     <!-- Contact Dropdown -->
     <div class="relative">
-      <button id="contact-btn" class="hover:text-primary-600 dark:hover:text-secondary-400 flex items-center space-x-1 transition-colors">
+      <button id="contact-btn" class="hover:text-primary-600 dark:hover:text-secondary-400 flex items-center space-x-1 transition-colors font-medium glow-effect px-3 py-2 rounded-lg">
         <span>Contact</span>
-        <svg id="contact-icon" class="w-4 h-4 rotate-icon" fill="currentColor" viewBox="0 0 20 20">
+        <svg id="contact-icon" class="w-5 h-5 rotate-icon" fill="currentColor" viewBox="0 0 20 20">
           <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.08 1.04l-4.25 4.25a.75.75 0 01-1.08 0L5.21 8.27a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
         </svg>
       </button>
       <div class="contact-dropdown absolute right-0 mt-3">
-        <div class="bg-white dark:bg-slate-800 shadow-lg rounded-xl py-4 px-6 w-64 space-y-2 border border-slate-200 dark:border-slate-700 text-sm">
-          <p><strong>Phone:</strong> (+98) 912 123 4567</p>
-          <p><strong>Email:</strong> <a href="mailto:B.Zadehmoradian@gmail.com" class="text-primary-600 dark:text-primary-400 hover:underline">B.Zadehmoradian@gmail.com</a></p>
-          <p><strong>Location:</strong> Tehran, Iran</p>
+        <div class="bg-white dark:bg-slate-800 shadow-xl rounded-xl py-4 px-6 w-64 space-y-3 border border-slate-200 dark:border-slate-700 text-base">
+          <p class="flex items-center"><svg class="w-5 h-5 mr-2 text-primary-500 dark:text-primary-400" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg><span>(+98) 912 123 4567</span></p>
+          <p class="flex items-center"><svg class="w-5 h-5 mr-2 text-primary-500 dark:text-primary-400" fill="currentColor" viewBox="0 0 20 20"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/></svg><a href="mailto:B.Zadehmoradian@gmail.com" class="text-primary-600 dark:text-primary-400 hover:underline">B.Zadehmoradian@gmail.com</a></p>
+          <p class="flex items-center"><svg class="w-5 h-5 mr-2 text-primary-500 dark:text-primary-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg><span>Tehran, Iran</span></p>
         </div>
       </div>
     </div>
@@ -344,220 +482,371 @@
 </header>
 
 <div class="main-container">
-  <!-- Name Section -->
-  <section class="text-center mb-12 mt-6">
-    <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight mb-2 leading-tight heading-font">
+  <!-- Hero Section -->
+  <section class="text-center mb-16 mt-8 relative z-10">
+    <h1 class="text-5xl md:text-6xl font-extrabold tracking-tight mb-3 leading-tight heading-font">
       <span class="block name-gradient">Benyamin</span>
       <span class="block name-gradient mt-2">Zadehmoradian</span>
     </h1>
-    <p class="text-md text-slate-600 dark:text-slate-400 italic font-medium">Digital Electronics Engineer | Hardware Acceleration Specialist | ML Co-Design Expert</p>
+    <p class="text-xl text-slate-600 dark:text-slate-400 font-medium mb-8 max-w-2xl mx-auto">Digital Electronics Engineer & Hardware Specialist focused on ML Co-Design and Efficient Computing Solutions</p>
+    
+    <div class="flex justify-center gap-4">
+      <a href="#contact" class="bg-gradient-to-r from-primary-500 to-secondary-500 text-white font-semibold px-8 py-3 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
+        Get In Touch
+      </a>
+      <a href="#" class="bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-600 text-slate-800 dark:text-slate-200 font-semibold px-8 py-3 rounded-full transition-all duration-300 hover:shadow-lg">
+        Download CV
+      </a>
+    </div>
   </section>
 
   <div class="content-wrapper">
-    <!-- About Section -->
-    <section id="about" class="scroll-mt-20">
-      <div class="section-card p-6 sm:p-8">
-        <h2 class="text-2xl font-bold mb-6 section-title"
-            data-lang="en">
-          About Benyamin Zadehmoradian
-        </h2>
-        <h2 class="text-2xl font-bold mb-6 section-title hidden"
-            data-lang="nl">
-          Over Benyamin Zadehmoradian
-        </h2>
+    <!-- Left Column -->
+    <div>
+      <!-- About Section -->
+      <section id="about" class="scroll-mt-20 mb-12">
+        <div class="section-card p-8">
+          <h2 class="text-3xl font-bold mb-8 section-title"
+              data-lang="en">
+            Professional Profile
+          </h2>
+          <h2 class="text-3xl font-bold mb-8 section-title hidden"
+              data-lang="nl">
+            Professioneel Profiel
+          </h2>
 
-        <div data-lang="en" class="block">
-          <p class="text-base leading-relaxed text-slate-700 dark:text-slate-300 mb-6">
-            Benyamin Zadehmoradian is a passionate Master's student in Digital Electronics at the University of Tehran, specializing in hardware acceleration, ML co-design, and in-memory computing. Ranked first in his B.Sc. class at Shahed University, Benyamin excels at solving complex engineering challenges in collaborative environments.
-          </p>
-          
-          <div class="divider"></div>
-          
-          <h3 class="text-xl font-bold mt-6 mb-4 text-primary-700 dark:text-primary-400">Education</h3>
-          <div class="mb-5 pl-2 border-l-2 border-primary-300 dark:border-primary-600">
-            <p class="font-semibold text-lg">M.Sc. in Digital Electronics</p>
-            <p class="text-primary-600 dark:text-primary-400">University of Tehran</p>
-            <p class="text-sm text-slate-600 dark:text-slate-400 mt-1">Sep 2021 - Present | GPA: 18.34/20</p>
+          <div data-lang="en" class="block">
+            <p class="text-lg leading-relaxed text-slate-700 dark:text-slate-300 mb-8">
+              I am a passionate <span class="text-primary-600 dark:text-primary-400 font-medium">Digital Electronics Engineer</span> with expertise in hardware acceleration and machine learning co-design. Currently pursuing my Master's at the University of Tehran, I specialize in developing efficient computing solutions for complex problems. With a strong academic background and hands-on research experience, I excel in collaborative environments and thrive on engineering challenges.
+            </p>
+            
+            <div class="grid grid-cols-2 gap-6 mb-8">
+              <div class="bg-slate-50 dark:bg-slate-800/50 p-5 rounded-xl">
+                <h3 class="text-xl font-bold mb-3 text-primary-700 dark:text-primary-400">Education</h3>
+                <div class="space-y-4">
+                  <div>
+                    <p class="font-semibold">M.Sc. Digital Electronics</p>
+                    <p class="text-primary-600 dark:text-primary-400">University of Tehran</p>
+                    <p class="text-sm text-slate-600 dark:text-slate-400 mt-1">2021 - Present | GPA: 18.34/20</p>
+                  </div>
+                  <div>
+                    <p class="font-semibold">B.Sc. Electronics</p>
+                    <p class="text-primary-600 dark:text-primary-400">Shahed University</p>
+                    <p class="text-sm text-slate-600 dark:text-slate-400 mt-1">2017 - 2021 | GPA: 18.23/20</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="bg-slate-50 dark:bg-slate-800/50 p-5 rounded-xl">
+                <h3 class="text-xl font-bold mb-3 text-primary-700 dark:text-primary-400">Expertise</h3>
+                <ul class="space-y-2">
+                  <li class="flex items-center">
+                    <svg class="w-5 h-5 text-primary-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    Hardware Acceleration
+                  </li>
+                  <li class="flex items-center">
+                    <svg class="w-5 h-5 text-primary-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    ML Co-Design
+                  </li>
+                  <li class="flex items-center">
+                    <svg class="w-5 h-5 text-primary-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    In-Memory Computing
+                  </li>
+                  <li class="flex items-center">
+                    <svg class="w-5 h-5 text-primary-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    VHDL/Verilog Development
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
-          <div class="mb-5 pl-2 border-l-2 border-primary-300 dark:border-primary-600">
-            <p class="font-semibold text-lg">B.Sc. in Electronics</p>
-            <p class="text-primary-600 dark:text-primary-400">Shahed University</p>
-            <p class="text-sm text-slate-600 dark:text-slate-400 mt-1">Sep 2017 - Sep 2021 | GPA: 18.23/20</p>
-          </div>
-          
-          <div class="divider"></div>
-          
-          <h3 class="text-xl font-bold mt-6 mb-4 text-primary-700 dark:text-primary-400">Technical Skills</h3>
-          <div class="flex flex-wrap">
-            <span class="skill-badge">VHDL</span>
-            <span class="skill-badge">Verilog</span>
-            <span class="skill-badge">Python</span>
-            <span class="skill-badge">C/C++</span>
-            <span class="skill-badge">Digital Design</span>
-            <span class="skill-badge">PCB Design</span>
-            <span class="skill-badge">ARM Cortex-M</span>
-            <span class="skill-badge">HSpice</span>
-            <span class="skill-badge">Machine Learning</span>
-            <span class="skill-badge">Hardware Acceleration</span>
-          </div>
-        </div>
 
-        <div data-lang="nl" class="hidden">
-          <p class="text-base leading-relaxed text-slate-700 dark:text-slate-300 mb-6">
-            Benyamin Zadehmoradian is een gepassioneerde masterstudent digitale elektronica aan de Universiteit van Teheran, gespecialiseerd in hardwareversnelling, ML co-design en in-memory computing. Als eerste gerangschikt in zijn bacheloropleiding aan de Shahed Universiteit, blinkt Benyamin uit in het oplossen van complexe technische uitdagingen in samenwerkingsverbanden.
-          </p>
+          <div data-lang="nl" class="hidden">
+            <p class="text-lg leading-relaxed text-slate-700 dark:text-slate-300 mb-8">
+              Ik ben een gepassioneerde <span class="text-primary-600 dark:text-primary-400 font-medium">ingenieur in digitale elektronica</span> met expertise in hardwareversnelling en machine learning co-design. Momenteel volg ik mijn master aan de Universiteit van Teheran, waar ik me specialiseer in het ontwikkelen van efficiënte computeroplossingen voor complexe problemen. Met een sterke academische achtergrond en praktische onderzoekservaring blink ik uit in samenwerkingsomgevingen en gedij ik bij technische uitdagingen.
+            </p>
+            
+            <div class="grid grid-cols-2 gap-6 mb-8">
+              <div class="bg-slate-50 dark:bg-slate-800/50 p-5 rounded-xl">
+                <h3 class="text-xl font-bold mb-3 text-primary-700 dark:text-primary-400">Opleiding</h3>
+                <div class="space-y-4">
+                  <div>
+                    <p class="font-semibold">M.Sc. Digitale Elektronica</p>
+                    <p class="text-primary-600 dark:text-primary-400">Universiteit van Teheran</p>
+                    <p class="text-sm text-slate-600 dark:text-slate-400 mt-1">2021 - Heden | GPA: 18.34/20</p>
+                  </div>
+                  <div>
+                    <p class="font-semibold">B.Sc. Elektronica</p>
+                    <p class="text-primary-600 dark:text-primary-400">Shahed Universiteit</p>
+                    <p class="text-sm text-slate-600 dark:text-slate-400 mt-1">2017 - 2021 | GPA: 18.23/20</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="bg-slate-50 dark:bg-slate-800/50 p-5 rounded-xl">
+                <h3 class="text-xl font-bold mb-3 text-primary-700 dark:text-primary-400">Expertise</h3>
+                <ul class="space-y-2">
+                  <li class="flex items-center">
+                    <svg class="w-5 h-5 text-primary-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    Hardwareversnelling
+                  </li>
+                  <li class="flex items-center">
+                    <svg class="w-5 h-5 text-primary-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    ML Co-Design
+                  </li>
+                  <li class="flex items-center">
+                    <svg class="w-5 h-5 text-primary-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    In-Memory Computing
+                  </li>
+                  <li class="flex items-center">
+                    <svg class="w-5 h-5 text-primary-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    VHDL/Verilog Ontwikkeling
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
           
           <div class="divider"></div>
           
-          <h3 class="text-xl font-bold mt-6 mb-4 text-primary-700 dark:text-primary-400">Opleiding</h3>
-          <div class="mb-5 pl-2 border-l-2 border-primary-300 dark:border-primary-600">
-            <p class="font-semibold text-lg">M.Sc. in Digitale Elektronica</p>
-            <p class="text-primary-600 dark:text-primary-400">Universiteit van Teheran</p>
-            <p class="text-sm text-slate-600 dark:text-slate-400 mt-1">sep 2021 - Heden | GPA: 18.34/20</p>
-          </div>
-          <div class="mb-5 pl-2 border-l-2 border-primary-300 dark:border-primary-600">
-            <p class="font-semibold text-lg">B.Sc. in Elektronica</p>
-            <p class="text-primary-600 dark:text-primary-400">Shahed Universiteit</p>
-            <p class="text-sm text-slate-600 dark:text-slate-400 mt-1">sep 2017 - sep 2021 | GPA: 18.23/20</p>
-          </div>
-          
-          <div class="divider"></div>
-          
-          <h3 class="text-xl font-bold mt-6 mb-4 text-primary-700 dark:text-primary-400">Technische Vaardigheden</h3>
-          <div class="flex flex-wrap">
-            <span class="skill-badge">VHDL</span>
-            <span class="skill-badge">Verilog</span>
-            <span class="skill-badge">Python</span>
-            <span class="skill-badge">C/C++</span>
-            <span class="skill-badge">Digitale systemen</span>
-            <span class="skill-badge">PCB-ontwerp</span>
-            <span class="skill-badge">ARM Cortex-M</span>
-            <span class="skill-badge">HSpice</span>
-            <span class="skill-badge">Machine Learning</span>
-            <span class="skill-badge">Hardwareversnelling</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="flex justify-center items-start">
-      <div class="section-card p-6 sm:p-8 flex flex-col items-center w-full">
-        <div class="relative w-48 h-48 mb-8 overflow-hidden rounded-full border-4 border-white dark:border-slate-800 shadow-lg">
-          <div class="bg-gradient-to-br from-primary-300 to-secondary-400 w-full h-full flex items-center justify-center">
-            <div class="bg-[url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80')] bg-cover bg-center w-[94%] h-[94%] rounded-full"></div>
-          </div>
-        </div>
-        
-        <div class="w-full">
-          <h3 class="text-xl font-bold mb-6 text-center text-primary-700 dark:text-primary-400 section-title">
-            <span data-lang="en" class="block">Contact Benyamin Zadehmoradian</span>
-            <span data-lang="nl" class="hidden">Contact Benyamin Zadehmoradian</span>
+          <h3 class="text-2xl font-bold mt-6 mb-6 text-primary-700 dark:text-primary-400">
+            <span data-lang="en" class="block">Technical Skills</span>
+            <span data-lang="nl" class="hidden">Technische Vaardigheden</span>
           </h3>
           
-          <div class="space-y-4 text-base text-slate-700 dark:text-slate-300">
-            <div class="contact-item flex items-center p-3 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
-              <svg class="w-6 h-6 mr-3 contact-icon" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
-              </svg>
-              <span>(+98) 912 123 4567</span>
+          <div class="grid grid-cols-2 gap-6 mb-4">
+            <div>
+              <h4 class="font-bold mb-3 text-slate-700 dark:text-slate-300">Hardware & Design</h4>
+              <div class="space-y-3">
+                <div>
+                  <p class="text-sm mb-1">VHDL/Verilog</p>
+                  <div class="progress-bar">
+                    <div class="progress-fill" style="width: 95%"></div>
+                  </div>
+                </div>
+                <div>
+                  <p class="text-sm mb-1">FPGA Development</p>
+                  <div class="progress-bar">
+                    <div class="progress-fill" style="width: 90%"></div>
+                  </div>
+                </div>
+                <div>
+                  <p class="text-sm mb-1">PCB Design</p>
+                  <div class="progress-bar">
+                    <div class="progress-fill" style="width: 85%"></div>
+                  </div>
+                </div>
+              </div>
             </div>
             
-            <div class="contact-item flex items-center p-3 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
-              <svg class="w-6 h-6 mr-3 contact-icon" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
-                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
-              </svg>
-              <a href="mailto:B.Zadehmoradian@gmail.com" class="text-primary-600 dark:text-primary-400 hover:underline">B.Zadehmoradian@gmail.com</a>
-            </div>
-            
-            <div class="contact-item flex items-center p-3 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
-              <svg class="w-6 h-6 mr-3 contact-icon" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
-              </svg>
-              <span>Tehran, Iran</span>
-            </div>
-          </div>
-          
-          <div class="mt-10">
-            <h3 class="text-xl font-bold mb-6 text-center text-primary-700 dark:text-primary-400 section-title">
-              <span data-lang="en" class="block">Connect with Benyamin</span>
-              <span data-lang="nl" class="hidden">Verbinden met Benyamin</span>
-            </h3>
-            
-            <div class="flex justify-center space-x-5">
-              <a href="https://www.linkedin.com/in/benyamin-zadehmoradian" class="social-icon p-3 bg-primary-50 dark:bg-slate-800 rounded-full hover:bg-primary-100 dark:hover:bg-slate-700 transition-colors">
-                <svg class="w-6 h-6 text-primary-600 dark:text-primary-400" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                </svg>
-              </a>
-              <a href="https://github.com/BenyaminZadehmoradian" class="social-icon p-3 bg-primary-50 dark:bg-slate-800 rounded-full hover:bg-primary-100 dark:hover:bg-slate-700 transition-colors">
-                <svg class="w-6 h-6 text-primary-600 dark:text-primary-400" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                </svg>
-              </a>
-              <a href="https://scholar.google.com/citations?user=YOUR_ID_HERE" class="social-icon p-3 bg-primary-50 dark:bg-slate-800 rounded-full hover:bg-primary-100 dark:hover:bg-slate-700 transition-colors">
-                <svg class="w-6 h-6 text-primary-600 dark:text-primary-400" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-2 16h-2v-6h2v6zm-1-6.891c-.607 0-1.1-.496-1.1-1.109 0-.612.492-1.109 1.1-1.109s1.1.497 1.1 1.109c0 .613-.493 1.109-1.1 1.109zm8 6.891h-1.998v-2.861c0-1.881-2.002-1.722-2.002 0v2.861h-2v-6h2v1.093c.872-1.616 4-1.736 4 1.548v3.359z"/>
-                </svg>
-              </a>
+            <div>
+              <h4 class="font-bold mb-3 text-slate-700 dark:text-slate-300">Software & Tools</h4>
+              <div class="space-y-3">
+                <div>
+                  <p class="text-sm mb-1">Python</p>
+                  <div class="progress-bar">
+                    <div class="progress-fill" style="width: 90%"></div>
+                  </div>
+                </div>
+                <div>
+                  <p class="text-sm mb-1">C/C++</p>
+                  <div class="progress-bar">
+                    <div class="progress-fill" style="width: 85%"></div>
+                  </div>
+                </div>
+                <div>
+                  <p class="text-sm mb-1">HSpice</p>
+                  <div class="progress-bar">
+                    <div class="progress-fill" style="width: 80%"></div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-  </div>
-  
-  <!-- Structured Data for SEO -->
-  <div class="structured-data">
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Benyamin Zadehmoradian",
-      "url": "https://benyaminzadehmoradian.github.io",
-      "sameAs": [
-        "https://www.linkedin.com/in/benyamin-zadehmoradian",
-        "https://github.com/BenyaminZadehmoradian",
-        "https://scholar.google.com/citations?user=YOUR_ID_HERE"
-      ],
-      "jobTitle": "Digital Electronics Engineer",
-      "worksFor": {
-        "@type": "Organization",
-        "name": "University of Tehran"
-      },
-      "description": "Master's student in Digital Electronics specializing in hardware acceleration, ML co-design, and in-memory computing.",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Tehran",
-        "addressCountry": "Iran"
-      },
-      "email": "B.Zadehmoradian@gmail.com",
-      "telephone": "+98-912-123-4567",
-      "alumniOf": [
-        {
-          "@type": "EducationalOrganization",
-          "name": "University of Tehran",
-          "url": "https://ut.ac.ir"
-        },
-        {
-          "@type": "EducationalOrganization",
-          "name": "Shahed University",
-          "url": "https://shahed.ac.ir"
-        }
-      ],
-      "knowsAbout": [
-        "Digital Electronics",
-        "Hardware Acceleration",
-        "ML Co-Design",
-        "In-Memory Computing",
-        "VHDL",
-        "Verilog"
-      ]
-    }
-    </script>
+      </section>
+
+      <!-- Projects Section -->
+      <section id="projects" class="scroll-mt-20 mb-12">
+        <div class="section-card p-8">
+          <h2 class="text-3xl font-bold mb-8 section-title">
+            Featured Projects
+          </h2>
+          
+          <div class="space-y-8">
+            <div class="bg-gradient-to-r from-slate-50 to-white dark:from-slate-800/50 dark:to-slate-900/50 p-6 rounded-xl border border-slate-200 dark:border-slate-700">
+              <h3 class="text-xl font-bold mb-2 text-primary-700 dark:text-primary-400">Genome Sequence Mapper Optimization</h3>
+              <p class="text-slate-600 dark:text-slate-400 mb-4">Developed a hardware-accelerated solution for genome sequence mapping that improved processing speed by 40% while reducing power consumption by 25%.</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="skill-badge">VHDL</span>
+                <span class="skill-badge">Python</span>
+                <span class="skill-badge">FPGA</span>
+                <span class="skill-badge">Bioinformatics</span>
+              </div>
+            </div>
+            
+            <div class="bg-gradient-to-r from-slate-50 to-white dark:from-slate-800/50 dark:to-slate-900/50 p-6 rounded-xl border border-slate-200 dark:border-slate-700">
+              <h3 class="text-xl font-bold mb-2 text-primary-700 dark:text-primary-400">Low-Power In-Memory Computing</h3>
+              <p class="text-slate-600 dark:text-slate-400 mb-4">Designed and implemented an in-memory computing architecture for neural networks that achieved 60% energy savings compared to traditional approaches.</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="skill-badge">Verilog</span>
+                <span class="skill-badge">TensorFlow</span>
+                <span class="skill-badge">ASIC Design</span>
+                <span class="skill-badge">Low-Power</span>
+              </div>
+            </div>
+            
+            <div class="bg-gradient-to-r from-slate-50 to-white dark:from-slate-800/50 dark:to-slate-900/50 p-6 rounded-xl border border-slate-200 dark:border-slate-700">
+              <h3 class="text-xl font-bold mb-2 text-primary-700 dark:text-primary-400">Wireless Power Transfer System</h3>
+              <p class="text-slate-600 dark:text-slate-400 mb-4">Created a resonant wireless power transfer system achieving 85% efficiency at 15cm distance using strongly coupled magnetic resonance technology.</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="skill-badge">Circuit Design</span>
+                <span class="skill-badge">PCB Layout</span>
+                <span class="skill-badge">RF Engineering</span>
+                <span class="skill-badge">Prototyping</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    
+    <!-- Right Column -->
+    <div>
+      <!-- Profile Section -->
+      <section class="mb-12">
+        <div class="section-card p-8 flex flex-col items-center">
+          <div class="profile-frame mb-8">
+            <div class="w-full h-full bg-[url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80')] bg-cover bg-center"></div>
+          </div>
+          
+          <div class="w-full">
+            <h3 class="text-2xl font-bold mb-8 text-center text-primary-700 dark:text-primary-400 section-title">
+              Contact Information
+            </h3>
+            
+            <div class="space-y-5 text-base text-slate-700 dark:text-slate-300 mb-10">
+              <div class="contact-item flex items-center p-4 rounded-lg">
+                <svg class="w-6 h-6 mr-4 contact-icon" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+                </svg>
+                <span>(+98) 912 123 4567</span>
+              </div>
+              
+              <div class="contact-item flex items-center p-4 rounded-lg">
+                <svg class="w-6 h-6 mr-4 contact-icon" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+                  <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+                </svg>
+                <a href="mailto:B.Zadehmoradian@gmail.com" class="text-primary-600 dark:text-primary-400 hover:underline">B.Zadehmoradian@gmail.com</a>
+              </div>
+              
+              <div class="contact-item flex items-center p-4 rounded-lg">
+                <svg class="w-6 h-6 mr-4 contact-icon" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+                </svg>
+                <span>Tehran, Iran</span>
+              </div>
+              
+              <div class="contact-item flex items-center p-4 rounded-lg">
+                <svg class="w-6 h-6 mr-4 contact-icon" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M12.586 4.586a2 2 0 112.828 2.828l-3 3a2 2 0 01-2.828 0 1 1 0 00-1.414 1.414 4 4 0 005.656 0l3-3a4 4 0 00-5.656-5.656l-1.5 1.5a1 1 0 101.414 1.414l1.5-1.5zm-5 5a2 2 0 012.828 0 1 1 0 101.414-1.414 4 4 0 00-5.656 0l-3 3a4 4 0 105.656 5.656l1.5-1.5a1 1 0 10-1.414-1.414l-1.5 1.5a2 2 0 11-2.828-2.828l3-3z" clip-rule="evenodd"/>
+                </svg>
+                <a href="#" class="text-primary-600 dark:text-primary-400 hover:underline">portfolio.benyamin.ir</a>
+              </div>
+            </div>
+            
+            <div class="mb-10">
+              <h3 class="text-2xl font-bold mb-8 text-center text-primary-700 dark:text-primary-400 section-title">
+                Technical Proficiency
+              </h3>
+              
+              <div class="flex flex-wrap justify-center gap-3">
+                <span class="skill-badge">VHDL</span>
+                <span class="skill-badge">Verilog</span>
+                <span class="skill-badge">SystemVerilog</span>
+                <span class="skill-badge">Python</span>
+                <span class="skill-badge">C/C++</span>
+                <span class="skill-badge">MATLAB</span>
+                <span class="skill-badge">HSpice</span>
+                <span class="skill-badge">Cadence</span>
+                <span class="skill-badge">Xilinx FPGAs</span>
+                <span class="skill-badge">ARM Cortex</span>
+                <span class="skill-badge">PCB Design</span>
+                <span class="skill-badge">Altium Designer</span>
+                <span class="skill-badge">TensorFlow</span>
+                <span class="skill-badge">PyTorch</span>
+                <span class="skill-badge">Machine Learning</span>
+                <span class="skill-badge">Digital Signal Processing</span>
+              </div>
+            </div>
+            
+            <div>
+              <h3 class="text-2xl font-bold mb-8 text-center text-primary-700 dark:text-primary-400 section-title">
+                Connect With Me
+              </h3>
+              
+              <div class="flex justify-center space-x-6">
+                <a href="#" class="social-icon p-4 bg-primary-50 dark:bg-slate-800 rounded-full hover:bg-primary-100 dark:hover:bg-slate-700">
+                  <svg class="w-7 h-7 text-primary-600 dark:text-primary-400" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                  </svg>
+                </a>
+                <a href="#" class="social-icon p-4 bg-primary-50 dark:bg-slate-800 rounded-full hover:bg-primary-100 dark:hover:bg-slate-700">
+                  <svg class="w-7 h-7 text-primary-600 dark:text-primary-400" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                  </svg>
+                </a>
+                <a href="#" class="social-icon p-4 bg-primary-50 dark:bg-slate-800 rounded-full hover:bg-primary-100 dark:hover:bg-slate-700">
+                  <svg class="w-7 h-7 text-primary-600 dark:text-primary-400" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-2 16h-2v-6h2v6zm-1-6.891c-.607 0-1.1-.496-1.1-1.109 0-.612.492-1.109 1.1-1.109s1.1.497 1.1 1.109c0 .613-.493 1.109-1.1 1.109zm8 6.891h-1.998v-2.861c0-1.881-2.002-1.722-2.002 0v2.861h-2v-6h2v1.093c.872-1.616 4-1.736 4 1.548v3.359z"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Timeline Section -->
+      <section id="timeline" class="scroll-mt-20">
+        <div class="section-card p-8">
+          <h2 class="text-3xl font-bold mb-8 section-title">
+            Professional Timeline
+          </h2>
+          
+          <div class="space-y-6">
+            <div class="timeline-item">
+              <h3 class="text-xl font-bold text-primary-700 dark:text-primary-400">Research Assistant</h3>
+              <p class="text-slate-600 dark:text-slate-400 font-semibold">University of Tehran | 2022-Present</p>
+              <p class="text-slate-700 dark:text-slate-300 mt-2">Developing hardware acceleration techniques for bioinformatics applications with focus on genome sequencing optimization.</p>
+            </div>
+            
+            <div class="timeline-item">
+              <h3 class="text-xl font-bold text-primary-700 dark:text-primary-400">Teaching Assistant</h3>
+              <p class="text-slate-600 dark:text-slate-400 font-semibold">University of Tehran | 2021-2023</p>
+              <p class="text-slate-700 dark:text-slate-300 mt-2">Assisted in courses including Computer Architecture, Digital Design, and Electronic Circuits for undergraduate students.</p>
+            </div>
+            
+            <div class="timeline-item">
+              <h3 class="text-xl font-bold text-primary-700 dark:text-primary-400">Electronics Intern</h3>
+              <p class="text-slate-600 dark:text-slate-400 font-semibold">Iranian Research Org. | Summer 2020</p>
+              <p class="text-slate-700 dark:text-slate-300 mt-2">Worked on PCB design and prototyping for industrial control systems, gaining hands-on experience in circuit design.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
   </div>
 </div>
+
+<!-- Footer -->
+<footer class="py-8 text-center text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-800 mt-16">
+  <div class="max-w-6xl mx-auto px-4">
+    <p>© 2023 Benyamin Zadehmoradian. All rights reserved.</p>
+    <p class="mt-2">Designed and developed with ❤️ and VHDL</p>
+  </div>
+</footer>
 
 <script>
   // تابع تغییر زبان
@@ -662,7 +951,21 @@
 
       lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
     });
+    
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
   });
 </script>
 </body>
-</html>
+                  </html>

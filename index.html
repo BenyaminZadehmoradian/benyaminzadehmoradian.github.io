@@ -14,7 +14,7 @@
           animation: {
             'gradient-x': 'gradient-x 12s ease infinite',
             'float': 'float 6s ease-in-out infinite',
-            'color-shift': 'colorShift 15s ease infinite',
+            'move-around': 'moveAround 25s ease-in-out infinite',
           },
           keyframes: {
             'gradient-x': {
@@ -25,32 +25,12 @@
               '0%, 100%': { transform: 'translateY(0)' },
               '50%': { transform: 'translateY(-10px)' },
             },
-            'colorShift': {
-              '0%': { 
-                '--color-start': '#0ea5e9',
-                '--color-mid': '#8b5cf6',
-                '--color-end': '#ec4899'
-              },
-              '25%': { 
-                '--color-start': '#8b5cf6',
-                '--color-mid': '#ec4899',
-                '--color-end': '#0ea5e9'
-              },
-              '50%': { 
-                '--color-start': '#ec4899',
-                '--color-mid': '#0ea5e9',
-                '--color-end': '#8b5cf6'
-              },
-              '75%': { 
-                '--color-start': '#0ea5e9',
-                '--color-mid': '#ec4899',
-                '--color-end': '#8b5cf6'
-              },
-              '100%': { 
-                '--color-start': '#0ea5e9',
-                '--color-mid': '#8b5cf6',
-                '--color-end': '#ec4899'
-              }
+            'moveAround': {
+              '0%': { transform: 'translate(0, 0)' },
+              '25%': { transform: 'translate(20px, 20px)' },
+              '50%': { transform: 'translate(40px, 0)' },
+              '75%': { transform: 'translate(20px, -20px)' },
+              '100%': { transform: 'translate(0, 0)' },
             }
           },
           colors: {
@@ -85,12 +65,8 @@
   </script>
   <style>
     :root {
-      --color-start: #0ea5e9;
-      --color-mid: #8b5cf6;
-      --color-end: #ec4899;
-      --gradient-light: linear-gradient(135deg, var(--color-start) 0%, var(--color-mid) 50%, var(--color-end) 100%);
+      --gradient-light: linear-gradient(135deg, #f0f9ff 0%, #e0f7fa 50%, #f3e5f5 100%);
       --gradient-dark: linear-gradient(135deg, #0c1e3e 0%, #1a1b3d 50%, #2c0b3a 100%);
-      animation: colorShift 15s ease infinite;
     }
 
     body {
@@ -100,7 +76,7 @@
       min-height: 100vh;
       background: var(--gradient-light);
       background-size: 300% 300%;
-      animation: gradientBG 12s ease-in-out infinite;
+      animation: gradientBG 20s ease-in-out infinite;
       color: #1e293b;
       transition: background 0.8s ease, color 0.5s ease;
       line-height: 1.6;
@@ -110,7 +86,7 @@
     html.dark body {
       background: var(--gradient-dark);
       background-size: 400% 400%;
-      animation: gradientBG 15s ease-in-out infinite;
+      animation: gradientBG 25s ease-in-out infinite;
       color: #f1f5f9;
     }
 
@@ -123,34 +99,6 @@
       0% { background-position: 0% center; }
       50% { background-position: 100% center; }
       100% { background-position: 0% center; }
-    }
-
-    @keyframes colorShift {
-      0% { 
-        --color-start: #0ea5e9;
-        --color-mid: #8b5cf6;
-        --color-end: #ec4899;
-      }
-      25% { 
-        --color-start: #8b5cf6;
-        --color-mid: #ec4899;
-        --color-end: #0ea5e9;
-      }
-      50% { 
-        --color-start: #ec4899;
-        --color-mid: #0ea5e9;
-        --color-end: #8b5cf6;
-      }
-      75% { 
-        --color-start: #0ea5e9;
-        --color-mid: #ec4899;
-        --color-end: #8b5cf6;
-      }
-      100% { 
-        --color-start: #0ea5e9;
-        --color-mid: #8b5cf6;
-        --color-end: #ec4899;
-      }
     }
 
     .header-hidden {
@@ -452,7 +400,7 @@
       filter: blur(40px);
       opacity: 0.4;
       z-index: -1;
-      animation: float 15s ease-in-out infinite;
+      animation: move-around 25s ease-in-out infinite;
       animation-delay: calc(var(--delay) * 1s);
     }
     

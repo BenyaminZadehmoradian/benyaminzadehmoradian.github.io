@@ -1,119 +1,95 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Professional bilingual resume with responsive design, dark/light mode, and animated background." />
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <title>My Resume</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-        /* Animation for gradient background */
-        @keyframes gradientMove {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        .bg-gradient-animated {
-            background: linear-gradient(270deg, #ff7e5f, #feb47b, #6a11cb, #2575fc);
-            background-size: 800% 800%;
-            animation: gradientMove 20s ease infinite;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Benyamin Zadehmoradian – Resume</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gradient-animated min-h-screen text-gray-800 dark:text-gray-200 transition-colors duration-500">
-    <div class="max-w-5xl mx-auto px-4">
-        <!-- Header -->
-        <header class="flex flex-col sm:flex-row sm:items-center justify-between py-6">
-            <h1 class="text-3xl sm:text-4xl font-bold text-center sm:text-left">My Resume</h1>
-            <div class="flex justify-center sm:justify-end gap-2 mt-4 sm:mt-0">
-                <button id="langEn" class="px-3 py-1 rounded border border-gray-400 hover:bg-gray-300 dark:hover:bg-gray-700 transition">EN</button>
-                <button id="langNl" class="px-3 py-1 rounded border border-gray-400 hover:bg-gray-300 dark:hover:bg-gray-700 transition">NL</button>
-                <button id="themeToggle" class="px-3 py-1 rounded border border-gray-400 hover:bg-gray-300 dark:hover:bg-gray-700 transition">🌓</button>
-            </div>
-        </header>
+<body class="bg-gradient-to-br from-gray-100 to-gray-200 text-gray-900 dark:from-gray-900 dark:to-gray-800 dark:text-white font-inter">
 
-        <!-- About Section -->
-        <section class="bg-white dark:bg-gray-800 p-4 sm:p-6 rounded-xl shadow-md mb-6">
-            <h2 class="text-xl sm:text-2xl font-semibold mb-3">About Me</h2>
-            <p class="text-sm sm:text-base leading-relaxed">
-                Passionate web developer with experience in creating responsive, user-friendly designs.
-            </p>
-        </section>
-
-        <!-- Education -->
-        <section class="bg-white dark:bg-gray-800 p-4 sm:p-6 rounded-xl shadow-md mb-6">
-            <h2 class="text-xl sm:text-2xl font-semibold mb-3">Education</h2>
-            <div class="grid gap-4 sm:grid-cols-2">
-                <div class="p-4 border border-gray-200 dark:border-gray-700 rounded-lg hover:shadow-lg hover:-translate-y-1 transition">
-                    <h3 class="font-bold">Bachelor in Computer Science</h3>
-                    <p class="text-sm">XYZ University - 2018-2022</p>
-                </div>
-                <div class="p-4 border border-gray-200 dark:border-gray-700 rounded-lg hover:shadow-lg hover:-translate-y-1 transition">
-                    <h3 class="font-bold">Web Development Bootcamp</h3>
-                    <p class="text-sm">Online - 2021</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Skills -->
-        <section class="bg-white dark:bg-gray-800 p-4 sm:p-6 rounded-xl shadow-md mb-6">
-            <h2 class="text-xl sm:text-2xl font-semibold mb-3">Skills</h2>
-            <ul class="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
-                <li class="p-2 bg-gray-100 dark:bg-gray-700 rounded">HTML & CSS</li>
-                <li class="p-2 bg-gray-100 dark:bg-gray-700 rounded">JavaScript</li>
-                <li class="p-2 bg-gray-100 dark:bg-gray-700 rounded">Tailwind CSS</li>
-                <li class="p-2 bg-gray-100 dark:bg-gray-700 rounded">React</li>
-                <li class="p-2 bg-gray-100 dark:bg-gray-700 rounded">Git & GitHub</li>
-                <li class="p-2 bg-gray-100 dark:bg-gray-700 rounded">Responsive Design</li>
-            </ul>
-        </section>
-
-        <!-- Contact -->
-        <section class="bg-white dark:bg-gray-800 p-4 sm:p-6 rounded-xl shadow-md">
-            <h2 class="text-xl sm:text-2xl font-semibold mb-3">Contact</h2>
-            <p>Email: example@email.com</p>
-            <p>Phone: +123 456 789</p>
-        </section>
+  <!-- Header -->
+  <header class="sticky top-0 backdrop-blur bg-white/70 dark:bg-gray-900/70 border-b border-gray-200 dark:border-gray-700 z-50">
+    <div class="max-w-5xl mx-auto px-4 py-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold">Benyamin Zadehmoradian</h1>
+      <div class="flex gap-4">
+        <button id="lang-en" class="text-sm font-medium hover:underline">EN</button>
+        <button id="lang-nl" class="text-sm font-medium hover:underline">NL</button>
+        <button id="theme-toggle" class="text-sm font-medium hover:underline">🌓</button>
+      </div>
     </div>
+  </header>
 
-    <script>
-        const langEn = document.getElementById('langEn');
-        const langNl = document.getElementById('langNl');
-        const themeToggle = document.getElementById('themeToggle');
+  <!-- Main -->
+  <main class="max-w-5xl mx-auto px-4 py-8 space-y-12">
 
-        // Load preferences
-        document.documentElement.classList.toggle('dark', localStorage.getItem('theme') === 'dark');
+    <!-- About -->
+    <section>
+      <h2 class="text-xl font-semibold mb-2">About Me</h2>
+      <p>
+        I am a dedicated researcher in inverter-based memristive neural networks, passionate about analog computing,
+        energy efficiency, and hardware-aware AI.
+      </p>
+    </section>
 
-        langEn.addEventListener('click', () => {
-            localStorage.setItem('lang', 'en');
-            setActiveLang('en');
-        });
-        langNl.addEventListener('click', () => {
-            localStorage.setItem('lang', 'nl');
-            setActiveLang('nl');
-        });
+    <!-- Skills -->
+    <section>
+      <h2 class="text-xl font-semibold mb-4">Skills</h2>
+      <div class="flex flex-wrap gap-3">
+        <span class="px-4 py-2 rounded-lg bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200">Python</span>
+        <span class="px-4 py-2 rounded-lg bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200">TensorFlow</span>
+        <span class="px-4 py-2 rounded-lg bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200">Machine Learning</span>
+        <span class="px-4 py-2 rounded-lg bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200">Memristor Programming</span>
+        <span class="px-4 py-2 rounded-lg bg-pink-100 text-pink-800 dark:bg-pink-900 dark:text-pink-200">Data Analysis</span>
+        <span class="px-4 py-2 rounded-lg bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200">Hardware Design</span>
+      </div>
+    </section>
 
-        themeToggle.addEventListener('click', () => {
-            document.documentElement.classList.toggle('dark');
-            localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
-        });
+    <!-- Education -->
+    <section>
+      <h2 class="text-xl font-semibold mb-2">Education</h2>
+      <ul class="list-disc pl-6">
+        <li>PhD in Electrical Engineering – Ghent University</li>
+        <li>MSc in Electrical Engineering – University of Tehran</li>
+      </ul>
+    </section>
 
-        function setActiveLang(lang) {
-            if (lang === 'en') {
-                langEn.classList.add('bg-gray-300', 'dark:bg-gray-700');
-                langNl.classList.remove('bg-gray-300', 'dark:bg-gray-700');
-            } else {
-                langNl.classList.add('bg-gray-300', 'dark:bg-gray-700');
-                langEn.classList.remove('bg-gray-300', 'dark:bg-gray-700');
-            }
-        }
+    <!-- Experience -->
+    <section>
+      <h2 class="text-xl font-semibold mb-2">Experience</h2>
+      <ul class="list-disc pl-6">
+        <li>Researcher – Memristive Neural Networks</li>
+        <li>Teaching Assistant – University of Tehran</li>
+      </ul>
+    </section>
 
-        // Apply saved language
-        setActiveLang(localStorage.getItem('lang') || 'en');
-    </script>
+    <!-- Notable Courses -->
+    <section>
+      <h2 class="text-xl font-semibold mb-2">Notable Courses</h2>
+      <ul class="list-disc pl-6">
+        <li>Advanced Machine Learning</li>
+        <li>Analog Circuit Design</li>
+        <li>Digital Signal Processing</li>
+        <li>VLSI Design</li>
+        <li>Embedded Systems</li>
+      </ul>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-gray-200 dark:border-gray-700 py-4 text-center text-sm">
+    © 2025 Benyamin Zadehmoradian
+  </footer>
+
+  <!-- Script -->
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    themeToggle.addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark');
+    });
+  </script>
+
 </body>
 </html>

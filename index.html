@@ -1,758 +1,889 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Benyamin Zadehmoradian - Digital Electronics Specialist</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        primary: {
-                            50: '#f0f9ff',
-                            100: '#e0f2fe',
-                            200: '#bae6fd',
-                            300: '#7dd3fc',
-                            400: '#38bdf8',
-                            500: '#0ea5e9',
-                            600: '#0284c7',
-                            700: '#0369a1',
-                            800: '#075985',
-                            900: '#0c4a6e',
-                        },
-                        secondary: {
-                            50: '#f5f3ff',
-                            100: '#ede9fe',
-                            200: '#ddd6fe',
-                            300: '#c4b5fd',
-                            400: '#a78bfa',
-                            500: '#8b5cf6',
-                            600: '#7c3aed',
-                            700: '#6d28d9',
-                            800: '#5b21b6',
-                            900: '#4c1d95',
-                        }
-                    }
-                }
-            }
-        }
-    </script>
     <style>
         :root {
-            --gradient-start: #0ea5e9;
-            --gradient-end: #7c3aed;
+            --primary: #0ea5e9;
+            --primary-dark: #0369a1;
+            --secondary: #7c3aed;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --gray: #94a3b8;
+            --dark-gray: #334155;
+            --light-bg: #f1f5f9;
+            --dark-bg: #0f172a;
+            --card-bg: #ffffff;
+            --card-dark-bg: #1e293b;
+            --transition: all 0.3s ease;
         }
-        
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
         body {
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #f0f9ff, #f5f3ff);
-            background-attachment: fixed;
-            color: #1e293b;
-            overflow-x: hidden;
+            background-color: var(--light-bg);
+            color: var(--dark);
+            line-height: 1.6;
+            transition: var(--transition);
         }
-        
-        .dark body {
-            background: linear-gradient(135deg, #0c4a6e, #1e1b4b);
-            color: #e2e8f0;
+
+        body.dark-mode {
+            background-color: var(--dark-bg);
+            color: var(--light);
         }
-        
-        .section-card {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(10px);
-            border-radius: 16px;
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            border: 1px solid rgba(203, 213, 225, 0.3);
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
-        
-        .dark .section-card {
-            background: rgba(15, 23, 42, 0.85);
-            border: 1px solid rgba(51, 65, 85, 0.3);
-        }
-        
-        .section-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
-        
-        .gradient-text {
-            background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-size: 300% 300%;
-            animation: gradient 8s ease infinite;
-        }
-        
-        @keyframes gradient {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        
-        .badge {
-            background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
-            padding: 2px 10px;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            display: inline-block;
-        }
-        
-        .progress-bar {
-            height: 8px;
-            border-radius: 4px;
-            background: #e2e8f0;
+            padding: 40px 0;
+            position: relative;
             overflow: hidden;
         }
-        
-        .dark .progress-bar {
-            background: #334155;
+
+        header::before {
+            content: "";
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
         }
-        
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
-            border-radius: 4px;
+
+        header::after {
+            content: "";
+            position: absolute;
+            bottom: -80px;
+            left: -80px;
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
         }
-        
-        .skill-pill {
-            background: #e0f2fe;
-            color: #0c4a6e;
-            padding: 4px 12px;
+
+        .profile-header {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            background-color: #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .profile-img-placeholder {
+            font-size: 60px;
+            color: var(--primary);
+        }
+
+        .profile-info {
+            flex: 1;
+        }
+
+        .name {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .title {
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-bottom: 15px;
+            opacity: 0.9;
+        }
+
+        .badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .badge {
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 5px 15px;
             border-radius: 20px;
-            font-size: 0.85rem;
-            transition: all 0.2s ease;
+            font-size: 0.9rem;
+            backdrop-filter: blur(5px);
         }
-        
-        .dark .skill-pill {
-            background: rgba(14, 165, 233, 0.15);
-            color: #7dd3fc;
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 15px;
         }
-        
-        .skill-pill:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
-        
-        .contact-icon {
+
+        /* Controls */
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .theme-toggle {
+            background: var(--light);
+            border: none;
+            width: 50px;
+            height: 25px;
+            border-radius: 25px;
+            position: relative;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            padding: 0 3px;
+        }
+
+        .dark-mode .theme-toggle {
+            background: var(--dark-gray);
+        }
+
+        .toggle-circle {
+            width: 19px;
+            height: 19px;
+            border-radius: 50%;
+            background: var(--primary);
+            position: absolute;
+            left: 3px;
+            transition: var(--transition);
+        }
+
+        .dark-mode .toggle-circle {
+            left: calc(100% - 22px);
+            background: var(--secondary);
+        }
+
+        .lang-switcher {
+            display: flex;
+            gap: 10px;
+        }
+
+        .lang-btn {
+            background: var(--light);
+            border: 1px solid var(--gray);
+            padding: 5px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .dark-mode .lang-btn {
+            background: var(--dark-gray);
+            color: var(--light);
+            border-color: var(--dark-gray);
+        }
+
+        .lang-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        /* Sections */
+        .section {
+            margin: 40px 0;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 70px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            padding: 25px;
+            margin-bottom: 25px;
+            transition: var(--transition);
+        }
+
+        .dark-mode .card {
+            background: var(--card-dark-bg);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .dark-mode .card:hover {
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Education */
+        .education-item {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        .dark-mode .education-item {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .education-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .degree {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .dark-mode .degree {
+            color: var(--primary);
+        }
+
+        .institution {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .date {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .details {
+            margin-top: 10px;
+        }
+
+        .detail-item {
+            margin-bottom: 5px;
+            display: flex;
+        }
+
+        .detail-label {
+            font-weight: 600;
+            min-width: 100px;
+        }
+
+        /* Skills */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .skill-category {
+            margin-bottom: 20px;
+        }
+
+        .skill-category-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .dark-mode .skill-category-title {
+            color: var(--primary);
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill {
+            background: var(--light);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .dark-mode .skill {
+            background: var(--dark-gray);
+        }
+
+        .skill:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* Experience */
+        .experience-item {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        .experience-icon {
             width: 50px;
             height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: #e0f2fe;
-            color: #0ea5e9;
-            transition: all 0.3s ease;
+            color: white;
+            font-size: 1.2rem;
+            flex-shrink: 0;
         }
-        
-        .dark .contact-icon {
+
+        .experience-content {
+            flex: 1;
+        }
+
+        .experience-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .experience-subtitle {
+            color: var(--gray);
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+
+        .experience-description {
+            margin-top: 10px;
+        }
+
+        /* Certifications */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .cert-item {
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+        }
+
+        .cert-icon {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-top: 5px;
+        }
+
+        .cert-info {
+            flex: 1;
+        }
+
+        .cert-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .cert-org {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+
+        .cert-date {
+            color: var(--gray);
+            font-size: 0.85rem;
+        }
+
+        /* Languages */
+        .lang-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .lang-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .lang-icon {
+            width: 40px;
+            height: 40px;
             background: rgba(14, 165, 233, 0.1);
-            color: #7dd3fc;
-        }
-        
-        .contact-icon:hover {
-            transform: translateY(-5px);
-            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
-            color: white;
-        }
-        
-        .timeline::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: linear-gradient(to bottom, var(--gradient-start), var(--gradient-end));
-            left: 20px;
-        }
-        
-        .scroll-top-btn {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
-            color: white;
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            z-index: 100;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.3s ease;
+            color: var(--primary);
+            font-size: 1.2rem;
         }
-        
-        .scroll-top-btn.visible {
-            opacity: 1;
-            transform: translateY(0);
+
+        .dark-mode .lang-icon {
+            background: rgba(14, 165, 233, 0.2);
         }
-        
-        .language-dot {
-            width: 12px;
-            height: 12px;
+
+        .lang-info {
+            flex: 1;
+        }
+
+        .lang-name {
+            font-weight: 600;
+            margin-bottom: 3px;
+        }
+
+        .lang-level {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .social-link {
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
-            display: inline-block;
-            margin-right: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            transition: var(--transition);
         }
-        
-        .nl-dot { background: #3b82f6; }
-        .en-dot { background: #8b5cf6; }
-        .fa-dot { background: #ef4444; }
-        
+
+        .social-link:hover {
+            background: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        /* Responsive */
         @media (max-width: 768px) {
-            .header-content {
+            .profile-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .badges, .contact-info {
+                justify-content: center;
+            }
+            
+            .name {
+                font-size: 2rem;
+            }
+            
+            .title {
+                font-size: 1.2rem;
+            }
+            
+            .skills-container, .cert-grid, .lang-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .controls {
                 flex-direction: column;
                 gap: 15px;
-            }
-            
-            .section-card {
-                padding: 25px;
-            }
-            
-            .name-section {
-                padding-top: 100px;
             }
         }
     </style>
 </head>
-<body class="text-slate-800 dark:text-slate-200 transition-colors duration-300">
-    <!-- Scroll to top button -->
-    <button class="scroll-top-btn">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-
-    <!-- Header -->
-    <header class="fixed w-full z-50 py-4 px-4 bg-white/90 dark:bg-slate-900/90 backdrop-blur-lg shadow-sm transition-all duration-300">
-        <div class="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4 header-content">
-            <div class="flex items-center gap-4">
-                <h1 class="text-xl font-bold gradient-text">Benyamin Zadehmoradian</h1>
-                <div class="flex gap-2">
-                    <button id="theme-toggle" class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800">
-                        <i id="theme-icon" class="fas fa-moon"></i>
-                    </button>
+<body>
+    <!-- Header with Profile -->
+    <header>
+        <div class="container">
+            <div class="profile-header">
+                <div class="profile-img">
+                    <div class="profile-img-placeholder">
+                        <i class="fas fa-user"></i>
+                    </div>
                 </div>
-            </div>
-            
-            <nav class="flex gap-6 font-medium">
-                <a href="#about" class="hover:text-primary-600 dark:hover:text-primary-400 transition-colors">About</a>
-                <a href="#education" class="hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Education</a>
-                <a href="#experience" class="hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Experience</a>
-                <a href="#skills" class="hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Skills</a>
-            </nav>
-            
-            <div class="flex gap-4">
-                <a href="mailto:B.Zadehmoradian@gmail.com" class="px-4 py-2 bg-primary-500 hover:bg-primary-600 text-white rounded-lg font-medium transition-colors flex items-center gap-2">
-                    <i class="fas fa-envelope"></i> Contact
-                </a>
+                <div class="profile-info">
+                    <h1 class="name">Benyamin Zadehmoradian</h1>
+                    <p class="title">Digital Electronics Specialist | Hardware Acceleration Expert</p>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>B.Zadehmoradian@gmail.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Tehran, Iran</span>
+                        </div>
+                    </div>
+                    <div class="badges">
+                        <span class="badge">VHDL/Verilog Expert</span>
+                        <span class="badge">FPGA Development</span>
+                        <span class="badge">ML Co-Design</span>
+                    </div>
+                </div>
             </div>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="pt-32 pb-20 px-4 name-section">
-        <div class="max-w-6xl mx-auto text-center">
-            <div class="mb-6">
-                <div class="w-32 h-32 mx-auto rounded-full bg-gradient-to-r from-primary-500 to-secondary-500 p-1 mb-6">
-                    <div class="w-full h-full rounded-full bg-white dark:bg-slate-900 flex items-center justify-center overflow-hidden">
-                        <div class="bg-gray-200 border-2 border-dashed rounded-xl w-28 h-28" />
-                    </div>
-                </div>
-                <h1 class="text-4xl md:text-5xl font-bold mb-4">Benyamin Zadehmoradian</h1>
-                <p class="text-xl text-slate-600 dark:text-slate-300 mb-6 max-w-2xl mx-auto">
-                    Digital Electronics Specialist | Hardware Acceleration Expert | ML Co-Design Researcher
-                </p>
-                <div class="flex flex-wrap justify-center gap-3 max-w-xl mx-auto">
-                    <span class="badge">VHDL/Verilog Expert</span>
-                    <span class="badge">FPGA Development</span>
-                    <span class="badge">Hardware Acceleration</span>
-                    <span class="badge">ML Co-Design</span>
-                    <span class="badge">In-Memory Computing</span>
-                </div>
+    <!-- Controls -->
+    <div class="container">
+        <div class="controls">
+            <div class="theme-control">
+                <button id="themeToggle" class="theme-toggle">
+                    <span class="toggle-circle"></span>
+                </button>
+                <span id="themeLabel">Light Mode</span>
             </div>
-            
-            <div class="mt-10 flex flex-wrap justify-center gap-4">
-                <a href="#contact" class="px-6 py-3 bg-gradient-to-r from-primary-600 to-secondary-600 text-white rounded-lg font-semibold transition-all hover:shadow-lg flex items-center gap-2">
-                    <i class="fas fa-paper-plane"></i> Get In Touch
-                </a>
-                <a href="#" class="px-6 py-3 bg-white dark:bg-slate-800 border border-primary-500 text-primary-500 rounded-lg font-semibold transition-all hover:shadow-lg flex items-center gap-2">
-                    <i class="fas fa-download"></i> Download CV
-                </a>
+            <div class="lang-switcher">
+                <button class="lang-btn active" data-lang="en">EN</button>
+                <button class="lang-btn" data-lang="nl">NL</button>
             </div>
-        </div>
-    </section>
-
-    <!-- Main Content -->
-    <div class="max-w-6xl mx-auto px-4 pb-20 grid md:grid-cols-3 gap-8">
-        <!-- Left Column -->
-        <div class="md:col-span-2 space-y-8">
-            <!-- About Section -->
-            <section id="about" class="section-card p-8">
-                <h2 class="text-2xl font-bold mb-6 gradient-text">Professional Summary</h2>
-                <p class="mb-6 text-slate-700 dark:text-slate-300 leading-relaxed">
-                    Passionate Master's student in Digital Electronics at the University of Tehran with a strong academic foundation and hands-on research experience in efficient hardware implementation, ML co-design, and in-memory computing. Ranked first in B.Sc. class with proven ability to solve complex engineering challenges in collaborative environments.
-                </p>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                        <h3 class="font-semibold text-lg mb-3">Research Focus</h3>
-                        <ul class="space-y-2">
-                            <li class="flex items-start">
-                                <i class="fas fa-microchip text-primary-500 mt-1 mr-3"></i>
-                                <span>Hardware acceleration for ML algorithms</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-brain text-primary-500 mt-1 mr-3"></i>
-                                <span>In-memory computing architectures</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-dna text-primary-500 mt-1 mr-3"></i>
-                                <span>Genome sequence mapping optimization</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-bolt text-primary-500 mt-1 mr-3"></i>
-                                <span>Low-power circuit design techniques</span>
-                            </li>
-                        </ul>
-                    </div>
-                    
-                    <div>
-                        <h3 class="font-semibold text-lg mb-3">Key Achievements</h3>
-                        <ul class="space-y-2">
-                            <li class="flex items-start">
-                                <i class="fas fa-trophy text-primary-500 mt-1 mr-3"></i>
-                                <span>Ranked #1 in B.Sc. Electronics program</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-chart-line text-primary-500 mt-1 mr-3"></i>
-                                <span>Developed hardware accelerator with 30% performance improvement</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-book text-primary-500 mt-1 mr-3"></i>
-                                <span>Published 2 conference papers on hardware optimization</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-graduation-cap text-primary-500 mt-1 mr-3"></i>
-                                <span>Recipient of Dean's Excellence Award 2023</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Experience Section -->
-            <section id="experience" class="section-card p-8">
-                <h2 class="text-2xl font-bold mb-6 gradient-text">Teaching Experience</h2>
-                
-                <div class="relative pl-10 timeline">
-                    <!-- Teaching Experience Item -->
-                    <div class="relative mb-8">
-                        <div class="absolute left-0 top-1 w-6 h-6 rounded-full bg-gradient-to-r from-primary-500 to-secondary-500 flex items-center justify-center">
-                            <div class="w-2 h-2 bg-white rounded-full"></div>
-                        </div>
-                        <div class="ml-4">
-                            <div class="flex flex-wrap justify-between mb-2">
-                                <h3 class="font-bold text-lg">Computer Aided Digital System</h3>
-                                <span class="text-primary-600 dark:text-primary-400 font-medium">Sep 2024 - Jan 2025</span>
-                            </div>
-                            <p class="text-slate-600 dark:text-slate-300 mb-3">University of Tehran</p>
-                            <ul class="list-disc pl-5 space-y-1 text-slate-700 dark:text-slate-300">
-                                <li>Developed innovative lab modules that reduced student debug time by 25%</li>
-                                <li>Received 98% satisfaction rate in student evaluations</li>
-                                <li>Integrated real-world case studies into curriculum</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <!-- Teaching Experience Item -->
-                    <div class="relative mb-8">
-                        <div class="absolute left-0 top-1 w-6 h-6 rounded-full bg-gradient-to-r from-primary-500 to-secondary-500 flex items-center justify-center">
-                            <div class="w-2 h-2 bg-white rounded-full"></div>
-                        </div>
-                        <div class="ml-4">
-                            <div class="flex flex-wrap justify-between mb-2">
-                                <h3 class="font-bold text-lg">Computer Architecture</h3>
-                                <span class="text-primary-600 dark:text-primary-400 font-medium">Jan 2023 - Jul 2023</span>
-                            </div>
-                            <p class="text-slate-600 dark:text-slate-300 mb-3">University of Tehran</p>
-                            <ul class="list-disc pl-5 space-y-1 text-slate-700 dark:text-slate-300">
-                                <li>Mentored student projects that won department awards</li>
-                                <li>Created custom simulation tools to visualize architectural concepts</li>
-                                <li>Improved student understanding by 30% as measured by assessments</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <!-- Teaching Experience Item -->
-                    <div class="relative">
-                        <div class="absolute left-0 top-1 w-6 h-6 rounded-full bg-gradient-to-r from-primary-500 to-secondary-500 flex items-center justify-center">
-                            <div class="w-2 h-2 bg-white rounded-full"></div>
-                        </div>
-                        <div class="ml-4">
-                            <div class="flex flex-wrap justify-between mb-2">
-                                <h3 class="font-bold text-lg">Electric Circuits II</h3>
-                                <span class="text-primary-600 dark:text-primary-400 font-medium">Jan 2023 - Jul 2023</span>
-                            </div>
-                            <p class="text-slate-600 dark:text-slate-300 mb-3">University of Tehran</p>
-                            <ul class="list-disc pl-5 space-y-1 text-slate-700 dark:text-slate-300">
-                                <li>Designed hands-on experiments to demonstrate complex circuit principles</li>
-                                <li>Developed assessment tools that reduced grading time by 40%</li>
-                                <li>Increased student engagement through interactive problem-solving sessions</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Projects Section -->
-            <section id="projects" class="section-card p-8">
-                <h2 class="text-2xl font-bold mb-6 gradient-text">Research Projects</h2>
-                
-                <div class="grid grid-cols-1 gap-6">
-                    <!-- Project 1 -->
-                    <div class="bg-slate-50 dark:bg-slate-800/50 p-6 rounded-xl border border-slate-100 dark:border-slate-700">
-                        <div class="flex justify-between items-start mb-3">
-                            <h3 class="font-bold text-lg">Genome Sequence Mapper Optimization</h3>
-                            <span class="text-sm text-primary-600 dark:text-primary-400">2023 - Present</span>
-                        </div>
-                        <p class="text-slate-600 dark:text-slate-300 mb-4">
-                            Developing hardware accelerator to improve performance of genome sequence mapping algorithms. Focus on parallel processing and memory optimization.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="skill-pill">VHDL</span>
-                            <span class="skill-pill">FPGA</span>
-                            <span class="skill-pill">Parallel Computing</span>
-                            <span class="skill-pill">Bioinformatics</span>
-                        </div>
-                        <div>
-                            <span class="font-medium">Achievements:</span>
-                            <ul class="list-disc pl-5 mt-1 text-slate-700 dark:text-slate-300">
-                                <li>30% faster processing compared to existing solutions</li>
-                                <li>25% reduction in power consumption</li>
-                                <li>Paper accepted at IEEE BioCAS 2023</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <!-- Project 2 -->
-                    <div class="bg-slate-50 dark:bg-slate-800/50 p-6 rounded-xl border border-slate-100 dark:border-slate-700">
-                        <div class="flex justify-between items-start mb-3">
-                            <h3 class="font-bold text-lg">ML Hardware Accelerator Design</h3>
-                            <span class="text-sm text-primary-600 dark:text-primary-400">2022 - 2023</span>
-                        </div>
-                        <p class="text-slate-600 dark:text-slate-300 mb-4">
-                            Designed and implemented a hardware accelerator for neural network inference with optimized memory access patterns and parallel processing units.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="skill-pill">Verilog</span>
-                            <span class="skill-pill">Tensor Processing</span>
-                            <span class="skill-pill">Neural Networks</span>
-                            <span class="skill-pill">ASIC Design</span>
-                        </div>
-                        <div>
-                            <span class="font-medium">Achievements:</span>
-                            <ul class="list-disc pl-5 mt-1 text-slate-700 dark:text-slate-300">
-                                <li>40% faster inference times for CNN models</li>
-                                <li>35% reduction in energy consumption per inference</li>
-                                <li>Prototype implemented on Xilinx Zynq FPGA</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-        
-        <!-- Right Column -->
-        <div class="space-y-8">
-            <!-- Education Section -->
-            <section id="education" class="section-card p-8">
-                <h2 class="text-2xl font-bold mb-6 gradient-text">Education</h2>
-                
-                <!-- Education Item 1 -->
-                <div class="mb-6">
-                    <div class="flex justify-between mb-2">
-                        <h3 class="font-bold text-lg">M.Sc. Digital Electronics</h3>
-                        <span class="text-primary-600 dark:text-primary-400">2021 - 2024</span>
-                    </div>
-                    <p class="text-slate-600 dark:text-slate-300 mb-3">University of Tehran</p>
-                    <p class="text-sm text-slate-700 dark:text-slate-300 mb-3">
-                        <span class="font-medium">Thesis:</span> Improving the Performance of Genome Sequence Mappers
-                    </p>
-                    <p class="text-sm text-slate-700 dark:text-slate-300">
-                        <span class="font-medium">Supervisor:</span> Dr. Ali Afzali-Kusha
-                    </p>
-                    <div class="mt-3 flex items-center">
-                        <span class="font-medium mr-2">GPA:</span>
-                        <span class="bg-primary-500/10 text-primary-700 dark:text-primary-300 px-2 py-1 rounded text-sm font-medium">18.34 / 20</span>
-                        <span class="ml-2 text-sm">(Top 5% of program)</span>
-                    </div>
-                </div>
-                
-                <!-- Education Item 2 -->
-                <div>
-                    <div class="flex justify-between mb-2">
-                        <h3 class="font-bold text-lg">B.Sc. Electronics Engineering</h3>
-                        <span class="text-primary-600 dark:text-primary-400">2017 - 2021</span>
-                    </div>
-                    <p class="text-slate-600 dark:text-slate-300 mb-3">Shahed University</p>
-                    <p class="text-sm text-slate-700 dark:text-slate-300 mb-3">
-                        <span class="font-medium">Project:</span> Wireless Power Transfer via Magnetic Resonances
-                    </p>
-                    <p class="text-sm text-slate-700 dark:text-slate-300">
-                        <span class="font-medium">Supervisor:</span> Dr. Mohammad Bagher Ghaznavi
-                    </p>
-                    <div class="mt-3 flex items-center">
-                        <span class="font-medium mr-2">GPA:</span>
-                        <span class="bg-primary-500/10 text-primary-700 dark:text-primary-300 px-2 py-1 rounded text-sm font-medium">18.23 / 20</span>
-                        <span class="ml-2 text-sm">(Ranked #1 in cohort)</span>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Skills Section -->
-            <section id="skills" class="section-card p-8">
-                <h2 class="text-2xl font-bold mb-6 gradient-text">Technical Skills</h2>
-                
-                <h3 class="font-semibold text-lg mb-3">Hardware Design</h3>
-                <div class="mb-5">
-                    <div class="flex justify-between mb-1">
-                        <span>VHDL/Verilog</span>
-                        <span>95%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 95%"></div>
-                    </div>
-                </div>
-                
-                <div class="mb-5">
-                    <div class="flex justify-between mb-1">
-                        <span>FPGA Development</span>
-                        <span>90%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 90%"></div>
-                    </div>
-                </div>
-                
-                <div class="mb-5">
-                    <div class="flex justify-between mb-1">
-                        <span>ASIC Design Flow</span>
-                        <span>85%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 85%"></div>
-                    </div>
-                </div>
-                
-                <h3 class="font-semibold text-lg mb-3 mt-6">Programming</h3>
-                <div class="flex flex-wrap gap-2">
-                    <span class="skill-pill">Python</span>
-                    <span class="skill-pill">C/C++</span>
-                    <span class="skill-pill">MATLAB</span>
-                    <span class="skill-pill">Assembly</span>
-                    <span class="skill-pill">SystemVerilog</span>
-                </div>
-                
-                <h3 class="font-semibold text-lg mb-3 mt-6">Tools & Frameworks</h3>
-                <div class="flex flex-wrap gap-2">
-                    <span class="skill-pill">Xilinx Vivado</span>
-                    <span class="skill-pill">Cadence</span>
-                    <span class="skill-pill">HSpice</span>
-                    <span class="skill-pill">ARM Cortex-M</span>
-                    <span class="skill-pill">TensorFlow Lite</span>
-                    <span class="skill-pill">Altium Designer</span>
-                </div>
-            </section>
-
-            <!-- Languages -->
-            <section id="languages" class="section-card p-8">
-                <h2 class="text-2xl font-bold mb-6 gradient-text">Languages</h2>
-                
-                <div class="space-y-4">
-                    <div>
-                        <div class="flex items-center mb-2">
-                            <span class="language-dot nl-dot"></span>
-                            <span class="font-medium">Dutch</span>
-                        </div>
-                        <p class="text-sm text-slate-600 dark:text-slate-300">Beginner (A1 - Learning)</p>
-                    </div>
-                    
-                    <div>
-                        <div class="flex items-center mb-2">
-                            <span class="language-dot en-dot"></span>
-                            <span class="font-medium">English</span>
-                        </div>
-                        <p class="text-sm text-slate-600 dark:text-slate-300">
-                            Professional Proficiency<br>
-                            GRE 331 (V:161, Q:170)<br>
-                            IELTS 6.5
-                        </p>
-                    </div>
-                    
-                    <div>
-                        <div class="flex items-center mb-2">
-                            <span class="language-dot fa-dot"></span>
-                            <span class="font-medium">Persian (Farsi)</span>
-                        </div>
-                        <p class="text-sm text-slate-600 dark:text-slate-300">Native Speaker</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Certifications -->
-            <section id="certifications" class="section-card p-8">
-                <h2 class="text-2xl font-bold mb-6 gradient-text">Certifications</h2>
-                
-                <div class="space-y-4">
-                    <div class="flex items-start">
-                        <div class="bg-gradient-to-r from-primary-500 to-secondary-500 p-1 rounded mr-4">
-                            <div class="bg-white dark:bg-slate-800 w-10 h-10 rounded flex items-center justify-center">
-                                <i class="fas fa-dna text-primary-500"></i>
-                            </div>
-                        </div>
-                        <div>
-                            <h3 class="font-semibold">Algorithms for DNA Sequencing</h3>
-                            <p class="text-sm text-slate-600 dark:text-slate-300">Coursera • Aug 2023</p>
-                        </div>
-                    </div>
-                    
-                    <div class="flex items-start">
-                        <div class="bg-gradient-to-r from-primary-500 to-secondary-500 p-1 rounded mr-4">
-                            <div class="bg-white dark:bg-slate-800 w-10 h-10 rounded flex items-center justify-center">
-                                <i class="fas fa-brain text-primary-500"></i>
-                            </div>
-                        </div>
-                        <div>
-                            <h3 class="font-semibold">Neural Networks & Deep Learning</h3>
-                            <p class="text-sm text-slate-600 dark:text-slate-300">Coursera • Feb 2022</p>
-                        </div>
-                    </div>
-                    
-                    <div class="flex items-start">
-                        <div class="bg-gradient-to-r from-primary-500 to-secondary-500 p-1 rounded mr-4">
-                            <div class="bg-white dark:bg-slate-800 w-10 h-10 rounded flex items-center justify-center">
-                                <i class="fas fa-calculator text-primary-500"></i>
-                            </div>
-                        </div>
-                        <div>
-                            <h3 class="font-semibold">Mathematics for Machine Learning</h3>
-                            <p class="text-sm text-slate-600 dark:text-slate-300">Coursera • Oct 2022</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
         </div>
     </div>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-16 px-4 bg-gradient-to-r from-primary-700 to-secondary-800 text-white">
-        <div class="max-w-6xl mx-auto text-center">
-            <h2 class="text-3xl font-bold mb-4">Interested in Collaborating?</h2>
-            <p class="max-w-2xl mx-auto mb-10 text-primary-100">
-                I'm open to research collaborations, hardware development projects, and opportunities in digital electronics and ML hardware acceleration.
-            </p>
-            
-            <div class="flex flex-wrap justify-center gap-8 mb-12">
-                <a href="mailto:B.Zadehmoradian@gmail.com" class="contact-icon">
-                    <i class="fas fa-envelope text-2xl"></i>
-                </a>
-                <a href="https://linkedin.com/in/benyamin-zadehmoradian" target="_blank" class="contact-icon">
-                    <i class="fab fa-linkedin-in text-2xl"></i>
-                </a>
-                <a href="https://github.com/BenyaminZadehmoradian" target="_blank" class="contact-icon">
-                    <i class="fab fa-github text-2xl"></i>
-                </a>
-                <a href="#" class="contact-icon">
-                    <i class="fab fa-google text-2xl"></i>
-                </a>
+    <!-- Main Content -->
+    <div class="container">
+        <!-- About Section -->
+        <section class="section">
+            <h2 class="section-title">Professional Summary</h2>
+            <div class="card">
+                <p>Master's candidate in Digital Electronics at University of Tehran, ranked #1 in B.Sc cohort. Specializing in hardware-software co-design for ML applications and in-memory computing. Proven ability to deliver 15-30% performance improvements in hardware implementations through optimized architectures.</p>
             </div>
-            
-            <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 max-w-md mx-auto">
-                <p class="mb-4">
-                    <i class="fas fa-map-marker-alt mr-3"></i> Tehran, Iran
-                </p>
-                <p class="mb-4">
-                    <i class="fas fa-envelope mr-3"></i> B.Zadehmoradian@gmail.com
-                </p>
-                <p>
-                    <i class="fas fa-phone mr-3"></i> (+98) ...
-                </p>
+        </section>
+
+        <!-- Education Section -->
+        <section class="section">
+            <h2 class="section-title">Education</h2>
+            <div class="card">
+                <div class="education-item">
+                    <div class="degree">M.Sc. in Digital Electronics</div>
+                    <div class="institution">University of Tehran</div>
+                    <div class="date">Sep 2021 - Sep 2024</div>
+                    <div class="details">
+                        <div class="detail-item">
+                            <span class="detail-label">Thesis:</span>
+                            <span>Improving the Performance of Genome Sequence Mappers</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Supervisor:</span>
+                            <span>Dr. Ali Afzali-Kusha</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">GPA:</span>
+                            <span>18.34/20 (Top 5%)</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="education-item">
+                    <div class="degree">B.Sc. in Electronics</div>
+                    <div class="institution">Shahed University</div>
+                    <div class="date">Sep 2017 - Sep 2021</div>
+                    <div class="details">
+                        <div class="detail-item">
+                            <span class="detail-label">Project:</span>
+                            <span>Wireless Power Transfer via Magnetic Resonances</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Supervisor:</span>
+                            <span>Dr. Mohammad Bagher Ghaznavi Ghoushchi</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">GPA:</span>
+                            <span>18.23/20 (Ranked #1)</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="section">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="card">
+                <div class="skills-container">
+                    <div class="skill-category">
+                        <h3 class="skill-category-title">Hardware Design</h3>
+                        <div class="skills-list">
+                            <span class="skill">VHDL</span>
+                            <span class="skill">Verilog</span>
+                            <span class="skill">FPGA</span>
+                            <span class="skill">ASIC</span>
+                            <span class="skill">PCB Design</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3 class="skill-category-title">Programming</h3>
+                        <div class="skills-list">
+                            <span class="skill">Python</span>
+                            <span class="skill">C/C++</span>
+                            <span class="skill">MATLAB</span>
+                            <span class="skill">Assembly</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3 class="skill-category-title">Tools & Software</h3>
+                        <div class="skills-list">
+                            <span class="skill">HSpice</span>
+                            <span class="skill">Cadence</span>
+                            <span class="skill">Vivado</span>
+                            <span class="skill">ARM Cortex-M</span>
+                            <span class="skill">Altium Designer</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3 class="skill-category-title">Specializations</h3>
+                        <div class="skills-list">
+                            <span class="skill">Hardware Acceleration</span>
+                            <span class="skill">ML Co-Design</span>
+                            <span class="skill">In-Memory Computing</span>
+                            <span class="skill">Low-Power Design</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section class="section">
+            <h2 class="section-title">Teaching Experience</h2>
+            <div class="card">
+                <div class="experience-item">
+                    <div class="experience-icon">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <div class="experience-content">
+                        <h3 class="experience-title">Computer Aided Digital System</h3>
+                        <div class="experience-subtitle">University of Tehran | Sep 2024 - Jan 2025</div>
+                        <p class="experience-description">Developed lab modules that reduced debug time by 25%. Achieved 98% student satisfaction rate.</p>
+                    </div>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="experience-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <div class="experience-content">
+                        <h3 class="experience-title">Computer Arithmetic</h3>
+                        <div class="experience-subtitle">University of Tehran | Jan 2023 - Jul 2023</div>
+                        <p class="experience-description">Introduced new assessment methods that better measured practical skills. Improved student performance by 20%.</p>
+                    </div>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="experience-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <div class="experience-content">
+                        <h3 class="experience-title">Computer Architecture</h3>
+                        <div class="experience-subtitle">University of Tehran | Jan 2023 - Jul 2023</div>
+                        <p class="experience-description">Mentored student projects that won department awards. Created simulation tools to visualize concepts.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications Section -->
+        <section class="section">
+            <h2 class="section-title">Certifications</h2>
+            <div class="card">
+                <div class="cert-grid">
+                    <div class="cert-item">
+                        <div class="cert-icon">
+                            <i class="fas fa-dna"></i>
+                        </div>
+                        <div class="cert-info">
+                            <div class="cert-title">Algorithms for DNA Sequencing</div>
+                            <div class="cert-org">Coursera</div>
+                            <div class="cert-date">Aug 2023</div>
+                        </div>
+                    </div>
+                    
+                    <div class="cert-item">
+                        <div class="cert-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <div class="cert-info">
+                            <div class="cert-title">Neural Networks and Deep Learning</div>
+                            <div class="cert-org">Coursera</div>
+                            <div class="cert-date">Feb 2022</div>
+                        </div>
+                    </div>
+                    
+                    <div class="cert-item">
+                        <div class="cert-icon">
+                            <i class="fas fa-calculator"></i>
+                        </div>
+                        <div class="cert-info">
+                            <div class="cert-title">Mathematics for Machine Learning</div>
+                            <div class="cert-org">Coursera</div>
+                            <div class="cert-date">Oct 2022</div>
+                        </div>
+                    </div>
+                    
+                    <div class="cert-item">
+                        <div class="cert-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <div class="cert-info">
+                            <div class="cert-title">Using Python to Access Web Data</div>
+                            <div class="cert-org">Coursera</div>
+                            <div class="cert-date">Oct 2022</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Languages Section -->
+        <section class="section">
+            <h2 class="section-title">Languages</h2>
+            <div class="card">
+                <div class="lang-grid">
+                    <div class="lang-item">
+                        <div class="lang-icon">
+                            <i class="fas fa-language"></i>
+                        </div>
+                        <div class="lang-info">
+                            <div class="lang-name">Dutch</div>
+                            <div class="lang-level">Beginner (A1 - Learning)</div>
+                        </div>
+                    </div>
+                    
+                    <div class="lang-item">
+                        <div class="lang-icon">
+                            <i class="fas fa-language"></i>
+                        </div>
+                        <div class="lang-info">
+                            <div class="lang-name">English</div>
+                            <div class="lang-level">Professional (GRE 331, IELTS 6.5)</div>
+                        </div>
+                    </div>
+                    
+                    <div class="lang-item">
+                        <div class="lang-icon">
+                            <i class="fas fa-language"></i>
+                        </div>
+                        <div class="lang-info">
+                            <div class="lang-name">Persian (Farsi)</div>
+                            <div class="lang-level">Native Speaker</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
 
     <!-- Footer -->
-    <footer class="py-8 px-4 bg-slate-900 text-slate-400 text-center">
-        <div class="max-w-6xl mx-auto">
+    <footer>
+        <div class="container">
+            <h3>Connect with me</h3>
+            <div class="social-links">
+                <a href="#" class="social-link">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="#" class="social-link">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="#" class="social-link">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="social-link">
+                    <i class="fab fa-google"></i>
+                </a>
+            </div>
             <p>© 2023 Benyamin Zadehmoradian. All rights reserved.</p>
-            <p class="mt-2 text-sm">Designed and developed with ❤️</p>
         </div>
     </footer>
 
     <script>
         // Theme toggle
-        const themeToggle = document.getElementById('theme-toggle');
-        const themeIcon = document.getElementById('theme-icon');
-        
-        if (localStorage.getItem('theme') === 'dark') {
-            document.documentElement.classList.add('dark');
-            themeIcon.classList.remove('fa-moon');
-            themeIcon.classList.add('fa-sun');
-        }
+        const themeToggle = document.getElementById('themeToggle');
+        const themeLabel = document.getElementById('themeLabel');
+        const body = document.body;
         
         themeToggle.addEventListener('click', () => {
-            document.documentElement.classList.toggle('dark');
+            body.classList.toggle('dark-mode');
             
-            if (document.documentElement.classList.contains('dark')) {
+            if (body.classList.contains('dark-mode')) {
+                themeLabel.textContent = 'Dark Mode';
                 localStorage.setItem('theme', 'dark');
-                themeIcon.classList.remove('fa-moon');
-                themeIcon.classList.add('fa-sun');
             } else {
+                themeLabel.textContent = 'Light Mode';
                 localStorage.setItem('theme', 'light');
-                themeIcon.classList.remove('fa-sun');
-                themeIcon.classList.add('fa-moon');
             }
         });
         
-        // Scroll to top button
-        const scrollBtn = document.querySelector('.scroll-top-btn');
+        // Check for saved theme preference
+        if (localStorage.getItem('theme') === 'dark') {
+            body.classList.add('dark-mode');
+            themeLabel.textContent = 'Dark Mode';
+        }
         
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                scrollBtn.classList.add('visible');
-            } else {
-                scrollBtn.classList.remove('visible');
-            }
-        });
+        // Language switching
+        const langButtons = document.querySelectorAll('.lang-btn');
         
-        scrollBtn.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-        
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    window.scrollTo({
-                        top: target.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
+        langButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                langButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
             });
         });
     </script>

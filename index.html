@@ -12,14 +12,11 @@
       theme: {
         extend: {
           colors: {
-            skill1: '#e0f2fe',
-            skill2: '#fce7f3',
-            skill3: '#ede9fe',
-            skill4: '#dcfce7',
-            skill1dark: '#0c4a6e',
-            skill2dark: '#831843',
-            skill3dark: '#4c1d95',
-            skill4dark: '#14532d',
+            skill: {
+              light: '#e0e7ff',
+              DEFAULT: '#c7d2fe',
+              dark: '#4f46e5'
+            }
           }
         }
       }
@@ -80,14 +77,57 @@
     }
 
     .skill-box {
+      background: linear-gradient(135deg, #818cf8, #c084fc, #f472b6);
+      color: white;
+      border-radius: 12px;
       transition: all 0.3s ease;
-      border-width: 2px;
-      border-style: solid;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .skill-box::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0));
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 0.3s ease;
     }
     
     .skill-box:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+    
+    .skill-box:hover::before {
+      opacity: 1;
+    }
+    
+    .dark .skill-box {
+      background: linear-gradient(135deg, #4f46e5, #7e22ce, #db2777);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    }
+    
+    .dark .skill-box:hover {
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+    }
+    
+    .skill-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 16px;
+    }
+    
+    @media (min-width: 768px) {
+      .skill-grid {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      }
     }
   </style>
 </head>
@@ -171,7 +211,7 @@
     </div>
   </section>
 
-  <!-- Skills Section with Colored Boxes -->
+  <!-- Skills Section with Individual Boxes -->
   <section id="skills" class="scroll-mt-20 max-w-4xl mx-auto px-4 my-8">
     <div class="bg-white dark:bg-gray-900 rounded-3xl shadow-2xl border border-gray-300 dark:border-gray-600 p-10 transition-all duration-300">
       <!-- English Title -->
@@ -190,63 +230,232 @@
         Kernvaardigheden
       </h2>
 
-      <!-- English Skills with Colored Boxes -->
-      <div class="grid sm:grid-cols-2 gap-4 text-[15px] text-gray-800 dark:text-gray-200 block" data-lang="en">
-        <!-- Skill 1 -->
-        <div class="skill-box rounded-lg p-4 bg-skill1 border-sky-300 dark:bg-skill1dark dark:border-sky-600">
-          <p class="font-semibold text-sky-700 dark:text-sky-300 mb-1">Hardware Design</p>
-          <p>Digital Design, Microprogramming, PCB Design, Hardware Acceleration</p>
+      <!-- English Skills with Individual Boxes -->
+      <div class="skill-grid block" data-lang="en">
+        <div class="skill-box p-4 text-center font-medium">
+          Digital Design
         </div>
-        
-        <!-- Skill 2 -->
-        <div class="skill-box rounded-lg p-4 bg-skill2 border-pink-300 dark:bg-skill2dark dark:border-pink-600">
-          <p class="font-semibold text-pink-700 dark:text-pink-300 mb-1">Languages</p>
-          <p>VHDL, Verilog, Python, C/C++</p>
+        <div class="skill-box p-4 text-center font-medium">
+          Microprogramming
         </div>
-        
-        <!-- Skill 3 -->
-        <div class="skill-box rounded-lg p-4 bg-skill3 border-violet-300 dark:bg-skill3dark dark:border-violet-600">
-          <p class="font-semibold text-violet-700 dark:text-violet-300 mb-1">Tools</p>
-          <p>HSpice, ARM Cortex-M, Proteus, AltiumDesigner</p>
+        <div class="skill-box p-4 text-center font-medium">
+          PCB Design
         </div>
-        
-        <!-- Skill 4 -->
-        <div class="skill-box rounded-lg p-4 bg-skill4 border-emerald-300 dark:bg-skill4dark dark:border-emerald-600">
-          <p class="font-semibold text-emerald-700 dark:text-emerald-300 mb-1">Software</p>
-          <p>Adobe Photoshop, MS Word/Excel/PowerPoint</p>
+        <div class="skill-box p-4 text-center font-medium">
+          Hardware Acceleration
+        </div>
+        <div class="skill-box p-4 text-center font-medium">
+          VHDL
+        </div>
+        <div class="skill-box p-4 text-center font-medium">
+          Verilog
+        </div>
+        <div class="skill-box p-4 text-center font-medium">
+          Python
+        </div>
+        <div class="skill-box p-4 text-center font-medium">
+          C/C++
+        </div>
+        <div class="skill-box p-4 text-center font-medium">
+          HSpice
+        </div>
+        <div class="skill-box p-4 text-center font-medium">
+          ARM Cortex-M
+        </div>
+        <div class="skill-box p-4 text-center font-medium">
+          Proteus
+        </div>
+        <div class="skill-box p-4 text-center font-medium">
+          AltiumDesigner
+        </div>
+        <div class="skill-box p-4 text-center font-medium">
+          Adobe Photoshop
+        </div>
+        <div class="skill-box p-4 text-center font-medium">
+          MS Word
+        </div>
+        <div class="skill-box p-4 text-center font-medium">
+          Excel
+        </div>
+        <div class="skill-box p-4 text-center font-medium">
+          PowerPoint
         </div>
       </div>
 
-      <!-- Dutch Skills with Colored Boxes -->
-      <div class="grid sm:grid-cols-2 gap-4 text-[15px] text-gray-800 dark:text-gray-200 hidden" data-lang="nl">
-        <!-- Skill 1 -->
-        <div class="skill-box rounded-lg p-4 bg-skill1 border-sky-300 dark:bg-skill1dark dark:border-sky-600">
-          <p class="font-semibold text-sky-700 dark:text-sky-300 mb-1">Hardware Ontwerp</p>
-          <p>Digitale systemen, microprogrammering, PCB-ontwerp, hardwareversnelling</p>
+      <!-- Dutch Skills with Individual Boxes -->
+      <div class="skill-grid hidden" data-lang="nl">
+        <div class="skill-box p-4 text-center font-medium">
+          Digitale systemen
         </div>
-        
-        <!-- Skill 2 -->
-        <div class="skill-box rounded-lg p-4 bg-skill2 border-pink-300 dark:bg-skill2dark dark:border-pink-600">
-          <p class="font-semibold text-pink-700 dark:text-pink-300 mb-1">Talen</p>
-          <p>VHDL, Verilog, Python, C/C++</p>
+        <div class="skill-box p-4 text-center font-medium">
+          microprogrammering
         </div>
-        
-        <!-- Skill 3 -->
-        <div class="skill-box rounded-lg p-4 bg-skill3 border-violet-300 dark:bg-skill3dark dark:border-violet-600">
-          <p class="font-semibold text-violet-700 dark:text-violet-300 mb-1">Tools</p>
-          <p>HSpice, ARM Cortex-M, Proteus, AltiumDesigner</p>
+        <div class="skill-box p-4 text-center font-medium">
+          PCB-ontwerp
         </div>
-        
-        <!-- Skill 4 -->
-        <div class="skill-box rounded-lg p-4 bg-skill4 border-emerald-300 dark:bg-skill4dark dark:border-emerald-600">
-          <p class="font-semibold text-emerald-700 dark:text-emerald-300 mb-1">Software</p>
-          <p>Adobe Photoshop, MS Word/Excel/PowerPoint</p>
+        <div class="skill-box p-4 text-center font-medium">
+          hardwareversnelling
+        </div>
+        <div class="skill-box p-4 text-center font-medium">
+          VHDL
+        </div>
+        <div class="skill-box p-4 text-center font-medium">
+          Verilog
+        </div>
+        <div class="skill-box p-4 text-center font-medium">
+          Python
+        </div>
+        <div class="skill-box p-4 text-center font-medium">
+          C/C++
+        </div>
+        <div class="skill-box p-4 text-center font-medium">
+          HSpice
+        </div>
+        <div class="skill-box p-4 text-center font-medium">
+          ARM Cortex-M
+        </div>
+        <div class="skill-box p-4 text-center font-medium">
+          Proteus
+        </div>
+        <div class="skill-box p-4 text-center font-medium">
+          AltiumDesigner
+        </div>
+        <div class="skill-box p-4 text-center font-medium">
+          Adobe Photoshop
+        </div>
+        <div class="skill-box p-4 text-center font-medium">
+          MS Word
+        </div>
+        <div class="skill-box p-4 text-center font-medium">
+          Excel
+        </div>
+        <div class="skill-box p-4 text-center font-medium">
+          PowerPoint
         </div>
       </div>
     </div>
   </section>
 
-  <!-- The rest of your sections (Education, Experience, etc.) would go here -->
+  <!-- Education -->
+  <section id="education" class="scroll-mt-20 max-w-4xl mx-auto px-4 my-12">
+    <div class="bg-white dark:bg-gray-900 rounded-3xl shadow-2xl border border-gray-300 dark:border-gray-600 p-10 transition-all duration-300">
+      <!-- English Title -->
+      <h2 class="text-2xl font-extrabold mb-6 border-b-2 border-gray-300 dark:border-gray-500 pb-2
+                 bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700
+                 animate-gradient-x bg-clip-text text-transparent"
+          data-lang="en">
+        Education
+      </h2>
+
+      <!-- Dutch Title -->
+      <h2 class="text-2xl font-extrabold mb-6 border-b-2 border-gray-300 dark:border-gray-500 pb-2
+                 bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700
+                 animate-gradient-x bg-clip-text text-transparent hidden"
+          data-lang="nl">
+        Opleiding
+      </h2>
+
+      <!-- English Version -->
+      <div data-lang="en" class="block space-y-6">
+        <!-- Master's -->
+        <div class="space-y-1">
+          <p class="text-base"><strong class="text-indigo-700 dark:text-indigo-400">Master of Science in Digital Electronics</strong> 
+            <span class="text-gray-600 dark:text-gray-400">(Sep. 2021 - Sep. 2024)</span>
+          </p>
+          <p class="text-sm text-gray-700 dark:text-gray-300"><strong>University of Tehran</strong> <span class="text-gray-500">(Tehran, Iran)</span></p>
+          <p class="text-sm"><strong>Thesis:</strong> Improving the Performance of Genome Sequence Mappers</p>
+          <p class="text-sm"><strong>Supervisor:</strong> Dr. Ali Afzali-Kusha</p>
+          <p class="text-sm"><strong>GPA:</strong> 18.34 / 20</p>
+        </div>
+
+        <hr class="border-t-2 border-gray-300 dark:border-gray-600 my-4">
+
+        <!-- Bachelor's -->
+        <div class="space-y-1">
+          <p class="text-base"><strong class="text-indigo-700 dark:text-indigo-400">Bachelor of Science in Electronics</strong> 
+            <span class="text-gray-600 dark:text-gray-400">(Sep. 2017 - Sep. 2021)</span>
+          </p>
+          <p class="text-sm text-gray-700 dark:text-gray-300"><strong>Shahed University</strong> <span class="text-gray-500">(Tehran, Iran)</span></p>
+          <p class="text-sm"><strong>Project:</strong> Wireless Power Transfer via Strongly Coupled Magnetic Resonances</p>
+          <p class="text-sm"><strong>Supervisor:</strong> Dr. Mohammad Bagher Ghaznavi Ghoushchi</p>
+          <p class="text-sm"><strong>GPA:</strong> 18.23 / 20</p>
+        </div>
+      </div>
+
+      <!-- Dutch Version -->
+      <div data-lang="nl" class="hidden space-y-6">
+        <!-- Master's -->
+        <div class="space-y-1">
+          <p class="text-base"><strong class="text-indigo-700">Master in Digitale Elektronica</strong> 
+            <span class="text-gray-600 dark:text-gray-400">(sep. 2021 – sep. 2024)</span>
+          </p>
+          <p class="text-sm text-gray-700 dark:text-gray-300"><strong>Universiteit van Teheran</strong> <span class="text-gray-500">(Teheran, Iran)</span></p>
+          <p class="text-sm"><strong>Thesis:</strong> Verbetering van de prestaties van genoom-sequentiemappers</p>
+          <p class="text-sm"><strong>Begeleider:</strong> Dr. Ali Afzali-Kusha</p>
+          <p class="text-sm"><strong>GPA:</strong> 18.34 op 20</p>
+        </div>
+
+        <hr class="border-t-2 border-gray-300 dark:border-gray-600 my-4">
+
+        <!-- Bachelor's -->
+        <div class="space-y-1">
+          <p class="text-base"><strong class="text-indigo-700">Bachelor in Elektronica</strong> 
+            <span class="text-gray-600 dark:text-gray-400">(sep. 2017 – sep. 2021)</span>
+          </p>
+          <p class="text-sm text-gray-700 dark:text-gray-300"><strong>Shahed Universiteit</strong> <span class="text-gray-500">(Teheran, Iran)</span></p>
+          <p class="text-sm"><strong>Project:</strong> Draadloze energieoverdracht via sterk gekoppelde magnetische resonanties</p>
+          <p class="text-sm"><strong>Begeleider:</strong> Dr. Mohammad Bagher Ghaznavi Ghoushchi</p>
+          <p class="text-sm"><strong>GPA:</strong> 18.23 op 20</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Social Media + Resume Download -->
+  <section id="social" class="scroll-mt-20 max-w-4xl mx-auto px-4 my-12 pb-2">
+    <div class="bg-white dark:bg-gray-900 rounded-3xl shadow-2xl border border-gray-300 dark:border-gray-600 p-10 transition-all duration-300 text-center">
+      <!-- English Title -->
+      <h2 class="text-2xl font-extrabold mb-6 border-b-2 border-gray-300 dark:border-gray-500 pb-2
+                 bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700
+                 animate-gradient-x bg-clip-text text-transparent"
+          data-lang="en">
+        Find Me Online
+      </h2>
+
+      <!-- Dutch Title -->
+      <h2 class="text-2xl font-extrabold mb-6 border-b-2 border-gray-300 dark:border-gray-500 pb-2
+                 bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700
+                 animate-gradient-x bg-clip-text text-transparent hidden"
+          data-lang="nl">
+        Vind Mij Online
+      </h2>
+
+      <!-- Links -->
+      <div class="flex justify-center flex-wrap gap-6 text-lg mt-6 text-indigo-700 dark:text-indigo-400">
+        <a href="https://www.linkedin.com/in/benyamin-zadehmoradian" target="_blank" class="hover:text-pink-700 dark:hover:text-pink-400 transition-colors duration-200">
+          LinkedIn
+        </a>
+        <a href="https://github.com/BenyaminZadehmoradian" target="_blank" class="hover:text-pink-700 dark:hover:text-pink-400 transition-colors duration-200">
+          GitHub
+        </a>
+        <a href="https://scholar.google.com/citations?user=YOUR_ID_HERE" target="_blank" class="hover:text-pink-700 dark:hover:text-pink-400 transition-colors duration-200">
+          Google Scholar
+        </a>
+      </div>
+
+      <!-- Resume Download Buttons -->
+      <div class="mt-8 flex flex-col sm:flex-row justify-center gap-4">
+        <a href="files/resume_en.pdf" download
+           class="bg-indigo-700 hover:bg-pink-700 text-white font-semibold px-6 py-2 rounded-full transition-colors duration-300">
+          Download CV (EN)
+        </a>
+        <a href="files/resume_nl.pdf" download
+           class="bg-indigo-700 hover:bg-pink-700 text-white font-semibold px-6 py-2 rounded-full transition-colors duration-300">
+          Download CV (NL)
+        </a>
+      </div>
+    </div>
+  </section>
 
   <!-- Scripts -->
   <script>

@@ -79,12 +79,20 @@
     .skill-box {
       background: linear-gradient(135deg, #818cf8, #c084fc, #f472b6);
       color: white;
-      border-radius: 12px;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      overflow: hidden;
+      border-radius: 8px;
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       position: relative;
       z-index: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px 10px;
+      margin: 3px;
+      line-height: 1.3;
+      font-size: 0.9rem;
+      white-space: nowrap;
+      height: 32px;
     }
     
     .skill-box::before {
@@ -97,12 +105,13 @@
       background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0));
       z-index: -1;
       opacity: 0;
-      transition: opacity 0.3s ease;
+      transition: opacity 0.2s ease;
+      border-radius: 8px;
     }
     
     .skill-box:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
     }
     
     .skill-box:hover::before {
@@ -111,23 +120,35 @@
     
     .dark .skill-box {
       background: linear-gradient(135deg, #4f46e5, #7e22ce, #db2777);
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
     }
     
     .dark .skill-box:hover {
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
     }
     
-    .skill-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-      gap: 16px;
+    .skills-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
     }
     
-    @media (min-width: 768px) {
-      .skill-grid {
-        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-      }
+    .skill-category {
+      margin-bottom: 16px;
+    }
+    
+    .skill-category h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #4f46e5;
+      border-bottom: 1px solid #e0e0e0;
+      padding-bottom: 4px;
+    }
+    
+    .dark .skill-category h3 {
+      color: #c084fc;
+      border-bottom: 1px solid #4b5563;
     }
   </style>
 </head>
@@ -187,33 +208,9 @@
     <p class="text-sm text-gray-600 dark:text-gray-400 italic">Digital Electronics | Hardware Acceleration | ML Co-Design</p>
   </section>
 
-  <!-- About Section -->
-  <section id="about" class="scroll-mt-20 max-w-4xl mx-auto px-4 my-12">
-    <div class="bg-white dark:bg-gray-900 rounded-3xl shadow-2xl border border-gray-300 dark:border-gray-600 p-10 transition-all duration-300">
-      <h2 class="text-2xl font-extrabold mb-6 border-b-2 border-gray-300 dark:border-gray-500 pb-2
-                 bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700
-                 animate-gradient-x bg-clip-text text-transparent"
-          data-lang="en">
-        About Me
-      </h2>
-      <h2 class="text-2xl font-extrabold mb-6 border-b-2 border-gray-300 dark:border-gray-500 pb-2
-                 bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700
-                 animate-gradient-x bg-clip-text text-transparent hidden"
-          data-lang="nl">
-        Over Mij
-      </h2>
-      <p class="text-base leading-relaxed text-gray-800 dark:text-gray-200 block" data-lang="en">
-        I am a passionate master's student in Digital Electronics at the University of Tehran with a strong academic foundation and hands-on research in efficient hardware implementation, ML co-design, and in-memory computing. Ranked first in my B.Sc. class, I thrive on solving complex engineering challenges and working in collaborative environments.
-      </p>
-      <p class="text-base leading-relaxed text-gray-800 dark:text-gray-200 hidden" data-lang="nl">
-        Ik ben een gepassioneerde masterstudent digitale elektronica aan de Universiteit van Teheran, met een sterke academische basis en praktische ervaring in efficiënte hardware-implementatie, ML co-design en in-memory computing. Als eerste gerangschikt in mijn bacheloropleiding, gedij ik bij het oplossen van complexe technische uitdagingen en samenwerkingsprojecten.
-      </p>
-    </div>
-  </section>
-
-  <!-- Skills Section with Individual Boxes -->
+  <!-- Skills Section with Compact Boxes -->
   <section id="skills" class="scroll-mt-20 max-w-4xl mx-auto px-4 my-8">
-    <div class="bg-white dark:bg-gray-900 rounded-3xl shadow-2xl border border-gray-300 dark:border-gray-600 p-10 transition-all duration-300">
+    <div class="bg-white dark:bg-gray-900 rounded-3xl shadow-2xl border border-gray-300 dark:border-gray-600 p-8 transition-all duration-300">
       <!-- English Title -->
       <h2 class="text-2xl font-extrabold mb-6 border-b-2 border-gray-300 dark:border-gray-500 pb-2
                  bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700
@@ -230,229 +227,110 @@
         Kernvaardigheden
       </h2>
 
-      <!-- English Skills with Individual Boxes -->
-      <div class="skill-grid block" data-lang="en">
-        <div class="skill-box p-4 text-center font-medium">
-          Digital Design
+      <!-- English Skills with Compact Boxes -->
+      <div class="block" data-lang="en">
+        <div class="skill-category">
+          <h3>Hardware Design</h3>
+          <div class="skills-container">
+            <div class="skill-box">Digital Design</div>
+            <div class="skill-box">Microprogramming</div>
+            <div class="skill-box">PCB Design</div>
+            <div class="skill-box">Hardware Acceleration</div>
+            <div class="skill-box">FPGA Development</div>
+            <div class="skill-box">ASIC Design</div>
+          </div>
         </div>
-        <div class="skill-box p-4 text-center font-medium">
-          Microprogramming
+        
+        <div class="skill-category">
+          <h3>Programming Languages</h3>
+          <div class="skills-container">
+            <div class="skill-box">VHDL</div>
+            <div class="skill-box">Verilog</div>
+            <div class="skill-box">Python</div>
+            <div class="skill-box">C/C++</div>
+            <div class="skill-box">MATLAB</div>
+            <div class="skill-box">SystemVerilog</div>
+          </div>
         </div>
-        <div class="skill-box p-4 text-center font-medium">
-          PCB Design
+        
+        <div class="skill-category">
+          <h3>Tools & Frameworks</h3>
+          <div class="skills-container">
+            <div class="skill-box">HSpice</div>
+            <div class="skill-box">ARM Cortex-M</div>
+            <div class="skill-box">Proteus</div>
+            <div class="skill-box">Altium Designer</div>
+            <div class="skill-box">Cadence</div>
+            <div class="skill-box">TensorFlow</div>
+            <div class="skill-box">PyTorch</div>
+            <div class="skill-box">Xilinx FPGAs</div>
+          </div>
         </div>
-        <div class="skill-box p-4 text-center font-medium">
-          Hardware Acceleration
-        </div>
-        <div class="skill-box p-4 text-center font-medium">
-          VHDL
-        </div>
-        <div class="skill-box p-4 text-center font-medium">
-          Verilog
-        </div>
-        <div class="skill-box p-4 text-center font-medium">
-          Python
-        </div>
-        <div class="skill-box p-4 text-center font-medium">
-          C/C++
-        </div>
-        <div class="skill-box p-4 text-center font-medium">
-          HSpice
-        </div>
-        <div class="skill-box p-4 text-center font-medium">
-          ARM Cortex-M
-        </div>
-        <div class="skill-box p-4 text-center font-medium">
-          Proteus
-        </div>
-        <div class="skill-box p-4 text-center font-medium">
-          AltiumDesigner
-        </div>
-        <div class="skill-box p-4 text-center font-medium">
-          Adobe Photoshop
-        </div>
-        <div class="skill-box p-4 text-center font-medium">
-          MS Word
-        </div>
-        <div class="skill-box p-4 text-center font-medium">
-          Excel
-        </div>
-        <div class="skill-box p-4 text-center font-medium">
-          PowerPoint
-        </div>
-      </div>
-
-      <!-- Dutch Skills with Individual Boxes -->
-      <div class="skill-grid hidden" data-lang="nl">
-        <div class="skill-box p-4 text-center font-medium">
-          Digitale systemen
-        </div>
-        <div class="skill-box p-4 text-center font-medium">
-          microprogrammering
-        </div>
-        <div class="skill-box p-4 text-center font-medium">
-          PCB-ontwerp
-        </div>
-        <div class="skill-box p-4 text-center font-medium">
-          hardwareversnelling
-        </div>
-        <div class="skill-box p-4 text-center font-medium">
-          VHDL
-        </div>
-        <div class="skill-box p-4 text-center font-medium">
-          Verilog
-        </div>
-        <div class="skill-box p-4 text-center font-medium">
-          Python
-        </div>
-        <div class="skill-box p-4 text-center font-medium">
-          C/C++
-        </div>
-        <div class="skill-box p-4 text-center font-medium">
-          HSpice
-        </div>
-        <div class="skill-box p-4 text-center font-medium">
-          ARM Cortex-M
-        </div>
-        <div class="skill-box p-4 text-center font-medium">
-          Proteus
-        </div>
-        <div class="skill-box p-4 text-center font-medium">
-          AltiumDesigner
-        </div>
-        <div class="skill-box p-4 text-center font-medium">
-          Adobe Photoshop
-        </div>
-        <div class="skill-box p-4 text-center font-medium">
-          MS Word
-        </div>
-        <div class="skill-box p-4 text-center font-medium">
-          Excel
-        </div>
-        <div class="skill-box p-4 text-center font-medium">
-          PowerPoint
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Education -->
-  <section id="education" class="scroll-mt-20 max-w-4xl mx-auto px-4 my-12">
-    <div class="bg-white dark:bg-gray-900 rounded-3xl shadow-2xl border border-gray-300 dark:border-gray-600 p-10 transition-all duration-300">
-      <!-- English Title -->
-      <h2 class="text-2xl font-extrabold mb-6 border-b-2 border-gray-300 dark:border-gray-500 pb-2
-                 bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700
-                 animate-gradient-x bg-clip-text text-transparent"
-          data-lang="en">
-        Education
-      </h2>
-
-      <!-- Dutch Title -->
-      <h2 class="text-2xl font-extrabold mb-6 border-b-2 border-gray-300 dark:border-gray-500 pb-2
-                 bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700
-                 animate-gradient-x bg-clip-text text-transparent hidden"
-          data-lang="nl">
-        Opleiding
-      </h2>
-
-      <!-- English Version -->
-      <div data-lang="en" class="block space-y-6">
-        <!-- Master's -->
-        <div class="space-y-1">
-          <p class="text-base"><strong class="text-indigo-700 dark:text-indigo-400">Master of Science in Digital Electronics</strong> 
-            <span class="text-gray-600 dark:text-gray-400">(Sep. 2021 - Sep. 2024)</span>
-          </p>
-          <p class="text-sm text-gray-700 dark:text-gray-300"><strong>University of Tehran</strong> <span class="text-gray-500">(Tehran, Iran)</span></p>
-          <p class="text-sm"><strong>Thesis:</strong> Improving the Performance of Genome Sequence Mappers</p>
-          <p class="text-sm"><strong>Supervisor:</strong> Dr. Ali Afzali-Kusha</p>
-          <p class="text-sm"><strong>GPA:</strong> 18.34 / 20</p>
-        </div>
-
-        <hr class="border-t-2 border-gray-300 dark:border-gray-600 my-4">
-
-        <!-- Bachelor's -->
-        <div class="space-y-1">
-          <p class="text-base"><strong class="text-indigo-700 dark:text-indigo-400">Bachelor of Science in Electronics</strong> 
-            <span class="text-gray-600 dark:text-gray-400">(Sep. 2017 - Sep. 2021)</span>
-          </p>
-          <p class="text-sm text-gray-700 dark:text-gray-300"><strong>Shahed University</strong> <span class="text-gray-500">(Tehran, Iran)</span></p>
-          <p class="text-sm"><strong>Project:</strong> Wireless Power Transfer via Strongly Coupled Magnetic Resonances</p>
-          <p class="text-sm"><strong>Supervisor:</strong> Dr. Mohammad Bagher Ghaznavi Ghoushchi</p>
-          <p class="text-sm"><strong>GPA:</strong> 18.23 / 20</p>
+        
+        <div class="skill-category">
+          <h3>Software & Other</h3>
+          <div class="skills-container">
+            <div class="skill-box">Adobe Photoshop</div>
+            <div class="skill-box">MS Word</div>
+            <div class="skill-box">Excel</div>
+            <div class="skill-box">PowerPoint</div>
+            <div class="skill-box">LaTeX</div>
+            <div class="skill-box">Git</div>
+          </div>
         </div>
       </div>
 
-      <!-- Dutch Version -->
-      <div data-lang="nl" class="hidden space-y-6">
-        <!-- Master's -->
-        <div class="space-y-1">
-          <p class="text-base"><strong class="text-indigo-700">Master in Digitale Elektronica</strong> 
-            <span class="text-gray-600 dark:text-gray-400">(sep. 2021 – sep. 2024)</span>
-          </p>
-          <p class="text-sm text-gray-700 dark:text-gray-300"><strong>Universiteit van Teheran</strong> <span class="text-gray-500">(Teheran, Iran)</span></p>
-          <p class="text-sm"><strong>Thesis:</strong> Verbetering van de prestaties van genoom-sequentiemappers</p>
-          <p class="text-sm"><strong>Begeleider:</strong> Dr. Ali Afzali-Kusha</p>
-          <p class="text-sm"><strong>GPA:</strong> 18.34 op 20</p>
+      <!-- Dutch Skills with Compact Boxes -->
+      <div class="hidden" data-lang="nl">
+        <div class="skill-category">
+          <h3>Hardware Ontwerp</h3>
+          <div class="skills-container">
+            <div class="skill-box">Digitale systemen</div>
+            <div class="skill-box">microprogrammering</div>
+            <div class="skill-box">PCB-ontwerp</div>
+            <div class="skill-box">hardwareversnelling</div>
+            <div class="skill-box">FPGA ontwikkeling</div>
+            <div class="skill-box">ASIC ontwerp</div>
+          </div>
         </div>
-
-        <hr class="border-t-2 border-gray-300 dark:border-gray-600 my-4">
-
-        <!-- Bachelor's -->
-        <div class="space-y-1">
-          <p class="text-base"><strong class="text-indigo-700">Bachelor in Elektronica</strong> 
-            <span class="text-gray-600 dark:text-gray-400">(sep. 2017 – sep. 2021)</span>
-          </p>
-          <p class="text-sm text-gray-700 dark:text-gray-300"><strong>Shahed Universiteit</strong> <span class="text-gray-500">(Teheran, Iran)</span></p>
-          <p class="text-sm"><strong>Project:</strong> Draadloze energieoverdracht via sterk gekoppelde magnetische resonanties</p>
-          <p class="text-sm"><strong>Begeleider:</strong> Dr. Mohammad Bagher Ghaznavi Ghoushchi</p>
-          <p class="text-sm"><strong>GPA:</strong> 18.23 op 20</p>
+        
+        <div class="skill-category">
+          <h3>Programmeertalen</h3>
+          <div class="skills-container">
+            <div class="skill-box">VHDL</div>
+            <div class="skill-box">Verilog</div>
+            <div class="skill-box">Python</div>
+            <div class="skill-box">C/C++</div>
+            <div class="skill-box">MATLAB</div>
+            <div class="skill-box">SystemVerilog</div>
+          </div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Social Media + Resume Download -->
-  <section id="social" class="scroll-mt-20 max-w-4xl mx-auto px-4 my-12 pb-2">
-    <div class="bg-white dark:bg-gray-900 rounded-3xl shadow-2xl border border-gray-300 dark:border-gray-600 p-10 transition-all duration-300 text-center">
-      <!-- English Title -->
-      <h2 class="text-2xl font-extrabold mb-6 border-b-2 border-gray-300 dark:border-gray-500 pb-2
-                 bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700
-                 animate-gradient-x bg-clip-text text-transparent"
-          data-lang="en">
-        Find Me Online
-      </h2>
-
-      <!-- Dutch Title -->
-      <h2 class="text-2xl font-extrabold mb-6 border-b-2 border-gray-300 dark:border-gray-500 pb-2
-                 bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700
-                 animate-gradient-x bg-clip-text text-transparent hidden"
-          data-lang="nl">
-        Vind Mij Online
-      </h2>
-
-      <!-- Links -->
-      <div class="flex justify-center flex-wrap gap-6 text-lg mt-6 text-indigo-700 dark:text-indigo-400">
-        <a href="https://www.linkedin.com/in/benyamin-zadehmoradian" target="_blank" class="hover:text-pink-700 dark:hover:text-pink-400 transition-colors duration-200">
-          LinkedIn
-        </a>
-        <a href="https://github.com/BenyaminZadehmoradian" target="_blank" class="hover:text-pink-700 dark:hover:text-pink-400 transition-colors duration-200">
-          GitHub
-        </a>
-        <a href="https://scholar.google.com/citations?user=YOUR_ID_HERE" target="_blank" class="hover:text-pink-700 dark:hover:text-pink-400 transition-colors duration-200">
-          Google Scholar
-        </a>
-      </div>
-
-      <!-- Resume Download Buttons -->
-      <div class="mt-8 flex flex-col sm:flex-row justify-center gap-4">
-        <a href="files/resume_en.pdf" download
-           class="bg-indigo-700 hover:bg-pink-700 text-white font-semibold px-6 py-2 rounded-full transition-colors duration-300">
-          Download CV (EN)
-        </a>
-        <a href="files/resume_nl.pdf" download
-           class="bg-indigo-700 hover:bg-pink-700 text-white font-semibold px-6 py-2 rounded-full transition-colors duration-300">
-          Download CV (NL)
-        </a>
+        
+        <div class="skill-category">
+          <h3>Tools & Frameworks</h3>
+          <div class="skills-container">
+            <div class="skill-box">HSpice</div>
+            <div class="skill-box">ARM Cortex-M</div>
+            <div class="skill-box">Proteus</div>
+            <div class="skill-box">Altium Designer</div>
+            <div class="skill-box">Cadence</div>
+            <div class="skill-box">TensorFlow</div>
+            <div class="skill-box">PyTorch</div>
+            <div class="skill-box">Xilinx FPGAs</div>
+          </div>
+        </div>
+        
+        <div class="skill-category">
+          <h3>Software & Overig</h3>
+          <div class="skills-container">
+            <div class="skill-box">Adobe Photoshop</div>
+            <div class="skill-box">MS Word</div>
+            <div class="skill-box">Excel</div>
+            <div class="skill-box">PowerPoint</div>
+            <div class="skill-box">LaTeX</div>
+            <div class="skill-box">Git</div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -487,22 +365,6 @@
       const isDark = document.documentElement.classList.contains('dark');
       document.getElementById('theme-label').textContent = isDark ? 'Dark' : 'Light';
     }
-
-    // Show/hide header on scroll
-    let lastScrollTop = 0;
-    const header = document.querySelector('header');
-
-    window.addEventListener('scroll', () => {
-      const currentScroll = window.scrollY;
-
-      if (currentScroll > lastScrollTop && currentScroll > 80) {
-        header.classList.add('header-hidden');
-      } else {
-        header.classList.remove('header-hidden');
-      }
-
-      lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
-    });
 
     // Initialize on page load
     updateThemeLabel();

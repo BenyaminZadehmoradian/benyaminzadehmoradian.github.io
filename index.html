@@ -3,20 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Benyamin Zadehmoradian – Resume</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <title>Benyamin Zadehmoradian - Professional Resume</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    tailwind.config = { 
+    tailwind.config = {
       darkMode: 'class',
       theme: {
         extend: {
           colors: {
-            skill: {
-              light: '#e0e7ff',
-              DEFAULT: '#c7d2fe',
-              dark: '#4f46e5'
+            primary: {
+              100: '#e0e7ff',
+              500: '#6366f1',
+              700: '#4338ca'
+            },
+            secondary: {
+              500: '#ec4899'
             }
           }
         }
@@ -24,225 +27,277 @@
     };
   </script>
   <style>
-    /* Existing styles remain unchanged */
+    body {
+      background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+      font-family: 'Inter', sans-serif;
+      transition: background 0.5s ease;
+    }
     
-    /* New styles for professional social cards */
-    .social-card {
-      background: rgba(255, 255, 255, 0.7);
+    .dark body {
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+    }
+    
+    .card {
+      background: rgba(255, 255, 255, 0.85);
       backdrop-filter: blur(10px);
       border-radius: 16px;
-      padding: 24px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
       transition: all 0.3s ease;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-      border: 1px solid rgba(209, 213, 219, 0.3);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      height: 100%;
     }
     
-    .dark .social-card {
-      background: rgba(17, 24, 39, 0.7);
-      border: 1px solid rgba(55, 65, 81, 0.3);
+    .dark .card {
+      background: rgba(15, 23, 42, 0.85);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
     }
     
-    .social-card:hover {
+    .card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-      border-color: rgba(129, 140, 248, 0.5);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
     }
     
     .social-icon {
-      width: 60px;
-      height: 60px;
+      width: 48px;
+      height: 48px;
       display: flex;
       align-items: center;
       justify-content: center;
-      border-radius: 16px;
-      margin-bottom: 16px;
-      font-size: 28px;
-      background: linear-gradient(135deg, #818cf8, #c084fc, #f472b6);
-      color: white;
+      border-radius: 12px;
+      font-size: 20px;
+      transition: all 0.3s ease;
     }
     
-    .dark .social-icon {
-      background: linear-gradient(135deg, #4f46e5, #7e22ce, #db2777);
+    .social-link:hover .social-icon {
+      transform: scale(1.1);
     }
     
-    .social-card h3 {
-      font-weight: 600;
-      margin-bottom: 8px;
-      font-size: 1.1rem;
+    .gradient-text {
+      background: linear-gradient(90deg, #4f46e5, #c026d3);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
     }
     
-    .social-card p {
-      color: #6b7280;
-      font-size: 0.9rem;
-      margin-bottom: 16px;
-      flex-grow: 1;
-    }
-    
-    .social-link {
-      display: inline-flex;
-      align-items: center;
-      color: #4f46e5;
+    .btn {
+      padding: 8px 20px;
+      border-radius: 50px;
       font-weight: 500;
-      transition: color 0.2s ease;
-    }
-    
-    .dark .social-link {
-      color: #818cf8;
-    }
-    
-    .social-link:hover {
-      color: #f472b6;
-    }
-    
-    .social-link i {
-      margin-left: 6px;
-      font-size: 0.9rem;
-      transition: transform 0.2s ease;
-    }
-    
-    .social-link:hover i {
-      transform: translateX(3px);
-    }
-    
-    .download-btn {
+      transition: all 0.3s ease;
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: linear-gradient(135deg, #818cf8, #c084fc, #f472b6);
+    }
+    
+    .btn-primary {
+      background: linear-gradient(90deg, #4f46e5, #7e22ce);
       color: white;
-      padding: 10px 24px;
-      border-radius: 50px;
-      font-weight: 600;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 14px rgba(79, 70, 229, 0.25);
     }
     
-    .dark .download-btn {
-      background: linear-gradient(135deg, #4f46e5, #7e22ce, #db2777);
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(79, 70, 229, 0.4);
     }
     
-    .download-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    .section-divider {
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #c7d2fe, transparent);
+      margin: 2rem 0;
     }
     
-    .download-btn i {
-      font-size: 1.1rem;
+    .dark .section-divider {
+      background: linear-gradient(90deg, transparent, #4f46e5, transparent);
     }
     
-    .section-title {
-      position: relative;
-      display: inline-block;
-      margin-bottom: 40px;
+    .social-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.25rem;
     }
     
-    .section-title::after {
-      content: '';
-      position: absolute;
-      bottom: -10px;
-      left: 0;
-      width: 100%;
-      height: 4px;
-      background: linear-gradient(90deg, #818cf8, #c084fc, #f472b6);
-      border-radius: 2px;
+    @media (max-width: 640px) {
+      .social-grid {
+        grid-template-columns: 1fr;
+      }
     }
     
-    .dark .section-title::after {
-      background: linear-gradient(90deg, #4f46e5, #7e22ce, #db2777);
+    .animate-float {
+      animation: float 3s ease-in-out infinite;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
     }
   </style>
 </head>
-<body class="text-gray-900 dark:text-gray-100 transition-colors duration-300">
-  <!-- Header and other sections remain unchanged -->
-
-  <!-- Social Media + Resume Download - Enhanced Section -->
-  <section id="social" class="scroll-mt-20 content-box bg-white dark:bg-gray-900 rounded-3xl shadow-2xl border border-gray-300 dark:border-gray-600 p-10 transition-all duration-300">
-    <!-- English Title -->
-    <h2 class="text-2xl font-extrabold mb-6 text-center
-               bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700
-               animate-gradient-x bg-clip-text text-transparent section-title"
-        data-lang="en">
-      Find Me Online
-    </h2>
-
-    <!-- Dutch Title -->
-    <h2 class="text-2xl font-extrabold mb-6 text-center
-               bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700
-               animate-gradient-x bg-clip-text text-transparent section-title hidden"
-        data-lang="nl">
-      Vind Mij Online
-    </h2>
-
-    <!-- Social Cards Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-      <!-- LinkedIn Card -->
-      <div class="social-card">
-        <div class="social-icon">
-          <i class="fab fa-linkedin-in"></i>
+<body class="text-gray-800 dark:text-gray-200 min-h-screen py-8 px-4">
+  <div class="max-w-4xl mx-auto">
+    <!-- Header -->
+    <header class="flex justify-between items-center mb-12">
+      <div>
+        <h1 class="text-3xl font-bold">Benyamin Zadehmoradian</h1>
+        <p class="text-gray-600 dark:text-gray-400">Digital Electronics | Hardware Acceleration</p>
+      </div>
+      <button id="theme-toggle" class="p-2 rounded-full bg-gray-200 dark:bg-gray-700">
+        <i class="fas fa-moon dark:hidden"></i>
+        <i class="fas fa-sun hidden dark:block"></i>
+      </button>
+    </header>
+    
+    <!-- Main Content -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <!-- Left Column -->
+      <div class="lg:col-span-2 space-y-8">
+        <!-- About Section -->
+        <div class="card p-6">
+          <h2 class="text-xl font-bold mb-4 gradient-text">Professional Profile</h2>
+          <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+            Master's student in Digital Electronics at the University of Tehran with a strong academic background 
+            and hands-on research in efficient hardware implementation, ML co-design, and in-memory computing.
+          </p>
         </div>
-        <h3>LinkedIn</h3>
-        <p>Connect with me professionally and view my career journey, endorsements, and achievements.</p>
+        
+        <!-- Skills Section -->
+        <div class="card p-6">
+          <h2 class="text-xl font-bold mb-4 gradient-text">Core Competencies</h2>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 bg-primary-100 dark:bg-gray-800 rounded-full text-sm">VHDL/Verilog</span>
+            <span class="px-3 py-1 bg-primary-100 dark:bg-gray-800 rounded-full text-sm">FPGA Development</span>
+            <span class="px-3 py-1 bg-primary-100 dark:bg-gray-800 rounded-full text-sm">ASIC Design</span>
+            <span class="px-3 py-1 bg-primary-100 dark:bg-gray-800 rounded-full text-sm">Python/C++</span>
+            <span class="px-3 py-1 bg-primary-100 dark:bg-gray-800 rounded-full text-sm">TensorFlow</span>
+            <span class="px-3 py-1 bg-primary-100 dark:bg-gray-800 rounded-full text-sm">Hardware Acceleration</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Right Column -->
+      <div class="lg:col-span-1">
+        <!-- Contact Card -->
+        <div class="card p-6 mb-8">
+          <div class="flex items-center mb-4">
+            <div class="bg-gray-200 border-2 border-dashed rounded-xl w-16 h-16" />
+            <div class="ml-4">
+              <h3 class="font-bold">Contact</h3>
+              <p class="text-sm text-gray-600 dark:text-gray-400">Tehran, Iran</p>
+            </div>
+          </div>
+          <ul class="space-y-2">
+            <li class="flex items-center">
+              <i class="fas fa-envelope mr-3 text-primary-500"></i>
+              <span>B.Zadehmoradian@gmail.com</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-phone mr-3 text-primary-500"></i>
+              <span>(+98) ...</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Divider -->
+    <div class="section-divider"></div>
+    
+    <!-- Find Me Online Section -->
+    <section class="mb-16">
+      <div class="text-center mb-10">
+        <h2 class="text-2xl font-bold mb-2 gradient-text">Find Me Online</h2>
+        <p class="text-gray-600 dark:text-gray-400 max-w-xl mx-auto">
+          Connect with me through professional networks and explore my work
+        </p>
+      </div>
+      
+      <!-- Social Grid -->
+      <div class="social-grid">
+        <!-- LinkedIn -->
         <a href="https://www.linkedin.com/in/benyamin-zadehmoradian" target="_blank" class="social-link">
-          Visit Profile <i class="fas fa-arrow-right"></i>
+          <div class="card p-5 h-full flex flex-col items-center">
+            <div class="social-icon bg-blue-100 text-blue-600 mb-4">
+              <i class="fab fa-linkedin-in"></i>
+            </div>
+            <h3 class="font-semibold mb-2">LinkedIn</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-400 text-center mb-4">
+              Professional profile and career updates
+            </p>
+            <span class="text-primary-500 text-sm mt-auto">Connect <i class="fas fa-arrow-right ml-1"></i></span>
+          </div>
         </a>
-      </div>
-      
-      <!-- GitHub Card -->
-      <div class="social-card">
-        <div class="social-icon">
-          <i class="fab fa-github"></i>
-        </div>
-        <h3>GitHub</h3>
-        <p>Explore my coding projects, contributions to open-source, and personal repositories.</p>
+        
+        <!-- GitHub -->
         <a href="https://github.com/BenyaminZadehmoradian" target="_blank" class="social-link">
-          View Projects <i class="fas fa-arrow-right"></i>
+          <div class="card p-5 h-full flex flex-col items-center">
+            <div class="social-icon bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-200 mb-4">
+              <i class="fab fa-github"></i>
+            </div>
+            <h3 class="font-semibold mb-2">GitHub</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-400 text-center mb-4">
+              Coding projects and repositories
+            </p>
+            <span class="text-primary-500 text-sm mt-auto">Explore <i class="fas fa-arrow-right ml-1"></i></span>
+          </div>
         </a>
-      </div>
-      
-      <!-- Google Scholar Card -->
-      <div class="social-card">
-        <div class="social-icon">
-          <i class="fas fa-graduation-cap"></i>
-        </div>
-        <h3>Google Scholar</h3>
-        <p>Access my academic publications, research papers, and citations in the field of electronics.</p>
+        
+        <!-- Google Scholar -->
         <a href="https://scholar.google.com/citations?user=YOUR_ID_HERE" target="_blank" class="social-link">
-          View Publications <i class="fas fa-arrow-right"></i>
-        </a>
-      </div>
-    </div>
-
-    <!-- Resume Download Section -->
-    <div class="text-center">
-      <h3 class="text-xl font-semibold mb-6 text-gray-800 dark:text-gray-200">
-        <span data-lang="en">Download My Resume</span>
-        <span data-lang="nl" class="hidden">Download Mijn CV</span>
-      </h3>
-      
-      <div class="flex flex-col sm:flex-row justify-center gap-6">
-        <a href="files/resume_en.pdf" download class="download-btn">
-          <i class="fas fa-file-download"></i>
-          <span>English Version</span>
-        </a>
-        <a href="files/resume_nl.pdf" download class="download-btn">
-          <i class="fas fa-file-download"></i>
-          <span>Dutch Version</span>
+          <div class="card p-5 h-full flex flex-col items-center">
+            <div class="social-icon bg-yellow-100 text-yellow-600 mb-4">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <h3 class="font-semibold mb-2">Google Scholar</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-400 text-center mb-4">
+              Academic publications and research
+            </p>
+            <span class="text-primary-500 text-sm mt-auto">View <i class="fas fa-arrow-right ml-1"></i></span>
+          </div>
         </a>
       </div>
       
-      <p class="mt-6 text-sm text-gray-600 dark:text-gray-400">
-        <span data-lang="en">PDF Format | Updated August 2023</span>
-        <span data-lang="nl" class="hidden">PDF Formaat | Bijgewerkt Augustus 2023</span>
-      </p>
-    </div>
-  </section>
-
-  <!-- Rest of the document remains unchanged -->
+      <!-- Resume Download -->
+      <div class="mt-10 text-center">
+        <h3 class="font-semibold mb-4">Download My Resume</h3>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href="#" class="btn btn-primary">
+            <i class="fas fa-download"></i> English Version
+          </a>
+          <a href="#" class="btn bg-gray-200 dark:bg-gray-700">
+            <i class="fas fa-download"></i> Dutch Version
+          </a>
+        </div>
+        <p class="text-sm text-gray-500 mt-4">PDF Format | Updated August 2023</p>
+      </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="text-center text-gray-500 text-sm pt-8 border-t border-gray-200 dark:border-gray-700">
+      <p>© 2023 Benyamin Zadehmoradian. All rights reserved.</p>
+      <p class="mt-2">Designed with ❤️ for professional impact</p>
+    </footer>
+  </div>
+  
+  <script>
+    // Theme toggle functionality
+    const themeToggle = document.getElementById('theme-toggle');
+    const htmlElement = document.documentElement;
+    
+    // Check for saved theme preference or respect OS preference
+    if (localStorage.getItem('theme') === 'dark' || 
+        (!localStorage.getItem('theme') && 
+        window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      htmlElement.classList.add('dark');
+    }
+    
+    themeToggle.addEventListener('click', () => {
+      htmlElement.classList.toggle('dark');
+      localStorage.setItem('theme', htmlElement.classList.contains('dark') ? 'dark' : 'light');
+    });
+    
+    // Add floating animation to cards
+    const cards = document.querySelectorAll('.card');
+    cards.forEach((card, index) => {
+      card.style.animationDelay = `${index * 0.1}s`;
+      card.classList.add('animate-float');
+    });
+  </script>
 </body>
 </html>

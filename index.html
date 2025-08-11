@@ -173,6 +173,7 @@
       transform: scale(1.025) translateY(-5px);
       z-index: 10;
       box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      border-color: #c084fc;
     }
     
     .gradient-line {
@@ -192,13 +193,21 @@
       gap: 32px;
     }
     
-    .floating {
-      animation: floating 3s ease-in-out infinite;
+    .pulse {
+      animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
     }
     
-    @keyframes floating {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.9; }
+    }
+    
+    .glow {
+      box-shadow: 0 0 15px rgba(192, 132, 252, 0.5);
+    }
+    
+    .glow:hover {
+      box-shadow: 0 0 25px rgba(192, 132, 252, 0.7);
     }
   </style>
 </head>
@@ -249,8 +258,8 @@
     </div>
   </header>
 
-  <!-- Name Section with Floating Effect -->
-  <section class="max-w-4xl mx-auto px-4 pt-16 text-center floating">
+  <!-- Name Section - Fixed without floating -->
+  <section class="max-w-4xl mx-auto px-4 pt-16 text-center">
     <h1 class="text-5xl font-extrabold tracking-tight text-gray-900 dark:text-white mb-2 leading-tight">
       <span class="block bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700 animate-gradient-x">Benyamin</span>
       <span class="block bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700 animate-gradient-x">Zadehmoradian</span>
@@ -484,7 +493,7 @@
     </section>
 
     <!-- Social Media + Resume Download -->
-    <section id="social" class="scroll-mt-20 content-box bg-white dark:bg-gray-900 rounded-3xl shadow-2xl border border-gray-300 dark:border-gray-600 p-10 transition-all duration-300 text-center">
+    <section id="social" class="scroll-mt-20 content-box bg-white dark:bg-gray-900 rounded-3xl shadow-2xl border border-gray-300 dark:border-gray-600 p-10 transition-all duration-300 text-center glow">
       <!-- English Title -->
       <h2 class="text-2xl font-extrabold mb-6 border-b-2 border-gray-300 dark:border-gray-500 pb-2
                  bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700
@@ -591,7 +600,6 @@
     const contentBoxes = document.querySelectorAll('.content-box');
     contentBoxes.forEach((box, index) => {
       box.style.animationDelay = `${index * 0.1}s`;
-      box.classList.add('animate-pulse');
     });
   </script>
 </body>

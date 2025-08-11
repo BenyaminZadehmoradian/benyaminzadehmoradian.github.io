@@ -131,24 +131,45 @@
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
+      margin-bottom: 16px;
     }
     
     .skill-category {
-      margin-bottom: 16px;
+      margin-bottom: 24px;
     }
     
     .skill-category h3 {
       font-size: 1.1rem;
       font-weight: 600;
-      margin-bottom: 8px;
-      color: #4f46e5;
-      border-bottom: 1px solid #e0e0e0;
-      padding-bottom: 4px;
+      margin-bottom: 10px;
+      padding-bottom: 8px;
+      position: relative;
     }
     
-    .dark .skill-category h3 {
-      color: #c084fc;
-      border-bottom: 1px solid #4b5563;
+    .skill-category h3::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, #818cf8, #c084fc, #f472b6);
+      border-radius: 2px;
+    }
+    
+    .dark .skill-category h3::after {
+      background: linear-gradient(90deg, #4f46e5, #7e22ce, #db2777);
+    }
+    
+    .gradient-line {
+      height: 3px;
+      background: linear-gradient(90deg, #818cf8, #c084fc, #f472b6);
+      border-radius: 2px;
+      margin: 20px 0;
+    }
+    
+    .dark .gradient-line {
+      background: linear-gradient(90deg, #4f46e5, #7e22ce, #db2777);
     }
   </style>
 </head>
@@ -208,7 +229,109 @@
     <p class="text-sm text-gray-600 dark:text-gray-400 italic">Digital Electronics | Hardware Acceleration | ML Co-Design</p>
   </section>
 
-  <!-- Skills Section with Compact Boxes -->
+  <!-- About Section -->
+  <section id="about" class="scroll-mt-20 max-w-4xl mx-auto px-4 my-12">
+    <div class="bg-white dark:bg-gray-900 rounded-3xl shadow-2xl border border-gray-300 dark:border-gray-600 p-10 transition-all duration-300">
+      <!-- English Title -->
+      <h2 class="text-2xl font-extrabold mb-6 border-b-2 border-gray-300 dark:border-gray-500 pb-2
+                 bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700
+                 animate-gradient-x bg-clip-text text-transparent"
+          data-lang="en">
+        About Me
+      </h2>
+
+      <!-- Dutch Title -->
+      <h2 class="text-2xl font-extrabold mb-6 border-b-2 border-gray-300 dark:border-gray-500 pb-2
+                 bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700
+                 animate-gradient-x bg-clip-text text-transparent hidden"
+          data-lang="nl">
+        Over Mij
+      </h2>
+      <p class="text-base leading-relaxed text-gray-800 dark:text-gray-200 block" data-lang="en">
+        I am a passionate master's student in Digital Electronics at the University of Tehran with a strong academic foundation and hands-on research in efficient hardware implementation, ML co-design, and in-memory computing. Ranked first in my B.Sc. class, I thrive on solving complex engineering challenges and working in collaborative environments.
+      </p>
+      <p class="text-base leading-relaxed text-gray-800 dark:text-gray-200 hidden" data-lang="nl">
+        Ik ben een gepassioneerde masterstudent digitale elektronica aan de Universiteit van Teheran, met een sterke academische basis en praktische ervaring in efficiënte hardware-implementatie, ML co-design en in-memory computing. Als eerste gerangschikt in mijn bacheloropleiding, gedij ik bij het oplossen van complexe technische uitdagingen en samenwerkingsprojecten.
+      </p>
+    </div>
+  </section>
+
+  <!-- Education Section -->
+  <section id="education" class="scroll-mt-20 max-w-4xl mx-auto px-4 my-12">
+    <div class="bg-white dark:bg-gray-900 rounded-3xl shadow-2xl border border-gray-300 dark:border-gray-600 p-10 transition-all duration-300">
+      <!-- English Title -->
+      <h2 class="text-2xl font-extrabold mb-6 border-b-2 border-gray-300 dark:border-gray-500 pb-2
+                 bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700
+                 animate-gradient-x bg-clip-text text-transparent"
+          data-lang="en">
+        Education
+      </h2>
+
+      <!-- Dutch Title -->
+      <h2 class="text-2xl font-extrabold mb-6 border-b-2 border-gray-300 dark:border-gray-500 pb-2
+                 bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700
+                 animate-gradient-x bg-clip-text text-transparent hidden"
+          data-lang="nl">
+        Opleiding
+      </h2>
+
+      <!-- English Version -->
+      <div data-lang="en" class="block space-y-6">
+        <!-- Master's -->
+        <div class="space-y-1">
+          <p class="text-base"><strong class="text-indigo-700 dark:text-indigo-400">Master of Science in Digital Electronics</strong> 
+            <span class="text-gray-600 dark:text-gray-400">(Sep. 2021 - Sep. 2024)</span>
+          </p>
+          <p class="text-sm text-gray-700 dark:text-gray-300"><strong>University of Tehran</strong> <span class="text-gray-500">(Tehran, Iran)</span></p>
+          <p class="text-sm"><strong>Thesis:</strong> Improving the Performance of Genome Sequence Mappers</p>
+          <p class="text-sm"><strong>Supervisor:</strong> Dr. Ali Afzali-Kusha</p>
+          <p class="text-sm"><strong>GPA:</strong> 18.34 / 20</p>
+        </div>
+
+        <div class="gradient-line"></div>
+
+        <!-- Bachelor's -->
+        <div class="space-y-1">
+          <p class="text-base"><strong class="text-indigo-700 dark:text-indigo-400">Bachelor of Science in Electronics</strong> 
+            <span class="text-gray-600 dark:text-gray-400">(Sep. 2017 - Sep. 2021)</span>
+          </p>
+          <p class="text-sm text-gray-700 dark:text-gray-300"><strong>Shahed University</strong> <span class="text-gray-500">(Tehran, Iran)</span></p>
+          <p class="text-sm"><strong>Project:</strong> Wireless Power Transfer via Strongly Coupled Magnetic Resonances</p>
+          <p class="text-sm"><strong>Supervisor:</strong> Dr. Mohammad Bagher Ghaznavi Ghoushchi</p>
+          <p class="text-sm"><strong>GPA:</strong> 18.23 / 20</p>
+        </div>
+      </div>
+
+      <!-- Dutch Version -->
+      <div data-lang="nl" class="hidden space-y-6">
+        <!-- Master's -->
+        <div class="space-y-1">
+          <p class="text-base"><strong class="text-indigo-700">Master in Digitale Elektronica</strong> 
+            <span class="text-gray-600 dark:text-gray-400">(sep. 2021 – sep. 2024)</span>
+          </p>
+          <p class="text-sm text-gray-700 dark:text-gray-300"><strong>Universiteit van Teheran</strong> <span class="text-gray-500">(Teheran, Iran)</span></p>
+          <p class="text-sm"><strong>Thesis:</strong> Verbetering van de prestaties van genoom-sequentiemappers</p>
+          <p class="text-sm"><strong>Begeleider:</strong> Dr. Ali Afzali-Kusha</p>
+          <p class="text-sm"><strong>GPA:</strong> 18.34 op 20</p>
+        </div>
+
+        <div class="gradient-line"></div>
+
+        <!-- Bachelor's -->
+        <div class="space-y-1">
+          <p class="text-base"><strong class="text-indigo-700">Bachelor in Elektronica</strong> 
+            <span class="text-gray-600 dark:text-gray-400">(sep. 2017 – sep. 2021)</span>
+          </p>
+          <p class="text-sm text-gray-700 dark:text-gray-300"><strong>Shahed Universiteit</strong> <span class="text-gray-500">(Teheran, Iran)</span></p>
+          <p class="text-sm"><strong>Project:</strong> Draadloze energieoverdracht via sterk gekoppelde magnetische resonanties</p>
+          <p class="text-sm"><strong>Begeleider:</strong> Dr. Mohammad Bagher Ghaznavi Ghoushchi</p>
+          <p class="text-sm"><strong>GPA:</strong> 18.23 op 20</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section with Gradient Lines -->
   <section id="skills" class="scroll-mt-20 max-w-4xl mx-auto px-4 my-8">
     <div class="bg-white dark:bg-gray-900 rounded-3xl shadow-2xl border border-gray-300 dark:border-gray-600 p-8 transition-all duration-300">
       <!-- English Title -->
@@ -227,7 +350,7 @@
         Kernvaardigheden
       </h2>
 
-      <!-- English Skills with Compact Boxes -->
+      <!-- English Skills with Gradient Lines -->
       <div class="block" data-lang="en">
         <div class="skill-category">
           <h3>Hardware Design</h3>
@@ -280,7 +403,7 @@
         </div>
       </div>
 
-      <!-- Dutch Skills with Compact Boxes -->
+      <!-- Dutch Skills with Gradient Lines -->
       <div class="hidden" data-lang="nl">
         <div class="skill-category">
           <h3>Hardware Ontwerp</h3>

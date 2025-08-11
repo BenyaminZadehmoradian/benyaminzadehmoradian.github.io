@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Benyamin Zadehmoradian – Resume</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = { 
@@ -16,285 +17,232 @@
               light: '#e0e7ff',
               DEFAULT: '#c7d2fe',
               dark: '#4f46e5'
-            },
-            linkedin: '#0A66C2',
-            github: '#333333',
-            scholar: '#4285F4'
+            }
           }
         }
       }
     };
   </script>
   <style>
-    /* ... استایل‌های قبلی ... */
+    /* Existing styles remain unchanged */
     
-    .profile-card {
-      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    /* New styles for professional social cards */
+    .social-card {
+      background: rgba(255, 255, 255, 0.7);
       backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      background: rgba(255, 255, 255, 0.1);
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-      overflow: hidden;
-      position: relative;
+      border-radius: 16px;
+      padding: 24px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(209, 213, 219, 0.3);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      height: 100%;
     }
     
-    .dark .profile-card {
-      background: rgba(30, 30, 46, 0.3);
-      border: 1px solid rgba(255, 255, 255, 0.05);
+    .dark .social-card {
+      background: rgba(17, 24, 39, 0.7);
+      border: 1px solid rgba(55, 65, 81, 0.3);
     }
     
-    .profile-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: linear-gradient(90deg, #818cf8, #c084fc, #f472b6);
-    }
-    
-    .dark .profile-card::before {
-      background: linear-gradient(90deg, #4f46e5, #7e22ce, #db2777);
-    }
-    
-    .profile-card:hover {
-      transform: translateY(-8px) scale(1.02);
-      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+    .social-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      border-color: rgba(129, 140, 248, 0.5);
     }
     
     .social-icon {
-      transition: all 0.3s ease;
-      width: 50px;
-      height: 50px;
+      width: 60px;
+      height: 60px;
       display: flex;
       align-items: center;
       justify-content: center;
-      border-radius: 12px;
+      border-radius: 16px;
+      margin-bottom: 16px;
+      font-size: 28px;
+      background: linear-gradient(135deg, #818cf8, #c084fc, #f472b6);
+      color: white;
     }
     
-    .social-icon:hover {
-      transform: scale(1.1) rotate(5deg);
+    .dark .social-icon {
+      background: linear-gradient(135deg, #4f46e5, #7e22ce, #db2777);
+    }
+    
+    .social-card h3 {
+      font-weight: 600;
+      margin-bottom: 8px;
+      font-size: 1.1rem;
+    }
+    
+    .social-card p {
+      color: #6b7280;
+      font-size: 0.9rem;
+      margin-bottom: 16px;
+      flex-grow: 1;
+    }
+    
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      color: #4f46e5;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+    
+    .dark .social-link {
+      color: #818cf8;
+    }
+    
+    .social-link:hover {
+      color: #f472b6;
+    }
+    
+    .social-link i {
+      margin-left: 6px;
+      font-size: 0.9rem;
+      transition: transform 0.2s ease;
+    }
+    
+    .social-link:hover i {
+      transform: translateX(3px);
     }
     
     .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, #818cf8, #c084fc, #f472b6);
+      color: white;
+      padding: 10px 24px;
+      border-radius: 50px;
+      font-weight: 600;
       transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-      z-index: 1;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
     
-    .download-btn::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(45deg, #4f46e5, #7e22ce, #db2777);
-      z-index: -1;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-    
-    .download-btn:hover::before {
-      opacity: 1;
+    .dark .download-btn {
+      background: linear-gradient(135deg, #4f46e5, #7e22ce, #db2777);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     }
     
     .download-btn:hover {
       transform: translateY(-3px);
-      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
     }
     
-    .download-icon {
-      transition: transform 0.3s ease;
+    .download-btn i {
+      font-size: 1.1rem;
     }
     
-    .download-btn:hover .download-icon {
-      transform: translateY(-5px);
-      animation: bounce 0.8s infinite;
-    }
-    
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
-    
-    .glowing-border {
+    .section-title {
       position: relative;
+      display: inline-block;
+      margin-bottom: 40px;
     }
     
-    .glowing-border::after {
+    .section-title::after {
       content: '';
       position: absolute;
-      top: -2px;
-      left: -2px;
-      right: -2px;
-      bottom: -2px;
-      background: linear-gradient(45deg, #ff00cc, #3333ff, #00ccff, #ff00cc);
-      background-size: 400% 400%;
-      z-index: -1;
-      border-radius: 12px;
-      animation: glowing 3s ease infinite;
-      filter: blur(5px);
-      opacity: 0;
-      transition: opacity 0.3s ease;
+      bottom: -10px;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, #818cf8, #c084fc, #f472b6);
+      border-radius: 2px;
     }
     
-    .glowing-border:hover::after {
-      opacity: 0.7;
-    }
-    
-    @keyframes glowing {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-    
-    .holographic-effect {
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .holographic-effect::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: linear-gradient(45deg, 
-        rgba(255, 0, 204, 0.1) 0%, 
-        rgba(51, 51, 255, 0.1) 25%, 
-        rgba(0, 204, 255, 0.1) 50%, 
-        rgba(0, 255, 153, 0.1) 75%, 
-        rgba(255, 0, 204, 0.1) 100%);
-      z-index: 0;
-      transform: rotate(45deg);
-      opacity: 0.3;
-      animation: hologram 10s linear infinite;
-    }
-    
-    @keyframes hologram {
-      0% { transform: rotate(45deg) translateX(-25%); }
-      100% { transform: rotate(45deg) translateX(25%); }
+    .dark .section-title::after {
+      background: linear-gradient(90deg, #4f46e5, #7e22ce, #db2777);
     }
   </style>
 </head>
 <body class="text-gray-900 dark:text-gray-100 transition-colors duration-300">
-  <!-- ... کدهای قبلی ... -->
+  <!-- Header and other sections remain unchanged -->
 
-  <!-- Social Media + Resume Download - Professional Redesign -->
-  <section id="social" class="scroll-mt-20 content-box bg-white dark:bg-gray-900 rounded-3xl shadow-2xl border border-gray-300 dark:border-gray-600 p-10 transition-all duration-300 text-center glowing-border">
-    <div class="holographic-effect rounded-2xl p-1">
-      <!-- English Title -->
-      <h2 class="text-3xl font-extrabold mb-10 pb-2 relative z-10
-                 bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700
-                 animate-gradient-x bg-clip-text text-transparent inline-block"
-          data-lang="en">
-        Find Me Online
-      </h2>
+  <!-- Social Media + Resume Download - Enhanced Section -->
+  <section id="social" class="scroll-mt-20 content-box bg-white dark:bg-gray-900 rounded-3xl shadow-2xl border border-gray-300 dark:border-gray-600 p-10 transition-all duration-300">
+    <!-- English Title -->
+    <h2 class="text-2xl font-extrabold mb-6 text-center
+               bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700
+               animate-gradient-x bg-clip-text text-transparent section-title"
+        data-lang="en">
+      Find Me Online
+    </h2>
 
-      <!-- Dutch Title -->
-      <h2 class="text-3xl font-extrabold mb-10 pb-2 relative z-10
-                 bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700
-                 animate-gradient-x bg-clip-text text-transparent inline-block hidden"
-          data-lang="nl">
-        Vind Mij Online
-      </h2>
-      
-      <!-- Social Profiles Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-        <!-- LinkedIn Card -->
-        <div class="profile-card rounded-2xl p-6 relative z-10">
-          <div class="flex flex-col items-center">
-            <div class="social-icon bg-linkedin text-white rounded-full mb-4">
-              <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-              </svg>
-            </div>
-            <h3 class="text-xl font-bold mb-2">LinkedIn</h3>
-            <p class="text-gray-600 dark:text-gray-300 mb-4">Professional Network</p>
-            <a href="https://www.linkedin.com/in/benyamin-zadehmoradian" target="_blank" 
-               class="inline-block px-4 py-2 bg-indigo-700 hover:bg-indigo-800 text-white rounded-full transition-colors">
-              Visit Profile
-            </a>
-          </div>
+    <!-- Dutch Title -->
+    <h2 class="text-2xl font-extrabold mb-6 text-center
+               bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700
+               animate-gradient-x bg-clip-text text-transparent section-title hidden"
+        data-lang="nl">
+      Vind Mij Online
+    </h2>
+
+    <!-- Social Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+      <!-- LinkedIn Card -->
+      <div class="social-card">
+        <div class="social-icon">
+          <i class="fab fa-linkedin-in"></i>
         </div>
-        
-        <!-- GitHub Card -->
-        <div class="profile-card rounded-2xl p-6 relative z-10">
-          <div class="flex flex-col items-center">
-            <div class="social-icon bg-github text-white rounded-full mb-4">
-              <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-              </svg>
-            </div>
-            <h3 class="text-xl font-bold mb-2">GitHub</h3>
-            <p class="text-gray-600 dark:text-gray-300 mb-4">Code Repository</p>
-            <a href="https://github.com/BenyaminZadehmoradian" target="_blank" 
-               class="inline-block px-4 py-2 bg-indigo-700 hover:bg-indigo-800 text-white rounded-full transition-colors">
-              View Projects
-            </a>
-          </div>
-        </div>
-        
-        <!-- Google Scholar Card -->
-        <div class="profile-card rounded-2xl p-6 relative z-10">
-          <div class="flex flex-col items-center">
-            <div class="social-icon bg-scholar text-white rounded-full mb-4">
-              <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 24a12 12 0 1 1 0-24 12 12 0 0 1 0 24zm-5-17h10a1 1 0 0 1 0 2H7a1 1 0 1 1 0-2zm0 4h10a1 1 0 0 1 0 2H7a1 1 0 0 1 0-2zm0 4h10a1 1 0 0 1 0 2H7a1 1 0 0 1 0-2z"/>
-              </svg>
-            </div>
-            <h3 class="text-xl font-bold mb-2">Google Scholar</h3>
-            <p class="text-gray-600 dark:text-gray-300 mb-4">Research Publications</p>
-            <a href="https://scholar.google.com/citations?user=YOUR_ID_HERE" target="_blank" 
-               class="inline-block px-4 py-2 bg-indigo-700 hover:bg-indigo-800 text-white rounded-full transition-colors">
-              Explore Research
-            </a>
-          </div>
-        </div>
+        <h3>LinkedIn</h3>
+        <p>Connect with me professionally and view my career journey, endorsements, and achievements.</p>
+        <a href="https://www.linkedin.com/in/benyamin-zadehmoradian" target="_blank" class="social-link">
+          Visit Profile <i class="fas fa-arrow-right"></i>
+        </a>
       </div>
       
-      <!-- Resume Download Section -->
-      <div class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-2xl p-1 mt-6 relative">
-        <div class="bg-white dark:bg-gray-900 rounded-xl py-6 px-4">
-          <h3 class="text-xl font-bold mb-4 text-indigo-700 dark:text-indigo-300">
-            <span data-lang="en">Download My Resume</span>
-            <span data-lang="nl" class="hidden">Download Mijn CV</span>
-          </h3>
-          
-          <div class="flex flex-col sm:flex-row justify-center gap-4">
-            <a href="files/resume_en.pdf" download
-               class="download-btn bg-indigo-700 hover:bg-pink-700 text-white font-semibold px-6 py-3 rounded-full transition-colors flex items-center">
-              <span class="download-icon mr-2">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
-                </svg>
-              </span>
-              <span data-lang="en">English Version</span>
-              <span data-lang="nl" class="hidden">Engelse Versie</span>
-            </a>
-            <a href="files/resume_nl.pdf" download
-               class="download-btn bg-indigo-700 hover:bg-pink-700 text-white font-semibold px-6 py-3 rounded-full transition-colors flex items-center">
-              <span class="download-icon mr-2">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
-                </svg>
-              </span>
-              <span data-lang="en">Dutch Version</span>
-              <span data-lang="nl" class="hidden">Nederlandse Versie</span>
-            </a>
-          </div>
+      <!-- GitHub Card -->
+      <div class="social-card">
+        <div class="social-icon">
+          <i class="fab fa-github"></i>
         </div>
+        <h3>GitHub</h3>
+        <p>Explore my coding projects, contributions to open-source, and personal repositories.</p>
+        <a href="https://github.com/BenyaminZadehmoradian" target="_blank" class="social-link">
+          View Projects <i class="fas fa-arrow-right"></i>
+        </a>
       </div>
+      
+      <!-- Google Scholar Card -->
+      <div class="social-card">
+        <div class="social-icon">
+          <i class="fas fa-graduation-cap"></i>
+        </div>
+        <h3>Google Scholar</h3>
+        <p>Access my academic publications, research papers, and citations in the field of electronics.</p>
+        <a href="https://scholar.google.com/citations?user=YOUR_ID_HERE" target="_blank" class="social-link">
+          View Publications <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Resume Download Section -->
+    <div class="text-center">
+      <h3 class="text-xl font-semibold mb-6 text-gray-800 dark:text-gray-200">
+        <span data-lang="en">Download My Resume</span>
+        <span data-lang="nl" class="hidden">Download Mijn CV</span>
+      </h3>
+      
+      <div class="flex flex-col sm:flex-row justify-center gap-6">
+        <a href="files/resume_en.pdf" download class="download-btn">
+          <i class="fas fa-file-download"></i>
+          <span>English Version</span>
+        </a>
+        <a href="files/resume_nl.pdf" download class="download-btn">
+          <i class="fas fa-file-download"></i>
+          <span>Dutch Version</span>
+        </a>
+      </div>
+      
+      <p class="mt-6 text-sm text-gray-600 dark:text-gray-400">
+        <span data-lang="en">PDF Format | Updated August 2023</span>
+        <span data-lang="nl" class="hidden">PDF Formaat | Bijgewerkt Augustus 2023</span>
+      </p>
     </div>
   </section>
 
-  <!-- ... کدهای قبلی ... -->
-  
-  <script>
-    // ... اسکریپت‌های قبلی ...
-  </script>
+  <!-- Rest of the document remains unchanged -->
 </body>
 </html>

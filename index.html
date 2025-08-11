@@ -4,93 +4,297 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Benyamin Zadehmoradian – Resume</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { 
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            skill: {
+              light: '#e0e7ff',
+              DEFAULT: '#c7d2fe',
+              dark: '#4f46e5'
+            },
+            linkedin: '#0A66C2',
+            github: '#333333',
+            scholar: '#4285F4'
+          }
+        }
+      }
+    };
+  </script>
   <style>
-    body {
-      font-family: 'Inter', sans-serif;
+    /* ... استایل‌های قبلی ... */
+    
+    .profile-card {
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.1);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      position: relative;
+    }
+    
+    .dark .profile-card {
+      background: rgba(30, 30, 46, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    
+    .profile-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #818cf8, #c084fc, #f472b6);
+    }
+    
+    .dark .profile-card::before {
+      background: linear-gradient(90deg, #4f46e5, #7e22ce, #db2777);
+    }
+    
+    .profile-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+    }
+    
+    .social-icon {
+      transition: all 0.3s ease;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+    }
+    
+    .social-icon:hover {
+      transform: scale(1.1) rotate(5deg);
+    }
+    
+    .download-btn {
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+    
+    .download-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, #4f46e5, #7e22ce, #db2777);
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    .download-btn:hover::before {
+      opacity: 1;
+    }
+    
+    .download-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2);
+    }
+    
+    .download-icon {
+      transition: transform 0.3s ease;
+    }
+    
+    .download-btn:hover .download-icon {
+      transform: translateY(-5px);
+      animation: bounce 0.8s infinite;
+    }
+    
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    
+    .glowing-border {
+      position: relative;
+    }
+    
+    .glowing-border::after {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      background: linear-gradient(45deg, #ff00cc, #3333ff, #00ccff, #ff00cc);
+      background-size: 400% 400%;
+      z-index: -1;
+      border-radius: 12px;
+      animation: glowing 3s ease infinite;
+      filter: blur(5px);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    .glowing-border:hover::after {
+      opacity: 0.7;
+    }
+    
+    @keyframes glowing {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    
+    .holographic-effect {
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .holographic-effect::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, 
+        rgba(255, 0, 204, 0.1) 0%, 
+        rgba(51, 51, 255, 0.1) 25%, 
+        rgba(0, 204, 255, 0.1) 50%, 
+        rgba(0, 255, 153, 0.1) 75%, 
+        rgba(255, 0, 204, 0.1) 100%);
+      z-index: 0;
+      transform: rotate(45deg);
+      opacity: 0.3;
+      animation: hologram 10s linear infinite;
+    }
+    
+    @keyframes hologram {
+      0% { transform: rotate(45deg) translateX(-25%); }
+      100% { transform: rotate(45deg) translateX(25%); }
     }
   </style>
 </head>
-<body class="bg-gradient-to-br from-gray-100 via-white to-gray-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 text-gray-900 dark:text-white">
+<body class="text-gray-900 dark:text-gray-100 transition-colors duration-300">
+  <!-- ... کدهای قبلی ... -->
 
-  <!-- Header -->
-  <header class="sticky top-0 bg-white/70 dark:bg-gray-900/70 backdrop-blur z-50 shadow-sm">
-    <div class="max-w-5xl mx-auto px-4 py-4 flex justify-between items-center">
-      <h1 class="text-xl font-bold">Benyamin Zadehmoradian</h1>
-      <button id="theme-toggle" class="p-2 rounded bg-gray-200 dark:bg-gray-700">🌓</button>
-    </div>
-  </header>
+  <!-- Social Media + Resume Download - Professional Redesign -->
+  <section id="social" class="scroll-mt-20 content-box bg-white dark:bg-gray-900 rounded-3xl shadow-2xl border border-gray-300 dark:border-gray-600 p-10 transition-all duration-300 text-center glowing-border">
+    <div class="holographic-effect rounded-2xl p-1">
+      <!-- English Title -->
+      <h2 class="text-3xl font-extrabold mb-10 pb-2 relative z-10
+                 bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700
+                 animate-gradient-x bg-clip-text text-transparent inline-block"
+          data-lang="en">
+        Find Me Online
+      </h2>
 
-  <!-- Main -->
-  <main class="max-w-5xl mx-auto px-4 py-8 space-y-12">
-
-    <!-- About -->
-    <section>
-      <h2 class="text-2xl font-bold mb-4">About Me</h2>
-      <p>PhD student at Ghent University with expertise in analog computing, memristive neural networks, and low-power AI systems.</p>
-    </section>
-
-    <!-- Skills -->
-    <section>
-      <h2 class="text-2xl font-bold mb-4">Skills</h2>
-      <ul class="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <li class="p-3 bg-blue-100 dark:bg-blue-800 rounded-lg text-center">Python</li>
-        <li class="p-3 bg-green-100 dark:bg-green-800 rounded-lg text-center">TensorFlow</li>
-        <li class="p-3 bg-yellow-100 dark:bg-yellow-800 rounded-lg text-center">Verilog</li>
-        <li class="p-3 bg-purple-100 dark:bg-purple-800 rounded-lg text-center">FPGA</li>
-      </ul>
-    </section>
-
-    <!-- Find Me Online -->
-    <section>
-      <h2 class="text-2xl font-bold mb-6">Find Me Online</h2>
-      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+      <!-- Dutch Title -->
+      <h2 class="text-3xl font-extrabold mb-10 pb-2 relative z-10
+                 bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700
+                 animate-gradient-x bg-clip-text text-transparent inline-block hidden"
+          data-lang="nl">
+        Vind Mij Online
+      </h2>
+      
+      <!-- Social Profiles Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+        <!-- LinkedIn Card -->
+        <div class="profile-card rounded-2xl p-6 relative z-10">
+          <div class="flex flex-col items-center">
+            <div class="social-icon bg-linkedin text-white rounded-full mb-4">
+              <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-2">LinkedIn</h3>
+            <p class="text-gray-600 dark:text-gray-300 mb-4">Professional Network</p>
+            <a href="https://www.linkedin.com/in/benyamin-zadehmoradian" target="_blank" 
+               class="inline-block px-4 py-2 bg-indigo-700 hover:bg-indigo-800 text-white rounded-full transition-colors">
+              Visit Profile
+            </a>
+          </div>
+        </div>
         
-        <!-- LinkedIn -->
-        <a href="https://www.linkedin.com/in/benyamin-zadehmoradian" target="_blank" 
-           class="group flex flex-col items-center p-4 rounded-2xl bg-blue-50 dark:bg-blue-900 shadow hover:shadow-lg transition-transform transform hover:-translate-y-1">
-          <svg class="w-10 h-10 text-blue-600 dark:text-blue-300 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8h4V24h-4V8zM8.5 8h3.6v2.3h.1c.5-.9 1.7-1.8 3.4-1.8 3.6 0 4.3 2.4 4.3 5.6V24h-4v-8.5c0-2-.1-4.5-2.8-4.5-2.8 0-3.2 2.1-3.2 4.3V24h-4V8z"/>
-          </svg>
-          <span class="mt-3 text-sm font-medium">LinkedIn</span>
-        </a>
-
-        <!-- GitHub -->
-        <a href="https://github.com/benyaminzm" target="_blank"
-           class="group flex flex-col items-center p-4 rounded-2xl bg-gray-100 dark:bg-gray-800 shadow hover:shadow-lg transition-transform transform hover:-translate-y-1">
-          <svg class="w-10 h-10 text-gray-800 dark:text-gray-200 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.6v-2.1c-3.2.7-3.9-1.4-3.9-1.4-.5-1.1-1.1-1.4-1.1-1.4-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.4 1.1 3 .8.1-.6.4-1.1.7-1.3-2.5-.3-5.2-1.3-5.2-5.8 0-1.3.5-2.4 1.2-3.3-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.4 1.3a11.8 11.8 0 0 1 6.2 0c2.4-1.6 3.4-1.3 3.4-1.3.6 1.6.2 2.8.1 3.1.8.9 1.2 2 1.2 3.3 0 4.6-2.7 5.5-5.3 5.8.4.3.8 1 .8 2v3c0 .4.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.65 18.35.5 12 .5z"/>
-          </svg>
-          <span class="mt-3 text-sm font-medium">GitHub</span>
-        </a>
-
-        <!-- Personal Website -->
-        <a href="https://benyaminzm.github.io" target="_blank"
-           class="group flex flex-col items-center p-4 rounded-2xl bg-green-50 dark:bg-green-900 shadow hover:shadow-lg transition-transform transform hover:-translate-y-1">
-          <svg class="w-10 h-10 text-green-600 dark:text-green-300 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 2a10 10 0 0 0 0 20 10 10 0 0 0 0-20zm-1 17.93A8.001 8.001 0 0 1 4.07 13H11v6.93zm0-8.93H4.07A8.001 8.001 0 0 1 11 4.07V11zm2 8.93V13h6.93A8.001 8.001 0 0 1 13 19.93zm0-8.93V4.07A8.001 8.001 0 0 1 19.93 11H13z"/>
-          </svg>
-          <span class="mt-3 text-sm font-medium">Website</span>
-        </a>
-
+        <!-- GitHub Card -->
+        <div class="profile-card rounded-2xl p-6 relative z-10">
+          <div class="flex flex-col items-center">
+            <div class="social-icon bg-github text-white rounded-full mb-4">
+              <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-2">GitHub</h3>
+            <p class="text-gray-600 dark:text-gray-300 mb-4">Code Repository</p>
+            <a href="https://github.com/BenyaminZadehmoradian" target="_blank" 
+               class="inline-block px-4 py-2 bg-indigo-700 hover:bg-indigo-800 text-white rounded-full transition-colors">
+              View Projects
+            </a>
+          </div>
+        </div>
+        
+        <!-- Google Scholar Card -->
+        <div class="profile-card rounded-2xl p-6 relative z-10">
+          <div class="flex flex-col items-center">
+            <div class="social-icon bg-scholar text-white rounded-full mb-4">
+              <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 24a12 12 0 1 1 0-24 12 12 0 0 1 0 24zm-5-17h10a1 1 0 0 1 0 2H7a1 1 0 1 1 0-2zm0 4h10a1 1 0 0 1 0 2H7a1 1 0 0 1 0-2zm0 4h10a1 1 0 0 1 0 2H7a1 1 0 0 1 0-2z"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Google Scholar</h3>
+            <p class="text-gray-600 dark:text-gray-300 mb-4">Research Publications</p>
+            <a href="https://scholar.google.com/citations?user=YOUR_ID_HERE" target="_blank" 
+               class="inline-block px-4 py-2 bg-indigo-700 hover:bg-indigo-800 text-white rounded-full transition-colors">
+              Explore Research
+            </a>
+          </div>
+        </div>
       </div>
-    </section>
-  </main>
-
-  <!-- Footer -->
-  <footer class="bg-gray-200 dark:bg-gray-800 py-4 mt-8">
-    <div class="max-w-5xl mx-auto text-center text-sm">
-      © 2025 Benyamin Zadehmoradian
+      
+      <!-- Resume Download Section -->
+      <div class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-2xl p-1 mt-6 relative">
+        <div class="bg-white dark:bg-gray-900 rounded-xl py-6 px-4">
+          <h3 class="text-xl font-bold mb-4 text-indigo-700 dark:text-indigo-300">
+            <span data-lang="en">Download My Resume</span>
+            <span data-lang="nl" class="hidden">Download Mijn CV</span>
+          </h3>
+          
+          <div class="flex flex-col sm:flex-row justify-center gap-4">
+            <a href="files/resume_en.pdf" download
+               class="download-btn bg-indigo-700 hover:bg-pink-700 text-white font-semibold px-6 py-3 rounded-full transition-colors flex items-center">
+              <span class="download-icon mr-2">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                </svg>
+              </span>
+              <span data-lang="en">English Version</span>
+              <span data-lang="nl" class="hidden">Engelse Versie</span>
+            </a>
+            <a href="files/resume_nl.pdf" download
+               class="download-btn bg-indigo-700 hover:bg-pink-700 text-white font-semibold px-6 py-3 rounded-full transition-colors flex items-center">
+              <span class="download-icon mr-2">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                </svg>
+              </span>
+              <span data-lang="en">Dutch Version</span>
+              <span data-lang="nl" class="hidden">Nederlandse Versie</span>
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
-  </footer>
+  </section>
 
+  <!-- ... کدهای قبلی ... -->
+  
   <script>
-    // Dark mode toggle
-    const toggle = document.getElementById('theme-toggle');
-    toggle.addEventListener('click', () => {
-      document.documentElement.classList.toggle('dark');
-    });
+    // ... اسکریپت‌های قبلی ...
   </script>
 </body>
 </html>

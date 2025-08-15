@@ -1,296 +1,60 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html lang="fa">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مهندس معمار کامپیوتر - رزومه حرفه‌ای</title>
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&family=Vazirmatn:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            /* پالت رنگی جدید: مشکی گرم با سایه‌های طوسی آبی */
-            background: linear-gradient(135deg, #1e2838 0%, #121826 100%);
-            
-            /* الگوهای ظریف و مدرن */
-            background-image: 
-                radial-gradient(circle at 10% 20%, rgba(80, 120, 180, 0.05) 0%, transparent 8%),
-                radial-gradient(circle at 90% 80%, rgba(80, 120, 180, 0.05) 0%, transparent 8%),
-                linear-gradient(to right, rgba(100, 130, 180, 0.03) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(100, 130, 180, 0.03) 1px, transparent 1px);
-            
-            background-size: 
-                100% 100%,
-                100% 100%,
-                30px 30px,
-                30px 30px;
-            
-            /* متن و فونت اصلی */
-            color: #e8f0ff;
-            font-family: 'Vazirmatn', sans-serif;
-            line-height: 1.8;
-            min-height: 100vh;
-            overflow-x: hidden;
-            position: relative;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>پورتفولیو - مهندسی معماری کامپیوتر</title>
 
-        /* المان‌های گرافیکی */
-        .tech-element {
-            position: fixed;
-            opacity: 0.08;
-            pointer-events: none;
-            z-index: 0;
-        }
-        
-        .circuit-pattern {
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(circle, transparent 60%, #3a5a80 100%),
-                linear-gradient(135deg, transparent 48%, #3a5a80 49%, transparent 51%),
-                linear-gradient(45deg, transparent 48%, #3a5a80 49%, transparent 51%);
-            background-size: 100px 100px;
-        }
-        
-        .floating-chip {
-            top: 20%;
-            left: 15%;
-            width: 120px;
-            height: 120px;
-            border: 2px solid #5d87b8;
-            border-radius: 8px;
-            transform: rotate(15deg);
-            animation: float 12s ease-in-out infinite;
-        }
-        
-        .binary-flow {
-            bottom: 10%;
-            right: 5%;
-            width: 300px;
-            height: 50px;
-            color: #5d87b8;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 14px;
-            opacity: 0.15;
-            overflow: hidden;
-            animation: binaryFlow 20s linear infinite;
-        }
+<!-- فونت Orbitron -->
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 
-        /* محتوای اصلی */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 20px;
-            position: relative;
-            z-index: 10;
-        }
+<style>
+    body {
+        margin: 0;
+        font-family: 'Orbitron', sans-serif;
+        background: linear-gradient(135deg, #0A0F1E, #1A2238);
+        color: #E0E0E0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        overflow: hidden;
+    }
 
-        header {
-            text-align: center;
-            padding: 80px 0 40px;
-            position: relative;
-        }
+    /* شبکه مدار */
+    body::before {
+        content: "";
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: 
+            linear-gradient(transparent 98%, rgba(0, 229, 255, 0.2) 2%),
+            linear-gradient(90deg, transparent 98%, rgba(0, 229, 255, 0.2) 2%);
+        background-size: 50px 50px;
+        z-index: 0;
+    }
 
-        /* تایپوگرافی جدید */
-        h1, h2, h3 {
-            font-family: 'Rubik', sans-serif;
-            font-weight: 600;
-            color: #a8d0ff;
-        }
+    .content {
+        z-index: 1;
+        text-align: center;
+    }
 
-        h1 {
-            font-size: 3.8rem;
-            margin-bottom: 15px;
-            letter-spacing: -0.5px;
-            text-shadow: 0 2px 10px rgba(100, 180, 255, 0.2);
-        }
+    h1 {
+        font-size: 3rem;
+        color: #00E5FF;
+        text-shadow: 0 0 10px #00E5FF, 0 0 20px #00E5FF;
+    }
 
-        h2 {
-            font-size: 2.5rem;
-            margin: 60px 0 30px;
-            color: #88c0ff;
-            position: relative;
-            display: inline-block;
-        }
-
-        h2:after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 60px;
-            height: 3px;
-            background: linear-gradient(90deg, #5d87b8, transparent);
-            border-radius: 3px;
-        }
-
-        h3 {
-            font-size: 1.8rem;
-            margin: 30px 0 20px;
-            color: #94c5ff;
-        }
-
-        p {
-            font-size: 1.15rem;
-            font-weight: 400;
-            margin-bottom: 25px;
-            max-width: 800px;
-            color: #d0e0ff;
-            line-height: 1.9;
-        }
-
-        .subtitle {
-            font-size: 1.5rem;
-            color: #88b0e0;
-            margin-bottom: 50px;
-            font-weight: 300;
-            letter-spacing: 0.5px;
-        }
-
-        .card {
-            background: rgba(25, 40, 65, 0.4);
-            backdrop-filter: blur(12px);
-            border-radius: 16px;
-            padding: 40px;
-            margin-bottom: 40px;
-            border: 1px solid rgba(90, 140, 200, 0.15);
-            box-shadow: 0 10px 30px rgba(10, 20, 40, 0.3);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(15, 50, 120, 0.4);
-            border: 1px solid rgba(100, 160, 220, 0.25);
-        }
-
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-top: 25px;
-        }
-
-        .skill {
-            background: rgba(80, 140, 220, 0.15);
-            color: #a0d0ff;
-            padding: 10px 25px;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-family: 'JetBrains Mono', monospace;
-            font-weight: 500;
-            border: 1px solid rgba(100, 160, 220, 0.2);
-            transition: all 0.3s ease;
-        }
-
-        .skill:hover {
-            background: rgba(90, 150, 230, 0.25);
-            transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(60, 120, 200, 0.2);
-        }
-
-        /* نوار پیمایش */
-        ::-webkit-scrollbar {
-            width: 12px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: #16243a;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: linear-gradient(#4a7db0, #3a5a80);
-            border-radius: 6px;
-            border: 2px solid #16243a;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: linear-gradient(#5a8dc0, #4a6a90);
-        }
-
-        /* انیمیشن‌ها */
-        @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(15deg); }
-            50% { transform: translateY(-30px) rotate(18deg); }
-        }
-        
-        @keyframes binaryFlow {
-            0% { transform: translateX(100%); }
-            100% { transform: translateX(-100%); }
-        }
-
-        /* واکنشگرا */
-        @media (max-width: 768px) {
-            h1 { font-size: 2.8rem; }
-            h2 { font-size: 2rem; }
-            .subtitle { font-size: 1.2rem; }
-            .card { padding: 30px 20px; }
-        }
-    </style>
+    p {
+        font-size: 1.2rem;
+        color: #FF4081;
+    }
+</style>
 </head>
 <body>
-    <!-- المان‌های گرافیکی -->
-    <div class="tech-element circuit-pattern"></div>
-    <div class="tech-element floating-chip"></div>
-    <div class="tech-element binary-flow">01101000 01100001 01110010 01100100 01110111 01100001 01110010 01100101 00100000 01100100 01100101 01110011 01101001 01100111 01101110 00100000 01100001 01110010 01100011 01101000 01101001 01110100 01100101 01100011 01110100 01110101 01110010 01100101</div>
-    
-    <!-- محتوای اصلی -->
-    <div class="container">
-        <header>
-            <h1>امیرحسین محمدی</h1>
-            <div class="subtitle">مهندس ارشد معمار کامپیوتر | طراح سیستم‌های دیجیتال</div>
-        </header>
-        
-        <section class="card">
-            <h2>پروفایل حرفه‌ای</h2>
-            <p>
-                مهندس معمار کامپیوتر با ۱۰ سال سابقه در طراحی سیستم‌های پیشرفته محاسباتی. تخصص اصلی من در بهینه‌سازی معماری‌های چندلایه، طراحی پردازنده‌های کارآمد و سیستم‌های نهفته با کارایی بالا است. در پروژه‌هایم از آخرین فناوری‌های FPGA و ASIC استفاده می‌کنم و همواره به دنبال ایجاد تعادل بین قدرت پردازش، مصرف انرژی و هزینه‌های تولید هستم.
-            </p>
-        </section>
-        
-        <section class="card">
-            <h2>مهارت‌های تخصصی</h2>
-            <div class="skills">
-                <div class="skill">RISC-V / ARM Architecture</div>
-                <div class="skill">VLSI & ASIC Design</div>
-                <div class="skill">System-on-Chip (SoC)</div>
-                <div class="skill">FPGA Development</div>
-                <div class="skill">Verilog / VHDL</div>
-                <div class="skill">Hardware Security</div>
-                <div class="skill">AI Accelerators</div>
-                <div class="skill">Memory Hierarchy</div>
-                <div class="skill">Power Optimization</div>
-                <div class="skill">High-Performance Computing</div>
-            </div>
-        </section>
-        
-        <section class="card">
-            <h2>پروژه‌های شاخص</h2>
-            <h3>معماری پردازنده‌های ابرمقیاس</h3>
-            <p>طراحی معماری مقیاس‌پذیر برای مراکز داده با قابلیت پردازش ۴۰٪ سریع‌تر و مصرف انرژی ۳۵٪ کمتر نسبت به معماری‌های رایج</p>
-            
-            <h3>شتاب‌دهنده سخت‌افزاری یادگیری عمیق</h3>
-            <p>پیاده‌سازی واحد پردازش تخصصی برای شبکه‌های عصبی پیچیده با قابلیت اجرای ۱۵ تریلیون عملیات در ثانیه</p>
-            
-            <h3>سیستم نهفته امنیتی</h3>
-            <p>طراحی تراشه امنیتی با قابلیت‌های رمزنگاری سخت‌افزاری و مقاوم در برابر حملات فیزیکی و جانبی‌کانال</p>
-        </section>
-        
-        <section class="card">
-            <h2>فناوری‌های مورد استفاده</h2>
-            <p>
-                <strong>ابزارهای طراحی:</strong> Cadence Innovus, Synopsys Design Compiler, Xilinx Vivado<br>
-                <strong>زبان‌ها:</strong> SystemVerilog, Chisel, Python, C++<br>
-                <strong>پلتفرم‌ها:</strong> AWS EC2 F1, Google Cloud TPU, NVIDIA DGX Systems<br>
-                <strong>تکنولوژی‌ها:</strong> 7nm FinFET, 3D-IC Packaging, Silicon Photonics
-            </p>
-        </section>
+    <div class="content">
+        <h1>پورتفولیو مهندسی معماری کامپیوتر</h1>
+        <p>طراحی سیستم‌های هوشمند و بهینه</p>
     </div>
 </body>
 </html>

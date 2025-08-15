@@ -1,60 +1,174 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portfolio - Computer Architecture Engineering</title>
-
-<!-- Orbitron Font -->
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
-
-<style>
-    body {
-        margin: 0;
-        font-family: 'Orbitron', sans-serif;
-        background: linear-gradient(135deg, #0A0F1E, #1A2238);
-        color: #E0E0E0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        overflow: hidden;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio – Computer Architecture (Galaxy Theme)</title>  <!-- Fonts -->  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">  <style>
+    :root{
+      --bg-deep:#050816;         /* space black-blue */
+      --nebula-purple:#6C2BD9;   /* deep purple */
+      --nebula-pink:#FF3CAC;     /* magenta */
+      --nebula-cyan:#00E5FF;     /* cyan */
+      --text:#E6E8F2;
+      --muted:#AEB4CF;
+      --accent:#00E5FF;
     }
 
-    /* Circuit Grid Overlay */
-    body::before {
-        content: "";
-        position: absolute;
-        top: 0; left: 0;
-        width: 100%; height: 100%;
-        background: 
-            linear-gradient(transparent 98%, rgba(0, 229, 255, 0.2) 2%),
-            linear-gradient(90deg, transparent 98%, rgba(0, 229, 255, 0.2) 2%);
-        background-size: 50px 50px;
-        z-index: 0;
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:'Inter', system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+      color:var(--text);
+      background: radial-gradient(1000px 600px at 20% 10%, rgba(108,43,217,.28), transparent 60%),
+                  radial-gradient(800px 500px at 80% 70%, rgba(0,229,255,.23), transparent 60%),
+                  radial-gradient(900px 700px at 10% 80%, rgba(255,60,172,.18), transparent 65%),
+                  linear-gradient(160deg, #090c1a 0%, var(--bg-deep) 60%, #070a16 100%);
+      overflow:hidden;
     }
 
-    .content {
-        z-index: 1;
-        text-align: center;
+    /* STARFIELD LAYERS (parallax) */
+    .stars, .stars2, .stars3{
+      position:fixed; inset:0; z-index:0; pointer-events:none;
+      background-repeat:repeat; background-size:contain; opacity:.9;
+      animation: drift linear infinite;
+    }
+    /* tiny data-uris to avoid images; created with radial-gradients */
+    .stars{
+      background-image: radial-gradient(2px 2px at 20px 30px, #ffffff 60%, transparent 61%),
+                        radial-gradient(1px 1px at 120px 80px, #cfe8ff 60%, transparent 61%),
+                        radial-gradient(1.2px 1.2px at 200px 10px, #ffffff 60%, transparent 61%),
+                        radial-gradient(1.5px 1.5px at 50px 150px, #dfe9ff 60%, transparent 61%);
+      background-size: 250px 250px;
+      animation-duration: 180s; opacity:.6;
+    }
+    .stars2{
+      background-image: radial-gradient(1.5px 1.5px at 70px 40px, #ffffff 60%, transparent 61%),
+                        radial-gradient(1px 1px at 170px 100px, #b8f0ff 60%, transparent 61%),
+                        radial-gradient(1.2px 1.2px at 40px 200px, #ffffff 60%, transparent 61%),
+                        radial-gradient(1px 1px at 220px 160px, #e3f3ff 60%, transparent 61%);
+      background-size: 300px 300px;
+      animation-duration: 260s; opacity:.45; filter:blur(.2px);
+    }
+    .stars3{
+      background-image: radial-gradient(2px 2px at 90px 60px, #ffffff 60%, transparent 61%),
+                        radial-gradient(1.2px 1.2px at 140px 200px, #c9e7ff 60%, transparent 61%),
+                        radial-gradient(1px 1px at 30px 120px, #ffffff 60%, transparent 61%),
+                        radial-gradient(1.5px 1.5px at 210px 30px, #eaf6ff 60%, transparent 61%);
+      background-size: 350px 350px;
+      animation-duration: 340s; opacity:.35; filter:blur(.4px);
+    }
+    @keyframes drift{ from{ background-position:0 0 } to{ background-position:-10000px 5000px } }
+
+    /* Twinkling stars layer */
+    .twinkle{
+      position:fixed; inset:0; z-index:1; pointer-events:none;
+      background-image: radial-gradient(1.6px 1.6px at 40% 30%, rgba(255,255,255,.9) 60%, transparent 61%),
+                        radial-gradient(1.6px 1.6px at 70% 60%, rgba(255,255,255,.9) 60%, transparent 61%),
+                        radial-gradient(1.6px 1.6px at 25% 75%, rgba(255,255,255,.9) 60%, transparent 61%),
+                        radial-gradient(1.6px 1.6px at 85% 20%, rgba(255,255,255,.9) 60%, transparent 61%);
+      animation: twinkle 4s ease-in-out infinite;
+      mix-blend-mode: screen;
+    }
+    @keyframes twinkle{ 0%,100%{opacity:.2} 50%{opacity:.8} }
+
+    /* Nebula glow haze */
+    .nebula{ position:fixed; inset:-20%; z-index:0; pointer-events:none; filter: blur(60px) saturate(1.2); opacity:.7; }
+    .nebula::before, .nebula::after{
+      content:""; position:absolute; inset:0;
+      background: radial-gradient(600px 400px at 25% 35%, rgba(108,43,217,.45), transparent 60%),
+                  radial-gradient(700px 500px at 75% 65%, rgba(0,229,255,.35), transparent 60%),
+                  radial-gradient(650px 450px at 15% 80%, rgba(255,60,172,.28), transparent 65%);
+      animation: breathe 16s ease-in-out infinite alternate;
+    }
+    .nebula::after{ transform: rotate(15deg) scale(1.05); filter:hue-rotate(10deg) brightness(1.1); animation-duration: 22s; opacity:.8; }
+    @keyframes breathe{ from{ transform: scale(1)} to{ transform: scale(1.08)} }
+
+    /* Subtle circuit lines to keep the Computer Architecture vibe */
+    .circuit{
+      position:fixed; inset:0; z-index:2; pointer-events:none; opacity:.15;
+      background-image:
+        linear-gradient(transparent 98%, rgba(0,229,255,.7) 2%),
+        linear-gradient(90deg, transparent 98%, rgba(0,229,255,.7) 2%);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(900px 650px at 50% 50%, black 40%, transparent 80%);
     }
 
-    h1 {
-        font-size: 3rem;
-        color: #00E5FF;
-        text-shadow: 0 0 10px #00E5FF, 0 0 20px #00E5FF;
+    /* Shooting star */
+    .shooting-star{ position:fixed; left:-10vw; top:15vh; width:2px; height:2px; background: white; box-shadow:0 0 6px 2px rgba(255,255,255,.9), 0 0 18px 6px rgba(0,229,255,.75);
+      transform: translate3d(0,0,0) rotate(15deg); z-index:3; animation: shoot 7s linear infinite; }
+    @keyframes shoot{
+      0%{ transform: translate3d(-10vw, -10vh, 0) rotate(15deg); opacity:0 }
+      5%{ opacity:1 }
+      50%{ transform: translate3d(120vw, 60vh, 0) rotate(15deg); opacity:.8 }
+      100%{ transform: translate3d(180vw, 100vh, 0) rotate(15deg); opacity:0 }
     }
 
-    p {
-        font-size: 1.2rem;
-        color: #FF4081;
+    /* Content card */
+    .wrap{ position:relative; z-index:5; height:100%; display:grid; place-items:center; padding:2rem }
+    .card{
+      width:min(900px, 92vw);
+      padding:2.25rem 2rem;
+      background: rgba(8,12,22,.35);
+      border:1px solid rgba(0,229,255,.25);
+      border-radius:24px;
+      backdrop-filter: blur(10px) saturate(1.2);
+      box-shadow: 0 10px 40px rgba(0,0,0,.6), 0 0 30px rgba(0,229,255,.15);
+      text-align:center;
     }
-</style>
-</head>
+    h1{
+      font-family:'Orbitron', sans-serif;
+      letter-spacing:.04em;
+      font-size: clamp(1.8rem, 3.5vw, 3.2rem);
+      margin:0 0 .75rem;
+      color: var(--text);
+      text-shadow: 0 0 12px rgba(0,229,255,.35), 0 0 32px rgba(108,43,217,.2);
+    }
+    .subtitle{ color:var(--muted); font-size: clamp(1rem, 2vw, 1.2rem); margin-bottom:1.25rem }
+
+    .chips{ display:flex; flex-wrap:wrap; gap:.6rem; justify-content:center; margin-top:.5rem }
+    .chip{
+      padding:.4rem .7rem; border-radius:999px; border:1px solid rgba(255,255,255,.15);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      font-size:.9rem; color:var(--text);
+      box-shadow: inset 0 0 12px rgba(108,43,217,.15), 0 0 18px rgba(0,229,255,.08);
+    }
+
+    .cta{
+      margin-top:1.25rem; display:inline-block; text-decoration:none; color:#051018; font-weight:600;
+      padding:.8rem 1.1rem; border-radius:14px;
+      background:
+        radial-gradient(60% 180% at 20% 0%, rgba(255,255,255,.35), transparent 40%),
+        linear-gradient(90deg, var(--nebula-pink), var(--nebula-purple), var(--nebula-cyan));
+      box-shadow: 0 10px 25px rgba(0,229,255,.25), 0 0 30px rgba(255,60,172,.18);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .cta:hover{ transform: translateY(-2px); box-shadow: 0 14px 38px rgba(0,229,255,.35), 0 0 40px rgba(255,60,172,.25) }
+
+    /* Footer note */
+    footer{ position:fixed; bottom:10px; left:0; right:0; text-align:center; z-index:5; color:var(--muted); font-size:.85rem }
+  </style></head>
 <body>
-    <div class="content">
-        <h1>Computer Architecture Portfolio</h1>
-        <p>Designing intelligent and optimized systems</p>
-    </div>
+  <!-- Layers -->
+  <div class="stars"></div>
+  <div class="stars2"></div>
+  <div class="stars3"></div>
+  <div class="twinkle"></div>
+  <div class="nebula"></div>
+  <div class="circuit"></div>
+  <div class="shooting-star"></div>  <!-- Content -->  <main class="wrap">
+    <section class="card">
+      <h1>Computer Architecture Portfolio</h1>
+      <p class="subtitle">Designing high‑performance, energy‑efficient systems • RTL · SoC · Memory · Accelerators</p>
+      <div class="chips">
+        <span class="chip">RISC‑V</span>
+        <span class="chip">Verilog/VHDL</span>
+        <span class="chip">NoC</span>
+        <span class="chip">Cache/Memory</span>
+        <span class="chip">FPGA</span>
+        <span class="chip">AI Accelerators</span>
+      </div>
+      <a class="cta" href="#">Explore Projects</a>
+    </section>
+  </main>  <footer>Galaxy theme • Neon cyan & magenta • Orbitron + Inter</footer>
 </body>
 </html>

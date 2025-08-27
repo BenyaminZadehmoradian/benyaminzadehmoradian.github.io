@@ -1,69 +1,304 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfolio – Computer Architecture (Galaxy Colors)</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg-gradient: linear-gradient(135deg, #0A0F1E, #1A2238);
-      --text-color: #E0E0E0;
-      --accent-color: #00E5FF;
-    }
-    body.light {
-      --bg-gradient: linear-gradient(135deg, #FFDEE9, #B5FFFC);
-      --text-color: #1A1A1A;
-      --accent-color: #6C2BD9;
-    }
-    body {
-      margin: 0;
-      font-family: 'Orbitron', sans-serif;
-      background: var(--bg-gradient);
-      color: var(--text-color);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      transition: background 0.5s, color 0.5s;
-    }
-    .content {
-      text-align: center;
-    }
-    h1 {
-      font-size: 3rem;
-      color: var(--accent-color);
-      text-shadow: 0 0 10px var(--accent-color), 0 0 20px var(--accent-color);
-    }
-    p {
-      font-size: 1.2rem;
-    }
-    button {
-      margin-top: 20px;
-      padding: 10px 20px;
-      font-size: 1rem;
-      background: var(--accent-color);
-      color: #fff;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-    button:hover {
-      background: #0099cc;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Benjamin Zadeh Moradian | FPGA Developer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #2c3e50 0%, #1a2530 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .header-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .tagline {
+            font-size: 1.8rem;
+            color: #3498db;
+            margin-bottom: 30px;
+        }
+        
+        .intro {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: #2980b9;
+            transform: translateY(-3px);
+        }
+        
+        section {
+            padding: 60px 0;
+        }
+        
+        h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: #2c3e50;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-image {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .fpga-icon {
+            font-size: 200px;
+            color: #3498db;
+        }
+        
+        .skills {
+            background-color: #2c3e50;
+            color: white;
+        }
+        
+        .skills h2 {
+            color: white;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .skill-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .skill-card i {
+            font-size: 50px;
+            color: #3498db;
+            margin-bottom: 20px;
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .project-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .project-content {
+            padding: 25px;
+        }
+        
+        .project-content h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+        
+        .contact {
+            background: #f2f4f6;
+            text-align: center;
+        }
+        
+        .contact-info {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+        }
+        
+        @media (max-width: 768px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .tagline {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="content">
-    <h1>Computer Architecture Portfolio</h1>
-    <p>Designing intelligent and optimized systems</p>
-    <button id="toggleTheme">Toggle Day/Night</button>
-  </div>
-  <script>
-    const toggleButton = document.getElementById('toggleTheme');
-    toggleButton.addEventListener('click', () => {
-      document.body.classList.toggle('light');
-    });
-  </script>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <h1>Benjamin Zadeh Moradian</h1>
+                <p class="tagline">FPGA Developer & Digital Design Engineer</p>
+                <p class="intro">I specialize in designing and implementing complex digital systems on FPGAs. With expertise in VHDL, Verilog, and high-speed digital design, I bring embedded ideas to life.</p>
+                <a href="#contact" class="btn">Get In Touch</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>I am an FPGA developer with a passion for creating efficient and innovative digital systems. My work focuses on implementing complex algorithms in hardware to achieve maximum performance.</p>
+                    <p>With experience across multiple FPGA families including Xilinx, Intel (Altera), and Lattice, I have successfully delivered projects in areas such as digital signal processing, computer vision, and high-frequency trading.</p>
+                    <p>I believe in writing clean, maintainable HDL code and thoroughly verifying designs through extensive testbenches and simulation.</p>
+                </div>
+                <div class="about-image">
+                    <i class="fpga-icon fas fa-microchip"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills">
+        <div class="container">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <i class="fas fa-code"></i>
+                    <h3>HDL Languages</h3>
+                    <p>VHDL, Verilog, SystemVerilog</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-tools"></i>
+                    <h3>FPGA Tools</h3>
+                    <p>Vivado, Quartus, ModelSim, GHDL</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-bolt"></i>
+                    <h3>High-Speed Design</h3>
+                    <p>Timing closure, DDR interfaces, SerDes</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-cogs"></i>
+                    <h3>Protocols</h3>
+                    <p>PCIe, Ethernet, SPI, I2C, UART</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <h2>FPGA Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3>Image Processing Pipeline</h3>
+                        <p>Real-time image processing system implementing filters and object detection on Xilinx Zynq FPGA.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3>Custom RISC-V CPU</h3>
+                        <p>Designed and implemented a 5-stage pipelined RISC-V processor with custom instruction set extensions.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3>High-Frequency Trading Accelerator</h3>
+                        <p>Low-latency trading system implemented on Intel Stratix 10 FPGA with sub-microsecond response time.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Contact Me</h2>
+            <div class="contact-info">
+                <p>If you have an FPGA project you'd like to discuss, or if you're looking for expertise in digital design, feel free to reach out.</p>
+                <p>Email: <strong>benjamin@fpga-dev.com</strong></p>
+                <p>Phone: <strong>+1 (555) 123-4567</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Benjamin Zadeh Moradian. All rights reserved.</p>
+            <p>Specializing in FPGA Design and Implementation</p>
+        </div>
+    </footer>
 </body>
 </html>

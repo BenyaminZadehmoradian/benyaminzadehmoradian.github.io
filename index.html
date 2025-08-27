@@ -3,8 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Benjamin Zadeh Moradian | FPGA Developer</title>
+    <title>Benjamin Zadeh Moradian - FPGA Developer & Digital Design Engineer</title>
+    <meta name="description" content="Professional FPGA developer specializing in VHDL, Verilog, and digital design. Expert in Xilinx, Intel FPGAs for image processing, custom CPUs, and high-frequency trading systems.">
+    <meta name="keywords" content="FPGA developer, VHDL, Verilog, digital design, Xilinx, Intel FPGAs, Benjamin Zadeh Moradian, FPGA projects">
+    <meta name="author" content="Benjamin Zadeh Moradian">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://benyaminzadehmoradian.github.io/">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Benjamin Zadeh Moradian",
+      "jobTitle": "FPGA Developer",
+      "skills": "VHDL, Verilog, SystemVerilog, FPGA Design, Digital Signal Processing",
+      "url": "https://benyaminzadehmoradian.github.io/",
+      "sameAs": []
+    }
+    </script>
     <style>
         * {
             margin: 0;
@@ -180,6 +196,17 @@
             padding: 30px 0;
         }
         
+        .breadcrumb {
+            padding: 10px 0;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .breadcrumb a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        
         @media (max-width: 768px) {
             .about-content {
                 flex-direction: column;
@@ -208,45 +235,52 @@
         </div>
     </header>
 
+    <nav class="breadcrumb container">
+        <a href="#about">About</a> &gt; 
+        <a href="#skills">Skills</a> &gt; 
+        <a href="#projects">Projects</a> &gt; 
+        <a href="#contact">Contact</a>
+    </nav>
+
     <!-- About Section -->
     <section id="about">
         <div class="container">
             <h2>About Me</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <p>I am an FPGA developer with a passion for creating efficient and innovative digital systems. My work focuses on implementing complex algorithms in hardware to achieve maximum performance.</p>
+                    <p>I am Benjamin Zadeh Moradian, an FPGA developer with a passion for creating efficient and innovative digital systems. My work focuses on implementing complex algorithms in hardware to achieve maximum performance.</p>
                     <p>With experience across multiple FPGA families including Xilinx, Intel (Altera), and Lattice, I have successfully delivered projects in areas such as digital signal processing, computer vision, and high-frequency trading.</p>
                     <p>I believe in writing clean, maintainable HDL code and thoroughly verifying designs through extensive testbenches and simulation.</p>
                 </div>
                 <div class="about-image">
-                    <i class="fpga-icon fas fa-microchip"></i>
+                    <i class="fpga-icon fas fa-microchip" aria-label="FPGAs and Digital Circuits"></i>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Skills Section -->
-    <section class="skills">
+    <section id="skills" class="skills">
         <div class="container">
             <h2>Technical Skills</h2>
             <div class="skills-grid">
                 <div class="skill-card">
-                    <i class="fas fa-code"></i>
+                    <i class="fas fa-code" aria-hidden="true"></i>
                     <h3>HDL Languages</h3>
                     <p>VHDL, Verilog, SystemVerilog</p>
                 </div>
                 <div class="skill-card">
-                    <i class="fas fa-tools"></i>
+                    <i class="fas fa-tools" aria-hidden="true"></i>
                     <h3>FPGA Tools</h3>
                     <p>Vivado, Quartus, ModelSim, GHDL</p>
                 </div>
                 <div class="skill-card">
-                    <i class="fas fa-bolt"></i>
+                    <i class="fas fa-bolt" aria-hidden="true"></i>
                     <h3>High-Speed Design</h3>
                     <p>Timing closure, DDR interfaces, SerDes</p>
                 </div>
                 <div class="skill-card">
-                    <i class="fas fa-cogs"></i>
+                    <i class="fas fa-cogs" aria-hidden="true"></i>
                     <h3>Protocols</h3>
                     <p>PCIe, Ethernet, SPI, I2C, UART</p>
                 </div>
@@ -298,6 +332,7 @@
         <div class="container">
             <p>&copy; 2023 Benjamin Zadeh Moradian. All rights reserved.</p>
             <p>Specializing in FPGA Design and Implementation</p>
+            <p>Website: <strong>https://benyaminzadehmoradian.github.io/</strong></p>
         </div>
     </footer>
 </body>

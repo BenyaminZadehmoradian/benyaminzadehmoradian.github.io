@@ -1,340 +1,206 @@
 <!DOCTYPE html>
-<html lang="en">
+
+<html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Benjamin Zadeh Moradian - FPGA Developer & Digital Design Engineer</title>
-    <meta name="description" content="Professional FPGA developer specializing in VHDL, Verilog, and digital design. Expert in Xilinx, Intel FPGAs for image processing, custom CPUs, and high-frequency trading systems.">
-    <meta name="keywords" content="FPGA developer, VHDL, Verilog, digital design, Xilinx, Intel FPGAs, Benjamin Zadeh Moradian, FPGA projects">
-    <meta name="author" content="Benjamin Zadeh Moradian">
-    <meta name="google-site-verification" content="9V2hiDq1ofaVMPe-6_81XbYfNee4C1_jJQWyB0usSz8" />
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://benyaminzadehmoradian.github.io/">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Benjamin Zadeh Moradian",
-      "jobTitle": "FPGA Developer",
-      "skills": "VHDL, Verilog, SystemVerilog, FPGA Design, Digital Signal Processing",
-      "url": "https://benyaminzadehmoradian.github.io/",
-      "sameAs": []
-    }
-    </script>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background-color: #f8f9fa;
-            color: #333;
-            line-height: 1.6;
-        }
-        
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        header {
-            background: linear-gradient(135deg, #2c3e50 0%, #1a2530 100%);
-            color: white;
-            padding: 60px 0;
-            text-align: center;
-        }
-        
-        .header-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-        }
-        
-        .tagline {
-            font-size: 1.8rem;
-            color: #3498db;
-            margin-bottom: 30px;
-        }
-        
-        .intro {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background: #3498db;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: all 0.3s ease;
-        }
-        
-        .btn:hover {
-            background: #2980b9;
-            transform: translateY(-3px);
-        }
-        
-        section {
-            padding: 60px 0;
-        }
-        
-        h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 40px;
-            color: #2c3e50;
-        }
-        
-        .about-content {
-            display: flex;
-            align-items: center;
-            gap: 40px;
-        }
-        
-        .about-text {
-            flex: 1;
-        }
-        
-        .about-image {
-            flex: 1;
-            text-align: center;
-        }
-        
-        .fpga-icon {
-            font-size: 200px;
-            color: #3498db;
-        }
-        
-        .skills {
-            background-color: #2c3e50;
-            color: white;
-        }
-        
-        .skills h2 {
-            color: white;
-        }
-        
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-        }
-        
-        .skill-card {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 25px;
-            border-radius: 10px;
-            text-align: center;
-            transition: transform 0.3s ease;
-        }
-        
-        .skill-card:hover {
-            transform: translateY(-10px);
-        }
-        
-        .skill-card i {
-            font-size: 50px;
-            color: #3498db;
-            margin-bottom: 20px;
-        }
-        
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .project-card {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-        
-        .project-card:hover {
-            transform: translateY(-10px);
-        }
-        
-        .project-content {
-            padding: 25px;
-        }
-        
-        .project-content h3 {
-            color: #2c3e50;
-            margin-bottom: 15px;
-        }
-        
-        .contact {
-            background: #f2f4f6;
-            text-align: center;
-        }
-        
-        .contact-info {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        footer {
-            background: #2c3e50;
-            color: white;
-            text-align: center;
-            padding: 30px 0;
-        }
-        
-        .breadcrumb {
-            padding: 10px 0;
-            font-size: 0.9rem;
-            color: #666;
-        }
-        
-        .breadcrumb a {
-            color: #3498db;
-            text-decoration: none;
-        }
-        
-        @media (max-width: 768px) {
-            .about-content {
-                flex-direction: column;
-            }
-            
-            h1 {
-                font-size: 2.5rem;
-            }
-            
-            .tagline {
-                font-size: 1.4rem;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Benyamin Zadehmoradian – Resume</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class' };
+  </script>
+  <style>
+  body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  min-height: 100%;
+
+}
+
+html { margin: 0; padding: 0; min-height: 100%; overflow-x: hidden; }
+
+body { background: linear-gradient(-45deg, #fdf1d6, #ffe0e0, #ebe7ff, #d8f5e3); background-size: 300% 300%; animation: gradientBG 20s ease-in-out infinite; color: inherit; }
+
+html.dark body { background: linear-gradient(-45deg, #1e3c72, #2a5298, #1c1c2b, #090e11 ); background-size: 400% 400%; animation: gradientBG 25s ease-in-out infinite; }
+
+@keyframes gradientBG { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+
+@keyframes gradient-x { 0% { background-position: 0% center; } 50% { background-position: 100% center; } 100% { background-position: 0% center; } }
+
+.header-hidden { transform: translateY(-100%); transition: transform 0.3s ease-in-out; }
+
+.animate-gradient-x { background-size: 200% auto; background-clip: text; -webkit-background-clip: text; color: transparent; animation: gradient-x 8s ease infinite; }
+
+  </style>
 </head>
-<body>
-    <!-- Header Section -->
-    <header>
-        <div class="container">
-            <div class="header-content">
-                <h1>Benjamin Zadeh Moradian</h1>
-                <p class="tagline">FPGA Developer & Digital Design Engineer</p>
-                <p class="intro">I specialize in designing and implementing complex digital systems on FPGAs. With expertise in VHDL, Verilog, and high-speed digital design, I bring embedded ideas to life.</p>
-                <a href="#contact" class="btn">Get In Touch</a>
-            </div>
-        </div>
-    </header>
+<body class="text-gray-900 dark:text-gray-100 transition-colors duration-300">
 
-    <nav class="breadcrumb container">
-        <a href="#about">About</a> &gt; 
-        <a href="#skills">Skills</a> &gt; 
-        <a href="#projects">Projects</a> &gt; 
-        <a href="#contact">Contact</a>
-    </nav>
+<!-- Header -->
 
-    <!-- About Section -->
-    <section id="about">
-        <div class="container">
-            <h2>About Me</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>I am Benjamin Zadeh Moradian, an FPGA developer with a passion for creating efficient and innovative digital systems. My work focuses on implementing complex algorithms in hardware to achieve maximum performance.</p>
-                    <p>With experience across multiple FPGA families including Xilinx, Intel (Altera), and Lattice, I have successfully delivered projects in areas such as digital signal processing, computer vision, and high-frequency trading.</p>
-                    <p>I believe in writing clean, maintainable HDL code and thoroughly verifying designs through extensive testbenches and simulation.</p>
-                </div>
-                <div class="about-image">
-                    <i class="fpga-icon fas fa-microchip" aria-label="FPGAs and Digital Circuits"></i>
-                </div>
-            </div>
-        </div>
-    </section>
+<header class="sticky top-0 z-50 bg-white/70 dark:bg-gray-900/80 backdrop-blur-lg shadow-md transition-transform duration-300">
+<div class="max-w-6xl mx-auto px-3 sm:px-4 py-4 flex justify-between items-center">
+    <!-- Language Switch + Theme Toggle -->
+    <div class="flex items-center space-x-2 text-sm">
+      <button id="btn-en" onclick="switchLang('en')" aria-label="Switch to English"
+              class="lang-btn bg-white px-3 py-1 rounded border-2 border-gray-300 dark:bg-gray-800 dark:border-gray-600 dark:text-white">
+        EN
+      </button>
+      <button id="btn-nl" onclick="switchLang('nl')" aria-label="Switch to Dutch"
+              class="lang-btn bg-white px-3 py-1 rounded border-2 border-gray-300 dark:bg-gray-800 dark:border-gray-600 dark:text-white">
+        NL
+      </button>
+      <button id="theme-toggle"
+              onclick="toggleTheme()"
+              class="ml-2 px-3 py-1 rounded border-2 bg-gray-800 text-white hover:bg-gray-700 dark:bg-white dark:text-gray-800 dark:hover:bg-gray-200 border-gray-300 dark:border-gray-600 transition">
+        <span id="theme-label">Light</span>
+      </button>
+    </div>
 
-    <!-- Skills Section -->
-    <section id="skills" class="skills">
-        <div class="container">
-            <h2>Technical Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <i class="fas fa-code" aria-hidden="true"></i>
-                    <h3>HDL Languages</h3>
-                    <p>VHDL, Verilog, SystemVerilog</p>
-                </div>
-                <div class="skill-card">
-                    <i class="fas fa-tools" aria-hidden="true"></i>
-                    <h3>FPGA Tools</h3>
-                    <p>Vivado, Quartus, ModelSim, GHDL</p>
-                </div>
-                <div class="skill-card">
-                    <i class="fas fa-bolt" aria-hidden="true"></i>
-                    <h3>High-Speed Design</h3>
-                    <p>Timing closure, DDR interfaces, SerDes</p>
-                </div>
-                <div class="skill-card">
-                    <i class="fas fa-cogs" aria-hidden="true"></i>
-                    <h3>Protocols</h3>
-                    <p>PCIe, Ethernet, SPI, I2C, UART</p>
-                </div>
-            </div>
-        </div>
-    </section>
+  </div>
+</header>
 
-    <!-- Projects Section -->
-    <section id="projects">
-        <div class="container">
-            <h2>FPGA Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-content">
-                        <h3>Image Processing Pipeline</h3>
-                        <p>Real-time image processing system implementing filters and object detection on Xilinx Zynq FPGA.</p>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-content">
-                        <h3>Custom RISC-V CPU</h3>
-                        <p>Designed and implemented a 5-stage pipelined RISC-V processor with custom instruction set extensions.</p>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-content">
-                        <h3>High-Frequency Trading Accelerator</h3>
-                        <p>Low-latency trading system implemented on Intel Stratix 10 FPGA with sub-microsecond response time.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- Name Section -->
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2>Contact Me</h2>
-            <div class="contact-info">
-                <p>If you have an FPGA project you'd like to discuss, or if you're looking for expertise in digital design, feel free to reach out.</p>
-                <p>Email: <strong>benjamin@fpga-dev.com</strong></p>
-                <p>Phone: <strong>+1 (555) 123-4567</strong></p>
-            </div>
-        </div>
-    </section>
+<section class="max-w-4xl mx-auto px-4 pt-12 text-center">
+  <h1 class="text-5xl font-extrabold tracking-tight text-gray-900 dark:text-white mb-2 leading-tight">
+    <span class="block bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700 animate-gradient-x">Benyamin</span>
+    <span class="block bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700 animate-gradient-x">Zadehmoradian</span>
+  </h1>
+  <p class="text-sm text-gray-600 dark:text-gray-400 italic">Digital Electronics | Hardware Acceleration | ML Co-Design</p>
+</section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2023 Benjamin Zadeh Moradian. All rights reserved.</p>
-            <p>Specializing in FPGA Design and Implementation</p>
-            <p>Website: <strong>https://benyaminzadehmoradian.github.io/</strong></p>
-        </div>
-    </footer>
+<!-- About Section -->
+
+<section id="about" class="scroll-mt-20 max-w-4xl mx-auto px-4 my-12">
+  <div class="bg-white dark:bg-gray-900 rounded-3xl shadow-2xl border border-gray-300 dark:border-gray-600 p-10 transition-all duration-300">
+    <h2 class="text-2xl font-extrabold mb-6 border-b-2 border-gray-300 dark:border-gray-500 pb-2
+               bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700
+               animate-gradient-x bg-clip-text text-transparent"
+        data-lang="en">
+      About Me
+    </h2>
+    <h2 class="text-2xl font-extrabold mb-6 border-b-2 border-gray-300 dark:border-gray-500 pb-2
+               bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700
+               animate-gradient-x bg-clip-text text-transparent hidden"
+        data-lang="nl">
+      Over Mij
+    </h2>
+
+  </div>
+</section>
+
+<!-- Education -->
+
+<section id="education" class="scroll-mt-20 max-w-4xl mx-auto px-4 my-12">
+  <div class="bg-white dark:bg-gray-900 rounded-3xl shadow-2xl border border-gray-300 dark:border-gray-600 p-10 transition-all duration-300">
+
+  </div>
+</section>
+
+<!-- Teaching Experience -->
+
+<section id="experience" class="scroll-mt-20 max-w-4xl mx-auto px-4 my-12">
+  <div class="bg-white dark:bg-gray-900 rounded-3xl shadow-2xl border border-gray-300 dark:border-gray-600 p-10 transition-all duration-300">
+
+  </div>
+</section>
+
+<!-- Skills -->
+
+<section id="skills" class="scroll-mt-20 max-w-4xl mx-auto px-4 my-8">
+  <div class="bg-white dark:bg-gray-900 rounded-3xl shadow-2xl border border-gray-300 dark:border-gray-600 p-10 transition-all duration-300">
+
+  </div>
+</section>
+
+<!-- Certifications -->
+
+<section id="certifications" class="scroll-mt-20 max-w-4xl mx-auto px-4 my-12">
+  <div class="bg-white dark:bg-gray-900 rounded-3xl shadow-2xl border border-gray-300 dark:border-gray-600 p-10 transition-all duration-300">
+
+  </div>
+</section>
+
+<!-- Notable Courses -->
+
+<section id="courses" class="scroll-mt-20 max-w-4xl mx-auto px-4 my-12">
+  <div class="bg-white dark:bg-gray-900 rounded-3xl shadow-2xl border border-gray-300 dark:border-gray-600 p-10 transition-all duration-300">
+
+  </div>
+</section>
+
+<!-- Languages -->
+
+<section id="languages" class="scroll-mt-20 max-w-4xl mx-auto px-4 my-12">
+  <div class="bg-white dark:bg-gray-900 rounded-3xl shadow-2xl border border-gray-300 dark:border-gray-600 p-10 transition-all duration-300">
+
+  </div>
+</section>
+
+<!-- Social Media + Resume Download -->
+
+<section id="social" class="scroll-mt-20 max-w-4xl mx-auto px-4 my-12 pb-2">
+  <div class="bg-white dark:bg-gray-900 rounded-3xl shadow-2xl border border-gray-300 dark:border-gray-600 p-10 transition-all duration-300 text-center">
+
+  </div>
+</section>
+
+<!-- Scripts -->
+
+<script>
+  function switchLang(lang) {
+    document.querySelectorAll('[data-lang]').forEach(el =>
+      el.classList.toggle('hidden', el.getAttribute('data-lang') !== lang)
+    );
+    document.querySelectorAll('.lang-btn').forEach(btn =>
+      btn.classList.remove(
+        'bg-indigo-100', 'border-indigo-500', 'font-semibold',
+        'dark:bg-indigo-900', 'dark:border-indigo-400', 'dark:font-semibold'
+      )
+    );
+    const active = document.getElementById('btn-' + lang);
+    if (active) {
+      active.classList.add(
+        'bg-indigo-100', 'border-indigo-500', 'font-semibold',
+        'dark:bg-indigo-900', 'dark:border-indigo-400', 'dark:font-semibold'
+      );
+    }
+  }
+
+  function toggleTheme() {
+    document.documentElement.classList.toggle('dark');
+    updateThemeLabel();
+  }
+
+  function updateThemeLabel() {
+    const isDark = document.documentElement.classList.contains('dark');
+    document.getElementById('theme-label').textContent = isDark ? 'Dark' : 'Light';
+  }
+
+  // Show/hide header on scroll
+let lastScrollTop = 0;
+const header = document.querySelector('header');
+
+window.addEventListener('scroll', () => {
+  const currentScroll = window.scrollY;
+
+  if (currentScroll > lastScrollTop && currentScroll > 80) {
+    header.classList.add('header-hidden');
+  } else {
+    header.classList.remove('header-hidden');
+  }
+
+  lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+});
+;
+
+
+  // Initialize on page load
+  updateThemeLabel();
+  switchLang('en');
+</script>
+
 </body>
 </html>

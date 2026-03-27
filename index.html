@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO -->
+  <title>Benyamin Zadehmoradian – Digital Electronics Engineer</title>
+  <meta name="description" content="Resume of Benyamin Zadehmoradian – MSc Digital Electronics at University of Tehran. Specializes in hardware acceleration, ML co-design, and in-memory computing." />
+  <meta name="keywords" content="Benyamin Zadehmoradian, Digital Electronics, Hardware Acceleration, ML Co-Design, VHDL, Verilog, University of Tehran" />
+  <meta name="author" content="Benyamin Zadehmoradian" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://benyaminzm.github.io/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Benyamin Zadehmoradian – Digital Electronics Engineer" />
+  <meta property="og:description" content="MSc Digital Electronics · Hardware Acceleration · ML Co-Design · University of Tehran" />
+  <meta property="og:url" content="https://benyaminzm.github.io/" />
+  <meta property="og:image" content="assets/img/profile.jpg" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Benyamin Zadehmoradian – Resume" />
+  <meta name="twitter:description" content="MSc Digital Electronics · Hardware Acceleration · ML Co-Design" />
+  <meta name="twitter:image" content="assets/img/profile.jpg" />
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Benyamin Zadehmoradian",
+    "jobTitle": "MSc Student in Digital Electronics",
+    "affiliation": { "@type": "Organization", "name": "University of Tehran" },
+    "url": "https://benyaminzm.github.io/",
+    "sameAs": [
+      "https://www.linkedin.com/in/benyamin-zadehmoradian",
+      "https://github.com/BenyaminZadehmoradian"
+    ]
+  }
+  </script>
+
+  <!-- Fonts & Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config = { darkMode: 'class' };</script>
+
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#6366f1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body class="text-gray-900 dark:text-gray-100 transition-colors duration-300">
+
+<!-- Skip to content (accessibility) -->
+<a href="#about" class="skip-link">Skip to main content</a>
+
+<!-- ARIA live region for language change announcements (screen readers) -->
+<span id="lang-announcer" aria-live="polite" aria-atomic="true"
+      class="sr-only" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;"></span>
+
+
+<!-- ========================= HEADER ========================= -->
+<header id="site-header" class="sticky top-0 z-50 bg-white/70 dark:bg-gray-900/80 backdrop-blur-lg shadow-md">
+  <div class="max-w-5xl mx-auto px-4 py-3 flex flex-wrap items-center relative">
+
+    <!-- Left: Lang -->
+    <div class="flex items-center gap-2 text-sm shrink-0">
+      <button id="btn-en" onclick="switchLang('en')" aria-label="Switch to English"
+              class="lang-btn bg-white px-3 py-1 rounded border-2 border-gray-300 dark:bg-gray-800 dark:border-gray-600 dark:text-white transition">EN</button>
+      <button id="btn-nl" onclick="switchLang('nl')" aria-label="Switch to Dutch"
+              class="lang-btn bg-white px-3 py-1 rounded border-2 border-gray-300 dark:bg-gray-800 dark:border-gray-600 dark:text-white transition">NL</button>
+    </div>
+
+    <!-- Center: Desktop Nav -->
+    <nav id="desktop-nav" class="text-base font-medium" aria-label="Main navigation">
+      <a href="#about"      class="nav-link" data-section="about">About</a>
+      <a href="#experience" class="nav-link" data-section="experience">Experience</a>
+      <a href="#projects"   class="nav-link" data-section="projects">Projects</a>
+      <a href="#skills"     class="nav-link" data-section="skills">Skills</a>
+    </nav>
+
+    <!-- Right: Theme + Contact dropdown -->
+    <div class="flex items-center gap-3 shrink-0 ml-auto">
+      <!-- Theme Toggle -->
+      <button id="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark/light mode"
+              class="px-3 py-1 rounded border-2 bg-gray-800 text-white hover:bg-gray-700 dark:bg-white dark:text-gray-800 dark:hover:bg-gray-200 border-gray-300 dark:border-gray-600 transition text-sm">
+        <span id="theme-label">Light</span>
+      </button>
+      <!-- Contact Dropdown (desktop only) -->
+      <div class="relative group hidden md:block">
+        <button class="flex items-center space-x-1 text-base font-medium hover:text-indigo-600 dark:hover:text-pink-400 transition-colors">
+          <span>Contact</span>
+          <svg class="w-4 h-4 transition-transform duration-200 group-hover:rotate-180" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.08 1.04l-4.25 4.25a.75.75 0 01-1.08 0L5.21 8.27a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+          </svg>
+        </button>
+        <div class="absolute right-0 mt-3 invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-all duration-200 z-50">
+          <div class="bg-white dark:bg-gray-800 shadow-xl rounded-xl py-4 px-6 w-64 space-y-2 border border-gray-200 dark:border-gray-600 text-sm">
+            <p><strong>Email:</strong> <a href="mailto:b.zadehmoradian@ut.ac.ir" class="text-indigo-600 dark:text-indigo-400 hover:underline">b.zadehmoradian@ut.ac.ir</a></p>
+            <p><strong>Location:</strong> Tehran, Iran</p>
+            <p>
+              <a href="https://www.linkedin.com/in/benyamin-zadehmoradian" target="_blank" rel="noopener" class="text-indigo-600 dark:text-indigo-400 hover:underline">LinkedIn</a>
+              &nbsp;·&nbsp;
+              <a href="https://github.com/BenyaminZadehmoradian" target="_blank" rel="noopener" class="text-indigo-600 dark:text-indigo-400 hover:underline">GitHub</a>
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</header>
+
+<!-- ========================= HERO ========================= -->
+<section class="max-w-4xl mx-auto px-5 pt-14 pb-4 reveal">
+  <div class="hero-layout">
+
+    <!-- Profile Image -->
+    <div class="hero-image-wrapper">
+      <div class="hero-image-ring">
+        <img
+          src="assets/img/profile.jpg"
+          alt="Benyamin Zadehmoradian"
+          class="hero-image"
+          onerror="this.style.display='none'; document.getElementById('hero-avatar-fallback').style.display='flex';"
+        />
+        <!-- Fallback avatar if no image provided -->
+        <div id="hero-avatar-fallback" class="hero-avatar-fallback">
+          <span>BZ</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Name + Subtitle -->
+    <div class="hero-text">
+      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight leading-tight">
+        <span class="block bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700 animate-gradient-x">Benyamin</span>
+        <span class="block bg-gradient-to-r from-indigo-700 via-pink-700 to-fuchsia-700 animate-gradient-x">Zadehmoradian</span>
+      </h1>
+      <p class="text-sm text-gray-600 dark:text-gray-400 italic mt-3">
+        Digital Electronics · Hardware Acceleration · ML Co-Design
+      </p>
+      <div class="flex flex-wrap gap-2 mt-4">
+        <a href="#social" class="hero-cta-btn">
+          <i class="fas fa-download mr-1.5 text-xs"></i>
+          <span data-lang="en">Download CV</span>
+          <span data-lang="nl" class="hidden">Download CV</span>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ========================= ABOUT ========================= -->
+<section id="about" class="scroll-mt-20 max-w-4xl mx-auto px-4 my-10 reveal">
+  <div class="card">
+    <h2 class="card-title" data-lang="en">About Me</h2>
+    <h2 class="card-title hidden" data-lang="nl">Over Mij</h2>
+    <p class="card-text" data-lang="en">
+      I am a passionate master's student in Digital Electronics at the University of Tehran with a strong academic foundation and hands-on research in efficient hardware implementation, ML co-design, and in-memory computing. Ranked first in my B.Sc. class, I thrive on solving complex engineering challenges and working in collaborative environments.
+    </p>
+    <p class="card-text hidden" data-lang="nl">
+      Ik ben een gepassioneerde masterstudent digitale elektronica aan de Universiteit van Teheran, met een sterke academische basis en praktische ervaring in efficiënte hardware-implementatie, ML co-design en in-memory computing. Als eerste gerangschikt in mijn bacheloropleiding, gedij ik bij het oplossen van complexe technische uitdagingen en samenwerkingsprojecten.
+    </p>
+  </div>
+</section>
+
+<!-- ========================= EDUCATION ========================= -->
+<section id="education" class="scroll-mt-20 max-w-4xl mx-auto px-4 my-10 reveal">
+  <div class="card">
+    <h2 class="card-title" data-lang="en">Education</h2>
+    <h2 class="card-title hidden" data-lang="nl">Opleiding</h2>
+
+    <div data-lang="en">
+      <div class="education-item">
+        <p class="degree">Doctor of Philosophy (Ph.D.) in Digital Electronics</p>
+        <p class="institution">Ghent University</p>
+        <p class="details">Oct 2025 – Present</p>
+        <p class="details"><strong>Thesis:</strong> TBD</p>
+        <p class="details"><strong>Supervisor:</strong> <a href="https://scholar.google.com/citations?user=biYmJXsAAAAJ&hl=en" target="_blank" rel="noopener" class="text-indigo-600 dark:text-indigo-400 hover:underline">Prof. Lieven Eeckhout</a></p>
+      </div>
+      <div class="education-item">
+        <p class="degree">Master of Science in Digital Electronics</p>
+        <p class="institution">University of Tehran</p>
+        <p class="details">Sep 2021 – Sep 2024| GPA: 18.34/20</p>
+        <p class="details"><strong>Thesis:</strong> Improving the Performance of Genome Sequence Mappers</p>
+        <p class="details"><strong>Supervisor:</strong> <a href="https://scholar.google.com/citations?user=JrBgRKUAAAAJ&hl=en" target="_blank" rel="noopener" class="text-indigo-600 dark:text-indigo-400 hover:underline">Prof. Ali Afzali-Kusha</a></p>
+      </div>
+      <div class="education-item">
+        <p class="degree">Bachelor of Science in Electronics</p>
+        <p class="institution">Shahed University</p>
+        <p class="details">Sep 2017 – Sep 2021 | GPA: 18.23/20</p>
+        <p class="details"><strong>Project:</strong> Wireless Power Transfer via Strongly Coupled Magnetic Resonances</p>
+        <p class="details"><strong>Supervisor:</strong> <a href="https://scholar.google.com/citations?user=np4oczEAAAAJ&hl=en" target="_blank" rel="noopener" class="text-indigo-600 dark:text-indigo-400 hover:underline">Prof. Mohammad Bagher Ghaznavi Ghoushchi</a></p>
+      </div>
+    </div>
+
+    <div data-lang="nl" class="hidden">
+      <div class="education-item">
+        <p class="degree">Doctor of Philosophy (Ph.D.) in Digitale Elektronica</p>
+        <p class="institution">Ghent University</p>
+        <p class="details">Sep 2025 – Heden</p>
+        <p class="details"><strong>Scriptie:</strong> Nader te bepalen</p>
+        <p class="details"><strong>Begeleider:</strong> <a href="https://scholar.google.com/citations?user=biYmJXsAAAAJ&hl=en" target="_blank" rel="noopener" class="text-indigo-600 dark:text-indigo-400 hover:underline">Prof. Lieven Eeckhout</a></p>
+      </div>
+      <div class="education-item">
+        <p class="degree">Master of Science in Digitale Elektronica</p>
+        <p class="institution">Universiteit van Teheran</p>
+        <p class="details">Sep 2021 – Sep 2017 | GPA: 18.34/20</p>
+        <p class="details"><strong>Scriptie:</strong> Verbetering van de prestaties van genoomsequentie mappers</p>
+        <p class="details"><strong>Begeleider:</strong> <a href="https://scholar.google.com/citations?user=JrBgRKUAAAAJ&hl=en" target="_blank" rel="noopener" class="text-indigo-600 dark:text-indigo-400 hover:underline">Prof. Ali Afzali-Kusha</a></p>
+      </div>
+      <div class="education-item">
+        <p class="degree">Bachelor of Science in Elektronica</p>
+        <p class="institution">Shahed Universiteit</p>
+        <p class="details">Sep 2017 – Sep 2021 | GPA: 18.23/20</p>
+        <p class="details"><strong>Project:</strong> Draadloze energieoverdracht via sterk gekoppelde magnetische resonanties</p>
+        <p class="details"><strong>Begeleider:</strong> <a href="https://scholar.google.com/citations?user=np4oczEAAAAJ&hl=en" target="_blank" rel="noopener" class="text-indigo-600 dark:text-indigo-400 hover:underline">Prof. Mohammad Bagher Ghaznavi Ghoushchi</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================= PUBLICATIONS ========================= -->
+<section id="publications" class="scroll-mt-20 max-w-4xl mx-auto px-4 my-10 reveal">
+  <div class="card">
+    <h2 class="card-title" data-lang="en">Publications</h2>
+    <h2 class="card-title hidden" data-lang="nl">Publicaties</h2>
+    <ul class="list-disc ml-6 space-y-2 text-gray-800 dark:text-gray-200 text-sm" data-lang="en">
+      <li>
+        <strong>Zadehmoradian, B.</strong> (Under preparation). MCGEMA: A multi-core genome exact mapping accelerator based on GEMA.
+        <span class="italic text-gray-600 dark:text-gray-400">IEEE Transactions on Biomedical Circuits and Systems.</span>
+      </li>
+    </ul>
+    <ul class="list-disc ml-6 space-y-2 text-gray-800 dark:text-gray-200 text-sm hidden" data-lang="nl">
+      <li>
+        <strong>Zadehmoradian, B.</strong> (In voorbereiding). MCGEMA: Een multi-core genoom exacte mapping accelerator op basis van GEMA.
+        <span class="italic text-gray-600 dark:text-gray-400">IEEE Transactions on Biomedical Circuits and Systems.</span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ========================= HONORS ========================= -->
+<section id="honors" class="scroll-mt-20 max-w-4xl mx-auto px-4 my-10 reveal">
+  <div class="card">
+    <h2 class="card-title" data-lang="en">Honors &amp; Achievements</h2>
+    <h2 class="card-title hidden" data-lang="nl">Onderscheidingen</h2>
+    <ul class="list-disc ml-6 space-y-2 text-gray-800 dark:text-gray-200 text-sm" data-lang="en">
+      <li>Granted direct admission to Master's programs at <strong>Amirkabir University of Technology</strong> and the <strong>University of Tehran</strong> based on exceptional academic performance.</li>
+      <li>Ranked <strong>1st</strong> during the B.Sc. program among 76 students in terms of GPA.</li>
+    </ul>
+    <ul class="list-disc ml-6 space-y-2 text-gray-800 dark:text-gray-200 text-sm hidden" data-lang="nl">
+      <li>Rechtstreekse toelating tot masterprogramma's aan de <strong>Amirkabir Universiteit voor Technologie</strong> en de <strong>Universiteit van Teheran</strong> op basis van uitzonderlijke academische prestaties.</li>
+      <li>Gerangschikt als <strong>1e</strong> in het bachelorprogramma onder 76 studenten qua GPA.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ========================= EXPERIENCE ========================= -->
+<section id="experience" class="scroll-mt-20 max-w-4xl mx-auto px-4 my-10 reveal">
+  <div class="card">
+    <h2 class="card-title" data-lang="en">Teaching Experience</h2>
+    <h2 class="card-title hidden" data-lang="nl">Onderwijservaring</h2>
+    <div class="space-y-2 text-sm text-gray-700 dark:text-gray-200" data-lang="en">
+      <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-1">
+        <span>TA – <strong class="text-indigo-700 dark:text-indigo-400">Computer Aided Digital System</strong> — University of Tehran</span>
+        <span class="text-gray-500 dark:text-gray-400 shrink-0">(Sep. 2024 – Jan. 2025)</span>
+      </div>
+      <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-1">
+        <span>TA – <strong class="text-indigo-700 dark:text-indigo-400">Electric Circuits II</strong> — University of Tehran</span>
+        <span class="text-gray-500 dark:text-gray-400 shrink-0">(Jan. 2023 – Jul. 2023)</span>
+      </div>
+      <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-1">
+        <span>TA – <strong class="text-indigo-700 dark:text-indigo-400">Electronic I</strong> — Shahed University</span>
+        <span class="text-gray-500 dark:text-gray-400 shrink-0">(Jan. 2023 – Jul. 2023)</span>
+      </div>
+      <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-1">
+        <span>TA – <strong class="text-indigo-700 dark:text-indigo-400">Computer Arithmetic</strong> — University of Tehran</span>
+        <span class="text-gray-500 dark:text-gray-400 shrink-0">(Jan. 2023 – Jul. 2023)</span>
+      </div>
+      <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-1">
+        <span>TA – <strong class="text-indigo-700 dark:text-indigo-400">Electronics II</strong> — University of Tehran</span>
+        <span class="text-gray-500 dark:text-gray-400 shrink-0">(Sep. 2022 – Jul. 2023)</span>
+      </div>
+      <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-1">
+        <span>TA – <strong class="text-indigo-700 dark:text-indigo-400">Computer Architecture</strong> — University of Tehran</span>
+        <span class="text-gray-500 dark:text-gray-400 shrink-0">(Sep. 2022 – Jul. 2023)</span>
+      </div>
+      <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-1">
+        <span>TA – <strong class="text-indigo-700 dark:text-indigo-400">Electronic Circuits I</strong> — University of Tehran</span>
+        <span class="text-gray-500 dark:text-gray-400 shrink-0">(Jan. 2021 – Jul. 2021)</span>
+      </div>
+      <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-1">
+        <span>TA – <strong class="text-indigo-700 dark:text-indigo-400">Introduction to Electrical Engineering</strong> — Shahed University</span>
+        <span class="text-gray-500 dark:text-gray-400 shrink-0">(Sep. 2020 – Jan. 2021)</span>
+      </div>
+    </div>
+    <div class="space-y-2 text-sm text-gray-700 dark:text-gray-200 hidden" data-lang="nl">
+      <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-1">
+        <span>TA – <strong class="text-indigo-700 dark:text-indigo-400">Computerondersteund Digitaal Systeem</strong> — Universiteit van Teheran</span>
+        <span class="text-gray-500 dark:text-gray-400 shrink-0">(Sep. 2024 – Jan. 2025)</span>
+      </div>
+      <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-1">
+        <span>TA – <strong class="text-indigo-700 dark:text-indigo-400">Elektrische Schakelingen II</strong> — Universiteit van Teheran</span>
+        <span class="text-gray-500 dark:text-gray-400 shrink-0">(Jan. 2023 – Jul. 2023)</span>
+      </div>
+      <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-1">
+        <span>TA – <strong class="text-indigo-700 dark:text-indigo-400">Elektronica I</strong> — Shahed Universiteit</span>
+        <span class="text-gray-500 dark:text-gray-400 shrink-0">(Jan. 2023 – Jul. 2023)</span>
+      </div>
+      <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-1">
+        <span>TA – <strong class="text-indigo-700 dark:text-indigo-400">Computer Rekenkunde</strong> — Universiteit van Teheran</span>
+        <span class="text-gray-500 dark:text-gray-400 shrink-0">(Jan. 2023 – Jul. 2023)</span>
+      </div>
+      <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-1">
+        <span>TA – <strong class="text-indigo-700 dark:text-indigo-400">Elektronica II</strong> — Universiteit van Teheran</span>
+        <span class="text-gray-500 dark:text-gray-400 shrink-0">(Sep. 2022 – Jul. 2023)</span>
+      </div>
+      <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-1">
+        <span>TA – <strong class="text-indigo-700 dark:text-indigo-400">Computerarchitectuur</strong> — Universiteit van Teheran</span>
+        <span class="text-gray-500 dark:text-gray-400 shrink-0">(Sep. 2022 – Jul. 2023)</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================= PROJECTS ========================= -->
+<section id="projects" class="scroll-mt-20 max-w-4xl mx-auto px-4 my-10 reveal">
+  <div class="card">
+    <h2 class="card-title" data-lang="en">Projects</h2>
+    <h2 class="card-title hidden" data-lang="nl">Projecten</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+
+      <!-- Project 1 -->
+      <div class="project-card bg-gray-50 dark:bg-gray-800 rounded-xl p-6 shadow-md">
+        <h3 class="text-base font-semibold text-indigo-700 dark:text-indigo-400 mb-2">Genome Sequence Mapper Acceleration</h3>
+        <p class="text-sm text-gray-700 dark:text-gray-300 mb-3">Hardware acceleration for genome sequence mapping on FPGA (GEMA / MCGEMA). Thesis project at University of Tehran.</p>
+        <div class="flex flex-wrap gap-1">
+          <span class="project-badge">FPGA</span>
+          <span class="project-badge">VHDL</span>
+          <span class="project-badge">Bioinformatics</span>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="project-card bg-gray-50 dark:bg-gray-800 rounded-xl p-6 shadow-md">
+        <h3 class="text-base font-semibold text-indigo-700 dark:text-indigo-400 mb-2">In-Memory Computing Architecture</h3>
+        <p class="text-sm text-gray-700 dark:text-gray-300 mb-3">Designed and simulated a novel in-memory computing architecture for ML inference workloads.</p>
+        <div class="flex flex-wrap gap-1">
+          <span class="project-badge">HSpice</span>
+          <span class="project-badge">Computer Architecture</span>
+          <span class="project-badge">ML</span>
+        </div>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="project-card bg-gray-50 dark:bg-gray-800 rounded-xl p-6 shadow-md">
+        <h3 class="text-base font-semibold text-indigo-700 dark:text-indigo-400 mb-2">Wireless Power Transfer System</h3>
+        <p class="text-sm text-gray-700 dark:text-gray-300 mb-3">Designed a resonant WPT system via strongly coupled magnetic resonances. B.Sc. final project at Shahed University.</p>
+        <div class="flex flex-wrap gap-1">
+          <span class="project-badge">Circuit Design</span>
+          <span class="project-badge">Power Electronics</span>
+          <span class="project-badge">Altium Designer</span>
+        </div>
+      </div>
+
+      <!-- Project 4 -->
+      <div class="project-card bg-gray-50 dark:bg-gray-800 rounded-xl p-6 shadow-md">
+        <h3 class="text-base font-semibold text-indigo-700 dark:text-indigo-400 mb-2">Neural Network Accelerator</h3>
+        <p class="text-sm text-gray-700 dark:text-gray-300 mb-3">Co-designed a hardware accelerator for convolutional neural networks targeting FPGA platforms.</p>
+        <div class="flex flex-wrap gap-1">
+          <span class="project-badge">Verilog</span>
+          <span class="project-badge">HLS</span>
+          <span class="project-badge">Python</span>
+        </div>
+      </div>
+
+      <!-- Project 5 -->
+      <div class="project-card bg-gray-50 dark:bg-gray-800 rounded-xl p-6 shadow-md">
+        <h3 class="text-base font-semibold text-indigo-700 dark:text-indigo-400 mb-2">FPGA Optimization for DNA Alignment</h3>
+        <p class="text-sm text-gray-700 dark:text-gray-300 mb-3">Multi-core implementation of the GEMA architecture with pipelining and memory optimization.</p>
+        <div class="flex flex-wrap gap-1">
+          <span class="project-badge">VHDL</span>
+          <span class="project-badge">FPGA</span>
+          <span class="project-badge">High-Level Synthesis</span>
+        </div>
+      </div>
+
+      <!-- Project 6 -->
+      <div class="project-card bg-gray-50 dark:bg-gray-800 rounded-xl p-6 shadow-md">
+        <h3 class="text-base font-semibold text-indigo-700 dark:text-indigo-400 mb-2">Low-Power IoT Sensor Node</h3>
+        <p class="text-sm text-gray-700 dark:text-gray-300 mb-3">Developed an ultra-low-power sensor node with energy harvesting for IoT applications.</p>
+        <div class="flex flex-wrap gap-1">
+          <span class="project-badge">PCB Design</span>
+          <span class="project-badge">ARM Cortex-M</span>
+          <span class="project-badge">Power Management</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========================= SKILLS ========================= -->
+<section id="skills" class="scroll-mt-20 max-w-4xl mx-auto px-4 my-10 reveal">
+  <div class="card">
+    <h2 class="card-title" data-lang="en">Core Skills</h2>
+    <h2 class="card-title hidden" data-lang="nl">Kernvaardigheden</h2>
+
+    <div class="skills-grid" data-lang="en">
+      <div>
+        <div class="skill-category">
+          <h3 class="skill-category-title">Hardware Design</h3>
+          <div class="skills-container">
+            <span class="skill-badge">Digital Design</span>
+            <span class="skill-badge">Microprogramming</span>
+            <span class="skill-badge">PCB Design</span>
+            <span class="skill-badge">Hardware Acceleration</span>
+            <span class="skill-badge">High-Level Synthesis (HLS)</span>
+            <span class="skill-badge">FPGA Optimization</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3 class="skill-category-title">Languages</h3>
+          <div class="skills-container">
+            <span class="skill-badge">VHDL</span>
+            <span class="skill-badge">Verilog</span>
+            <span class="skill-badge">Python</span>
+            <span class="skill-badge">C/C++</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="skill-category">
+          <h3 class="skill-category-title">Tools</h3>
+          <div class="skills-container">
+            <span class="skill-badge">HSpice</span>
+            <span class="skill-badge">ARM Cortex-M</span>
+            <span class="skill-badge">Proteus</span>
+            <span class="skill-badge">AltiumDesigner</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3 class="skill-category-title">Software</h3>
+          <div class="skills-container">
+            <span class="skill-badge">Adobe Photoshop</span>
+            <span class="skill-badge">MS Word</span>
+            <span class="skill-badge">MS Excel</span>
+            <span class="skill-badge">MS PowerPoint</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="skills-grid hidden" data-lang="nl">
+      <div>
+        <div class="skill-category">
+          <h3 class="skill-category-title">Hardware Ontwerp</h3>
+          <div class="skills-container">
+            <span class="skill-badge">Digitaal Ontwerp</span>
+            <span class="skill-badge">Microprogrammering</span>
+            <span class="skill-badge">PCB Ontwerp</span>
+            <span class="skill-badge">Hardware Versnelling</span>
+            <span class="skill-badge">High-Level Synthesis (HLS)</span>
+            <span class="skill-badge">FPGA Optimalisatie</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3 class="skill-category-title">Talen</h3>
+          <div class="skills-container">
+            <span class="skill-badge">VHDL</span>
+            <span class="skill-badge">Verilog</span>
+            <span class="skill-badge">Python</span>
+            <span class="skill-badge">C/C++</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="skill-category">
+          <h3 class="skill-category-title">Gereedschappen</h3>
+          <div class="skills-container">
+            <span class="skill-badge">HSpice</span>
+            <span class="skill-badge">ARM Cortex-M</span>
+            <span class="skill-badge">Proteus</span>
+            <span class="skill-badge">AltiumDesigner</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3 class="skill-category-title">Software</h3>
+          <div class="skills-container">
+            <span class="skill-badge">Adobe Photoshop</span>
+            <span class="skill-badge">MS Word</span>
+            <span class="skill-badge">MS Excel</span>
+            <span class="skill-badge">MS PowerPoint</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================= CERTIFICATIONS ========================= -->
+<section id="certifications" class="scroll-mt-20 max-w-4xl mx-auto px-4 my-10 reveal">
+  <div class="card">
+    <h2 class="card-title" data-lang="en">Certifications</h2>
+    <h2 class="card-title hidden" data-lang="nl">Certificaten</h2>
+    <ul class="list-disc ml-6 space-y-1 text-gray-800 dark:text-gray-200" data-lang="en">
+      <li>Algorithms for DNA Sequencing – Coursera <span class="text-gray-500 dark:text-gray-400">(Aug. 2023)</span></li>
+      <li>Using Python to Access Web Data – Coursera <span class="text-gray-500 dark:text-gray-400">(Oct. 2022)</span></li>
+      <li>Mathematics for Machine Learning: Multivariate Calculus – Coursera <span class="text-gray-500 dark:text-gray-400">(Oct. 2022)</span></li>
+      <li>Python Data Structures – Coursera <span class="text-gray-500 dark:text-gray-400">(Sep. 2022)</span></li>
+      <li>Mathematics for Machine Learning: Linear Algebra – Coursera <span class="text-gray-500 dark:text-gray-400">(Aug. 2022)</span></li>
+      <li>Programming for Everybody – Coursera <span class="text-gray-500 dark:text-gray-400">(Aug. 2022)</span></li>
+      <li>Neural Networks and Deep Learning – Coursera <span class="text-gray-500 dark:text-gray-400">(Feb. 2022)</span></li>
+    </ul>
+    <ul class="list-disc ml-6 space-y-1 text-gray-800 dark:text-gray-200 hidden" data-lang="nl">
+      <li>Algoritmen voor DNA-sequencing – Coursera <span class="text-gray-500 dark:text-gray-400">(aug. 2023)</span></li>
+      <li>Python gebruiken voor toegang tot webgegevens – Coursera <span class="text-gray-500 dark:text-gray-400">(okt. 2022)</span></li>
+      <li>Wiskunde voor Machine Learning: Meervariabele Calculus – Coursera <span class="text-gray-500 dark:text-gray-400">(okt. 2022)</span></li>
+      <li>Python datastructuren – Coursera <span class="text-gray-500 dark:text-gray-400">(sep. 2022)</span></li>
+      <li>Wiskunde voor Machine Learning: Lineaire Algebra – Coursera <span class="text-gray-500 dark:text-gray-400">(aug. 2022)</span></li>
+      <li>Programmeren voor iedereen – Coursera <span class="text-gray-500 dark:text-gray-400">(aug. 2022)</span></li>
+      <li>Neurale netwerken en Deep Learning – Coursera <span class="text-gray-500 dark:text-gray-400">(feb. 2022)</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ========================= NOTABLE COURSES ========================= -->
+<section id="courses" class="scroll-mt-20 max-w-4xl mx-auto px-4 my-10 reveal">
+  <div class="card">
+    <h2 class="card-title" data-lang="en">Notable Courses</h2>
+    <h2 class="card-title hidden" data-lang="nl">Uitgelichte Vakken</h2>
+    <div class="grid sm:grid-cols-2 gap-x-8 gap-y-1.5 text-[14px] text-gray-800 dark:text-gray-200" data-lang="en">
+      <div><span class="font-medium">Numerical Computation Methods:</span> <span class="text-gray-500 dark:text-gray-400 font-semibold">20.0 / 20.0</span></div>
+      <div><span class="font-medium">Electrical Circuits II:</span> <span class="text-gray-500 dark:text-gray-400 font-semibold">19.90 / 20.0</span></div>
+      <div><span class="font-medium">Logic Circuits:</span> <span class="text-gray-500 dark:text-gray-400 font-semibold">19.75 / 20.0</span></div>
+      <div><span class="font-medium">Linear Algebra:</span> <span class="text-gray-500 dark:text-gray-400 font-semibold">19.75 / 20.0</span></div>
+      <div><span class="font-medium">Computer Arithmetic:</span> <span class="text-gray-500 dark:text-gray-400 font-semibold">19.40 / 20.0</span></div>
+      <div><span class="font-medium">Chip Multiprocessors:</span> <span class="text-gray-500 dark:text-gray-400 font-semibold">19.0 / 20.0</span></div>
+      <div><span class="font-medium">Fault-Tolerant Computing Systems:</span> <span class="text-gray-500 dark:text-gray-400 font-semibold">19.0 / 20.0</span></div>
+      <div><span class="font-medium">Electronics I:</span> <span class="text-gray-500 dark:text-gray-400 font-semibold">18.70 / 20.0</span></div>
+      <div><span class="font-medium">Pulse Technique:</span> <span class="text-gray-500 dark:text-gray-400 font-semibold">18.60 / 20.0</span></div>
+      <div><span class="font-medium">Low Power Integrated Circuits:</span> <span class="text-gray-500 dark:text-gray-400 font-semibold">18.50 / 20.0</span></div>
+      <div><span class="font-medium">Engineering Probability and Statistics:</span> <span class="text-gray-500 dark:text-gray-400 font-semibold">18.50 / 20.0</span></div>
+    </div>
+    <div class="grid sm:grid-cols-2 gap-x-8 gap-y-1.5 text-[14px] text-gray-800 dark:text-gray-200 hidden" data-lang="nl">
+      <div><span class="font-medium">Numerieke Rekenmethoden:</span> <span class="text-gray-500 dark:text-gray-400 font-semibold">20.0 / 20.0</span></div>
+      <div><span class="font-medium">Elektrische Schakelingen II:</span> <span class="text-gray-500 dark:text-gray-400 font-semibold">19.90 / 20.0</span></div>
+      <div><span class="font-medium">Logische Schakelingen:</span> <span class="text-gray-500 dark:text-gray-400 font-semibold">19.75 / 20.0</span></div>
+      <div><span class="font-medium">Lineaire Algebra:</span> <span class="text-gray-500 dark:text-gray-400 font-semibold">19.75 / 20.0</span></div>
+      <div><span class="font-medium">Computer Rekenkunde:</span> <span class="text-gray-500 dark:text-gray-400 font-semibold">19.40 / 20.0</span></div>
+      <div><span class="font-medium">Chip Multiprocessors:</span> <span class="text-gray-500 dark:text-gray-400 font-semibold">19.0 / 20.0</span></div>
+      <div><span class="font-medium">Fouttolerante Systemen:</span> <span class="text-gray-500 dark:text-gray-400 font-semibold">19.0 / 20.0</span></div>
+      <div><span class="font-medium">Elektronica I:</span> <span class="text-gray-500 dark:text-gray-400 font-semibold">18.70 / 20.0</span></div>
+      <div><span class="font-medium">Pulstechniek:</span> <span class="text-gray-500 dark:text-gray-400 font-semibold">18.60 / 20.0</span></div>
+      <div><span class="font-medium">Laagvermogen Geïntegreerde Schakelingen:</span> <span class="text-gray-500 dark:text-gray-400 font-semibold">18.50 / 20.0</span></div>
+      <div><span class="font-medium">Kansrekening en Statistiek:</span> <span class="text-gray-500 dark:text-gray-400 font-semibold">18.50 / 20.0</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================= LANGUAGES ========================= -->
+<section id="languages" class="scroll-mt-20 max-w-4xl mx-auto px-4 my-10 reveal">
+  <div class="card">
+    <h2 class="card-title" data-lang="en">Languages</h2>
+    <h2 class="card-title hidden" data-lang="nl">Talenkennis</h2>
+    <div class="space-y-1 text-gray-800 dark:text-gray-200" data-lang="en">
+      <div><span class="font-medium">Dutch:</span> <span class="text-gray-600 dark:text-gray-400">Beginner level (A1 – in progress)</span></div>
+      <div><span class="font-medium">English:</span> <span class="text-gray-600 dark:text-gray-400">GRE 331 (V:161, Q:170, W:3.5), IELTS 6.5 (L:6, R:6.5, W:6, S:6.5)</span></div>
+      <div><span class="font-medium">Persian:</span> <span class="text-gray-600 dark:text-gray-400">Native</span></div>
+    </div>
+    <div class="space-y-1 text-gray-800 dark:text-gray-200 hidden" data-lang="nl">
+      <div><span class="font-medium">Nederlands:</span> <span class="text-gray-600 dark:text-gray-400">Beginnend niveau (A1 – bezig)</span></div>
+      <div><span class="font-medium">Engels:</span> <span class="text-gray-600 dark:text-gray-400">GRE 331, IELTS 6.5</span></div>
+      <div><span class="font-medium">Perzisch:</span> <span class="text-gray-600 dark:text-gray-400">Moedertaal</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================= SOCIAL / CONTACT ========================= -->
+<section id="social" class="scroll-mt-20 max-w-4xl mx-auto px-4 my-10 pb-4 reveal">
+  <div class="card text-center">
+    <h2 class="card-title" data-lang="en">Find Me Online</h2>
+    <h2 class="card-title hidden" data-lang="nl">Vind Mij Online</h2>
+
+    <div class="social-container">
+      <a href="https://www.linkedin.com/in/benyamin-zadehmoradian" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn profile">
+        <div class="social-icon-wrapper">
+          <svg class="social-icon" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+          </svg>
+        </div>
+        <span class="social-name">LinkedIn</span>
+      </a>
+      <a href="https://scholar.google.com" target="_blank" rel="noopener" class="social-link" aria-label="Google Scholar profile">
+        <div class="social-icon-wrapper">
+          <svg class="social-icon" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l4.838 3.94A8 8 0 0 1 12 9a8 8 0 0 1 7.162 4.44L24 9.5z"/>
+          </svg>
+        </div>
+        <span class="social-name">Google Scholar</span>
+      </a>
+      <a href="https://github.com/BenyaminZadehmoradian" target="_blank" rel="noopener" class="social-link" aria-label="GitHub profile">
+        <div class="social-icon-wrapper">
+          <svg class="social-icon" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"/>
+          </svg>
+        </div>
+        <span class="social-name">GitHub</span>
+      </a>
+    </div>
+
+    <div class="download-header" data-lang="en">Download My Resume</div>
+    <div class="download-header hidden" data-lang="nl">Download Mijn CV</div>
+
+    <div class="download-buttons">
+      <a href="files/resume_en.pdf" download="Benyamin_Zadehmoradian_CV.pdf" class="download-btn" aria-label="Download English resume PDF">
+        <svg class="download-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+        <span data-lang="en">English Version</span>
+        <span class="hidden" data-lang="nl">Engelse Versie</span>
+      </a>
+      <a href="files/resume_nl.pdf" download="Benyamin_Zadehmoradian_CV_NL.pdf" class="download-btn download-btn-secondary" aria-label="Download Dutch resume PDF (coming soon)">
+        <svg class="download-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+        <span data-lang="en">Dutch Version</span>
+        <span class="hidden" data-lang="nl">Nederlandse Versie</span>
+        <span class="download-size" data-lang="en">Coming soon</span>
+        <span class="download-size hidden" data-lang="nl">Binnenkort</span>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ========================= FOOTER ========================= -->
+<footer class="py-6 text-center text-sm text-gray-500 dark:text-gray-400 print-hide">
+  <p>© 2025 Benyamin Zadehmoradian. All rights reserved.</p>
+</footer>
+
+<!-- Back to Top -->
+<button id="backToTop" class="back-to-top print-hide" aria-label="Back to top">
+  <i class="fas fa-chevron-up"></i>
+</button>
+
+<script src="assets/js/script.js"></script>
+</body>
+</html>
